@@ -574,7 +574,7 @@
                                     <div class="grid grid--uniform">
                                         <div class="grid__item grid-product small--one-half medium-up--one-quarter grid-product__has-quick-shop" data-aos="row-of-4" data-product-handle="theia-marley-jumpsuit-gold" data-product-id="6715933458620">
                                             <div class="grid-product__content">
-                                                <!--Ryan commenting out the sale tag--><a href="{{ route('shop.productDetails') }}" class="grid-product__link">
+                                                <!--Ryan commenting out the sale tag--><a href="/shop/product-details/" class="grid-product__link">
                                                     <div class="grid-product__image-mask">
                                                         <div class="quick-product__btn quick-product__btn--not-ready js-modal-open-quick-modal-6715933458620 small--hide">
                                                             <span class="quick-product__label">Quick view</span>
@@ -619,7 +619,7 @@
                                             <div class="grid-product__content">
                                                 <!--Ryan hiding labels for now <div class="grid-product__tag grid-product__tag--custom">
                                              Sustainable
-                                   </div>-->        <a href="{{ route('shop.productDetails') }}" class="grid-product__link">
+                   </div>-->        <a href="/shop/product-details/" class="grid-product__link">
                                                     <div class="grid-product__image-mask">
                                                         <div class="quick-product__btn quick-product__btn--not-ready js-modal-open-quick-modal-6694898139324 small--hide">
                                                             <span class="quick-product__label">Quick view</span>

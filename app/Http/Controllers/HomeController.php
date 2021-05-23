@@ -41,6 +41,11 @@ class HomeController extends Controller
             return view('contact');
     }
 
+    public function shopIndex()
+    {
+        return view('shop.index');
+    }
+
     public function listProducts()
     {
             return view('shop.list_products');

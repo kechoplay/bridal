@@ -362,7 +362,7 @@
                 </div>
                 <div class="entry-chart">Size Chart</div>
                 <div class="entry-contact">
-                    <form id="sales-contact" method="POST" action="https://bridal.theiacouture.com/contact/">
+                    <form id="sales-contact" method="POST" action="/contact/">
                         <button class="btn btn-black" type="submit" for="sales-contact" name="populate-styles" value="890703 (Brandy)">Contact Sales</button>
                     </form>
                 </div>
