@@ -24,3 +24,9 @@ Route::get('/contact/', ['as' => 'contact', 'uses' => 'HomeController@contact'])
 Route::get('/shop/list-products', ['as' => 'shop.listProducts', 'uses' => 'HomeController@listProducts']);
 Route::get('/shop/product-details', ['as' => 'shop.productDetails', 'uses' => 'HomeController@productDetails']);
 
+
+Route::group(['prefix' => 'admin', 'middleware' => []], function () {
+    Route::get('/', ['as' => 'admin.index', 'uses' => 'Admin\BridalController@index']);
+
+    Route::get('', ['as' => 'admin.index', 'uses' => 'Admin\BridalController@index']);
+});
