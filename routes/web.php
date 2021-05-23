@@ -35,3 +35,9 @@ Route::get('/collections/for-the-bride', ['as' => 'shop.listProducts', 'uses' =>
 Route::get('/collections/sale', ['as' => 'shop.listProducts', 'uses' => 'HomeController@listProducts']);
 Route::get('/collections/wedding-guest', ['as' => 'shop.listProducts', 'uses' => 'HomeController@listProducts']);
 Route::get('/collections/sale', ['as' => 'shop.listProducts', 'uses' => 'HomeController@listProducts']);
+
+Route::group(['prefix' => 'admin', 'middleware' => []], function () {
+    Route::get('/', ['as' => 'admin.index', 'uses' => 'Admin\BridalController@index']);
+
+    Route::get('', ['as' => 'admin.index', 'uses' => 'Admin\BridalController@index']);
+});
