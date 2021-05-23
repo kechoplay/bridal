@@ -5,9 +5,9 @@
             <div class="breadcrumbs-row">
                 <div class="breadcrumbs-col">
                     <div class="breadcrumbs-content">
-                        <a href="https://bridal.theiacouture.com/">Home</a>
+                        <a href="/">Home</a>
                         <span class="separator">/</span>
-                        <a href="https://bridal.theiacouture.com/real-weddings/">Real Weddings</a>
+                        <a href="/real-weddings/">Real Weddings</a>
                         <span class="separator">/</span>
                         <span class="current">Teneille &#038; Michael</span>
                     </div>
@@ -68,7 +68,9 @@
                 </div>
             </div>
             <div class="entry-nav">
-                <a href="https://bridal.theiacouture.com/wedding/emma-david/" rel="prev">Prev</a>              </div>
+                <a href="https://bridal.theiacouture.com/wedding/emma-david/" rel="prev">Prev</a>
+                <a href="https://bridal.theiacouture.com/wedding/emma-david/" rel="prev">NEXT</a>
+            </div>
         </div>
     </article>
 @endsection

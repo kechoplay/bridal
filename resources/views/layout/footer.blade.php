@@ -8,7 +8,7 @@
                         <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-162"><a href="#">Size Chart</a></li>
                         <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1354"><a href="http://press.theiacouture.com/en/articles/tag/bridal/">Press</a></li>
                         <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1353"><a href="https://bridal.theiacouture.com/faq/">FAQ</a></li>
-                        <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-161"><a href="https://bridal.theiacouture.com/contact/">Contact</a></li>
+                        <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-161"><a href="/contact/">Contact</a></li>
                     </ul>          </div>
             </div>
             <div class="footer-col footer-col-social">
@@ -31,7 +31,7 @@
             </div>
             <div class="footer-col footer-col-copyright">
                 <div class="footer-col-inner">
-                    <div class="copyright">© 2021 JS Group International Ltd. All Rights Reserved.</div>
+                    <div class="copyright">© 2021 WSSV jsc. All Rights Reserved.</div>
                 </div>
             </div>
         </div>

@@ -40,10 +40,10 @@
             padding: 0 !important;
         }
     </style>
-    <link rel='stylesheet' id='wp-block-library-css'  href='/wp-includes/css/dist/block-library/style.min.css' type='text/css' media='all' />
-    <link rel='stylesheet' id='sage/css-css'  href='/wp-content/themes/theiabridal/dist/styles/main-4d684d135f.css' type='text/css' media='all' />
-    <script type='text/javascript' src='/wp-includes/js/jquery/jquery.min.js' id='jquery-core-js'></script>
-    <script type='text/javascript' src='/wp-includes/js/jquery/jquery-migrate.min.js' id='jquery-migrate-js'></script>
+    <link rel='stylesheet' id='wp-block-library-css'  href='/css/style.min.css' type='text/css' media='all' />
+    <link rel='stylesheet' id='sage/css-css'  href='/css/main.css' type='text/css' media='all' />
+    <script type='text/javascript' src='/js/jquery.min.js' id='jquery-core-js'></script>
+    <script type='text/javascript' src='/js/jquery-migrate.min.js' id='jquery-migrate-js'></script>
     <link rel="https://api.w.org/" href="https://bridal.theiacouture.com/wp-json/" /><link rel="alternate" type="application/json" href="https://bridal.theiacouture.com/wp-json/wp/v2/pages/2" /><link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://bridal.theiacouture.com/xmlrpc.php?rsd" />
     <link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://bridal.theiacouture.com/wp-includes/wlwmanifest.xml" />
     <link rel="canonical" href="https://bridal.theiacouture.com/" />
@@ -292,7 +292,7 @@
     @yield('content')
 </div>
 @include('layout.footer')
-<script async>(function(s,u,m,o,j,v){j=u.createElement(m);v=u.getElementsByTagName(m)[0];j.async=1;j.src=o;j.dataset.sumoSiteId='f8d6f30045e32700d4ffc000da60ae007ad08300b384e600f1dafa0002cab300';j.dataset.sumoPlatform='wordpress';v.parentNode.insertBefore(j,v)})(window,document,'script','//load.sumo.com/');</script><script type='text/javascript' src='https://413qut3s1ajtpgjzf1ekop6h-wpengine.netdna-ssl.com/wp-content/themes/theiabridal/dist/scripts/main-fd5b61c6d1.js' id='sage/js-js'></script>
-<script type='text/javascript' src='https://413qut3s1ajtpgjzf1ekop6h-wpengine.netdna-ssl.com/wp-includes/js/wp-embed.min.js?ver=5.7.1' id='wp-embed-js'></script>
+<script async>(function(s,u,m,o,j,v){j=u.createElement(m);v=u.getElementsByTagName(m)[0];j.async=1;j.src=o;j.dataset.sumoSiteId='f8d6f30045e32700d4ffc000da60ae007ad08300b384e600f1dafa0002cab300';j.dataset.sumoPlatform='wordpress';v.parentNode.insertBefore(j,v)})(window,document,'script','//load.sumo.com/');</script><script type='text/javascript' src='/js/main.js' id='sage/js-js'></script>
+<script type='text/javascript' src='/js/wp-embed.min.js' id='wp-embed-js'></script>
 </body>
 </html>
