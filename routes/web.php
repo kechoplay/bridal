@@ -29,4 +29,6 @@ Route::group(['prefix' => 'admin', 'middleware' => []], function () {
     Route::get('/', ['as' => 'admin.index', 'uses' => 'Admin\BridalController@index']);
 
     Route::get('', ['as' => 'admin.index', 'uses' => 'Admin\BridalController@index']);
+
+    Route::get('/add-bridal', ['as' => 'admin.addBridal', 'uses' => 'Admin\BridalController@create']);
 });

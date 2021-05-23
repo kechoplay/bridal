@@ -12,4 +12,9 @@ class BridalController extends Controller
     {
         return view('admin.bridal.index');
     }
+
+    public function create(Request $request)
+    {
+        return view('admin.bridal.add');
+    }
 }
