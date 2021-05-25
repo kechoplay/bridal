@@ -349,10 +349,6 @@
                                     href="/products/theia-dana-mock-neck-midi-dress-tropical-ombre"
                                     class="grid-product__link">
                                     <div class="grid-product__image-mask">
-                                        <div
-                                            class="quick-product__btn quick-product__btn--not-ready js-modal-open-quick-modal-6694897713340 small--hide">
-                                            <span class="quick-product__label">Quick view</span>
-                                        </div>
                                         <div class="image-wrap" style="height: 0; padding-bottom: 150.0%;">
                                             <img class="grid-product__image lazyload"
                                                  data-src="//cdn.shopify.com/s/files/1/0546/6033/products/8815127_5091_1_{width}x.jpg?v=1620055905"
@@ -409,10 +405,6 @@
                                 <!--Ryan commenting out the sale tag--><a href="/products/theia-marley-jumpsuit-gold"
                                                                           class="grid-product__link">
                                     <div class="grid-product__image-mask">
-                                        <div
-                                            class="quick-product__btn quick-product__btn--not-ready js-modal-open-quick-modal-6715933458620 small--hide">
-                                            <span class="quick-product__label">Quick view</span>
-                                        </div>
                                         <div class="image-wrap" style="height: 0; padding-bottom: 150.037509377%;">
                                             <img class="grid-product__image lazyload"
                                                  data-src="//cdn.shopify.com/s/files/1/0546/6033/products/8844181_2589_3_{width}x.jpg?v=1620315348"
@@ -470,10 +462,6 @@
                                     href="/products/theia-lisa-halter-cocktail-dress-tea-rose"
                                     class="grid-product__link">
                                     <div class="grid-product__image-mask">
-                                        <div
-                                            class="quick-product__btn quick-product__btn--not-ready js-modal-open-quick-modal-6694897680572 small--hide">
-                                            <span class="quick-product__label">Quick view</span>
-                                        </div>
                                         <div class="image-wrap" style="height: 0; padding-bottom: 150.0%;">
                                             <img class="grid-product__image lazyload"
                                                  data-src="//cdn.shopify.com/s/files/1/0546/6033/products/8815147_4893_1_{width}x.jpg?v=1620055914"
@@ -510,7 +498,7 @@
                             <div class="grid-product__colors grid-product__colors--6694897680572">
                                 <a href="/products/theia-lisa-halter-cocktail-dress-tea-rose?variant=39724991873212"
                                    class="color-swatch color-swatch--small color-swatch--tea-rose"
-                                   style="background-image: url(https://cdn.shopify.com/s/files/1/0546/6033/t/32/assets/tea-rose_50x.png); background-color: rose;">
+                                   style="background-image: url(https://cdn.shopify.com/s/files/1/0546/6033/t/32/assets/tea-rose_50x.png); background-color: rosybrown;">
                                     <span class="visually-hidden">Tea Rose</span>
                                 </a>
 
@@ -531,10 +519,6 @@
                                     href="/products/theia-tinsley-v-neck-ankle-dress-floral-garden"
                                     class="grid-product__link">
                                     <div class="grid-product__image-mask">
-                                        <div
-                                            class="quick-product__btn quick-product__btn--not-ready js-modal-open-quick-modal-6694898008252 small--hide">
-                                            <span class="quick-product__label">Quick view</span>
-                                        </div>
                                         <div class="image-wrap" style="height: 0; padding-bottom: 150.0%;">
                                             <img class="grid-product__image lazyload"
                                                  data-src="//cdn.shopify.com/s/files/1/0546/6033/products/8814837_4903_1_{width}x.jpg?v=1620055785"
@@ -592,10 +576,6 @@
                                     href="/products/theia-denver-tie-ruffled-gown-silver-denim-blue"
                                     class="grid-product__link">
                                     <div class="grid-product__image-mask">
-                                        <div
-                                            class="quick-product__btn quick-product__btn--not-ready js-modal-open-quick-modal-6694897942716 small--hide">
-                                            <span class="quick-product__label">Quick view</span>
-                                        </div>
                                         <div class="image-wrap" style="height: 0; padding-bottom: 150.0%;">
                                             <img class="grid-product__image lazyload"
                                                  data-src="//cdn.shopify.com/s/files/1/0546/6033/products/8814853_4904_1_{width}x.jpg?v=1620055824"
@@ -653,10 +633,6 @@
     Sustainable
   </div>--><a href="/products/theia-macia-ruffle-cocktail-dress-ivory" class="grid-product__link">
                                     <div class="grid-product__image-mask">
-                                        <div
-                                            class="quick-product__btn quick-product__btn--not-ready js-modal-open-quick-modal-6694898106556 small--hide">
-                                            <span class="quick-product__label">Quick view</span>
-                                        </div>
                                         <div class="image-wrap" style="height: 0; padding-bottom: 150.0%;">
                                             <img class="grid-product__image lazyload"
                                                  data-src="//cdn.shopify.com/s/files/1/0546/6033/products/8815003_2267_1_{width}x.jpg?v=1620055722"
@@ -716,10 +692,6 @@
     Sustainable
   </div>--><a href="/products/theia-maika-cascading-ruffle-dress-white" class="grid-product__link">
                                     <div class="grid-product__image-mask">
-                                        <div
-                                            class="quick-product__btn quick-product__btn--not-ready js-modal-open-quick-modal-6694898139324 small--hide">
-                                            <span class="quick-product__label">Quick view</span>
-                                        </div>
                                         <div class="image-wrap" style="height: 0; padding-bottom: 150.0%;">
                                             <img class="grid-product__image lazyload"
                                                  data-src="//cdn.shopify.com/s/files/1/0546/6033/products/8814954_2295_1_{width}x.jpg?v=1620055699"
@@ -778,10 +750,6 @@
                                 <!--Ryan commenting out the sale tag--><a
                                     href="/products/theia-braylee-embroidered-pant-navy" class="grid-product__link">
                                     <div class="grid-product__image-mask">
-                                        <div
-                                            class="quick-product__btn quick-product__btn--not-ready js-modal-open-quick-modal-6694897746108 small--hide">
-                                            <span class="quick-product__label">Quick view</span>
-                                        </div>
                                         <div class="image-wrap" style="height: 0; padding-bottom: 150.0%;">
                                             <img class="grid-product__image lazyload"
                                                  data-src="//cdn.shopify.com/s/files/1/0546/6033/products/8825001_2283_1_eb70c019-9e00-4c8f-b0ac-a2620c49bab1_{width}x.jpg?v=1620142192"
@@ -836,7 +804,7 @@
                         <div
                             class="grid__item grid__item--view-all text-center small--one-half medium-up--one-quarter medium-up--hide">
                             <a href="/shop/list-products" class="grid-product__see-all">
-                                View all<br>13 products
+                                View all<br>
                             </a>
                         </div>
                     </div>
@@ -861,133 +829,6 @@
                 </div>
             </div>
         </div>
-        <div id="QuickShopModal-6715933458620" class="modal modal--square modal--quick-shop"
-             data-product-id="6715933458620">
-            <div class="modal__inner">
-                <div class="modal__centered">
-                    <div class="modal__centered-content">
-                        <div id="QuickShopHolder-theia-marley-jumpsuit-gold"></div>
-                    </div>
-
-                    <button type="button" class="modal__close js-modal-close text-link">
-                        <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-close"
-                             viewBox="0 0 64 64">
-                            <path d="M19 17.61l27.12 27.13m0-27.12L19 44.74"/>
-                        </svg>
-                        <span class="icon__fallback-text">"Close (esc)"</span>
-                    </button>
-                </div>
-            </div>
-        </div>
-        <div id="QuickShopModal-6694897680572" class="modal modal--square modal--quick-shop"
-             data-product-id="6694897680572">
-            <div class="modal__inner">
-                <div class="modal__centered">
-                    <div class="modal__centered-content">
-                        <div id="QuickShopHolder-theia-lisa-halter-cocktail-dress-tea-rose"></div>
-                    </div>
-
-                    <button type="button" class="modal__close js-modal-close text-link">
-                        <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-close"
-                             viewBox="0 0 64 64">
-                            <path d="M19 17.61l27.12 27.13m0-27.12L19 44.74"/>
-                        </svg>
-                        <span class="icon__fallback-text">"Close (esc)"</span>
-                    </button>
-                </div>
-            </div>
-        </div>
-        <div id="QuickShopModal-6694898008252" class="modal modal--square modal--quick-shop"
-             data-product-id="6694898008252">
-            <div class="modal__inner">
-                <div class="modal__centered">
-                    <div class="modal__centered-content">
-                        <div id="QuickShopHolder-theia-tinsley-v-neck-ankle-dress-floral-garden"></div>
-                    </div>
-
-                    <button type="button" class="modal__close js-modal-close text-link">
-                        <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-close"
-                             viewBox="0 0 64 64">
-                            <path d="M19 17.61l27.12 27.13m0-27.12L19 44.74"/>
-                        </svg>
-                        <span class="icon__fallback-text">"Close (esc)"</span>
-                    </button>
-                </div>
-            </div>
-        </div>
-        <div id="QuickShopModal-6694897942716" class="modal modal--square modal--quick-shop"
-             data-product-id="6694897942716">
-            <div class="modal__inner">
-                <div class="modal__centered">
-                    <div class="modal__centered-content">
-                        <div id="QuickShopHolder-theia-denver-tie-ruffled-gown-silver-denim-blue"></div>
-                    </div>
-
-                    <button type="button" class="modal__close js-modal-close text-link">
-                        <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-close"
-                             viewBox="0 0 64 64">
-                            <path d="M19 17.61l27.12 27.13m0-27.12L19 44.74"/>
-                        </svg>
-                        <span class="icon__fallback-text">"Close (esc)"</span>
-                    </button>
-                </div>
-            </div>
-        </div>
-        <div id="QuickShopModal-6694898106556" class="modal modal--square modal--quick-shop"
-             data-product-id="6694898106556">
-            <div class="modal__inner">
-                <div class="modal__centered">
-                    <div class="modal__centered-content">
-                        <div id="QuickShopHolder-theia-macia-ruffle-cocktail-dress-ivory"></div>
-                    </div>
-
-                    <button type="button" class="modal__close js-modal-close text-link">
-                        <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-close"
-                             viewBox="0 0 64 64">
-                            <path d="M19 17.61l27.12 27.13m0-27.12L19 44.74"/>
-                        </svg>
-                        <span class="icon__fallback-text">"Close (esc)"</span>
-                    </button>
-                </div>
-            </div>
-        </div>
-        <div id="QuickShopModal-6694898139324" class="modal modal--square modal--quick-shop"
-             data-product-id="6694898139324">
-            <div class="modal__inner">
-                <div class="modal__centered">
-                    <div class="modal__centered-content">
-                        <div id="QuickShopHolder-theia-maika-cascading-ruffle-dress-white"></div>
-                    </div>
-
-                    <button type="button" class="modal__close js-modal-close text-link">
-                        <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-close"
-                             viewBox="0 0 64 64">
-                            <path d="M19 17.61l27.12 27.13m0-27.12L19 44.74"/>
-                        </svg>
-                        <span class="icon__fallback-text">"Close (esc)"</span>
-                    </button>
-                </div>
-            </div>
-        </div>
-        <div id="QuickShopModal-6694897746108" class="modal modal--square modal--quick-shop"
-             data-product-id="6694897746108">
-            <div class="modal__inner">
-                <div class="modal__centered">
-                    <div class="modal__centered-content">
-                        <div id="QuickShopHolder-theia-braylee-embroidered-pant-navy"></div>
-                    </div>
-
-                    <button type="button" class="modal__close js-modal-close text-link">
-                        <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-close"
-                             viewBox="0 0 64 64">
-                            <path d="M19 17.61l27.12 27.13m0-27.12L19 44.74"/>
-                        </svg>
-                        <span class="icon__fallback-text">"Close (esc)"</span>
-                    </button>
-                </div>
-            </div>
-        </div>
-
     </div>
     <div id="shopify-section-16198160889679cccb" class="shopify-section">
         <style data-shopify>
@@ -1008,39 +849,5 @@
                 color: #1c1d1d;
             }
         </style>
-        <div class="newsletter-section newsletter-16198160889679cccb">
-            <div class="page-width text-center">
-                <p class="h3">Sign up and save</p>
-                <div class="rte">
-                    <p>Subscribe to get special offers, free giveaways, and once-in-a-lifetime
-                        deals.</p>
-                </div>
-                <form method="post" action="/contact#newsletter-16198160889679cccb" id="newsletter-16198160889679cccb"
-                      accept-charset="UTF-8" class="contact-form"><input type="hidden" name="form_type"
-                                                                         value="customer"/><input type="hidden"
-                                                                                                  name="utf8"
-                                                                                                  value="✓"/>
-                    <label for="Email-16198160889679cccb" class="hidden-label">Enter your email</label>
-                    <input type="hidden" name="contact[tags]" value="prospect,newsletter">
-                    <input type="hidden" name="contact[context]" value="section">
-                    <div class="input-group newsletter__input-group">
-                        <input type="email" value="" placeholder="Enter your email" name="contact[email]"
-                               id="Email-16198160889679cccb" class="input-group-field newsletter__input"
-                               autocorrect="off" autocapitalize="off">
-                        <div class="input-group-btn">
-                            <button type="submit" class="btn" name="commit">
-                                <span class="form__submit--large">Subscribe</span>
-                                <span class="form__submit--small">
-                                        <svg aria-hidden="true" focusable="false" role="presentation"
-                                             class="icon icon--wide icon-arrow-right" viewBox="0 0 50 15">
-                                            <path d="M0 9.63V5.38h35V0l15 7.5L35 15V9.63z"/>
-                                        </svg>
-                                    </span>
-                             </button>
-                        </div>
-                    </div>
-                </form>
-            </div>
-        </div>
     </div><!-- END content_for_index -->
 @endsection

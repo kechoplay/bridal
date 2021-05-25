@@ -943,106 +943,9 @@
                                     </div>
                                 </div>
                             </li>
-                            <li class="mobile-nav__item mobile-nav__item--secondary">
-                                <div class="grid">
-                                    <div class="grid__item one-half appear-animation appear-delay-6">
-                                        <a href="/account" class="mobile-nav__link">Log in
-                                        </a>
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
-                        <ul class="mobile-nav__social appear-animation appear-delay-7">
-                            <li class="mobile-nav__social-item">
-                                <a target="_blank" rel="noopener" href="https://instagram.com/shopify" title="THEIA on Instagram">
-                                    <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-instagram" viewBox="0 0 32 32">
-                                        <path fill="#444" d="M16 3.094c4.206 0 4.7.019 6.363.094 1.538.069 2.369.325 2.925.544.738.287 1.262.625 1.813 1.175s.894 1.075 1.175 1.813c.212.556.475 1.387.544 2.925.075 1.662.094 2.156.094 6.363s-.019 4.7-.094 6.363c-.069 1.538-.325 2.369-.544 2.925-.288.738-.625 1.262-1.175 1.813s-1.075.894-1.813 1.175c-.556.212-1.387.475-2.925.544-1.663.075-2.156.094-6.363.094s-4.7-.019-6.363-.094c-1.537-.069-2.369-.325-2.925-.544-.737-.288-1.263-.625-1.813-1.175s-.894-1.075-1.175-1.813c-.212-.556-.475-1.387-.544-2.925-.075-1.663-.094-2.156-.094-6.363s.019-4.7.094-6.363c.069-1.537.325-2.369.544-2.925.287-.737.625-1.263 1.175-1.813s1.075-.894 1.813-1.175c.556-.212 1.388-.475 2.925-.544 1.662-.081 2.156-.094 6.363-.094zm0-2.838c-4.275 0-4.813.019-6.494.094-1.675.075-2.819.344-3.819.731-1.037.4-1.913.944-2.788 1.819S1.486 4.656 1.08 5.688c-.387 1-.656 2.144-.731 3.825-.075 1.675-.094 2.213-.094 6.488s.019 4.813.094 6.494c.075 1.675.344 2.819.731 3.825.4 1.038.944 1.913 1.819 2.788s1.756 1.413 2.788 1.819c1 .387 2.144.656 3.825.731s2.213.094 6.494.094 4.813-.019 6.494-.094c1.675-.075 2.819-.344 3.825-.731 1.038-.4 1.913-.944 2.788-1.819s1.413-1.756 1.819-2.788c.387-1 .656-2.144.731-3.825s.094-2.212.094-6.494-.019-4.813-.094-6.494c-.075-1.675-.344-2.819-.731-3.825-.4-1.038-.944-1.913-1.819-2.788s-1.756-1.413-2.788-1.819c-1-.387-2.144-.656-3.825-.731C20.812.275 20.275.256 16 .256z" />
-                                        <path fill="#444" d="M16 7.912a8.088 8.088 0 0 0 0 16.175c4.463 0 8.087-3.625 8.087-8.088s-3.625-8.088-8.088-8.088zm0 13.338a5.25 5.25 0 1 1 0-10.5 5.25 5.25 0 1 1 0 10.5zM26.294 7.594a1.887 1.887 0 1 1-3.774.002 1.887 1.887 0 0 1 3.774-.003z" />
-                                    </svg>
-                                    <span class="icon__fallback-text">Instagram</span>
-                                </a>
-                            </li>
-                            <li class="mobile-nav__social-item">
-                                <a target="_blank" rel="noopener" href="https://www.facebook.com/shopify" title="THEIA on Facebook">
-                                    <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-facebook" viewBox="0 0 32 32">
-                                        <path fill="#444" d="M18.56 31.36V17.28h4.48l.64-5.12h-5.12v-3.2c0-1.28.64-2.56 2.56-2.56h2.56V1.28H19.2c-3.84 0-7.04 2.56-7.04 7.04v3.84H7.68v5.12h4.48v14.08h6.4z" />
-                                    </svg>
-                                    <span class="icon__fallback-text">Facebook</span>
-                                </a>
-                            </li>
-                            <li class="mobile-nav__social-item">
-                                <a target="_blank" rel="noopener" href="https://www.pinterest.com/shopify" title="THEIA on Pinterest">
-                                    <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-pinterest" viewBox="0 0 32 32">
-                                        <path fill="#444" d="M27.52 9.6c-.64-5.76-6.4-8.32-12.8-7.68-4.48.64-9.6 4.48-9.6 10.24 0 3.2.64 5.76 3.84 6.4 1.28-2.56-.64-3.2-.64-4.48-1.28-7.04 8.32-12.16 13.44-7.04 3.2 3.84 1.28 14.08-4.48 13.44-5.12-1.28 2.56-9.6-1.92-11.52-3.2-1.28-5.12 4.48-3.84 7.04-1.28 4.48-3.2 8.96-1.92 15.36 2.56-1.92 3.84-5.76 4.48-9.6 1.28.64 1.92 1.92 3.84 1.92 6.4-.64 10.24-7.68 9.6-14.08z" />
-                                    </svg>
-                                    <span class="icon__fallback-text">Pinterest</span>
-                                </a>
-                            </li>
                         </ul>
                     </div>
                 </div>
-            </div>
-            <div id="CartDrawer" class="drawer drawer--right">
-                <form id="CartDrawerForm" action="/cart" method="post" novalidate class="drawer__contents">
-                    <div class="drawer__fixed-header">
-                        <div class="drawer__header appear-animation appear-delay-1">
-                            <div class="h2 drawer__title">Cart</div>
-                            <div class="drawer__close">
-                                <button type="button" class="drawer__close-button js-drawer-close">
-                                    <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-close" viewBox="0 0 64 64">
-                                        <path d="M19 17.61l27.12 27.13m0-27.12L19 44.74" />
-                                    </svg>
-                                    <span class="icon__fallback-text">Close cart</span>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="drawer__inner">
-                        <div class="drawer__scrollable">
-                            <div data-products class="appear-animation appear-delay-2"></div>
-
-
-                        </div>
-
-                        <div class="drawer__footer appear-animation appear-delay-4">
-                            <div data-discounts>
-
-                            </div>
-
-                            <div class="cart__item-sub cart__item-row">
-                                <div class="ajaxcart__subtotal">Subtotal</div>
-                                <div data-subtotal>$0.00</div>
-                            </div>
-
-                            <div class="cart__item-row text-center">
-                                <small>
-                                    Shipping, taxes, and discount codes calculated at checkout.<br />
-                                </small>
-                            </div>
-
-
-
-                            <div class="cart__checkout-wrapper">
-                                <button type="submit" name="checkout" data-terms-required="false" class="btn cart__checkout">
-                                    Check out
-                                </button>
-
-
-                                <div class="additional-checkout-buttons additional-checkout-buttons--vertical">
-                                    <div class="dynamic-checkout__content" id="dynamic-checkout-cart" data-shopify="dynamic-checkout-cart"></div>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="drawer__cart-empty appear-animation appear-delay-2">
-                        <div class="drawer__scrollable">
-                            Your cart is currently empty.
-                        </div>
-                    </div>
-                </form>
             </div>
             <style>
                 .site-nav__link,
@@ -1096,7 +999,7 @@
                             </button>
 
                             <div id="AnnouncementSlider" class="announcement-slider" data-compact="true" data-block-count="1">
-                                <div id="AnnouncementSlide-1524770292306" class="announcement-slider__slide" data-index="0"><a class="announcement-link" href="/pages/return-policy"><span class="announcement-text">Free shipping & Returns</span></a></div>
+                                <div id="AnnouncementSlide-1524770292306" class="announcement-slider__slide" data-index="0"><a class="announcement-link" href="/shop/"><span class="announcement-text">Shop evening-Free shipping</span></a></div>
                             </div>
                         </div>
                     </div>
@@ -1276,15 +1179,7 @@
                                                         <path d="M7 15h51M7 32h43M7 49h51" />
                                                     </svg>
                                                     <span class="icon__fallback-text">Site navigation</span>
-                                                </button><a href="/cart" class="site-nav__link site-nav__link--icon js-drawer-open-cart" aria-controls="CartDrawer" data-icon="cart">
-                                                        <span class="cart-link"><svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-cart" viewBox="0 0 64 64">
-                                                                <path fill="none" d="M14 17.44h46.79l-7.94 25.61H20.96l-9.65-35.1H3" />
-                                                                <circle cx="27" cy="53" r="2" />
-                                                                <circle cx="47" cy="53" r="2" />
-                                                            </svg><span class="icon__fallback-text">Cart</span>
-                                                            <span id="CartBubble" class="cart-link__bubble"></span>
-                                                        </span>
-                                                </a>
+                                                </button>
                                             </div>
                                         </div>
                                     </div>
@@ -1342,7 +1237,7 @@
                     border-top: 1px solid #e8e8e1;
                 }
             </style>
-            <footer class="site-footer" data-section-id="footer" data-section-type="footer-section">
+            <footer class="site-footer" data-section-id="footer" data-section-type="footer-section" style="padding-top: 30px; padding-bottom: 30px">
                 <div class="page-width">
 
                     <div class="grid">
@@ -1371,11 +1266,6 @@
                                     <div class="footer__collapsible footer_collapsible--disabled">
                                         <ul class="no-bullets site-footer__linklist">
                                             <li><a href="/pages/contact">Contact</a></li>
-                                            <li><a href="https://help.theiacouture.com/">FAQ</a></li>
-                                            <li><a href="https://theiacouture.com/returns">Returns Manager</a></li>
-                                            <li><a href="/pages/return-policy">Return Policy</a></li>
-                                            <li><a href="/pages/privacy-policy">Privacy Policy</a></li>
-                                            <li><a href="/pages/terms-of-service">Terms of Service</a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -1402,9 +1292,9 @@
                                 }
                             </style>
                             <div class="footer__item-padding">
-                                <p class="h4 footer__title small--hide">Sign up and save</p>
+                                <p class="h4 footer__title small--hide">Follow Shop</p>
                                 <button type="button" class="h4 footer__title collapsible-trigger collapsible-trigger-btn medium-up--hide" aria-controls="Footer-1494292487693">
-                                    Sign up and save
+                                    Follow Shop
                                     <span class="collapsible-trigger__icon collapsible-trigger__icon--open" role="presentation">
                                             <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon--wide icon-chevron-down" viewBox="0 0 28 16">
                                                 <path d="M1.57 1.59l12.76 12.77L27.1 1.59" stroke-width="2" stroke="#000" fill="none" fill-rule="evenodd" />
@@ -1415,21 +1305,6 @@
                                     <div class="collapsible-content__inner">
                                         <div class="footer__collapsible">
                                             <p>Subscribe to get special offers, free giveaways, and once-in-a-lifetime deals.</p>
-                                            <form method="post" action="/contact#newsletter-footer" id="newsletter-footer" accept-charset="UTF-8" class="contact-form"><input type="hidden" name="form_type" value="customer" /><input type="hidden" name="utf8" value="✓" /><label for="Email-1494292487693" class="hidden-label">Enter your email</label>
-                                                <input type="hidden" name="contact[tags]" value="prospect,newsletter">
-                                                <input type="hidden" name="contact[context]" value="footer">
-                                                <div class="footer__newsletter">
-                                                    <input type="email" value="" placeholder="Enter your email" name="contact[email]" id="Email-1494292487693" class="footer__newsletter-input" autocorrect="off" autocapitalize="off">
-                                                    <button type="submit" class="footer__newsletter-btn" name="commit" aria-label="Subscribe">
-                                                        <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-email" viewBox="0 0 64 64">
-                                                            <path d="M63 52H1V12h62zM1 12l25.68 24h9.72L63 12M21.82 31.68L1.56 51.16m60.78.78L41.27 31.68" />
-                                                        </svg>
-                                                        <span class="footer__newsletter-btn-label">
-                                                                Subscribe
-                                                            </span>
-                                                    </button>
-                                                </div>
-                                            </form>
                                             <ul class="no-bullets footer__social">
                                                 <li>
                                                     <a target="_blank" rel="noopener" href="https://instagram.com/shopify" title="THEIA on Instagram">
@@ -1462,7 +1337,6 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="footer__clear small--hide"></div>
                         <div class="grid__item footer__item--1494301487048" data-type="logo_social">
                             <style data-shopify>
                                 @media only screen and (min-width: 769px) and (max-width: 959px) {

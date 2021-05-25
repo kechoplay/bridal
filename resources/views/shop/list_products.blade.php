@@ -77,199 +77,6 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="collection-sidebar__group--0c6a035e-04bb-481c-a89e-fa26a8bcd0f4">
-
-                                                <div class="collection-sidebar__group">
-                                                    <button type="button" class="collapsible-trigger collapsible-trigger-btn collapsible--auto-height tag-list__header" aria-controls="SidebarDrawer-2">
-                                                        Sleeve Length
-                                                        <span class="collapsible-trigger__icon collapsible-trigger__icon--open" role="presentation">
-                                                        <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon--wide icon-chevron-down" viewBox="0 0 28 16">
-                                                            <path d="M1.57 1.59l12.76 12.77L27.1 1.59" stroke-width="2" stroke="#000" fill="none" fill-rule="evenodd" />
-                                                        </svg>
-                                                    </span>
-                                                    </button>
-                                                    <div id="SidebarDrawer-2" class="collapsible-content collapsible-content--sidebar">
-                                                        <div class="collapsible-content__inner">
-
-                                                            <ul class="no-bullets tag-list tag-list--checkboxes">
-                                                                <li class="tag">
-                                                                    <a href="/collections/shop/sleeveless" title="Narrow selection to products matching tag Sleeveless">Sleeveless</a>
-                                                                </li>
-                                                                <li class="tag">
-                                                                    <a href="/collections/shop/short-sleeve" title="Narrow selection to products matching tag Short Sleeve">Short
-                                                                        Sleeve</a>
-                                                                </li>
-                                                                <li class="tag">
-                                                                    <a href="/collections/shop/one-shoulder" title="Narrow selection to products matching tag One Shoulder">One
-                                                                        Shoulder</a>
-                                                                </li>
-
-                                                                <li class="tag">
-                                                                    <a href="/collections/shop/3-4-sleeve" title="Narrow selection to products matching tag 3/4 Sleeve">3/4
-                                                                        Sleeve</a>
-                                                                </li>
-                                                                <li class="tag">
-                                                                    <a href="/collections/shop/flutter" title="Narrow selection to products matching tag Flutter">Flutter</a>
-                                                                </li>
-                                                                <li class="tag">
-                                                                    <a href="/collections/shop/long-sleeve" title="Narrow selection to products matching tag Long Sleeve">Long
-                                                                        Sleeve</a>
-                                                                </li>
-                                                            </ul>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="collection-sidebar__group--ee21e44f-627d-4ee2-92e7-651cc85dc1fc">
-
-
-                                                <div class="collection-sidebar__group">
-                                                    <button type="button" class="collapsible-trigger collapsible-trigger-btn collapsible--auto-height tag-list__header" aria-controls="SidebarDrawer-3">
-                                                        Color
-                                                        <span class="collapsible-trigger__icon collapsible-trigger__icon--open" role="presentation">
-                                                        <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon--wide icon-chevron-down" viewBox="0 0 28 16">
-                                                            <path d="M1.57 1.59l12.76 12.77L27.1 1.59" stroke-width="2" stroke="#000" fill="none" fill-rule="evenodd" />
-                                                        </svg>
-                                                    </span>
-                                                    </button>
-                                                    <div id="SidebarDrawer-3" class="collapsible-content collapsible-content--sidebar">
-                                                        <div class="collapsible-content__inner">
-
-                                                            <ul class="no-bullets tag-list">
-                                                                <li class="tag">
-                                                                    <a href="/collections/shop/pink" title="Narrow selection to products matching tag Pink">Pink</a>
-                                                                </li>
-                                                                <li class="tag">
-                                                                    <a href="/collections/shop/white" title="Narrow selection to products matching tag White">White</a>
-                                                                </li>
-                                                                <li class="tag">
-                                                                    <a href="/collections/shop/red" title="Narrow selection to products matching tag Red">Red</a>
-                                                                </li>
-                                                                <li class="tag">
-                                                                    <a href="/collections/shop/blue" title="Narrow selection to products matching tag Blue">Blue</a>
-                                                                </li>
-
-                                                                <li class="tag">
-                                                                    <a href="/collections/shop/purple" title="Narrow selection to products matching tag Purple">Purple</a>
-                                                                </li>
-                                                                <li class="tag">
-                                                                    <a href="/collections/shop/floral" title="Narrow selection to products matching tag Floral">Floral</a>
-                                                                </li>
-                                                            </ul>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="collection-sidebar__group--2e026f54-e32e-4d28-a4d0-b9e19cb3c8c6">
-
-                                                <div class="collection-sidebar__group">
-                                                    <button type="button" class="collapsible-trigger collapsible-trigger-btn collapsible--auto-height tag-list__header" aria-controls="SidebarDrawer-4">
-                                                        Length
-                                                        <span class="collapsible-trigger__icon collapsible-trigger__icon--open" role="presentation">
-                                                        <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon--wide icon-chevron-down" viewBox="0 0 28 16">
-                                                            <path d="M1.57 1.59l12.76 12.77L27.1 1.59" stroke-width="2" stroke="#000" fill="none" fill-rule="evenodd" />
-                                                        </svg>
-                                                    </span>
-                                                    </button>
-                                                    <div id="SidebarDrawer-4" class="collapsible-content collapsible-content--sidebar">
-                                                        <div class="collapsible-content__inner">
-
-                                                            <ul class="no-bullets tag-list tag-list--checkboxes">
-                                                                <li class="tag">
-                                                                    <a href="/collections/shop/midi" title="Narrow selection to products matching tag Midi">Midi</a>
-                                                                </li>
-
-                                                                <li class="tag">
-                                                                    <a href="/collections/shop/ankle-length" title="Narrow selection to products matching tag Ankle Length">Ankle
-                                                                        Length</a>
-                                                                </li>
-                                                                <li class="tag">
-                                                                    <a href="/collections/shop/floor-length" title="Narrow selection to products matching tag Floor Length">Floor
-                                                                        Length</a>
-                                                                </li>
-                                                            </ul>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="collection-sidebar__group--8eafc739-b026-466e-913a-05b4b6846b85">
-
-                                                <div class="collection-sidebar__group">
-                                                    <button type="button" class="collapsible-trigger collapsible-trigger-btn collapsible--auto-height tag-list__header" aria-controls="SidebarDrawer-5">
-                                                        Shop by Price
-                                                        <span class="collapsible-trigger__icon collapsible-trigger__icon--open" role="presentation">
-                                                        <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon--wide icon-chevron-down" viewBox="0 0 28 16">
-                                                            <path d="M1.57 1.59l12.76 12.77L27.1 1.59" stroke-width="2" stroke="#000" fill="none" fill-rule="evenodd" />
-                                                        </svg>
-                                                    </span>
-                                                    </button>
-                                                    <div id="SidebarDrawer-5" class="collapsible-content collapsible-content--sidebar">
-                                                        <div class="collapsible-content__inner">
-
-                                                            <ul class="no-bullets tag-list tag-list--checkboxes">
-                                                                <li class="tag">
-                                                                    <a href="/collections/shop/under-499" title="Narrow selection to products matching tag Under $499">Under
-                                                                        $499</a>
-                                                                </li>
-                                                                <li class="tag">
-                                                                    <a href="/collections/shop/500-999" title="Narrow selection to products matching tag $500 - $999">$500
-                                                                        - $999</a>
-                                                                </li>
-                                                                <li class="tag">
-                                                                    <a href="/collections/shop/1000" title="Narrow selection to products matching tag $1000+">$1000+</a>
-                                                                </li>
-                                                            </ul>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="collection-sidebar__group--1e71990a-1713-4801-9c92-df1daf4c853b">
-
-                                                <div class="collection-sidebar__group">
-                                                    <button type="button" class="collapsible-trigger collapsible-trigger-btn collapsible--auto-height tag-list__header" aria-controls="SidebarDrawer-6">
-                                                        Shop by size
-                                                        <span class="collapsible-trigger__icon collapsible-trigger__icon--open" role="presentation">
-                                                        <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon--wide icon-chevron-down" viewBox="0 0 28 16">
-                                                            <path d="M1.57 1.59l12.76 12.77L27.1 1.59" stroke-width="2" stroke="#000" fill="none" fill-rule="evenodd" />
-                                                        </svg>
-                                                    </span>
-                                                    </button>
-                                                    <div id="SidebarDrawer-6" class="collapsible-content collapsible-content--sidebar">
-                                                        <div class="collapsible-content__inner">
-
-                                                            <ul class="no-bullets tag-list tag-list--checkboxes">
-                                                                <li class="tag">
-                                                                    <a href="/collections/shop/0" title="Narrow selection to products matching tag 0">0</a>
-                                                                </li>
-                                                                <li class="tag">
-                                                                    <a href="/collections/shop/2" title="Narrow selection to products matching tag 2">2</a>
-                                                                </li>
-                                                                <li class="tag">
-                                                                    <a href="/collections/shop/4" title="Narrow selection to products matching tag 4">4</a>
-                                                                </li>
-                                                                <li class="tag">
-                                                                    <a href="/collections/shop/6" title="Narrow selection to products matching tag 6">6</a>
-                                                                </li>
-                                                                <li class="tag">
-                                                                    <a href="/collections/shop/8" title="Narrow selection to products matching tag 8">8</a>
-                                                                </li>
-                                                                <li class="tag">
-                                                                    <a href="/collections/shop/10" title="Narrow selection to products matching tag 10">10</a>
-                                                                </li>
-                                                                <li class="tag">
-                                                                    <a href="/collections/shop/12" title="Narrow selection to products matching tag 12">12</a>
-                                                                </li>
-                                                                <li class="tag">
-                                                                    <a href="/collections/shop/14" title="Narrow selection to products matching tag 14">14</a>
-                                                                </li>
-                                                                <li class="tag">
-                                                                    <a href="/collections/shop/16" title="Narrow selection to products matching tag 16">16</a>
-                                                                </li>
-                                                            </ul>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -278,7 +85,7 @@
                                     <div class="collection-sidebar__group--1524772785241">
 
                                         <div class="collection-sidebar__group">
-                                            <button type="button" class="collapsible-trigger collapsible-trigger-btn collapsible--auto-height tag-list__header" aria-controls="CollectionSidebar-1">
+                                            <button type="button" class="collapsible-trigger collapsible-trigger-btn collapsible--auto-height tag-list__header" aria-controls="CollectionSidebar-1" style="padding-top: unset">
                                                 Shop
                                                 <span class="collapsible-trigger__icon collapsible-trigger__icon--open" role="presentation">
                                                 <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon--wide icon-chevron-down" viewBox="0 0 28 16">
@@ -286,7 +93,7 @@
                                                 </svg>
                                             </span>
                                             </button>
-                                            <div id="CollectionSidebar-1" class="collapsible-content collapsible-content--sidebar">
+                                            <div id="CollectionSidebar-1" class="collapsible-content collapsible-content--sidebar" >
                                                 <div class="collapsible-content__inner">
                                                     <ul class="no-bullets tag-list">
                                                         <li class="tag--active">
@@ -308,199 +115,6 @@
                                                             <a href="/collections/bridal-shop" class="no-ajax">
                                                                 Wedding Shop
                                                             </a>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="collection-sidebar__group--0c6a035e-04bb-481c-a89e-fa26a8bcd0f4">
-
-                                        <div class="collection-sidebar__group">
-                                            <button type="button" class="collapsible-trigger collapsible-trigger-btn collapsible--auto-height tag-list__header" aria-controls="CollectionSidebar-2">
-                                                Sleeve Length
-                                                <span class="collapsible-trigger__icon collapsible-trigger__icon--open" role="presentation">
-                                                <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon--wide icon-chevron-down" viewBox="0 0 28 16">
-                                                    <path d="M1.57 1.59l12.76 12.77L27.1 1.59" stroke-width="2" stroke="#000" fill="none" fill-rule="evenodd" />
-                                                </svg>
-                                            </span>
-                                            </button>
-                                            <div id="CollectionSidebar-2" class="collapsible-content collapsible-content--sidebar">
-                                                <div class="collapsible-content__inner">
-
-                                                    <ul class="no-bullets tag-list tag-list--checkboxes">
-                                                        <li class="tag">
-                                                            <a href="/collections/shop/sleeveless" title="Narrow selection to products matching tag Sleeveless">Sleeveless</a>
-                                                        </li>
-                                                        <li class="tag">
-                                                            <a href="/collections/shop/short-sleeve" title="Narrow selection to products matching tag Short Sleeve">Short
-                                                                Sleeve</a>
-                                                        </li>
-                                                        <li class="tag">
-                                                            <a href="/collections/shop/one-shoulder" title="Narrow selection to products matching tag One Shoulder">One
-                                                                Shoulder</a>
-                                                        </li>
-
-                                                        <li class="tag">
-                                                            <a href="/collections/shop/3-4-sleeve" title="Narrow selection to products matching tag 3/4 Sleeve">3/4
-                                                                Sleeve</a>
-                                                        </li>
-                                                        <li class="tag">
-                                                            <a href="/collections/shop/flutter" title="Narrow selection to products matching tag Flutter">Flutter</a>
-                                                        </li>
-                                                        <li class="tag">
-                                                            <a href="/collections/shop/long-sleeve" title="Narrow selection to products matching tag Long Sleeve">Long
-                                                                Sleeve</a>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="collection-sidebar__group--ee21e44f-627d-4ee2-92e7-651cc85dc1fc">
-
-
-                                        <div class="collection-sidebar__group">
-                                            <button type="button" class="collapsible-trigger collapsible-trigger-btn collapsible--auto-height tag-list__header" aria-controls="CollectionSidebar-3">
-                                                Color
-                                                <span class="collapsible-trigger__icon collapsible-trigger__icon--open" role="presentation">
-                                                <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon--wide icon-chevron-down" viewBox="0 0 28 16">
-                                                    <path d="M1.57 1.59l12.76 12.77L27.1 1.59" stroke-width="2" stroke="#000" fill="none" fill-rule="evenodd" />
-                                                </svg>
-                                            </span>
-                                            </button>
-                                            <div id="CollectionSidebar-3" class="collapsible-content collapsible-content--sidebar">
-                                                <div class="collapsible-content__inner">
-
-                                                    <ul class="no-bullets tag-list">
-                                                        <li class="tag">
-                                                            <a href="/collections/shop/pink" title="Narrow selection to products matching tag Pink">Pink</a>
-                                                        </li>
-                                                        <li class="tag">
-                                                            <a href="/collections/shop/white" title="Narrow selection to products matching tag White">White</a>
-                                                        </li>
-                                                        <li class="tag">
-                                                            <a href="/collections/shop/red" title="Narrow selection to products matching tag Red">Red</a>
-                                                        </li>
-                                                        <li class="tag">
-                                                            <a href="/collections/shop/blue" title="Narrow selection to products matching tag Blue">Blue</a>
-                                                        </li>
-
-                                                        <li class="tag">
-                                                            <a href="/collections/shop/purple" title="Narrow selection to products matching tag Purple">Purple</a>
-                                                        </li>
-                                                        <li class="tag">
-                                                            <a href="/collections/shop/floral" title="Narrow selection to products matching tag Floral">Floral</a>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="collection-sidebar__group--2e026f54-e32e-4d28-a4d0-b9e19cb3c8c6">
-
-                                        <div class="collection-sidebar__group">
-                                            <button type="button" class="collapsible-trigger collapsible-trigger-btn collapsible--auto-height tag-list__header" aria-controls="CollectionSidebar-4">
-                                                Length
-                                                <span class="collapsible-trigger__icon collapsible-trigger__icon--open" role="presentation">
-                                                <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon--wide icon-chevron-down" viewBox="0 0 28 16">
-                                                    <path d="M1.57 1.59l12.76 12.77L27.1 1.59" stroke-width="2" stroke="#000" fill="none" fill-rule="evenodd" />
-                                                </svg>
-                                            </span>
-                                            </button>
-                                            <div id="CollectionSidebar-4" class="collapsible-content collapsible-content--sidebar">
-                                                <div class="collapsible-content__inner">
-
-                                                    <ul class="no-bullets tag-list tag-list--checkboxes">
-                                                        <li class="tag">
-                                                            <a href="/collections/shop/midi" title="Narrow selection to products matching tag Midi">Midi</a>
-                                                        </li>
-
-                                                        <li class="tag">
-                                                            <a href="/collections/shop/ankle-length" title="Narrow selection to products matching tag Ankle Length">Ankle
-                                                                Length</a>
-                                                        </li>
-                                                        <li class="tag">
-                                                            <a href="/collections/shop/floor-length" title="Narrow selection to products matching tag Floor Length">Floor
-                                                                Length</a>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="collection-sidebar__group--8eafc739-b026-466e-913a-05b4b6846b85">
-
-                                        <div class="collection-sidebar__group">
-                                            <button type="button" class="collapsible-trigger collapsible-trigger-btn collapsible--auto-height tag-list__header" aria-controls="CollectionSidebar-5">
-                                                Shop by Price
-                                                <span class="collapsible-trigger__icon collapsible-trigger__icon--open" role="presentation">
-                                                <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon--wide icon-chevron-down" viewBox="0 0 28 16">
-                                                    <path d="M1.57 1.59l12.76 12.77L27.1 1.59" stroke-width="2" stroke="#000" fill="none" fill-rule="evenodd" />
-                                                </svg>
-                                            </span>
-                                            </button>
-                                            <div id="CollectionSidebar-5" class="collapsible-content collapsible-content--sidebar">
-                                                <div class="collapsible-content__inner">
-
-                                                    <ul class="no-bullets tag-list tag-list--checkboxes">
-                                                        <li class="tag">
-                                                            <a href="/collections/shop/under-499" title="Narrow selection to products matching tag Under $499">Under
-                                                                $499</a>
-                                                        </li>
-                                                        <li class="tag">
-                                                            <a href="/collections/shop/500-999" title="Narrow selection to products matching tag $500 - $999">$500
-                                                                - $999</a>
-                                                        </li>
-                                                        <li class="tag">
-                                                            <a href="/collections/shop/1000" title="Narrow selection to products matching tag $1000+">$1000+</a>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="collection-sidebar__group--1e71990a-1713-4801-9c92-df1daf4c853b">
-
-                                        <div class="collection-sidebar__group">
-                                            <button type="button" class="collapsible-trigger collapsible-trigger-btn collapsible--auto-height tag-list__header" aria-controls="CollectionSidebar-6">
-                                                Shop by size
-                                                <span class="collapsible-trigger__icon collapsible-trigger__icon--open" role="presentation">
-                                                <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon--wide icon-chevron-down" viewBox="0 0 28 16">
-                                                    <path d="M1.57 1.59l12.76 12.77L27.1 1.59" stroke-width="2" stroke="#000" fill="none" fill-rule="evenodd" />
-                                                </svg>
-                                            </span>
-                                            </button>
-                                            <div id="CollectionSidebar-6" class="collapsible-content collapsible-content--sidebar">
-                                                <div class="collapsible-content__inner">
-
-                                                    <ul class="no-bullets tag-list tag-list--checkboxes">
-                                                        <li class="tag">
-                                                            <a href="/collections/shop/0" title="Narrow selection to products matching tag 0">0</a>
-                                                        </li>
-                                                        <li class="tag">
-                                                            <a href="/collections/shop/2" title="Narrow selection to products matching tag 2">2</a>
-                                                        </li>
-                                                        <li class="tag">
-                                                            <a href="/collections/shop/4" title="Narrow selection to products matching tag 4">4</a>
-                                                        </li>
-                                                        <li class="tag">
-                                                            <a href="/collections/shop/6" title="Narrow selection to products matching tag 6">6</a>
-                                                        </li>
-                                                        <li class="tag">
-                                                            <a href="/collections/shop/8" title="Narrow selection to products matching tag 8">8</a>
-                                                        </li>
-                                                        <li class="tag">
-                                                            <a href="/collections/shop/10" title="Narrow selection to products matching tag 10">10</a>
-                                                        </li>
-                                                        <li class="tag">
-                                                            <a href="/collections/shop/12" title="Narrow selection to products matching tag 12">12</a>
-                                                        </li>
-                                                        <li class="tag">
-                                                            <a href="/collections/shop/14" title="Narrow selection to products matching tag 14">14</a>
-                                                        </li>
-                                                        <li class="tag">
-                                                            <a href="/collections/shop/16" title="Narrow selection to products matching tag 16">16</a>
                                                         </li>
                                                     </ul>
                                                 </div>
@@ -553,22 +167,6 @@
                                         <div class="collection-filter__item collection-filter__item--count small--hide">
                                             98 products
                                         </div>
-
-                                        <div class="collection-filter__item collection-filter__item--sort">
-                                            <div class="collection-filter__sort-container"><label for="SortBy" class="hidden-label">Sort</label>
-                                                <select name="SortBy" id="SortBy" data-default-sortby="manual">
-                                                    <option value="title-ascending" selected="selected">Sort</option>
-                                                    <option value="manual" selected="selected">Featured</option>
-                                                    <option value="best-selling">Best selling</option>
-                                                    <option value="title-ascending">Alphabetically, A-Z</option>
-                                                    <option value="title-descending">Alphabetically, Z-A</option>
-                                                    <option value="price-ascending">Price, low to high</option>
-                                                    <option value="price-descending">Price, high to low</option>
-                                                    <option value="created-ascending">Date, old to new</option>
-                                                    <option value="created-descending">Date, new to old</option>
-                                                </select>
-                                            </div>
-                                        </div>
                                     </div>
                                     <p class="medium-up--hide text-center" data-scroll-to>98 products</p>
                                     <div class="grid grid--uniform">
@@ -576,9 +174,6 @@
                                             <div class="grid-product__content">
                                                 <!--Ryan commenting out the sale tag--><a href="/shop/product-details/" class="grid-product__link">
                                                     <div class="grid-product__image-mask">
-                                                        <div class="quick-product__btn quick-product__btn--not-ready js-modal-open-quick-modal-6715933458620 small--hide">
-                                                            <span class="quick-product__label">Quick view</span>
-                                                        </div>
                                                         <div class="image-wrap" style="height: 0; padding-bottom: 150.037509377%;">
                                                             <img class="grid-product__image lazyload" data-src="//cdn.shopify.com/s/files/1/0546/6033/products/8844181_2589_3_{width}x.jpg?v=1620315348" data-widths="[360, 540, 720, 900, 1080]" data-aspectratio="0.6665" data-sizes="auto" alt="">
                                                             <noscript>
@@ -621,9 +216,6 @@
                                              Sustainable
                    </div>-->        <a href="/shop/product-details/" class="grid-product__link">
                                                     <div class="grid-product__image-mask">
-                                                        <div class="quick-product__btn quick-product__btn--not-ready js-modal-open-quick-modal-6694898139324 small--hide">
-                                                            <span class="quick-product__label">Quick view</span>
-                                                        </div>
                                                         <div class="image-wrap" style="height: 0; padding-bottom: 150.0%;">
                                                             <img class="grid-product__image lazyload" data-src="//cdn.shopify.com/s/files/1/0546/6033/products/8814954_2295_1_{width}x.jpg?v=1620055699" data-widths="[360, 540, 720, 900, 1080]" data-aspectratio="0.6666666666666666" data-sizes="auto" alt="">
                                                             <noscript>
@@ -669,12 +261,6 @@
                                         <span class="page">
                                         <a href="/collections/shop?page=2">2</a>
                                     </span>
-                                        <span class="page">
-                                        <a href="/collections/shop?page=3">3</a>
-                                    </span>
-                                        <span class="page">
-                                        <a href="/collections/shop?page=4">4</a>
-                                    </span>
 
                                         <span class="next">
                                         <a href="/collections/shop?page=2" title="Next">
@@ -684,38 +270,6 @@
                                             <span class="icon__fallback-text">Next</span>
                                         </a>
                                     </span>
-                                    </div>
-                                    <div id="QuickShopModal-6715933458620" class="modal modal--square modal--quick-shop" data-product-id="6715933458620">
-                                        <div class="modal__inner">
-                                            <div class="modal__centered">
-                                                <div class="modal__centered-content">
-                                                    <div id="QuickShopHolder-theia-marley-jumpsuit-gold"></div>
-                                                </div>
-
-                                                <button type="button" class="modal__close js-modal-close text-link">
-                                                    <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-close" viewBox="0 0 64 64">
-                                                        <path d="M19 17.61l27.12 27.13m0-27.12L19 44.74" />
-                                                    </svg>
-                                                    <span class="icon__fallback-text">"Close (esc)"</span>
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div id="QuickShopModal-6694898139324" class="modal modal--square modal--quick-shop" data-product-id="6694898139324">
-                                        <div class="modal__inner">
-                                            <div class="modal__centered">
-                                                <div class="modal__centered-content">
-                                                    <div id="QuickShopHolder-theia-maika-cascading-ruffle-dress-white"></div>
-                                                </div>
-
-                                                <button type="button" class="modal__close js-modal-close text-link">
-                                                    <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-close" viewBox="0 0 64 64">
-                                                        <path d="M19 17.61l27.12 27.13m0-27.12L19 44.74" />
-                                                    </svg>
-                                                    <span class="icon__fallback-text">"Close (esc)"</span>
-                                                </button>
-                                            </div>
-                                        </div>
                                     </div>
                                 </div>
                             </div>

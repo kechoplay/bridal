@@ -362,9 +362,9 @@
                 </div>
                 <div class="entry-chart">Size Chart</div>
                 <div class="entry-contact">
-                    <form id="sales-contact" method="POST" action="/contact/">
-                        <button class="btn btn-black" type="submit" for="sales-contact" name="populate-styles" value="890703 (Brandy)">Contact Sales</button>
-                    </form>
+                    <a id="sales-contact"  href="/contact/">
+                        <button class="btn btn-black"  for="sales-contact" name="populate-styles">Contact Now</button>
+                    </a>
                 </div>
                 <div class="entry-share">
                     <label>Share</label>
@@ -384,7 +384,10 @@
                     </div>
                 </div>
                 <div class="entry-nav">
-                    <a href="https://bridal.theiacouture.com/bridal/isabelle/" rel="next">Prev</a>          <a href="https://bridal.theiacouture.com/bridal/faye/" rel="prev">Next</a>        </div>
+                    <a id="sales-contact"  href="/bridal/">
+                        <button class="btn "  for="sales-contact" name="populate-styles">Back</button>
+                    </a>
+                </div>
             </div>
         </div>
     </article>

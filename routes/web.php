@@ -21,6 +21,7 @@ Route::get('/runway/', ['as' => 'runwayIndex', 'uses' => 'HomeController@runwayI
 Route::get('/real-weddings/', ['as' => 'realWeddingsIndex', 'uses' => 'HomeController@realWeddingsIndex']);
 Route::get('/wedding/details', ['as' => 'realWeddingsDetails', 'uses' => 'HomeController@realWeddingsDetails']);
 Route::get('/contact/', ['as' => 'contact', 'uses' => 'HomeController@contact']);
+Route::post('/contact/', ['as' => 'contactPost', 'uses' => 'HomeController@contactPost']);
 Route::get('/shop/', ['as' => 'shop.index', 'uses' => 'HomeController@shopIndex']);
 Route::get('/shop/list-products', ['as' => 'shop.listProducts', 'uses' => 'HomeController@listProducts']);
 Route::get('/shop/product-details', ['as' => 'shop.productDetails', 'uses' => 'HomeController@productDetails']);

@@ -3,11 +3,8 @@
         <div class="footer-row">
             <div class="footer-col footer-col-nav">
                 <div class="footer-col-inner">
-                    <ul id="menu-footer-menu" class="nav nav-footer"><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-159"><a href="https://bridal.theiacouture.com/terms-and-conditions/">Terms and Conditions</a></li>
-                        <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-160"><a href="https://bridal.theiacouture.com/privacy-policy/">Privacy Policy</a></li>
+                    <ul id="menu-footer-menu" class="nav nav-footer">
                         <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-162"><a href="#">Size Chart</a></li>
-                        <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1354"><a href="http://press.theiacouture.com/en/articles/tag/bridal/">Press</a></li>
-                        <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1353"><a href="https://bridal.theiacouture.com/faq/">FAQ</a></li>
                         <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-161"><a href="/contact/">Contact</a></li>
                     </ul>          </div>
             </div>

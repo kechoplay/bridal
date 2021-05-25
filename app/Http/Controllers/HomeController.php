@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Contact;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -39,6 +40,20 @@ class HomeController extends Controller
     public function contact()
     {
             return view('contact');
+    }
+
+    public function contactPost(Request $request)
+    {
+        Contact::create([
+           'type_dress' => $request->style_dress,
+           'name' => $request->name,
+           'email' => $request->email,
+           'phone' => $request->phone,
+           'address' => $request->address,
+           'note' => $request->note,
+        ]);
+
+        return redirect()->back()->with('message', 'Save contact success!');
     }
 
     public function shopIndex()
