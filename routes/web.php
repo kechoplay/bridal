@@ -43,4 +43,12 @@ Route::group(['prefix' => 'admin', 'middleware' => []], function () {
     Route::get('', ['as' => 'admin.index', 'uses' => 'Admin\BridalController@index']);
 
     Route::get('/add-bridal', ['as' => 'admin.addBridal', 'uses' => 'Admin\BridalController@create']);
+
+    Route::post('/add-bridal', ['as' => 'admin.saveBridal', 'uses' => 'Admin\BridalController@store']);
+
+    Route::get('/style-dress', ['as' => 'admin.listStyle', 'uses' => 'Admin\BridalController@listStyle']);
+
+    Route::get('/add-style-dress', ['as' => 'admin.addStyle', 'uses' => 'Admin\BridalController@addStyle']);
+
+    Route::post('/add-style-dress', ['as' => 'admin.saveStyle', 'uses' => 'Admin\BridalController@saveStyle']);
 });

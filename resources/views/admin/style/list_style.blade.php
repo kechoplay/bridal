@@ -5,7 +5,7 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>Váy</h1>
+                        <h1>Mẫu váy</h1>
                     </div>
                 </div>
             </div><!-- /.container-fluid -->
@@ -17,24 +17,19 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="card">
-
                             <!-- /.card-header -->
                             <div class="card-body">
                                 <table id="example1" class="table table-bordered table-striped">
                                     <thead>
                                     <tr>
                                         <th>Tên</th>
-                                        <th>Ảnh</th>
                                         <th></th>
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    @foreach($dress as $dr)
+                                    @foreach($styles as $style)
                                         <tr>
-                                            <td>{{ $dr->name }}</td>
-                                            <td>
-                                                <img src="{{ $dr->image }}" style="max-width: 100px;">
-                                            </td>
+                                            <td>{{ $style->name }}</td>
                                             <td>
                                                 <a><button class="btn btn-danger">Xóa</button></a>
                                                 <a><button class="btn btn-secondary">Sửa</button></a>
