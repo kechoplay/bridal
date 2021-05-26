@@ -77,7 +77,7 @@
             url("https://fonts.shopifycdn.com/neue_haas_unica/neuehaasunica_i6.3363176b64a45aad70c218c1908772b375a3b441.woff?h1=dGhlaWFjb3V0dXJlLmNvbQ&hmac=ea1b8d68ced7a94c3336f14853631cfb43fb9eb3144ff240335721e4e9e82b0d") format("woff");
         }
     </style>
-    <link href="//cdn.shopify.com/s/files/1/0546/6033/t/32/assets/theme.css?v=11962635964051078849" rel="stylesheet" type="text/css" media="all" />
+    <link href="/css/theme.css?v={{ time() }}" rel="stylesheet" type="text/css" media="all" />
     <style data-shopify>
         :root {
             --typeHeaderPrimary: "Neue Haas Unica";
@@ -157,9 +157,6 @@
     <script>
         window.performance && window.performance.mark && window.performance.mark('shopify.content_for_header.start');
     </script>
-    <meta name="google-site-verification" content="9dl8r3jUz9v0miEbWcFJz3zSK6y1wP0-6ThIKgSBbCQ">
-    <meta name="google-site-verification" content="BXyeMoQ3IWQfT1jN-QrHvJcxEE0by8cXCc_TMTDOmy0">
-    <meta name="google-site-verification" content="nkJlg4Qfh-k6kEzVlwTDAndVQbY95alsPwdF3Gi0szM">
     <meta id="shopify-digital-wallet" name="shopify-digital-wallet" content="/5466033/digital_wallets/dialog">
     <meta name="shopify-checkout-api-token" content="7b2241810495641f0e2a45472fe65e51">
     <meta id="in-context-paypal-metadata" data-shop-id="5466033" data-venmo-supported="true" data-environment="production" data-locale="en_US" data-paypal-v4="true" data-currency="USD">
@@ -199,39 +196,7 @@
         }
     </script>
     <script>
-        (function() {
-            if ("sendBeacon" in navigator && "performance" in window) {
-                var session_token = document.cookie.match(/_shopify_s=([^;]*)/);
 
-                function handle_abandonment_event(e) {
-                    var entries = performance.getEntries().filter(function(entry) {
-                        return /monorail-edge.shopifysvc.com/.test(entry.name);
-                    });
-                    if (!window.abandonment_tracked && entries.length === 0) {
-                        window.abandonment_tracked = true;
-                        var currentMs = Date.now();
-                        var navigation_start = performance.timing.navigationStart;
-                        var payload = {
-                            shop_id: 5466033,
-                            url: window.location.href,
-                            navigation_start,
-                            duration: currentMs - navigation_start,
-                            session_token: session_token && session_token.length === 2 ? session_token[1] : "",
-                            page_type: "collection"
-                        };
-                        window.navigator.sendBeacon("https://monorail-edge.shopifysvc.com/v1/produce", JSON.stringify({
-                            schema_id: "online_store_buyer_site_abandonment/1.1",
-                            payload: payload,
-                            metadata: {
-                                event_created_at_ms: currentMs,
-                                event_sent_at_ms: currentMs
-                            }
-                        }));
-                    }
-                }
-                window.addEventListener('pagehide', handle_abandonment_event);
-            }
-        }());
     </script>
     <script>
         var Shopify = Shopify || {};
@@ -765,6 +730,11 @@
 
     <script src="//cdn.shopify.com/s/files/1/0546/6033/t/32/assets/vendor-scripts-v9.js" defer="defer"></script>
     <script src="//cdn.shopify.com/s/files/1/0546/6033/t/32/assets/theme.min.js?v=8260113599161302091" defer="defer"></script>
+    <style>
+        ul {
+            list-style: none;
+        }
+    </style>
 </head>
 
 <body class="template-collection" data-center-text="true" data-button_style="square" data-type_header_capitalize="true" data-type_headers_align_text="true" data-type_product_capitalize="true" data-swatch_style="round">
@@ -809,32 +779,27 @@
                                     <div class="collapsible-content__inner">
                                         <ul class="mobile-nav__sublist">
                                             <li class="mobile-nav__item">
-                                                <div class="mobile-nav__child-item"><a href="/collections/shop" class="mobile-nav__link" id="Sublabel-collections-shop1" data-active="true">
+                                                <div class="mobile-nav__child-item">
+                                                    <a href="{{ route('shop.listProducts') }}" class="mobile-nav__link" id="Sublabel-collections-shop1" data-active="true">
                                                         Shop All Styles
-                                                    </a><button type="button" aria-controls="Sublinklist-collections-shop1-collections-shop1" aria-labelledby="Sublabel-collections-shop1" class="collapsible-trigger is-open"><span class="collapsible-trigger__icon collapsible-trigger__icon--circle collapsible-trigger__icon--open" role="presentation">
+                                                    </a>
+                                                    <button type="button" aria-controls="Sublinklist-collections-shop1-collections-shop1" aria-labelledby="Sublabel-collections-shop1" class="collapsible-trigger is-open"><span class="collapsible-trigger__icon collapsible-trigger__icon--circle collapsible-trigger__icon--open" role="presentation">
                                                                 <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon--wide icon-chevron-down" viewBox="0 0 28 16">
                                                                     <path d="M1.57 1.59l12.76 12.77L27.1 1.59" stroke-width="2" stroke="#000" fill="none" fill-rule="evenodd" />
                                                                 </svg>
                                                             </span>
-                                                    </button></div>
+                                                    </button>
+                                                </div>
                                                 <div id="Sublinklist-collections-shop1-collections-shop1" aria-labelledby="Sublabel-collections-shop1" class="mobile-nav__sublist collapsible-content collapsible-content--all is-open" style="height: auto;">
                                                     <div class="collapsible-content__inner">
                                                         <ul class="mobile-nav__grandchildlist">
+                                                            @foreach($styles as $style)
                                                             <li class="mobile-nav__item">
-                                                                <a href="/collections/evening-gowns" class="mobile-nav__link">
-                                                                    Evening Gowns
+                                                                <a href="{{ route('shop.listProductsStyle', ['style' => $style->slug]) }}" class="mobile-nav__link">
+                                                                    {{ $style->name }}
                                                                 </a>
                                                             </li>
-                                                            <li class="mobile-nav__item">
-                                                                <a href="/collections/cocktail-dresses" class="mobile-nav__link">
-                                                                    Cocktail Dresses
-                                                                </a>
-                                                            </li>
-                                                            <li class="mobile-nav__item">
-                                                                <a href="/collections/jumpsuits" class="mobile-nav__link">
-                                                                    Jumpsuits
-                                                                </a>
-                                                            </li>
+                                                            @endforeach
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -860,89 +825,11 @@
                                                     </div>
                                                 </div>
                                             </li>
-                                            <li class="mobile-nav__item">
-                                                <div class="mobile-nav__child-item"><a href="/collections/sale" class="mobile-nav__link" id="Sublabel-collections-sale3">
-                                                        Sale
-                                                    </a><button type="button" aria-controls="Sublinklist-collections-shop1-collections-sale3" aria-labelledby="Sublabel-collections-sale3" class="collapsible-trigger"><span class="collapsible-trigger__icon collapsible-trigger__icon--circle collapsible-trigger__icon--open" role="presentation">
-                                                                <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon--wide icon-chevron-down" viewBox="0 0 28 16">
-                                                                    <path d="M1.57 1.59l12.76 12.77L27.1 1.59" stroke-width="2" stroke="#000" fill="none" fill-rule="evenodd" />
-                                                                </svg>
-                                                            </span>
-                                                    </button></div>
-                                                <div id="Sublinklist-collections-shop1-collections-sale3" aria-labelledby="Sublabel-collections-sale3" class="mobile-nav__sublist collapsible-content collapsible-content--all">
-                                                    <div class="collapsible-content__inner">
-                                                        <ul class="mobile-nav__grandchildlist">
-                                                            <li class="mobile-nav__item">
-                                                                <a href="/collections/sale" class="mobile-nav__link">
-                                                                    Shop Sale
-                                                                </a>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li class="mobile-nav__item">
-                                                <div class="mobile-nav__child-item"><a href="/collections/bridal-shop" class="mobile-nav__link" id="Sublabel-collections-bridal-shop4">
-                                                        Wedding Shop
-                                                    </a><button type="button" aria-controls="Sublinklist-collections-shop1-collections-bridal-shop4" aria-labelledby="Sublabel-collections-bridal-shop4" class="collapsible-trigger"><span class="collapsible-trigger__icon collapsible-trigger__icon--circle collapsible-trigger__icon--open" role="presentation">
-                                                                <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon--wide icon-chevron-down" viewBox="0 0 28 16">
-                                                                    <path d="M1.57 1.59l12.76 12.77L27.1 1.59" stroke-width="2" stroke="#000" fill="none" fill-rule="evenodd" />
-                                                                </svg>
-                                                            </span>
-                                                    </button></div>
-                                                <div id="Sublinklist-collections-shop1-collections-bridal-shop4" aria-labelledby="Sublabel-collections-bridal-shop4" class="mobile-nav__sublist collapsible-content collapsible-content--all">
-                                                    <div class="collapsible-content__inner">
-                                                        <ul class="mobile-nav__grandchildlist">
-                                                            <li class="mobile-nav__item">
-                                                                <a href="/collections/for-the-bride" class="mobile-nav__link">
-                                                                    For the Bride
-                                                                </a>
-                                                            </li>
-                                                            <li class="mobile-nav__item">
-                                                                <a href="/collections/wedding-guest" class="mobile-nav__link">
-                                                                    Wedding Guest
-                                                                </a>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </li>
                                         </ul>
                                     </div>
                                 </div>
                             </li>
                             <li class="mobile-nav__item appear-animation appear-delay-3"><a href="/collections/new-arrivals" class="mobile-nav__link mobile-nav__link--top-level">New Arrivals</a></li>
-                            <li class="mobile-nav__item appear-animation appear-delay-4"><a href="/collections/sale" class="mobile-nav__link mobile-nav__link--top-level">Sale</a></li>
-                            <li class="mobile-nav__item appear-animation appear-delay-5">
-                                <div class="mobile-nav__has-sublist"><a href="/collections/bridal" class="mobile-nav__link mobile-nav__link--top-level" id="Label-collections-bridal4">
-                                        Bridal
-                                    </a>
-                                    <div class="mobile-nav__toggle">
-                                        <button type="button" aria-controls="Linklist-collections-bridal4" aria-labelledby="Label-collections-bridal4" class="collapsible-trigger collapsible--auto-height"><span class="collapsible-trigger__icon collapsible-trigger__icon--open" role="presentation">
-                                                    <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon--wide icon-chevron-down" viewBox="0 0 28 16">
-                                                        <path d="M1.57 1.59l12.76 12.77L27.1 1.59" stroke-width="2" stroke="#000" fill="none" fill-rule="evenodd" />
-                                                    </svg>
-                                                </span>
-                                        </button>
-                                    </div>
-                                </div>
-                                <div id="Linklist-collections-bridal4" class="mobile-nav__sublist collapsible-content collapsible-content--all">
-                                    <div class="collapsible-content__inner">
-                                        <ul class="mobile-nav__sublist">
-                                            <li class="mobile-nav__item">
-                                                <div class="mobile-nav__child-item"><a href="/collections/bridal" class="mobile-nav__link" id="Sublabel-collections-bridal1">
-                                                        Bridal Lookbook
-                                                    </a></div>
-                                            </li>
-                                            <li class="mobile-nav__item">
-                                                <div class="mobile-nav__child-item"><a href="/blogs/real-weddings" class="mobile-nav__link" id="Sublabel-blogs-real-weddings2">
-                                                        Real Weddings
-                                                    </a></div>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </li>
                         </ul>
                     </div>
                 </div>
@@ -963,9 +850,6 @@
                     font-size: 1.1em;
                 }
 
-
-
-
                 .site-header {
                     box-shadow: 0 0 1px rgba(0, 0, 0, 0.2);
                 }
@@ -976,36 +860,6 @@
             </style>
 
             <div data-section-id="header" data-section-type="header">
-
-
-                <div class="announcement-bar">
-                    <div class="page-width">
-                        <div class="slideshow-wrapper">
-                            <button type="button" class="visually-hidden slideshow__pause" data-id="header" aria-live="polite">
-                                    <span class="slideshow__pause-stop">
-                                        <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-pause" viewBox="0 0 10 13">
-                                            <g fill="#000" fill-rule="evenodd">
-                                                <path d="M0 0h3v13H0zM7 0h3v13H7z" />
-                                            </g>
-                                        </svg>
-                                        <span class="icon__fallback-text">Pause slideshow</span>
-                                    </span>
-                                <span class="slideshow__pause-play">
-                                        <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-play" viewBox="18.24 17.35 24.52 28.3">
-                                            <path fill="#323232" d="M22.1 19.151v25.5l20.4-13.489-20.4-12.011z" />
-                                        </svg>
-                                        <span class="icon__fallback-text">Play slideshow</span>
-                                    </span>
-                            </button>
-
-                            <div id="AnnouncementSlider" class="announcement-slider" data-compact="true" data-block-count="1">
-                                <div id="AnnouncementSlide-1524770292306" class="announcement-slider__slide" data-index="0"><a class="announcement-link" href="/shop/"><span class="announcement-text">Shop evening-Free shipping</span></a></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
                 <div class="header-sticky-wrapper">
                     <div id="HeaderWrapper" class="header-wrapper">
                         <header id="SiteHeader" class="site-header" data-sticky="true" data-overlay="false">
@@ -1064,31 +918,23 @@
                                         <ul class="site-nav site-navigation small--hide" role="navigation" aria-label="Primary">
                                             <li class="site-nav__item site-nav__expanded-item site-nav--has-dropdown site-nav--is-megamenu" aria-haspopup="true">
 
-                                                <a href="/collections/shop" class="site-nav__link site-nav__link--underline site-nav__link--has-dropdown">
+                                                <a href="{{ route('shop.listProducts') }}" class="site-nav__link site-nav__link--underline site-nav__link--has-dropdown">
                                                     Shop
                                                 </a>
                                                 <div class="site-nav__dropdown megamenu text-left">
                                                     <div class="page-width">
                                                         <div class="grid grid--center">
-                                                            <div class="grid__item medium-up--one-fifth appear-animation appear-delay-1"><a href="/collections/shop" class="megamenu__colection-image" aria-label="Shop" style="background-image: url(//cdn.shopify.com/s/files/1/0546/6033/collections/resort-2016-collection-grid_53abf468-9d1d-406e-bcb1-9f5662adb754_400x.jpg?v=1620139942)"></a>
+                                                            <div class="grid__item medium-up--one-fifth appear-animation appear-delay-1"><a href="{{ route('shop.listProducts') }}" class="megamenu__colection-image" aria-label="Shop" style="background-image: url(//cdn.shopify.com/s/files/1/0546/6033/collections/resort-2016-collection-grid_53abf468-9d1d-406e-bcb1-9f5662adb754_400x.jpg?v=1620139942)"></a>
                                                                 <div class="h5">
-                                                                    <a href="/collections/shop" class="site-nav__dropdown-link site-nav__dropdown-link--top-level">Shop All Styles</a>
+                                                                    <a href="{{ route('shop.listProducts') }}" class="site-nav__dropdown-link site-nav__dropdown-link--top-level">Shop All Styles</a>
                                                                 </div>
+                                                                @foreach($styles as $style)
                                                                 <div>
-                                                                    <a href="/collections/evening-gowns" class="site-nav__dropdown-link">
-                                                                        Evening Gowns
+                                                                    <a href="{{ route('shop.listProductsStyle', ['style' => $style->slug]) }}" class="site-nav__dropdown-link">
+                                                                        {{ $style->name }}
                                                                     </a>
                                                                 </div>
-                                                                <div>
-                                                                    <a href="/collections/cocktail-dresses" class="site-nav__dropdown-link">
-                                                                        Cocktail Dresses
-                                                                    </a>
-                                                                </div>
-                                                                <div>
-                                                                    <a href="/collections/jumpsuits" class="site-nav__dropdown-link">
-                                                                        Jumpsuits
-                                                                    </a>
-                                                                </div>
+                                                                @endforeach
                                                             </div>
                                                             <div class="grid__item medium-up--one-fifth appear-animation appear-delay-2"><a href="/collections/new-arrivals" class="megamenu__colection-image" aria-label="New Arrivals" style="background-image: url(//cdn.shopify.com/s/files/1/0546/6033/collections/884286_11797_copy_400x.jpg?v=1620139712)"></a>
                                                                 <div class="h5">
@@ -1097,31 +943,6 @@
                                                                 <div>
                                                                     <a href="/collections/new-arrivals" class="site-nav__dropdown-link">
                                                                         Shop New Arrivals
-                                                                    </a>
-                                                                </div>
-                                                            </div>
-                                                            <div class="grid__item medium-up--one-fifth appear-animation appear-delay-3"><a href="/collections/sale" class="megamenu__colection-image" aria-label="Sale" style="background-image: url(//cdn.shopify.com/s/files/1/0546/6033/collections/884241__42_copy_400x.jpg?v=1565209427)"></a>
-                                                                <div class="h5">
-                                                                    <a href="/collections/sale" class="site-nav__dropdown-link site-nav__dropdown-link--top-level">Sale</a>
-                                                                </div>
-                                                                <div>
-                                                                    <a href="/collections/sale" class="site-nav__dropdown-link">
-                                                                        Shop Sale
-                                                                    </a>
-                                                                </div>
-                                                            </div>
-                                                            <div class="grid__item medium-up--one-fifth appear-animation appear-delay-4"><a href="/collections/bridal-shop" class="megamenu__colection-image" aria-label="Bridal Shop" style="background-image: url(//cdn.shopify.com/s/files/1/0546/6033/collections/Frame_3_400x.png?v=1621603652)"></a>
-                                                                <div class="h5">
-                                                                    <a href="/collections/bridal-shop" class="site-nav__dropdown-link site-nav__dropdown-link--top-level">Wedding Shop</a>
-                                                                </div>
-                                                                <div>
-                                                                    <a href="/collections/for-the-bride" class="site-nav__dropdown-link">
-                                                                        For the Bride
-                                                                    </a>
-                                                                </div>
-                                                                <div>
-                                                                    <a href="/collections/wedding-guest" class="site-nav__dropdown-link">
-                                                                        Wedding Guest
                                                                     </a>
                                                                 </div>
                                                             </div>
@@ -1135,46 +956,18 @@
                                                     New Arrivals
                                                 </a>
                                             </li>
-                                            <li class="site-nav__item site-nav__expanded-item">
-
-                                                <a href="/collections/sale" class="site-nav__link site-nav__link--underline">
-                                                    Sale
-                                                </a>
-                                            </li>
-                                            <li class="site-nav__item site-nav__expanded-item site-nav--has-dropdown" aria-haspopup="true">
-
-                                                <a href="/collections/bridal" class="site-nav__link site-nav__link--underline site-nav__link--has-dropdown">
-                                                    Bridal
-                                                </a>
-                                                <ul class="site-nav__dropdown text-left">
-                                                    <li class="">
-                                                        <a href="/collections/bridal" class="site-nav__dropdown-link site-nav__dropdown-link--second-level">
-                                                            Bridal Lookbook
-                                                        </a>
-                                                    </li>
-                                                    <li class="">
-                                                        <a href="/blogs/real-weddings" class="site-nav__dropdown-link site-nav__dropdown-link--second-level">
-                                                            Real Weddings
-                                                        </a>
-                                                    </li>
-                                                </ul>
-                                            </li>
                                         </ul>
                                     </div>
                                     <div class="header-item header-item--icons">
                                         <div class="site-nav">
-                                            <div class="site-nav__icons"><a class="site-nav__link site-nav__link--icon small--hide" href="/account">
-                                                    <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-user" viewBox="0 0 64 64">
-                                                        <path d="M35 39.84v-2.53c3.3-1.91 6-6.66 6-11.41 0-7.63 0-13.82-9-13.82s-9 6.19-9 13.82c0 4.75 2.7 9.51 6 11.41v2.53c-10.18.85-18 6-18 12.16h42c0-6.19-7.82-11.31-18-12.16z" />
-                                                    </svg>
-                                                    <span class="icon__fallback-text">Log in
-                                                        </span>
-                                                </a><a href="/search" class="site-nav__link site-nav__link--icon js-search-header">
+                                            <div class="site-nav__icons">
+                                                <a href="/search" class="site-nav__link site-nav__link--icon js-search-header">
                                                     <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-search" viewBox="0 0 64 64">
                                                         <path d="M47.16 28.58A18.58 18.58 0 1 1 28.58 10a18.58 18.58 0 0 1 18.58 18.58zM54 54L41.94 42" />
                                                     </svg>
                                                     <span class="icon__fallback-text">Search</span>
-                                                </a><button type="button" class="site-nav__link site-nav__link--icon js-drawer-open-nav medium-up--hide" aria-controls="NavDrawer">
+                                                </a>
+                                                <button type="button" class="site-nav__link site-nav__link--icon js-drawer-open-nav medium-up--hide" aria-controls="NavDrawer">
                                                     <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-hamburger" viewBox="0 0 64 64">
                                                         <path d="M7 15h51M7 32h43M7 49h51" />
                                                     </svg>
