@@ -318,7 +318,7 @@
                         <div class="entry-image-slideshow-wrap">
                             <div class="entry-image-slideshow">
                                 <div class="product-image">
-                                    <img src="https://413qut3s1ajtpgjzf1ekop6h-wpengine.netdna-ssl.com/wp-content/uploads/2019/09/890703_Ivory_1-1440x2160.jpg" alt="" class="product-img">
+                                    <img src="/image_test/test11.jpg" alt="" class="product-img">
                                 </div>
                                 <div class="product-image">
                                     <img src="https://413qut3s1ajtpgjzf1ekop6h-wpengine.netdna-ssl.com/wp-content/uploads/2019/09/890703_Ivory_2-1440x2160.jpg" alt="" class="product-img">
@@ -332,7 +332,7 @@
                     <div class="entry-thumbs">
                         <div class="entry-thumb-col active on" data-color="ivory" data-color-name="Ivory" data-color-url="https://bridal.theiacouture.com/color/ivory/">
                             <div class="entry-thumb">
-                                <img src="https://413qut3s1ajtpgjzf1ekop6h-wpengine.netdna-ssl.com/wp-content/uploads/2019/09/890703_Ivory_1-300x500.jpg" alt="">
+                                <img  src="/image_test/test11.jpg" alt="">
                             </div>
                         </div>
                         <div class="entry-thumb-col on" data-color="ivory" data-color-name="Ivory" data-color-url="https://bridal.theiacouture.com/color/ivory/">

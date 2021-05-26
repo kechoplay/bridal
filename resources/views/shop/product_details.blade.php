@@ -2,6 +2,15 @@
 @section('content')
     <div id="shopify-section-product-template" class="shopify-section">
         <div id="ProductSection-6694898139324" class="product-section" data-section-id="6694898139324" data-section-type="product" data-product-handle="theia-maika-cascading-ruffle-dress-white" data-product-title="Maika Cascading Ruffle Dress" data-product-url="/collections/shop/products/theia-maika-cascading-ruffle-dress-white" data-aspect-ratio="150.0" data-img-url="//cdn.shopify.com/s/files/1/0546/6033/products/8814954_2295_1_{width}x.jpg?v=1620055699" data-image-zoom="true" data-inventory="true" data-history="true" data-modal="false">
+            <style>
+
+                .shopify-payment-button__button--unbranded:hover:not([disabled]) {
+                    background-color: #40423d;
+                }
+                .shopify-payment-button__button--unbranded {
+                    background-color: black ;
+                }
+            </style>>
             <script type="application/ld+json">
             {
                 "@context": "http://schema.org",
@@ -315,21 +324,19 @@
                                     <div id="ProductInventory-6694898139324" class="product__inventory hide">Only 2 items in stock!
                                     </div>
                                     <div class="payment-buttons">
-                                        <button type="submit" name="add" id="AddToCart-6694898139324" class="btn btn--full add-to-cart btn--secondary">
-                                        <span id="AddToCartText-6694898139324" data-default-text="Add to cart">
-                                            Add to cart
-                                        </span>
-                                        </button>
+                                        <a href="#">
+                                            <button type="button" class="shopify-payment-button__button shopify-payment-button__button--unbranded _2ogcW-Q9I-rgsSkNbRiJzA _2EiMjnumZ6FVtlC7RViKtj _2-dUletcCZ2ZL1aaH0GXxT navigable" data-testid="Checkout-button" id="contact_product">Contact now</button>
+                                        </a>
                                         <div data-shopify="payment-button" class="shopify-payment-button">
                                             <button class="shopify-payment-button__button shopify-payment-button__button--unbranded shopify-payment-button__button--hidden" disabled="disabled" aria-hidden="true"></button>
                                             <button class="shopify-payment-button__more-options shopify-payment-button__button--hidden" disabled="disabled" aria-hidden="true"></button>
                                         </div>
                                     </div>
                                     <textarea id="VariantsJson-6694898139324" class="hide" aria-hidden="true" aria-label="Product JSON">
-    [{"id":39724995412156,"title":"0 \/ White","option1":"0","option2":"White","option3":null,"sku":"8814954-2295-0","requires_shipping":true,"taxable":true,"featured_image":null,"available":true,"name":"Maika Cascading Ruffle Dress - 0 \/ White","public_title":"0 \/ White","options":["0","White"],"price":79500,"weight":0,"compare_at_price":null,"inventory_quantity":2,"inventory_management":"momentis","inventory_policy":"deny","barcode":null,"requires_selling_plan":false,"selling_plan_allocations":[]},{"id":39724995444924,"title":"2 \/ White","option1":"2","option2":"White","option3":null,"sku":"8814954-2295-2","requires_shipping":true,"taxable":true,"featured_image":null,"available":true,"name":"Maika Cascading Ruffle Dress - 2 \/ White","public_title":"2 \/ White","options":["2","White"],"price":79500,"weight":0,"compare_at_price":null,"inventory_quantity":2,"inventory_management":"momentis","inventory_policy":"deny","barcode":null,"requires_selling_plan":false,"selling_plan_allocations":[]},{"id":39724995477692,"title":"4 \/ White","option1":"4","option2":"White","option3":null,"sku":"8814954-2295-4","requires_shipping":true,"taxable":true,"featured_image":null,"available":true,"name":"Maika Cascading Ruffle Dress - 4 \/ White","public_title":"4 \/ White","options":["4","White"],"price":79500,"weight":0,"compare_at_price":null,"inventory_quantity":4,"inventory_management":"momentis","inventory_policy":"deny","barcode":null,"requires_selling_plan":false,"selling_plan_allocations":[]},{"id":39724995510460,"title":"6 \/ White","option1":"6","option2":"White","option3":null,"sku":"8814954-2295-6","requires_shipping":true,"taxable":true,"featured_image":null,"available":true,"name":"Maika Cascading Ruffle Dress - 6 \/ White","public_title":"6 \/ White","options":["6","White"],"price":79500,"weight":0,"compare_at_price":null,"inventory_quantity":6,"inventory_management":"momentis","inventory_policy":"deny","barcode":null,"requires_selling_plan":false,"selling_plan_allocations":[]},{"id":39724995543228,"title":"8 \/ White","option1":"8","option2":"White","option3":null,"sku":"8814954-2295-8","requires_shipping":true,"taxable":true,"featured_image":null,"available":true,"name":"Maika Cascading Ruffle Dress - 8 \/ White","public_title":"8 \/ White","options":["8","White"],"price":79500,"weight":0,"compare_at_price":null,"inventory_quantity":6,"inventory_management":"momentis","inventory_policy":"deny","barcode":null,"requires_selling_plan":false,"selling_plan_allocations":[]},{"id":39724995575996,"title":"10 \/ White","option1":"10","option2":"White","option3":null,"sku":"8814954-2295-10","requires_shipping":true,"taxable":true,"featured_image":null,"available":true,"name":"Maika Cascading Ruffle Dress - 10 \/ White","public_title":"10 \/ White","options":["10","White"],"price":79500,"weight":0,"compare_at_price":null,"inventory_quantity":2,"inventory_management":"momentis","inventory_policy":"deny","barcode":null,"requires_selling_plan":false,"selling_plan_allocations":[]},{"id":39724995608764,"title":"12 \/ White","option1":"12","option2":"White","option3":null,"sku":"8814954-2295-12","requires_shipping":true,"taxable":true,"featured_image":null,"available":true,"name":"Maika Cascading Ruffle Dress - 12 \/ White","public_title":"12 \/ White","options":["12","White"],"price":79500,"weight":0,"compare_at_price":null,"inventory_quantity":2,"inventory_management":"momentis","inventory_policy":"deny","barcode":null,"requires_selling_plan":false,"selling_plan_allocations":[]},{"id":39724995641532,"title":"14 \/ White","option1":"14","option2":"White","option3":null,"sku":"8814954-2295-14","requires_shipping":true,"taxable":true,"featured_image":null,"available":false,"name":"Maika Cascading Ruffle Dress - 14 \/ White","public_title":"14 \/ White","options":["14","White"],"price":79500,"weight":0,"compare_at_price":null,"inventory_quantity":0,"inventory_management":"momentis","inventory_policy":"deny","barcode":null,"requires_selling_plan":false,"selling_plan_allocations":[]},{"id":39724995674300,"title":"16 \/ White","option1":"16","option2":"White","option3":null,"sku":"8814954-2295-16","requires_shipping":true,"taxable":true,"featured_image":null,"available":true,"name":"Maika Cascading Ruffle Dress - 16 \/ White","public_title":"16 \/ White","options":["16","White"],"price":79500,"weight":0,"compare_at_price":null,"inventory_quantity":3,"inventory_management":"momentis","inventory_policy":"deny","barcode":null,"requires_selling_plan":false,"selling_plan_allocations":[]}]
-  </textarea><textarea id="CurrentVariantJson-6694898139324" class="hide" aria-hidden="true" aria-label="Variant JSON">
-      {"id":39724995412156,"title":"0 \/ White","option1":"0","option2":"White","option3":null,"sku":"8814954-2295-0","requires_shipping":true,"taxable":true,"featured_image":null,"available":true,"name":"Maika Cascading Ruffle Dress - 0 \/ White","public_title":"0 \/ White","options":["0","White"],"price":79500,"weight":0,"compare_at_price":null,"inventory_quantity":2,"inventory_management":"momentis","inventory_policy":"deny","barcode":null,"requires_selling_plan":false,"selling_plan_allocations":[]}
-    </textarea>
+                                      [{"id":39724995412156,"title":"0 \/ White","option1":"0","option2":"White","option3":null,"sku":"8814954-2295-0","requires_shipping":true,"taxable":true,"featured_image":null,"available":true,"name":"Maika Cascading Ruffle Dress - 0 \/ White","public_title":"0 \/ White","options":["0","White"],"price":79500,"weight":0,"compare_at_price":null,"inventory_quantity":2,"inventory_management":"momentis","inventory_policy":"deny","barcode":null,"requires_selling_plan":false,"selling_plan_allocations":[]},{"id":39724995444924,"title":"2 \/ White","option1":"2","option2":"White","option3":null,"sku":"8814954-2295-2","requires_shipping":true,"taxable":true,"featured_image":null,"available":true,"name":"Maika Cascading Ruffle Dress - 2 \/ White","public_title":"2 \/ White","options":["2","White"],"price":79500,"weight":0,"compare_at_price":null,"inventory_quantity":2,"inventory_management":"momentis","inventory_policy":"deny","barcode":null,"requires_selling_plan":false,"selling_plan_allocations":[]},{"id":39724995477692,"title":"4 \/ White","option1":"4","option2":"White","option3":null,"sku":"8814954-2295-4","requires_shipping":true,"taxable":true,"featured_image":null,"available":true,"name":"Maika Cascading Ruffle Dress - 4 \/ White","public_title":"4 \/ White","options":["4","White"],"price":79500,"weight":0,"compare_at_price":null,"inventory_quantity":4,"inventory_management":"momentis","inventory_policy":"deny","barcode":null,"requires_selling_plan":false,"selling_plan_allocations":[]},{"id":39724995510460,"title":"6 \/ White","option1":"6","option2":"White","option3":null,"sku":"8814954-2295-6","requires_shipping":true,"taxable":true,"featured_image":null,"available":true,"name":"Maika Cascading Ruffle Dress - 6 \/ White","public_title":"6 \/ White","options":["6","White"],"price":79500,"weight":0,"compare_at_price":null,"inventory_quantity":6,"inventory_management":"momentis","inventory_policy":"deny","barcode":null,"requires_selling_plan":false,"selling_plan_allocations":[]},{"id":39724995543228,"title":"8 \/ White","option1":"8","option2":"White","option3":null,"sku":"8814954-2295-8","requires_shipping":true,"taxable":true,"featured_image":null,"available":true,"name":"Maika Cascading Ruffle Dress - 8 \/ White","public_title":"8 \/ White","options":["8","White"],"price":79500,"weight":0,"compare_at_price":null,"inventory_quantity":6,"inventory_management":"momentis","inventory_policy":"deny","barcode":null,"requires_selling_plan":false,"selling_plan_allocations":[]},{"id":39724995575996,"title":"10 \/ White","option1":"10","option2":"White","option3":null,"sku":"8814954-2295-10","requires_shipping":true,"taxable":true,"featured_image":null,"available":true,"name":"Maika Cascading Ruffle Dress - 10 \/ White","public_title":"10 \/ White","options":["10","White"],"price":79500,"weight":0,"compare_at_price":null,"inventory_quantity":2,"inventory_management":"momentis","inventory_policy":"deny","barcode":null,"requires_selling_plan":false,"selling_plan_allocations":[]},{"id":39724995608764,"title":"12 \/ White","option1":"12","option2":"White","option3":null,"sku":"8814954-2295-12","requires_shipping":true,"taxable":true,"featured_image":null,"available":true,"name":"Maika Cascading Ruffle Dress - 12 \/ White","public_title":"12 \/ White","options":["12","White"],"price":79500,"weight":0,"compare_at_price":null,"inventory_quantity":2,"inventory_management":"momentis","inventory_policy":"deny","barcode":null,"requires_selling_plan":false,"selling_plan_allocations":[]},{"id":39724995641532,"title":"14 \/ White","option1":"14","option2":"White","option3":null,"sku":"8814954-2295-14","requires_shipping":true,"taxable":true,"featured_image":null,"available":false,"name":"Maika Cascading Ruffle Dress - 14 \/ White","public_title":"14 \/ White","options":["14","White"],"price":79500,"weight":0,"compare_at_price":null,"inventory_quantity":0,"inventory_management":"momentis","inventory_policy":"deny","barcode":null,"requires_selling_plan":false,"selling_plan_allocations":[]},{"id":39724995674300,"title":"16 \/ White","option1":"16","option2":"White","option3":null,"sku":"8814954-2295-16","requires_shipping":true,"taxable":true,"featured_image":null,"available":true,"name":"Maika Cascading Ruffle Dress - 16 \/ White","public_title":"16 \/ White","options":["16","White"],"price":79500,"weight":0,"compare_at_price":null,"inventory_quantity":3,"inventory_management":"momentis","inventory_policy":"deny","barcode":null,"requires_selling_plan":false,"selling_plan_allocations":[]}]
+                                     </textarea><textarea id="CurrentVariantJson-6694898139324" class="hide" aria-hidden="true" aria-label="Variant JSON">
+                                       {"id":39724995412156,"title":"0 \/ White","option1":"0","option2":"White","option3":null,"sku":"8814954-2295-0","requires_shipping":true,"taxable":true,"featured_image":null,"available":true,"name":"Maika Cascading Ruffle Dress - 0 \/ White","public_title":"0 \/ White","options":["0","White"],"price":79500,"weight":0,"compare_at_price":null,"inventory_quantity":2,"inventory_management":"momentis","inventory_policy":"deny","barcode":null,"requires_selling_plan":false,"selling_plan_allocations":[]}
+                                    </textarea>
                                 </form>
                                 <div class="product-single__description rte">
                                     Fil Coupé Jacquard Cascading Ruffle Ankle Length Dress With Skirt Slit And Pockets.
@@ -543,44 +550,6 @@
                                             </table>
                                         </div>
                                     </div>
-                                    <form method="post" action="/contact#contact-6694898139324-6694898139324" id="contact-6694898139324-6694898139324" accept-charset="UTF-8" class="contact-form"><input type="hidden" name="form_type" value="contact" /><input type="hidden" name="utf8" value="✓" />
-                                        <button type="button" class="label collapsible-trigger collapsible-trigger-btn collapsible-trigger-btn--borders" aria-controls="Product-content-4-6694898139324-6694898139324">
-                                            Ask a question
-                                            <span class="collapsible-trigger__icon collapsible-trigger__icon--open" role="presentation">
-                                            <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon--wide icon-chevron-down" viewBox="0 0 28 16">
-                                                <path d="M1.57 1.59l12.76 12.77L27.1 1.59" stroke-width="2" stroke="#000" fill="none" fill-rule="evenodd" />
-                                            </svg>
-                                        </span>
-                                        </button>
-
-                                        <div id="Product-content-4-6694898139324-6694898139324" class="collapsible-content collapsible-content--all">
-                                            <div class="collapsible-content__inner rte">
-                                                <div class="form-vertical">
-
-                                                    <input type="hidden" name="contact[product]" value="Product question for: https://theiacouture.com/admin/products/6694898139324">
-
-                                                    <div class="grid grid--small">
-                                                        <div class="grid__item medium-up--one-half">
-                                                            <label for="ContactFormName-6694898139324-6694898139324">Name</label>
-                                                            <input type="text" id="ContactFormName-6694898139324-6694898139324" class="input-full" name="contact[name]" autocapitalize="words" value="">
-                                                        </div>
-
-                                                        <div class="grid__item medium-up--one-half">
-                                                            <label for="ContactFormEmail-6694898139324-6694898139324">Email</label>
-                                                            <input type="email" id="ContactFormEmail-6694898139324-6694898139324" class="input-full" name="contact[email]" autocorrect="off" autocapitalize="off" value="">
-                                                        </div>
-                                                    </div>
-                                                    <label for="ContactFormMessage-6694898139324-6694898139324">Message</label>
-                                                    <textarea rows="5" id="ContactFormMessage-6694898139324-6694898139324" class="input-full" name="contact[body]"></textarea>
-
-                                                    <button type="submit" class="btn">
-                                                        Send
-                                                    </button>
-
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </form>
                                 </div>
                                 <div class="social-sharing"><a target="_blank" rel="noopener" href="//www.facebook.com/sharer.php?u=https://theiacouture.com/products/theia-maika-cascading-ruffle-dress-white" class="social-sharing__link" title="Share on Facebook">
                                         <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-facebook" viewBox="0 0 32 32">
@@ -717,6 +686,5 @@
             Back to Shop
         </a>
     </div>
-
 
 @endsection

@@ -40,7 +40,6 @@
                                                                 <label class="gfield_label" for="input_1_1">Style</label>
                                                                 <div class="ginput_container ginput_container_select">
                                                                     <select name="style_dress" id="style_dress" class="medium gfield_select" aria-invalid="false">
-                                                                        <option value="" selected="selected" class="gf_placeholder" disabled>Style (Optional)</option>
                                                                         <option value="890047 ">890047 (Elsa Overskirt)</option>
                                                                     </select>
                                                                 </div>
@@ -48,29 +47,29 @@
                                                             <li id="field_1_2" class="gfield gfield_contains_required field_sublabel_below field_description_below gfield_visibility_visible placeholder-false field-type-text">
                                                                 <label class="gfield_label" for="input_1_2">Name<span class="gfield_required">*</span></label>
                                                                 <div class="ginput_container ginput_container_text">
-                                                                    <input name="name" id="name" type="text" value="" class="medium" aria-required="true" aria-invalid="false"></div>
+                                                                    <input name="name" id="name" type="text" value="" class="medium" aria-required="true" aria-invalid="false" required></div>
                                                             </li>
                                                             <li id="field_1_3" class="gfield gfield_contains_required field_sublabel_below field_description_below gfield_visibility_visible placeholder-false field-type-email">
                                                                 <label class="gfield_label" for="input_1_3">Email<span class="gfield_required">*</span></label>
                                                                 <div class="ginput_container ginput_container_email">
-                                                                    <input name=email" id="email" type="email" value="" class="medium" aria-required="true" aria-invalid="false">
+                                                                    <input name=email" id="email" type="email" value="" class="medium" aria-required="true" aria-invalid="false" required>
                                                                 </div>
                                                             </li>
                                                             <li id="field_1_8" class="gfield gfield_contains_required field_sublabel_below field_description_below gfield_visibility_visible placeholder-false field-type-text">
                                                                 <label class="gfield_label" for="input_1_8">Contact Phone Number<span class="gfield_required">*</span></label>
                                                                 <div class="ginput_container ginput_container_text">
-                                                                    <input name="phone" id="phone" type="text" value="" class="medium" aria-required="true" aria-invalid="false">
+                                                                    <input name="phone" id="phone" type="text" value="" class="medium" aria-required="true" aria-invalid="false" required>
                                                                 </div>
                                                             </li>
                                                             <li id="field_1_6" class="gfield gfield_contains_required field_sublabel_below field_description_below gfield_visibility_visible placeholder-false field-type-text">
                                                                 <label class="gfield_label" for="input_1_6">Address<span class="gfield_required">*</span></label>
                                                                 <div class="ginput_container ginput_container_text">
-                                                                    <input name="address" id="address" type="text" value="" class="medium" aria-required="true" aria-invalid="false"></div>
+                                                                    <input name="address" id="address" type="text" value="" class="medium" aria-required="true" aria-invalid="false" required></div>
                                                             </li>
                                                             <li id="field_1_7" class="gfield gfield_contains_required field_sublabel_below field_description_below gfield_visibility_visible placeholder-false field-type-textarea">
                                                                 <label class="gfield_label" for="input_1_7">Notes<span class="gfield_required">*</span></label>
                                                                 <div class="ginput_container ginput_container_textarea">
-                                                                    <textarea name="note" id="note" class="textarea medium" aria-required="true" aria-invalid="false" rows="10" cols="50"></textarea>
+                                                                    <textarea name="note" id="note" class="textarea medium" aria-required="true" aria-invalid="false" rows="10" cols="50" required></textarea>
                                                                 </div>
                                                             </li>
                                                         </ul></div>

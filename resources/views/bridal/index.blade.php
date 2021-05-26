@@ -45,6 +45,12 @@
                     <h2 class="entry-title-heading"><a href="/bridal/details">Elsa Overskirt</a></h2>
                     <div class="entry-style"><a href="/bridal/details">Style #890047</a></div>
                 </article>
+                <article class="post-1800 bridal type-bridal status-publish hentry color-ivory collection-separates">
+                    <a href="/bridal/details" class="entry-image-anchor entry-image-anchor-color">
+                        <img width="540" height="810" class="attachment-540w size-540w lzy" alt="" loading="lazy" sizes="(max-width: 575.98px) 265px, (max-width: 1199.98px) 225px, 300px" data-src="/image_test/test10.png" />           <img width="540" height="810" class="attachment-540w size-540w lzy" alt="" loading="lazy" sizes="(max-width: 575.98px) 265px, (max-width: 1199.98px) 225px, 300px" data-src="/image_test/test3.jfif" /> </a>
+                    <h2 class="entry-title-heading"><a href="/bridal/details">Elsa Overskirt</a></h2>
+                    <div class="entry-style"><a href="/bridal/details">Style #890047</a></div>
+                </article>
             </div>
         </div>
     </div>
