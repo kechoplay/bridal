@@ -36,8 +36,8 @@
                                                 <img src="{{ $dr->image }}" style="max-width: 100px;">
                                             </td>
                                             <td>
-                                                <a><button class="btn btn-danger">Xóa</button></a>
-                                                <a><button class="btn btn-secondary">Sửa</button></a>
+                                                <a href="{{ route('admin.deleteBridal', ['id' => $dr->id]) }}"><button class="btn btn-danger">Xóa</button></a>
+                                                <a href="{{ route('admin.editBridal', ['id' => $dr->id]) }}"><button class="btn btn-secondary">Sửa</button></a>
                                             </td>
                                         </tr>
                                     @endforeach

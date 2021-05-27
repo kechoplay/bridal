@@ -15,7 +15,7 @@ Route::get('/', function () {
     return view('index');
 });
 Route::get('/', ['as' => 'homeIndex', 'uses' => 'HomeController@homeIndex']);
-Route::get('/{name}', ['as' => 'bridalIndex', 'uses' => 'HomeController@bridalIndex']);
+//Route::get('/{name}', ['as' => 'bridalIndex', 'uses' => 'HomeController@bridalIndex']);
 Route::get('/bridal', ['as' => 'bridalIndex', 'uses' => 'HomeController@bridalIndex']);
 Route::get('/bridal/details', ['as' => 'bridalDetails', 'uses' => 'HomeController@bridalDetails']);
 Route::get('/runway/', ['as' => 'runwayIndex', 'uses' => 'HomeController@runwayIndex']);
@@ -39,9 +39,19 @@ Route::group(['prefix' => 'admin', 'middleware' => []], function () {
 
     Route::post('/add-bridal', ['as' => 'admin.saveBridal', 'uses' => 'Admin\BridalController@store']);
 
+    Route::get('/update-bridal/{id}', ['as' => 'admin.editBridal', 'uses' => 'Admin\BridalController@edit']);
+
+    Route::post('/update-bridal/{id}', ['as' => 'admin.updateBridal', 'uses' => 'Admin\BridalController@update']);
+
+    Route::get('/delete-bridal/{id}', ['as' => 'admin.deleteBridal', 'uses' => 'Admin\BridalController@delete']);
+
     Route::get('/style-dress', ['as' => 'admin.listStyle', 'uses' => 'Admin\BridalController@listStyle']);
 
     Route::get('/add-style-dress', ['as' => 'admin.addStyle', 'uses' => 'Admin\BridalController@addStyle']);
 
     Route::post('/add-style-dress', ['as' => 'admin.saveStyle', 'uses' => 'Admin\BridalController@saveStyle']);
+
+    Route::get('/edit-style-dress/{id}', ['as' => 'admin.editStyle', 'uses' => 'Admin\BridalController@editStyle']);
+
+    Route::post('/edit-style-dress/{id}', ['as' => 'admin.updateStyle', 'uses' => 'Admin\BridalController@updateStyle']);
 });

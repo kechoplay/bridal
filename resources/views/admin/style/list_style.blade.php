@@ -23,6 +23,7 @@
                                     <thead>
                                     <tr>
                                         <th>Tên</th>
+                                        <th>Ảnh</th>
                                         <th></th>
                                     </tr>
                                     </thead>
@@ -30,8 +31,9 @@
                                     @foreach($styles as $style)
                                         <tr>
                                             <td>{{ $style->name }}</td>
+                                            <td><img src="{{ $style->img_category }}" style="max-width: 100px;"></td>
                                             <td>
-                                                <a><button class="btn btn-danger">Xóa</button></a>
+                                                <a ><button class="btn btn-danger">Xóa</button></a>
                                                 <a><button class="btn btn-secondary">Sửa</button></a>
                                             </td>
                                         </tr>
