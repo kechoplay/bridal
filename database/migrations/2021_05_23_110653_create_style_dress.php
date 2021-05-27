@@ -16,6 +16,7 @@ class CreateStyleDress extends Migration
         Schema::create('style_dress', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name')->nullable();
+            $table->string('slug')->nullable();
             $table->timestamps();
         });
     }

@@ -39,6 +39,14 @@
                                         </div>
                                     </div>
                                     <div class="form-group">
+                                        <label for="name">Mẫu váy</label>
+                                        <select name="style" class="form-control">
+                                            @foreach($styles as $style)
+                                                <option value="{{ $style->id }}">{{ $style->name }}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
                                         <label for="description">Miêu tả</label>
                                         <textarea class="form-control" id="description" name="description"></textarea>
                                     </div>

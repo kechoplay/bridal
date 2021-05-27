@@ -7,6 +7,7 @@ use App\StyleDress;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Str;
 
 class BridalController extends Controller
 {
@@ -22,7 +23,8 @@ class BridalController extends Controller
 
     public function create(Request $request)
     {
-        return view('admin.bridal.add');
+        $styles = StyleDress::all();
+        return view('admin.bridal.add', compact('styles'));
     }
 
     public function store(Request $request)
@@ -30,6 +32,7 @@ class BridalController extends Controller
         $nameDress = $request->name;
         $images = $request->images;
         $description = $request->description;
+        $style = $request->style;
 
         $path = public_path('image');
         if (!File::exists($path))
@@ -45,7 +48,8 @@ class BridalController extends Controller
         DressProduct::create([
             'name' => $nameDress,
             'img_path' => json_encode($imageList),
-            'description' => $description
+            'description' => $description,
+            'style' => $style
         ]);
 
         return redirect()->route('admin.index');
@@ -66,7 +70,8 @@ class BridalController extends Controller
     {
         $name = $request->name;
         StyleDress::create([
-            'name' => $name
+            'name' => $name,
+            'slug' => Str::slug($name)
         ]);
         return redirect()->route('admin.listStyle');
     }
