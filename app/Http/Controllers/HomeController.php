@@ -3,13 +3,17 @@
 namespace App\Http\Controllers;
 
 use App\Contact;
+use App\DressProduct;
+use App\WeddingDressCategory;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
     public function homeIndex()
     {
-        return view('index');
+        $category = WeddingDressCategory::query()->orderBy('created_at','desc')->limit('2')->get();
+        $product = DressProduct::query()->orderBy('created_at','desc')->limit('3')->get();
+        return view('index',compact('category'));
     }
 
     public function bridalIndex()

@@ -16,6 +16,7 @@ class CreateTableWeddingDressCategory extends Migration
         Schema::create('wedding_dress_category', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name')->nullable();
+            $table->text('img_category')->nullable();
             $table->integer('parent')->nullable()->default(0);
             $table->integer('status')->nullable()->default(1);
             $table->timestamps();

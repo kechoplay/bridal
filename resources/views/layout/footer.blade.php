@@ -4,23 +4,23 @@
             <div class="footer-col footer-col-nav">
                 <div class="footer-col-inner">
                     <ul id="menu-footer-menu" class="nav nav-footer">
-                        <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-162"><a href="#">Size Chart</a></li>
-                        <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-161"><a href="/contact/">Contact</a></li>
+                        <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-162"><a href="#">Bảng size</a></li>
+                        <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-161"><a href="/contact/">liên hệ</a></li>
                     </ul>          </div>
             </div>
             <div class="footer-col footer-col-social">
                 <div class="footer-col-inner">
                     <div class="social-icons">
-                        <a href="https://pinterest.com/theiacouture" target="_blank">
+                        <a href="#" target="_blank">
                             <i class="fa fa-pinterest-p"></i>
                         </a>
-                        <a href="https://twitter.com/theiacouture" target="_blank">
+                        <a href="#" target="_blank">
                             <i class="fa fa-twitter"></i>
                         </a>
-                        <a href="https://instagram.com/theiacouture" target="_blank">
+                        <a href="#" target="_blank">
                             <i class="fa fa-instagram"></i>
                         </a>
-                        <a href="https://facebook.com/theiacouture" target="_blank">
+                        <a href="#" target="_blank">
                             <i class="fa fa-facebook"></i>
                         </a>
                     </div>

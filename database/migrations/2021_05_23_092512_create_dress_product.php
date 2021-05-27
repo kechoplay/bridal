@@ -22,6 +22,7 @@ class CreateDressProduct extends Migration
             $table->text('description')->nullable();
             $table->text('img_path')->nullable();
             $table->integer('style')->default(0);
+            $table->integer('category_id');
             $table->timestamps();
         });
     }

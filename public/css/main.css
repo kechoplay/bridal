@@ -19345,3 +19345,15 @@ li.no-stores {
     bottom: 0;
     left: 0
 }
+
+.clearfix:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
+}
+.clearfix {
+    height:1%;
+}

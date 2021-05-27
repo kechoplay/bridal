@@ -26,14 +26,14 @@
         <div class="navbar-menu-container">
             <ul id="menu-main-menu" class="nav nav-primary"><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-75"><a href="/bridal">Bridal</a></li>
                 <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-76"><a href="/runway/">Runway</a></li>
-            </ul>                    <ul id="menu-supra-left" class="nav nav-supra-left"><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-157"><a href="/shop/">Shop Evening</a></li>
-            </ul>                    <ul id="menu-supra-right" class="nav nav-supra-right"><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-158"><a href="/contact/">Contact</a></li>
+            </ul>                    <ul id="menu-supra-left" class="nav nav-supra-left"><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-157"><a href="/shop/">Shop sản phẩm</a></li>
+            </ul>                    <ul id="menu-supra-right" class="nav nav-supra-right"><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-158"><a href="/contact/">Liên Hệ</a></li>
             </ul>          </div>
     </div>
     <div class="navbar-container-lg">
         <div class="navbar-row">
             <nav class="navbar-supra navbar-supra-left">
-                <ul id="menu-supra-left-1" class="nav nav-supra-left"><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-157"><a href="/shop/">Shop Evening</a></li>
+                <ul id="menu-supra-left-1" class="nav nav-supra-left"><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-157"><a href="/shop/">Shop sản phẩm</a></li>
                 </ul>        </nav>
             <nav class="navbar-supra navbar-supra-right">
                 <form role="search" method="get" class="header-search-form closed" action="/">
@@ -43,7 +43,7 @@
                         <input type="search" class="search-field" value="" name="s" required>
                     </label>
                 </form>
-                <ul id="menu-supra-right-1" class="nav nav-supra-right"><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-158"><a href="/contact/">Contact</a></li>
+                <ul id="menu-supra-right-1" class="nav nav-supra-right"><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-158"><a href="/contact/">Liên Hệ</a></li>
                 </ul>        </nav>
             <div class="navbar-logo">
                 <a class="brand" href="/"><img src="/images/logo.svg" alt="THEIA Bridal" class="logo-img"></a>
