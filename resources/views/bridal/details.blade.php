@@ -235,10 +235,10 @@
                     <div class="breadcrumbs-content">
                         <a href="/">Trang chủ</a>
                         <span class="separator">/</span>
-                        @if(@$nameSlug = 'bridal-product')
+                        @if(@$nameSlug == 'bridal-product')
                             <a href="/{{@$nameSlug}}/">Bộ váy cưới</a>
                         @endif
-                        @if(@$nameSlug = 'new-product')
+                        @if(@$nameSlug == 'new-product')
                             <a href="/{{@$nameSlug}}/">Sản phẩm mới</a>
                         @endif
                         <span class="separator">/</span>
