@@ -187,7 +187,7 @@
                                                             <div class="image-wrap"
                                                                  style="height: 0; padding-bottom: 150.037509377%;">
                                                                 <img class="grid-product__image lazyload"
-                                                                     data-src="{{ @$dr->img_path[0] }}"
+                                                                     data-src="{{ json_decode($dr->img_path)[0] }}"
                                                                      data-widths="[360, 540, 720, 900, 1080]"
                                                                      data-aspectratio="0.6665" data-sizes="auto" alt="">
                                                             </div>

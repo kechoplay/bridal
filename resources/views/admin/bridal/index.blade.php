@@ -33,7 +33,7 @@
                                         <tr>
                                             <td>{{ $dr->name }}</td>
                                             <td>
-                                                <img src="{{ $dr->img_path[0] }}" style="max-width: 100px;">
+                                                <img src="{{ $dr->image }}" style="max-width: 100px;">
                                             </td>
                                             <td>
                                                 <a href="{{ route('admin.deleteBridal', ['id' => $dr->id]) }}"><button class="btn btn-danger">Xóa</button></a>
