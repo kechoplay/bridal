@@ -11,6 +11,10 @@ class DressProduct extends Model
     public $timestamps = true;
     protected $guarded = [];
 
+    protected $casts = [
+        'img_path' => 'array'
+    ];
+
     public function weddingDressCategory()
     {
         return $this->belongsTo('App\WeddingDressCategory');

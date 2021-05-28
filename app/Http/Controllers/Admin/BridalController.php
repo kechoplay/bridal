@@ -17,9 +17,6 @@ class BridalController extends Controller
     public function index(Request $request)
     {
         $dress = DressProduct::all();
-        foreach ($dress as $dr) {
-            $dr->image = json_decode($dr->img_path, true)[0];
-        }
         return view('admin.bridal.index', compact('dress'));
     }
 
@@ -65,7 +62,6 @@ class BridalController extends Controller
         $id = $request->id;
         $dress = DressProduct::find($id);
         $styles = WeddingDressCategory::all();
-        $dress->img_path = json_decode($dress->img_path, true);
 
         return view('admin.bridal.edit', compact('dress', 'styles'));
     }

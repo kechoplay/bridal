@@ -4,7 +4,7 @@
             <div class="footer-col footer-col-nav">
                 <div class="footer-col-inner">
                     <ul id="menu-footer-menu" class="nav nav-footer">
-                        <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-162"><a href="#">Bảng size</a></li>
+                        <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-162"><a href="/admin/">admin</a></li>
                         <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-161"><a href="/contact/">liên hệ</a></li>
                     </ul>          </div>
             </div>

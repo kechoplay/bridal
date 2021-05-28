@@ -14,26 +14,41 @@ class HomeController extends Controller
 {
     public function homeIndex()
     {
-        $category = WeddingDressCategory::query()->orderBy('created_at','desc')->limit('2')->get();
+        $hot = DressProduct::query()->where('status','1')->get();
+        $special = DressProduct::query()->where('status','2')->get();
         $product = DressProduct::query()->orderBy('created_at','desc')->limit('4')->get();
         $slide = SlideImage::query()->where('status', 1)->get();
         return view('index',compact('category','product','slide'));
     }
 
-    public function bridalIndex()
+    public function hotIndex()
     {
-        return view('bridal.index');
+        $product = DressProduct::query()->where('status','1')->get();
+        return view('bridal.index', compact('product'));
     }
 
-    public function bridalDetails()
+    public function hotDetails($id)
     {
-        return view('bridal.details');
+        $product = DressProduct::query()->where('id',$id)->where('status','1')->get();
+        return view('bridal.details', compact('product'));
     }
 
-    public function runwayIndex()
+    public function specialIndex()
     {
-        $product = DressProduct::query()->get();
+        $product = DressProduct::query()->where('status','2')->get();
         return view('runway.index', compact('product'));
+    }
+
+    public function newIndex()
+    {
+        $product = DressProduct::query()->orderBy('created_at','desc')->limit('20')->get();
+        return view('bridal.index', compact('product'));
+    }
+
+    public function newDetails($id)
+    {
+        $product = DressProduct::query()->where('id',$id)->get();
+        return view('bridal.details', compact('product'));
     }
 
 

@@ -16,9 +16,11 @@ Route::get('/', function () {
 });
 Route::get('/', ['as' => 'homeIndex', 'uses' => 'HomeController@homeIndex']);
 //Route::get('/{name}/{id}', ['as' => 'bridalIndex', 'uses' => 'HomeController@bridalIndex']);
-Route::get('/hot-product', ['as' => 'hotIndex', 'uses' => 'HomeController@hotIndex']);
+Route::get('/hot-product/', ['as' => 'hotIndex', 'uses' => 'HomeController@hotIndex']);
 Route::get('/hot-product/details/{id}', ['as' => 'hotDetails', 'uses' => 'HomeController@hotDetails']);
-Route::get('/collection/', ['as' => 'collectionIndex', 'uses' => 'HomeController@collectionIndex']);
+Route::get('/new-product/', ['as' => 'newIndex', 'uses' => 'HomeController@newIndex']);
+Route::get('/new-product/details/{id}', ['as' => 'newDetails', 'uses' => 'HomeController@newDetails']);
+Route::get('/special-product/', ['as' => 'specialIndex', 'uses' => 'HomeController@specialIndex']);
 Route::get('/contact/', ['as' => 'contact', 'uses' => 'HomeController@contact']);
 Route::post('/contact/', ['as' => 'contactPost', 'uses' => 'HomeController@contactPost']);
 Route::get('/shop/', ['as' => 'shop.index', 'uses' => 'HomeController@shopIndex']);

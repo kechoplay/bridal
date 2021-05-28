@@ -24,8 +24,8 @@
     </div>
     <div class="navbar-menu collapse" id="collapse-menu">
         <div class="navbar-menu-container">
-            <ul id="menu-main-menu" class="nav nav-primary"><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-75"><a href="/bridal">Bridal</a></li>
-                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-76"><a href="/runway/">Runway</a></li>
+            <ul id="menu-main-menu" class="nav nav-primary"><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-75"><a href="/hot-product/">Sản phẩm bán chạy</a></li>
+                <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-76"><a href="/special-product/">Sản phẩm đặc biệt</a></li>
                 <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-76"><a href="/new-product/">Sản phẩm mới</a></li>
             </ul>                    <ul id="menu-supra-left" class="nav nav-supra-left"><li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-157"><a href="/shop/">Shop sản phẩm</a></li>
             </ul>                    <ul id="menu-supra-right" class="nav nav-supra-right"><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-158"><a href="/contact/">Liên Hệ</a></li>
@@ -53,8 +53,8 @@
                 <div class="navbar-logo">
                     <a class="brand" href="/"><img src="/images/logo.svg" alt="THEIA Bridal" class="logo-img"></a>
                 </div>
-                <ul id="menu-main-menu-1" class="nav nav-primary"><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-75"><a href="/bridal">Bridal</a></li>
-                    <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-76"><a href="/runway">Runway</a></li>
+                <ul id="menu-main-menu-1" class="nav nav-primary"><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-75"><a href="/hot-product/">Sản phẩm bán chạy</a></li>
+                    <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-76"><a href="/special-product/">Sản phẩm đặc biệt</a></li>
                 </ul>                <form role="search" method="get" class="header-search-form closed" action="/">
                     <button type="submit" class="search-submit"><span class="theia-search"></span></button>
                     <label>
