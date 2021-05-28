@@ -203,7 +203,7 @@ class BridalController extends Controller
             Session::flash('errors', $errors);
             return redirect()->back();
         }
-
+        return redirect()->route('admin.listStyle');
     }
 
     public function login()
