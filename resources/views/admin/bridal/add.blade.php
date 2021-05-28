@@ -46,7 +46,8 @@
                                         <label for="status">Phân loại</label>
                                         <select name="status" class="form-control">
                                              <option value="0" selected>Thường</option>
-                                             <option value="2">Sản phẩm đặc biệt</option>
+                                             <option value="1">bộ váy cưới</option>
+                                             <option value="2">bộ váy đặc biệt</option>
                                         </select>
                                     </div>
                                     <div class="form-group">

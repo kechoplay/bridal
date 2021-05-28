@@ -8,47 +8,46 @@ use App\WeddingDressCategory;
 use App\DressProduct;
 use App\StyleDress;
 use Illuminate\Http\Request;
+use Illuminate\Routing\Route;
 use Illuminate\Support\Str;
 
 class HomeController extends Controller
 {
     public function homeIndex()
     {
-        $hot = DressProduct::query()->where('status','1')->get();
-        $special = DressProduct::query()->where('status','2')->get();
+        $bridal = DressProduct::query()->where('status','1')->orderBy('created_at','desc')->first();
+        $special = DressProduct::query()->where('status','2')->orderBy('created_at','desc')->first();
         $product = DressProduct::query()->orderBy('created_at','desc')->limit('4')->get();
         $slide = SlideImage::query()->where('status', 1)->get();
-        return view('index',compact('category','product','slide'));
+        return view('index',compact('bridal','special','product','slide'));
     }
 
-    public function hotIndex()
+    public function bridalIndex()
     {
-        $product = DressProduct::query()->where('status','1')->get();
-        return view('bridal.index', compact('product'));
+        $nameSlug =  url()->current();
+        $nameSlug = explode("/", $nameSlug)[3];
+        $product = "";
+        if($nameSlug == 'bridal-product') {
+            $product = DressProduct::query()->where('status','1')->get();
+        }
+        if($nameSlug == 'new-product') {
+            $product = DressProduct::query()->orderBy('created_at', 'desc')->limit('10')->get();
+        }
+        return view('bridal.index', compact('product','nameSlug'));
     }
 
-    public function hotDetails($id)
+    public function bridalDetails($name,$id)
     {
-        $product = DressProduct::query()->where('id',$id)->where('status','1')->get();
-        return view('bridal.details', compact('product'));
+        $nameSlug =  url()->current();
+        $nameSlug = explode("/", $nameSlug)[3];
+        $product = DressProduct::query()->where('id',$id)->first();
+        return view('bridal.details', compact('product', 'nameSlug'));
     }
 
     public function specialIndex()
     {
         $product = DressProduct::query()->where('status','2')->get();
         return view('runway.index', compact('product'));
-    }
-
-    public function newIndex()
-    {
-        $product = DressProduct::query()->orderBy('created_at','desc')->limit('20')->get();
-        return view('bridal.index', compact('product'));
-    }
-
-    public function newDetails($id)
-    {
-        $product = DressProduct::query()->where('id',$id)->get();
-        return view('bridal.details', compact('product'));
     }
 
 
@@ -74,9 +73,6 @@ class HomeController extends Controller
     public function shopIndex()
     {
         $dress = DressProduct::orderBy('id', 'desc')->take(8);
-        foreach ($dress as $dr) {
-            $dr->img = json_decode($dr->img_path, true);
-        }
         $styles = WeddingDressCategory::all();
         return view('shop.index', compact('styles', 'dress'));
     }

@@ -52,8 +52,8 @@
                                         <label for="status">Phân loại</label>
                                         <select name="status" class="form-control">
                                             <option value="0" @if($dress->status == 0) selected @endif>Thường</option>
-                                            <option value="1" @if($dress->status == 1) selected @endif>Sản phẩm bán chạy</option>
-                                            <option value="2" @if($dress->status == 2) selected @endif>Sản phẩm đặc biệt</option>
+                                            <option value="1" @if($dress->status == 1) selected @endif>bộ váy cưới</option>
+                                            <option value="2" @if($dress->status == 2) selected @endif>bộ váy đặc biệt</option>
                                         </select>
                                     </div>
                                     <div class="form-group">

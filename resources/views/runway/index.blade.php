@@ -7,7 +7,7 @@
                     <div class="breadcrumbs-content">
                         <a href="/">Home</a>
                         <span class="separator">/</span>
-                        <span class="current">Runway</span>
+                        <span class="current">Sản phẩm đặc biệt</span>
                     </div>
                 </div>
             </div>
@@ -33,7 +33,7 @@
                 <div class="section-runway-galleries-row">
                     <div class="section-runway-galleries-col">
                         <div class="section-runway-galleries-content">
-                            <h2 class="gallery-heading tabs-heading">Runway.</h2>
+                            <h2 class="gallery-heading tabs-heading">Mẫu Đặc Biệt</h2>
                             <div class="gallery-tabs">
                                 <div class="tab-content runway-tab-content">
                                     <div class="tab-pane fade show active" id="gallery-f2020" role="tabpanel">
@@ -41,12 +41,12 @@
                                             <div class="runway-images-row runway-gallery">
                                        @foreach($product as $item)
                                                 <div class="runway-image">
-                                                    <div class="runway-image-anchor" href="{{$item->img_path}}" data-sub-html="#caption{{$item->id}}">
-                                                        <img width="730" height="1094" class="attachment-730w size-730w lzy" alt="" loading="lazy" sizes="(max-width: 575.98px) 545px, (max-width: 991.98px) 255px, (max-width: 1199.98px) 305px, 365px" data-src="{{$item->img_path}}" data-srcset="{{$item->img_path}}" />                        <div class="overlay">
+                                                    <div class="runway-image-anchor" href="{{$item->img_path[0]}}" data-sub-html="#caption{{$item->id}}">
+                                                        <img width="730" height="1094" class="attachment-730w size-730w lzy" alt="" loading="lazy" sizes="(max-width: 575.98px) 545px, (max-width: 991.98px) 255px, (max-width: 1199.98px) 305px, 365px" data-src="{{$item->img_path[0]}}" data-srcset="{{$item->img_path[0]}}" />                        <div class="overlay">
                                                             <div class="overlay-content">
                                                                 <div class="overlay-container">
                                                                     <h3 class="runway-heading">{{$item->name}}</h3>
-                                                                    <div class="runway-subheading">{{$item->code}}</div>
+{{--                                                                    <div class="runway-subheading">{{$item->code}}</div>--}}
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -55,8 +55,8 @@
                                                         <div class="runway-caption" style="text-align: center">
                                                             <div class="runway-caption-container" >
                                                                 <div class="runway-caption-content" >
-                                                                    <h3 class="caption-heading">{{$item->name}}</h3>
-                                                                    <div class="caption-subheading" >Mã sản phẩm: {{$item->code}}</div>
+                                                                    <h3 class="caption-heading" >{{$item->name}}</h3>
+{{--                                                                    <div class="caption-subheading" >Mã sản phẩm: {{$item->code}}</div>--}}
                                                                     <div class="runway-share">
                                                                     </div>
                                                                 </div>

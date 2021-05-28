@@ -48,22 +48,35 @@
                 <div class="section-image-links-row right">
                     <div class="section-image-links-col">
                         <div class="section-image-links-content">
-                            @foreach($category as $item)
                             <div class="image-link">
-                                <a href="/{{@$item->name}}/" class="image-link-anchor">
+                                <a href="/bridal-product/" class="image-link-anchor">
                                     <img width="1440" height="1900" class="attachment-1440w size-1440w lzy" alt=""
                                          loading="lazy" sizes="(max-width: 575.98px) 100vw, (max-width: 767.98px) 370px, (max-width: 991.98px) 480px, (max-width: 1199.98px) 585px, 50vw"
-                                         data-src="{{$item->img_category}}" data-srcset="" /> <div class="overlay">
+                                         data-src="{{$bridal->img_path[0]}}" data-srcset="" /> <div class="overlay">
                                         <div class="overlay-content">
                                             <div class="overlay-container">
-                                                <h3 class="image-link-heading">{{@$item->name}}</h3>
-                                                <div class="image-link-subheading">Xem Bộ Sản Phẩm</div>
+                                                <h3 class="image-link-heading">Váy Cưới</h3>
+                                                <div class="image-link-subheading">Xem Bộ Váy Cưới </div>
                                             </div>
                                         </div>
                                     </div>
                                 </a>
                             </div>
-                            @endforeach
+
+                            <div class="image-link">
+                                <a href="/special-product/" class="image-link-anchor">
+                                    <img width="1440" height="1900" class="attachment-1440w size-1440w lzy" alt=""
+                                         loading="lazy" sizes="(max-width: 575.98px) 100vw, (max-width: 767.98px) 370px, (max-width: 991.98px) 480px, (max-width: 1199.98px) 585px, 50vw"
+                                         data-src="{{$special->img_path[0]}}" data-srcset="" /> <div class="overlay">
+                                        <div class="overlay-content">
+                                            <div class="overlay-container">
+                                                <h3 class="image-link-heading">Váy đặc biệt</h3>
+                                                <div class="image-link-subheading">Xem Bộ Váy Đặc Biệt</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -89,7 +102,7 @@
                             @foreach($product as $item)
                             <div class="wedding-link">
                                 <a href="/new-product/{{$item->id}}" class="wedding-link-anchor">
-                                    <img width="1120" height="748" class="attachment-1120w size-1120w lzy" alt="" loading="lazy" sizes="(max-width: 575.98px) 550px, (max-width: 767.98px) 250px, (max-width: 991.98px) 325px, (max-width: 1199.98px) 400px, 33.33vw" data-src="{{ $item->img_path }}" data-srcset="" />              <div class="overlay">
+                                    <img width="1120" height="748" class="attachment-1120w size-1120w lzy" alt="" loading="lazy" sizes="(max-width: 575.98px) 550px, (max-width: 767.98px) 250px, (max-width: 991.98px) 325px, (max-width: 1199.98px) 400px, 33.33vw" data-src="{{ $item->img_path[0] }}" data-srcset="" />              <div class="overlay">
                                         <div class="overlay-content">
                                             <div class="overlay-container">
                                                 <h3 class="wedding-link-heading">{{ $item->name }}</h3>
