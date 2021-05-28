@@ -17,6 +17,7 @@ class CreateTableWeddingDressCategory extends Migration
             $table->increments('id');
             $table->string('name')->nullable();
             $table->text('img_category')->nullable();
+            $table->string('slug')->nullable();
             $table->integer('parent')->nullable()->default(0);
             $table->integer('status')->nullable()->default(1);
             $table->timestamps();
