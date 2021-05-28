@@ -107,7 +107,6 @@ class HomeController extends Controller
     {
         $nameProduct = $request->nameProduct;
         $dress = DressProduct::where('slug', $nameProduct)->first();
-        $dress->img_path = json_decode($dress->img_path, true);
         $styles = WeddingDressCategory::all();
         if (!$dress) {
             return redirect()->back();
