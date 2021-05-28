@@ -54,7 +54,7 @@
                                                     <div class="runway-caption-wrap" id="caption{{$item->id}}" width="730" height="1094">
                                                         <div class="runway-caption" style="text-align: center">
                                                             <div class="runway-caption-container" >
-                                                                <div class="runway-caption-content" >
+                                                                <div class="runway-caption-content" style="margin-left: 5%" >
                                                                     <h3 class="caption-heading" >{{$item->name}}</h3>
 {{--                                                                    <div class="caption-subheading" >Mã sản phẩm: {{$item->code}}</div>--}}
                                                                     <div class="runway-share">
