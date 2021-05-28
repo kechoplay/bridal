@@ -47,6 +47,13 @@
                                         </select>
                                     </div>
                                     <div class="form-group">
+                                        <label for="status">Phân loại</label>
+                                        <select name="status" class="form-control">
+                                             <option value="0" selected>Thường</option>
+                                             <option value="2">Sản phẩm đặc biệt</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
                                         <label for="description">Miêu tả</label>
                                         <textarea class="form-control" id="description" name="description"></textarea>
                                     </div>

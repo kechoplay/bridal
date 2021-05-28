@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Contact;
+use App\SlideImage;
 use App\WeddingDressCategory;
 use App\DressProduct;
 use App\StyleDress;
@@ -14,8 +15,9 @@ class HomeController extends Controller
     public function homeIndex()
     {
         $category = WeddingDressCategory::query()->orderBy('created_at','desc')->limit('2')->get();
-        $product = DressProduct::query()->orderBy('created_at','desc')->limit('3')->get();
-        return view('index',compact('category'));
+        $product = DressProduct::query()->orderBy('created_at','desc')->limit('4')->get();
+        $slide = SlideImage::query()->where('status', 1)->get();
+        return view('index',compact('category','product','slide'));
     }
 
     public function bridalIndex()
@@ -30,18 +32,10 @@ class HomeController extends Controller
 
     public function runwayIndex()
     {
-        return view('runway.index');
+        $product = DressProduct::query()->get();
+        return view('runway.index', compact('product'));
     }
 
-    public function realWeddingsIndex()
-    {
-        return view('real_weddings.index');
-    }
-
-    public function realWeddingsDetails()
-    {
-        return view('real_weddings.details');
-    }
 
     public function contact()
     {
@@ -59,7 +53,7 @@ class HomeController extends Controller
             'note' => $request->note,
         ]);
 
-        return redirect()->back()->with('message', 'Save contact success!');
+        return redirect()->back()->with('message', 'Gửi thông tin thành công!');
     }
 
     public function shopIndex()

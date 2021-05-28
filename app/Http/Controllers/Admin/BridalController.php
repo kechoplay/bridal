@@ -33,6 +33,7 @@ class BridalController extends Controller
         $images = $request->images;
         $description = $request->description;
         $style = $request->style;
+        $status = $request->status;
 
         $path = public_path('image');
         if (!File::exists($path))
@@ -49,7 +50,8 @@ class BridalController extends Controller
             'name' => $nameDress,
             'img_path' => json_encode($imageList),
             'description' => $description,
-            'style' => $style
+            'style' => $style,
+            'status' => $status
         ]);
 
         return redirect()->route('admin.index');

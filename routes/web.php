@@ -15,12 +15,10 @@ Route::get('/', function () {
     return view('index');
 });
 Route::get('/', ['as' => 'homeIndex', 'uses' => 'HomeController@homeIndex']);
-Route::get('/{name}', ['as' => 'bridalIndex', 'uses' => 'HomeController@bridalIndex']);
-Route::get('/bridal', ['as' => 'bridalIndex', 'uses' => 'HomeController@bridalIndex']);
-Route::get('/bridal/details', ['as' => 'bridalDetails', 'uses' => 'HomeController@bridalDetails']);
-Route::get('/runway/', ['as' => 'runwayIndex', 'uses' => 'HomeController@runwayIndex']);
-Route::get('/real-weddings/', ['as' => 'realWeddingsIndex', 'uses' => 'HomeController@realWeddingsIndex']);
-Route::get('/wedding/details', ['as' => 'realWeddingsDetails', 'uses' => 'HomeController@realWeddingsDetails']);
+//Route::get('/{name}/{id}', ['as' => 'bridalIndex', 'uses' => 'HomeController@bridalIndex']);
+Route::get('/hot-product', ['as' => 'hotIndex', 'uses' => 'HomeController@hotIndex']);
+Route::get('/hot-product/details/{id}', ['as' => 'hotDetails', 'uses' => 'HomeController@hotDetails']);
+Route::get('/collection/', ['as' => 'collectionIndex', 'uses' => 'HomeController@collectionIndex']);
 Route::get('/contact/', ['as' => 'contact', 'uses' => 'HomeController@contact']);
 Route::post('/contact/', ['as' => 'contactPost', 'uses' => 'HomeController@contactPost']);
 Route::get('/shop/', ['as' => 'shop.index', 'uses' => 'HomeController@shopIndex']);
