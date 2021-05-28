@@ -5,7 +5,7 @@
             <div class="breadcrumbs-row">
                 <div class="breadcrumbs-col">
                     <div class="breadcrumbs-content">
-                        <a href="https://bridal.theiacouture.com/">Home</a>
+                        <a href="{{ route('homeIndex') }}">Home</a>
                         <span class="separator">/</span>
                         <span class="current">Real Weddings</span>
                     </div>

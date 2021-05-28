@@ -30,7 +30,11 @@ Route::get('/shop/product-details', ['as' => 'shop.productDetails', 'uses' => 'H
 Route::get('/collections/shop', ['as' => 'shop.listProducts', 'uses' => 'HomeController@listProducts']);
 Route::get('/collections/{style}', ['as' => 'shop.listProductsStyle', 'uses' => 'HomeController@listProductsStyle']);
 
-Route::group(['prefix' => 'admin', 'middleware' => []], function () {
+Route::get('/admin/login', ['as' => 'admin.login', 'uses' => 'Admin\BridalController@login']);
+
+Route::post('/admin/login', ['as' => 'admin.postLogin', 'uses' => 'Admin\BridalController@postLogin']);
+
+Route::group(['prefix' => 'admin', 'middleware' => ['admin_access']], function () {
     Route::get('/', ['as' => 'admin.index', 'uses' => 'Admin\BridalController@index']);
 
     Route::get('', ['as' => 'admin.index', 'uses' => 'Admin\BridalController@index']);
