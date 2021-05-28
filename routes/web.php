@@ -56,4 +56,6 @@ Route::group(['prefix' => 'admin', 'middleware' => ['admin_access']], function (
     Route::get('/edit-style-dress/{id}', ['as' => 'admin.editStyle', 'uses' => 'Admin\BridalController@editStyle']);
 
     Route::post('/edit-style-dress/{id}', ['as' => 'admin.updateStyle', 'uses' => 'Admin\BridalController@updateStyle']);
+
+    Route::get('/delete-style/{id}', ['as' => 'admin.deleteStyle', 'uses' => 'Admin\BridalController@deleteStyle']);
 });

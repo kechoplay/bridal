@@ -19,6 +19,21 @@
                         <div class="card">
                             <!-- /.card-header -->
                             <div class="card-body">
+                                @if(session('errors'))
+                                    <?php
+                                    $error_alert = '';
+                                    ?>
+                                    @foreach(session('errors') as $error)
+                                        <?php
+                                        $error_alert .= $error . '\\n';
+                                        ?>
+                                    @endforeach
+                                    @push('js')
+                                        <script type="application/javascript">
+                                            alert("{!! $error_alert !!}");
+                                        </script>
+                                    @endpush
+                                @endif
                                 <table id="example1" class="table table-bordered table-striped">
                                     <thead>
                                     <tr>
@@ -33,7 +48,7 @@
                                             <td>{{ $style->name }}</td>
                                             <td><img src="{{ $style->img_category }}" style="max-width: 100px;"></td>
                                             <td>
-                                                <a ><button class="btn btn-danger">Xóa</button></a>
+                                                <a href="{{ route('admin.deleteStyle', ['id' => $style->id]) }}"><button class="btn btn-danger">Xóa</button></a>
                                                 <a><button class="btn btn-secondary">Sửa</button></a>
                                             </td>
                                         </tr>
