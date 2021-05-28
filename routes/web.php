@@ -23,7 +23,7 @@ Route::get('/contact/', ['as' => 'contact', 'uses' => 'HomeController@contact'])
 Route::post('/contact/', ['as' => 'contactPost', 'uses' => 'HomeController@contactPost']);
 Route::get('/shop/', ['as' => 'shop.index', 'uses' => 'HomeController@shopIndex']);
 Route::get('/shop/list-products', ['as' => 'shop.listProducts', 'uses' => 'HomeController@listProducts']);
-Route::get('/shop/product-details', ['as' => 'shop.productDetails', 'uses' => 'HomeController@productDetails']);
+Route::get('/shop/product-details/{nameProduct}', ['as' => 'shop.productDetails', 'uses' => 'HomeController@productDetails']);
 
 Route::get('/collections/shop', ['as' => 'shop.listProducts', 'uses' => 'HomeController@listProducts']);
 Route::get('/collections/{style}', ['as' => 'shop.listProductsStyle', 'uses' => 'HomeController@listProductsStyle']);

@@ -199,8 +199,8 @@
             </div>
         </div>
     </div>
-    @if($dress->count() > 0)
-        <div id="shopify-section-1525295772132" class="shopify-section index-section">
+    <div id="shopify-section-1525295772132" class="shopify-section index-section">
+        @if($dress->count() > 0)
             <div id="CollectionSection-1525295772132" data-section-id="1525295772132"
                  data-section-type="collection-template">
                 <div class="page-width">
@@ -220,7 +220,7 @@
                                     data-product-handle="theia-dana-mock-neck-midi-dress-tropical-ombre"
                                     data-product-id="6694897713340">
                                     <div class="grid-product__content">
-                                        <a href="/products/theia-dana-mock-neck-midi-dress-tropical-ombre"
+                                        <a href="{{ route('shop.productDetails', ['nameProduct' => $dr->slug]) }}"
                                            class="grid-product__link">
                                             <div class="grid-product__image-mask">
                                                 <div class="image-wrap" style="height: 0; padding-bottom: 150.0%;">
@@ -270,6 +270,6 @@
                     </div>
                 </div>
             </div>
-        </div>
-    @endif
+        @endif
+    </div>
 @endsection

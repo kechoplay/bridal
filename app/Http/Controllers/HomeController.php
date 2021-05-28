@@ -58,9 +58,9 @@ class HomeController extends Controller
 
     public function shopIndex()
     {
-        $dress = DressProduct::orderBy('id', 'desc')->take(8);
+        $dress = DressProduct::orderBy('id', 'desc')->limit(8)->get();
         foreach ($dress as $dr) {
-            $dr->img = json_decode($dr->img_path, true);
+            $dr->img = json_decode($dr->img_path, true)[0];
         }
         $styles = WeddingDressCategory::all();
         return view('shop.index', compact('styles', 'dress'));
@@ -82,8 +82,15 @@ class HomeController extends Controller
         return view('shop.list_products', compact('dress', 'styles'));
     }
 
-    public function productDetails()
+    public function productDetails(Request $request)
     {
-        return view('shop.product_details');
+        $nameProduct = $request->nameProduct;
+        $dress = DressProduct::where('slug', $nameProduct)->first();
+        $dress->img_path = json_decode($dress->img_path, true);
+        $styles = WeddingDressCategory::all();
+        if (!$dress) {
+            return redirect()->back();
+        }
+        return view('shop.product_details', compact('dress', 'styles'));
     }
 }
