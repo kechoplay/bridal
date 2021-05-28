@@ -197,12 +197,14 @@ class BridalController extends Controller
     public function deleteStyle(Request $request)
     {
         $id = $request->id;
-        $dress = DressProduct::where('category_id', $id)->first();
-        if ($dress) {
+        $style = WeddingDressCategory::where('id', $id)->first();
+        if ($style) {
             $errors = ['Có sản phẩm trong mẫu này. Hãy xóa nó trước'];
             Session::flash('errors', $errors);
             return redirect()->back();
         }
+
+        $style->delete();
         return redirect()->route('admin.listStyle');
     }
 
