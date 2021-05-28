@@ -1042,6 +1042,70 @@
         </div>
     </div>
 </div>
+<div id="shopify-section-newsletter-popup" class="shopify-section index-section--hidden">
+</div>
+<div class="hide">
+    <button data-id="prevArrowTemplate" class="slick-prev" aria-label="Previous" type="button">
+        <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-chevron-left" viewBox="0 0 284.49 498.98">
+            <path d="M249.49 0a35 35 0 0 1 24.75 59.75L84.49 249.49l189.75 189.74a35.002 35.002 0 1 1-49.5 49.5L10.25 274.24a35 35 0 0 1 0-49.5L224.74 10.25A34.89 34.89 0 0 1 249.49 0z" />
+        </svg>
+        <span class="icon__fallback-text">Previous</span>
+    </button>
+    <button data-id="nextArrowTemplate" class="slick-next" aria-label="Next" type="button">
+        <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-chevron-right" viewBox="0 0 284.49 498.98">
+            <path d="M35 498.98a35 35 0 0 1-24.75-59.75l189.74-189.74L10.25 59.75a35.002 35.002 0 0 1 49.5-49.5l214.49 214.49a35 35 0 0 1 0 49.5L59.75 488.73A34.89 34.89 0 0 1 35 498.98z" />
+        </svg>
+        <span class="icon__fallback-text">Next</span>
+    </button>
+</div>
+<div id="VideoModal" class="modal modal--solid">
+    <div class="modal__inner">
+        <div class="modal__centered page-width text-center">
+            <div class="modal__centered-content">
+                <div class="video-wrapper video-wrapper--modal">
+                    <div id="VideoHolder"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <button type="button" class="modal__close js-modal-close text-link">
+        <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-close" viewBox="0 0 64 64">
+            <path d="M19 17.61l27.12 27.13m0-27.12L19 44.74" />
+        </svg>
+        <span class="icon__fallback-text">"Close (esc)"</span>
+    </button>
+</div>
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="pswp__bg"></div>
+    <div class="pswp__scroll-wrap">
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <div class="pswp__ui pswp__ui--hidden">
+            <button class="btn btn--body btn--circle pswp__button pswp__button--arrow--left" title="Previous">
+                <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-chevron-left" viewBox="0 0 284.49 498.98">
+                    <path d="M249.49 0a35 35 0 0 1 24.75 59.75L84.49 249.49l189.75 189.74a35.002 35.002 0 1 1-49.5 49.5L10.25 274.24a35 35 0 0 1 0-49.5L224.74 10.25A34.89 34.89 0 0 1 249.49 0z" />
+                </svg>
+            </button>
+
+            <button class="btn btn--body btn--circle btn--large pswp__button pswp__button--close" title="Close (esc)">
+                <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-close" viewBox="0 0 64 64">
+                    <path d="M19 17.61l27.12 27.13m0-27.12L19 44.74" />
+                </svg>
+            </button>
+
+            <button class="btn btn--body btn--circle pswp__button pswp__button--arrow--right" title="Next">
+                <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-chevron-right" viewBox="0 0 284.49 498.98">
+                    <path d="M35 498.98a35 35 0 0 1-24.75-59.75l189.74-189.74L10.25 59.75a35.002 35.002 0 0 1 49.5-49.5l214.49 214.49a35 35 0 0 1 0 49.5L59.75 488.73A34.89 34.89 0 0 1 35 498.98z" />
+                </svg>
+            </button>
+        </div>
+    </div>
+</div>
 </body>
 
 </html>
