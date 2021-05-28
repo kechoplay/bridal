@@ -182,7 +182,7 @@
                                                 data-aos="row-of-4" data-product-handle="theia-marley-jumpsuit-gold"
                                                 data-product-id="6715933458620">
                                                 <div class="grid-product__content">
-                                                    <a href="/shop/product-details/" class="grid-product__link">
+                                                    <a href="{{ route('shop.productDetails', ['nameProduct' => $dr->slug]) }}" class="grid-product__link">
                                                         <div class="grid-product__image-mask">
                                                             <div class="image-wrap"
                                                                  style="height: 0; padding-bottom: 150.037509377%;">
