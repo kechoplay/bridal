@@ -14,7 +14,7 @@
 Route::get('/', function () {
     return view('index');
 });
-Route::get('/', ['as' => 'homeIndex', 'uses' => 'HomeController@homeIndex']);
+Route::get('/', ['as' => 'homeIndex', 'uses' => 'HomeController@shopIndex']);
 //Route::get('/{name}/{id}', ['as' => 'bridalIndex', 'uses' => 'HomeController@bridalIndex']);
 Route::get('/hot-product', ['as' => 'hotIndex', 'uses' => 'HomeController@hotIndex']);
 Route::get('/hot-product/details/{id}', ['as' => 'hotDetails', 'uses' => 'HomeController@hotDetails']);
@@ -26,6 +26,7 @@ Route::get('/shop/list-products', ['as' => 'shop.listProducts', 'uses' => 'HomeC
 Route::get('/shop/product-details/{nameProduct}', ['as' => 'shop.productDetails', 'uses' => 'HomeController@productDetails']);
 
 Route::get('/collections/shop', ['as' => 'shop.listProducts', 'uses' => 'HomeController@listProducts']);
+Route::get('/collections/shop/new-arrivals', ['as' => 'shop.listProductsNew', 'uses' => 'HomeController@listProductsNew']);
 Route::get('/collections/{style}', ['as' => 'shop.listProductsStyle', 'uses' => 'HomeController@listProductsStyle']);
 
 Route::get('/admin/login', ['as' => 'admin.login', 'uses' => 'Admin\BridalController@login']);
