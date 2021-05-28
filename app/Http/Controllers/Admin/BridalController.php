@@ -4,11 +4,14 @@ namespace App\Http\Controllers\Admin;
 
 use App\DressProduct;
 use App\StyleDress;
+use App\User;
 use App\WeddingDressCategory;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
 
 class BridalController extends Controller
@@ -157,6 +160,44 @@ class BridalController extends Controller
 
     public function editStyle(Request $request)
     {
+
+    }
+
+    public function login()
+    {
+        return view('admin.login');
+    }
+
+    public function postLogin(Request $request)
+    {
+        $notice = '';
+        $validate = Validator::make($request->all(), [
+                'username' => 'required',
+                'password' => 'required'
+            ]
+        );
+        $password = $request->input('password');
+        $username = $request->input('username');
+        $remember_me = $request->input('remember_me');
+        ($remember_me == 1) ? $remember_me = true : $remember_me = false;
+        if ($validate->fails()) {
+            return redirect()->back()->withErrors($validate)->withInput();
+        }
+
+        if (!Auth::attempt(['username' => $username, 'password' => $password], true)) {
+            $notice = "Tên đăng nhập hoặc mật khẩu k chính xác";
+            return redirect()->back()->withInput(['notice' => $notice, 'username' => $username, 'password' => $password]);
+        }
+
+        return redirect('/admin/');
+    }
+
+    public function logout(Request $request)
+    {
+        $request->session()->flush();
+        Auth::logout();
+
+        return redirect()->route('admin.login');
 
     }
 }

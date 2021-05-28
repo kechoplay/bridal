@@ -14,9 +14,6 @@
         gtag('config', 'UA-12670143-2');
     </script>
     <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,700" rel="stylesheet">
-    <link rel="apple-touch-icon" sizes="180x180" href="https://413qut3s1ajtpgjzf1ekop6h-wpengine.netdna-ssl.com/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="https://413qut3s1ajtpgjzf1ekop6h-wpengine.netdna-ssl.com/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="https://413qut3s1ajtpgjzf1ekop6h-wpengine.netdna-ssl.com/favicon-16x16.png">
     <link rel="manifest" href="/manifest.json">
     <link rel="mask-icon" href="https://413qut3s1ajtpgjzf1ekop6h-wpengine.netdna-ssl.com/safari-pinned-tab.svg" color="#e7c98c">
     <meta name="theme-color" content="#ffffff">
