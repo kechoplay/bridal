@@ -161,7 +161,37 @@ class BridalController extends Controller
 
     public function editStyle(Request $request)
     {
-        return view('admin.style.edit_style');
+        $id = $request->id;
+        $style = WeddingDressCategory::find($id);
+        return view('admin.style.edit_style', compact('style'));
+    }
+
+    public function updateStyle(Request $request)
+    {
+        $id = $request->id;
+        $name = $request->name;
+        $image = $request->image;
+
+        $style = WeddingDressCategory::find($id);
+        $path = public_path('image_style');
+        if (!File::exists($path))
+            File::makeDirectory($path, 0777, true);
+
+        if ($image) {
+            $nameImage = 'style_' . time() . '.' . $image->getClientOriginalExtension();
+            $image->move($path, $nameImage);
+            $imgPath = '/image_style/' . $nameImage;
+        } else {
+            $imgPath = $style->img_category;
+        }
+
+        WeddingDressCategory::where('id', $id)->update([
+            'name' => $name,
+            'slug' => Str::slug($name),
+            'img_category' => $imgPath
+        ]);
+
+        return redirect()->route('admin.listStyle');
     }
 
     public function deleteStyle(Request $request)

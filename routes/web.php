@@ -14,7 +14,7 @@
 Route::get('/', function () {
     return view('index');
 });
-Route::get('/', ['as' => 'homeIndex', 'uses' => 'HomeController@homeIndex']);
+Route::get('/', ['as' => 'homeIndex', 'uses' => 'HomeController@shopIndex']);
 Route::get('/bridal-product/', ['as' => 'bridalIndex', 'uses' => 'HomeController@bridalIndex']);
 Route::get('/bridal-product/details/{slug}/{id}', ['as' => 'bridalDetails', 'uses' => 'HomeController@bridalDetails']);
 Route::get('/new-product/', ['as' => 'newIndex', 'uses' => 'HomeController@bridalIndex']);

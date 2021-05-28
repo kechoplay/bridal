@@ -84,7 +84,7 @@ class HomeController extends Controller
 
     public function shopIndex()
     {
-        $dress = DressProduct::orderBy('id', 'desc')->take(8);
+        $dress = DressProduct::orderBy('id', 'desc')->limit(8)->get();
         foreach ($dress as $dr) {
             $dr->img = json_decode($dr->img_path, true);
         }
