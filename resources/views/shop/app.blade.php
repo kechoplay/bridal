@@ -805,7 +805,7 @@
                                                 </div>
                                             </li>
                                             <li class="mobile-nav__item">
-                                                <div class="mobile-nav__child-item"><a href="/collections/new-arrivals" class="mobile-nav__link" id="Sublabel-collections-new-arrivals2">
+                                                <div class="mobile-nav__child-item"><a href="{{ route('shop.listProductsNew') }}" class="mobile-nav__link" id="Sublabel-collections-new-arrivals2">
                                                         New Arrivals
                                                     </a><button type="button" aria-controls="Sublinklist-collections-shop1-collections-new-arrivals2" aria-labelledby="Sublabel-collections-new-arrivals2" class="collapsible-trigger"><span class="collapsible-trigger__icon collapsible-trigger__icon--circle collapsible-trigger__icon--open" role="presentation">
                                                                 <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon--wide icon-chevron-down" viewBox="0 0 28 16">
@@ -817,7 +817,7 @@
                                                     <div class="collapsible-content__inner">
                                                         <ul class="mobile-nav__grandchildlist">
                                                             <li class="mobile-nav__item">
-                                                                <a href="/collections/new-arrivals" class="mobile-nav__link">
+                                                                <a href="{{ route('shop.listProductsNew') }}" class="mobile-nav__link">
                                                                     Shop New Arrivals
                                                                 </a>
                                                             </li>
@@ -829,7 +829,7 @@
                                     </div>
                                 </div>
                             </li>
-                            <li class="mobile-nav__item appear-animation appear-delay-3"><a href="/collections/new-arrivals" class="mobile-nav__link mobile-nav__link--top-level">New Arrivals</a></li>
+                            <li class="mobile-nav__item appear-animation appear-delay-3"><a href="{{ route('shop.listProductsNew') }}" class="mobile-nav__link mobile-nav__link--top-level">New Arrivals</a></li>
                         </ul>
                     </div>
                 </div>
@@ -936,12 +936,12 @@
                                                                 </div>
                                                                 @endforeach
                                                             </div>
-                                                            <div class="grid__item medium-up--one-fifth appear-animation appear-delay-2"><a href="/collections/new-arrivals" class="megamenu__colection-image" aria-label="New Arrivals" style="background-image: url(//cdn.shopify.com/s/files/1/0546/6033/collections/884286_11797_copy_400x.jpg?v=1620139712)"></a>
+                                                            <div class="grid__item medium-up--one-fifth appear-animation appear-delay-2"><a href="{{ route('shop.listProductsNew') }}" class="megamenu__colection-image" aria-label="New Arrivals" style="background-image: url(//cdn.shopify.com/s/files/1/0546/6033/collections/884286_11797_copy_400x.jpg?v=1620139712)"></a>
                                                                 <div class="h5">
-                                                                    <a href="/collections/new-arrivals" class="site-nav__dropdown-link site-nav__dropdown-link--top-level">New Arrivals</a>
+                                                                    <a href="{{ route('shop.listProductsNew') }}" class="site-nav__dropdown-link site-nav__dropdown-link--top-level">New Arrivals</a>
                                                                 </div>
                                                                 <div>
-                                                                    <a href="/collections/new-arrivals" class="site-nav__dropdown-link">
+                                                                    <a href="{{ route('shop.listProductsNew') }}" class="site-nav__dropdown-link">
                                                                         Shop New Arrivals
                                                                     </a>
                                                                 </div>
@@ -952,7 +952,7 @@
                                             </li>
                                             <li class="site-nav__item site-nav__expanded-item">
 
-                                                <a href="/collections/new-arrivals" class="site-nav__link site-nav__link--underline">
+                                                <a href="{{ route('shop.listProductsNew') }}" class="site-nav__link site-nav__link--underline">
                                                     New Arrivals
                                                 </a>
                                             </li>
@@ -1034,123 +1034,6 @@
                 <div class="page-width">
 
                     <div class="grid">
-                        <div class="grid__item footer__item--1494301487049" data-type="menu">
-                            <style data-shopify>
-                                @media only screen and (min-width: 769px) and (max-width: 959px) {
-                                    .footer__item--1494301487049 {
-                                        width: 50%;
-                                        padding-top: 40px;
-                                    }
-
-                                    .footer__item--1494301487049:nth-child(2n + 1) {
-                                        clear: left;
-                                    }
-                                }
-
-                                @media only screen and (min-width: 960px) {
-                                    .footer__item--1494301487049 {
-                                        width: 25%;
-                                    }
-
-                                }
-                            </style>
-                            <div>
-                                <div class="collapsible-content__inner">
-                                    <div class="footer__collapsible footer_collapsible--disabled">
-                                        <ul class="no-bullets site-footer__linklist">
-                                            <li><a href="/pages/contact">Contact</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="grid__item footer__item--1494292487693" data-type="newsletter">
-                            <style data-shopify>
-                                @media only screen and (min-width: 769px) and (max-width: 959px) {
-                                    .footer__item--1494292487693 {
-                                        width: 50%;
-                                        padding-top: 40px;
-                                    }
-
-                                    .footer__item--1494292487693:nth-child(2n + 1) {
-                                        clear: left;
-                                    }
-                                }
-
-                                @media only screen and (min-width: 960px) {
-                                    .footer__item--1494292487693 {
-                                        width: 33%;
-                                    }
-
-                                }
-                            </style>
-                            <div class="footer__item-padding">
-                                <p class="h4 footer__title small--hide">Follow Shop</p>
-                                <button type="button" class="h4 footer__title collapsible-trigger collapsible-trigger-btn medium-up--hide" aria-controls="Footer-1494292487693">
-                                    Follow Shop
-                                    <span class="collapsible-trigger__icon collapsible-trigger__icon--open" role="presentation">
-                                            <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon--wide icon-chevron-down" viewBox="0 0 28 16">
-                                                <path d="M1.57 1.59l12.76 12.77L27.1 1.59" stroke-width="2" stroke="#000" fill="none" fill-rule="evenodd" />
-                                            </svg>
-                                        </span>
-                                </button>
-                                <div id="Footer-1494292487693" class="collapsible-content collapsible-content--small">
-                                    <div class="collapsible-content__inner">
-                                        <div class="footer__collapsible">
-                                            <p>Subscribe to get special offers, free giveaways, and once-in-a-lifetime deals.</p>
-                                            <ul class="no-bullets footer__social">
-                                                <li>
-                                                    <a target="_blank" rel="noopener" href="https://instagram.com/shopify" title="THEIA on Instagram">
-                                                        <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-instagram" viewBox="0 0 32 32">
-                                                            <path fill="#444" d="M16 3.094c4.206 0 4.7.019 6.363.094 1.538.069 2.369.325 2.925.544.738.287 1.262.625 1.813 1.175s.894 1.075 1.175 1.813c.212.556.475 1.387.544 2.925.075 1.662.094 2.156.094 6.363s-.019 4.7-.094 6.363c-.069 1.538-.325 2.369-.544 2.925-.288.738-.625 1.262-1.175 1.813s-1.075.894-1.813 1.175c-.556.212-1.387.475-2.925.544-1.663.075-2.156.094-6.363.094s-4.7-.019-6.363-.094c-1.537-.069-2.369-.325-2.925-.544-.737-.288-1.263-.625-1.813-1.175s-.894-1.075-1.175-1.813c-.212-.556-.475-1.387-.544-2.925-.075-1.663-.094-2.156-.094-6.363s.019-4.7.094-6.363c.069-1.537.325-2.369.544-2.925.287-.737.625-1.263 1.175-1.813s1.075-.894 1.813-1.175c.556-.212 1.388-.475 2.925-.544 1.662-.081 2.156-.094 6.363-.094zm0-2.838c-4.275 0-4.813.019-6.494.094-1.675.075-2.819.344-3.819.731-1.037.4-1.913.944-2.788 1.819S1.486 4.656 1.08 5.688c-.387 1-.656 2.144-.731 3.825-.075 1.675-.094 2.213-.094 6.488s.019 4.813.094 6.494c.075 1.675.344 2.819.731 3.825.4 1.038.944 1.913 1.819 2.788s1.756 1.413 2.788 1.819c1 .387 2.144.656 3.825.731s2.213.094 6.494.094 4.813-.019 6.494-.094c1.675-.075 2.819-.344 3.825-.731 1.038-.4 1.913-.944 2.788-1.819s1.413-1.756 1.819-2.788c.387-1 .656-2.144.731-3.825s.094-2.212.094-6.494-.019-4.813-.094-6.494c-.075-1.675-.344-2.819-.731-3.825-.4-1.038-.944-1.913-1.819-2.788s-1.756-1.413-2.788-1.819c-1-.387-2.144-.656-3.825-.731C20.812.275 20.275.256 16 .256z" />
-                                                            <path fill="#444" d="M16 7.912a8.088 8.088 0 0 0 0 16.175c4.463 0 8.087-3.625 8.087-8.088s-3.625-8.088-8.088-8.088zm0 13.338a5.25 5.25 0 1 1 0-10.5 5.25 5.25 0 1 1 0 10.5zM26.294 7.594a1.887 1.887 0 1 1-3.774.002 1.887 1.887 0 0 1 3.774-.003z" />
-                                                        </svg>
-                                                        <span class="icon__fallback-text">Instagram</span>
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a target="_blank" rel="noopener" href="https://www.facebook.com/shopify" title="THEIA on Facebook">
-                                                        <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-facebook" viewBox="0 0 32 32">
-                                                            <path fill="#444" d="M18.56 31.36V17.28h4.48l.64-5.12h-5.12v-3.2c0-1.28.64-2.56 2.56-2.56h2.56V1.28H19.2c-3.84 0-7.04 2.56-7.04 7.04v3.84H7.68v5.12h4.48v14.08h6.4z" />
-                                                        </svg>
-                                                        <span class="icon__fallback-text">Facebook</span>
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a target="_blank" rel="noopener" href="https://www.pinterest.com/shopify" title="THEIA on Pinterest">
-                                                        <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-pinterest" viewBox="0 0 32 32">
-                                                            <path fill="#444" d="M27.52 9.6c-.64-5.76-6.4-8.32-12.8-7.68-4.48.64-9.6 4.48-9.6 10.24 0 3.2.64 5.76 3.84 6.4 1.28-2.56-.64-3.2-.64-4.48-1.28-7.04 8.32-12.16 13.44-7.04 3.2 3.84 1.28 14.08-4.48 13.44-5.12-1.28 2.56-9.6-1.92-11.52-3.2-1.28-5.12 4.48-3.84 7.04-1.28 4.48-3.2 8.96-1.92 15.36 2.56-1.92 3.84-5.76 4.48-9.6 1.28.64 1.92 1.92 3.84 1.92 6.4-.64 10.24-7.68 9.6-14.08z" />
-                                                        </svg>
-                                                        <span class="icon__fallback-text">Pinterest</span>
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="grid__item footer__item--1494301487048" data-type="logo_social">
-                            <style data-shopify>
-                                @media only screen and (min-width: 769px) and (max-width: 959px) {
-                                    .footer__item--1494301487048 {
-                                        width: 50%;
-                                        padding-top: 40px;
-                                    }
-
-                                    .footer__item--1494301487048:nth-child(2n + 1) {
-                                        clear: left;
-                                    }
-                                }
-
-                                @media only screen and (min-width: 960px) {
-                                    .footer__item--1494301487048 {
-                                        width: 95%;
-                                    }
-
-                                }
-                            </style>
-                        </div>
                     </div>
                 </div>
             </footer>

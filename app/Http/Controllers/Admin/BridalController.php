@@ -11,6 +11,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
 
@@ -156,6 +157,18 @@ class BridalController extends Controller
 
     public function editStyle(Request $request)
     {
+        return view('admin.style.edit_style');
+    }
+
+    public function deleteStyle(Request $request)
+    {
+        $id = $request->id;
+        $dress = DressProduct::where('category_id', $id)->first();
+        if ($dress) {
+            $errors = ['Có sản phẩm trong mẫu này. Hãy xóa nó trước'];
+            Session::flash('errors', $errors);
+            return redirect()->back();
+        }
 
     }
 

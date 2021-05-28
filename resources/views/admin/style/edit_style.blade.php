@@ -24,7 +24,7 @@
                                 <div class="card-body">
                                     <div class="form-group">
                                         <label for="name">Tên mẫu</label>
-                                        <input type="text" class="form-control" id="name" name="name" required>
+                                        <input type="text" class="form-control" id="name" name="name" value="{{  }}" required>
                                     </div>
                                 </div>
                                 <div class="card-body">

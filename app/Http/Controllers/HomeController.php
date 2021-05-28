@@ -81,7 +81,16 @@ class HomeController extends Controller
     {
         $dress = DressProduct::paginate(20);
         $styles = WeddingDressCategory::all();
-        return view('shop.list_products', compact('dress', 'styles'));
+        $isStyle = false;
+        return view('shop.list_products', compact('dress', 'styles', 'isStyle'));
+    }
+
+    public function listProductsNew()
+    {
+        $dress = DressProduct::orderBy('id', 'desc')->paginate(20);
+        $styles = WeddingDressCategory::all();
+        $isStyle = false;
+        return view('shop.list_products', compact('dress', 'styles', 'isStyle'));
     }
 
     public function listProductsStyle(Request $request)
@@ -90,11 +99,19 @@ class HomeController extends Controller
         $styleDress = WeddingDressCategory::where('slug', $slug)->first();
         $dress = DressProduct::where('category_id', $styleDress->id)->paginate(20);
         $styles = WeddingDressCategory::all();
-        return view('shop.list_products', compact('dress', 'styles'));
+        $isStyle = true;
+        return view('shop.list_products', compact('dress', 'styles', 'isStyle', 'styleDress'));
     }
 
-    public function productDetails()
+    public function productDetails(Request $request)
     {
-        return view('shop.product_details');
+        $nameProduct = $request->nameProduct;
+        $dress = DressProduct::where('slug', $nameProduct)->first();
+        $dress->img_path = json_decode($dress->img_path, true);
+        $styles = WeddingDressCategory::all();
+        if (!$dress) {
+            return redirect()->back();
+        }
+        return view('shop.product_details', compact('dress', 'styles'));
     }
 }

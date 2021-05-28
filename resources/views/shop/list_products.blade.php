@@ -4,7 +4,7 @@
         <div class="page-width page-content page-content--top">
             <header class="section-header section-header--flush">
                 <h1 class="section-header__title">
-                    Shop
+                    {{ $isStyle ? $styleDress->name : 'Shop' }}
                 </h1>
             </header>
         </div>
@@ -46,7 +46,7 @@
                                                     <button type="button"
                                                             class="collapsible-trigger collapsible-trigger-btn collapsible--auto-height tag-list__header"
                                                             aria-controls="SidebarDrawer-1">
-                                                        Shop
+                                                        {{ $isStyle ? $styleDress->name : 'Shop' }}
                                                         <span
                                                             class="collapsible-trigger__icon collapsible-trigger__icon--open"
                                                             role="presentation">
@@ -92,7 +92,7 @@
                                             <button type="button"
                                                     class="collapsible-trigger collapsible-trigger-btn collapsible--auto-height tag-list__header"
                                                     aria-controls="CollectionSidebar-1" style="padding-top: unset">
-                                                Shop
+                                                {{ $isStyle ? $styleDress->name : 'Shop' }}
                                                 <span class="collapsible-trigger__icon collapsible-trigger__icon--open"
                                                       role="presentation">
                                                 <svg aria-hidden="true" focusable="false" role="presentation"
@@ -182,7 +182,7 @@
                                                 data-aos="row-of-4" data-product-handle="theia-marley-jumpsuit-gold"
                                                 data-product-id="6715933458620">
                                                 <div class="grid-product__content">
-                                                    <a href="/shop/product-details/" class="grid-product__link">
+                                                    <a href="{{ route('shop.productDetails', ['nameProduct' => $dr->slug]) }}" class="grid-product__link">
                                                         <div class="grid-product__image-mask">
                                                             <div class="image-wrap"
                                                                  style="height: 0; padding-bottom: 150.037509377%;">
