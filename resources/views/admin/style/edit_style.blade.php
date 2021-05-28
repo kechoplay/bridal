@@ -30,7 +30,7 @@
                                 <div class="card-body">
                                     <div class="form-group">
                                         <label for="name">Ảnh</label>
-                                        <input type="file" class="form-control" id="image" name="image" required>
+                                        <input type="file" class="form-control" id="image" name="image">
                                     </div>
                                     <label for="name">Ảnh cũ</label>
                                     <div class="form-group">
