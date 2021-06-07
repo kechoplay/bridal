@@ -65,21 +65,19 @@ class HomeController extends Controller
 
     public function contact()
     {
-        return view('contact');
+        $styles = WeddingDressCategory::all();
+        return view('contact', compact('styles'));
     }
 
     public function contactPost(Request $request)
     {
         Contact::create([
-            'type_dress' => $request->style_dress,
-            'name' => $request->name,
-            'email' => $request->email,
-            'phone' => $request->phone,
-            'address' => $request->address,
-            'note' => $request->note,
+            'name' => $request->contact['name'],
+            'email' => $request->contact['email'],
+            'note' => $request->contact['body'],
         ]);
 
-        return redirect()->back()->with('message', 'Gửi thông tin thành công!');
+        return redirect()->back()->with('message', 'Thanks for contacting us. We\'ll get back to you as soon as possible.');
     }
 
     public function shopIndex()

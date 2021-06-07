@@ -15,19 +15,31 @@ Route::get('/', function () {
     return view('index');
 });
 Route::get('/', ['as' => 'homeIndex', 'uses' => 'HomeController@shopIndex']);
+
 Route::get('/bridal-product/', ['as' => 'bridalIndex', 'uses' => 'HomeController@bridalIndex']);
+
 Route::get('/bridal-product/details/{slug}/{id}', ['as' => 'bridalDetails', 'uses' => 'HomeController@bridalDetails']);
+
 Route::get('/new-product/', ['as' => 'newIndex', 'uses' => 'HomeController@bridalIndex']);
+
 Route::get('/new-product/details/{slug}/{id}', ['as' => 'newDetails', 'uses' => 'HomeController@bridalDetails']);
+
 Route::get('/special-product/', ['as' => 'specialIndex', 'uses' => 'HomeController@specialIndex']);
-Route::get('/contact/', ['as' => 'contact', 'uses' => 'HomeController@contact']);
-Route::post('/contact/', ['as' => 'contactPost', 'uses' => 'HomeController@contactPost']);
+
+Route::get('/pages/contact/', ['as' => 'pages.contact', 'uses' => 'HomeController@contact']);
+
+Route::post('/pages/contact/', ['as' => 'pages.contactPost', 'uses' => 'HomeController@contactPost']);
+
 Route::get('/shop/', ['as' => 'shop.index', 'uses' => 'HomeController@shopIndex']);
+
 Route::get('/shop/list-products', ['as' => 'shop.listProducts', 'uses' => 'HomeController@listProducts']);
+
 Route::get('/shop/product-details/{nameProduct}', ['as' => 'shop.productDetails', 'uses' => 'HomeController@productDetails']);
 
 Route::get('/collections/shop', ['as' => 'shop.listProducts', 'uses' => 'HomeController@listProducts']);
+
 Route::get('/collections/shop/new-arrivals', ['as' => 'shop.listProductsNew', 'uses' => 'HomeController@listProductsNew']);
+
 Route::get('/collections/{style}', ['as' => 'shop.listProductsStyle', 'uses' => 'HomeController@listProductsStyle']);
 
 Route::get('/admin/login', ['as' => 'admin.login', 'uses' => 'Admin\BridalController@login']);

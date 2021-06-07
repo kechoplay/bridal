@@ -13,23 +13,22 @@
     <link rel="dns-prefetch" href="https://ajax.googleapis.com">
     <link rel="dns-prefetch" href="https://maps.googleapis.com">
     <link rel="dns-prefetch" href="https://maps.gstatic.com">
-    <link rel="shortcut icon" href="//cdn.shopify.com/s/files/1/0546/6033/files/Asset_5_32x32.png?v=1620140727" type="image/png" />
-    <title>Shop
-        &ndash; THEIA
-    </title>
+    <title>Shop&ndash; THEIA</title>
     <meta property="og:site_name" content="THEIA">
-    <meta property="og:url" content="https://theiacouture.com/collections/shop">
+    <meta property="og:url" content="">
     <meta property="og:title" content="Shop">
     <meta property="og:type" content="website">
-    <meta property="og:description" content="Inspired by the Goddess THEIA and worn by celebrities like Khloe Kardashian and Taylor Swift, THEIA sells Evening Gowns, Cocktail Dresses and Bridal Wear. ">
-    <meta property="og:image" content="http://cdn.shopify.com/s/files/1/0546/6033/collections/resort-2016-collection-grid_53abf468-9d1d-406e-bcb1-9f5662adb754.jpg?v=1620139942">
-    <meta property="og:image:secure_url" content="https://cdn.shopify.com/s/files/1/0546/6033/collections/resort-2016-collection-grid_53abf468-9d1d-406e-bcb1-9f5662adb754.jpg?v=1620139942">
+    <meta property="og:description"
+          content="Inspired by the Goddess THEIA and worn by celebrities like Khloe Kardashian and Taylor Swift, THEIA sells Evening Gowns, Cocktail Dresses and Bridal Wear. ">
+    <meta property="og:image" content="">
+    <meta property="og:image:secure_url" content="">
     <meta property="og:image:width" content="1440">
     <meta property="og:image:height" content="961">
     <meta name="twitter:site" content="@">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Shop">
-    <meta name="twitter:description" content="Inspired by the Goddess THEIA and worn by celebrities like Khloe Kardashian and Taylor Swift, THEIA sells Evening Gowns, Cocktail Dresses and Bridal Wear. ">
+    <meta name="twitter:description"
+          content="Inspired by the Goddess THEIA and worn by celebrities like Khloe Kardashian and Taylor Swift, THEIA sells Evening Gowns, Cocktail Dresses and Bridal Wear. ">
     <style data-shopify>
         @font-face {
             font-family: "Neue Haas Unica";
@@ -48,7 +47,6 @@
             src: url("https://fonts.shopifycdn.com/neue_haas_unica/neuehaasunica_n3.01e94f846533a0ac94012634fb9fb26b19f10df4.woff2?h1=dGhlaWFjb3V0dXJlLmNvbQ&hmac=3dcf272f99cc6a1932947c8ccc54d505f183ea18fd4c08cac90ff3e0ef97305e") format("woff2"),
             url("https://fonts.shopifycdn.com/neue_haas_unica/neuehaasunica_n3.f9a9091ecaa4f591ab2ac88f1466bab7f0bb8716.woff?h1=dGhlaWFjb3V0dXJlLmNvbQ&hmac=aaefaf00ff3fe781400889f5d2130ad0cf2085015ed9ed05d03df83fce748607") format("woff");
         }
-
 
         @font-face {
             font-family: "Neue Haas Unica";
@@ -77,7 +75,7 @@
             url("https://fonts.shopifycdn.com/neue_haas_unica/neuehaasunica_i6.3363176b64a45aad70c218c1908772b375a3b441.woff?h1=dGhlaWFjb3V0dXJlLmNvbQ&hmac=ea1b8d68ced7a94c3336f14853631cfb43fb9eb3144ff240335721e4e9e82b0d") format("woff");
         }
     </style>
-    <link href="/css/theme.css?v={{ time() }}" rel="stylesheet" type="text/css" media="all" />
+    <link href="/css/theme.css?v={{ time() }}" rel="stylesheet" type="text/css" media="all"/>
     <style data-shopify>
         :root {
             --typeHeaderPrimary: "Neue Haas Unica";
@@ -159,10 +157,8 @@
     </script>
     <meta id="shopify-digital-wallet" name="shopify-digital-wallet" content="/5466033/digital_wallets/dialog">
     <meta name="shopify-checkout-api-token" content="7b2241810495641f0e2a45472fe65e51">
-    <meta id="in-context-paypal-metadata" data-shop-id="5466033" data-venmo-supported="true" data-environment="production" data-locale="en_US" data-paypal-v4="true" data-currency="USD">
-    <link rel="alternate" type="application/atom+xml" title="Feed" href="/collections/shop.atom" />
-    <link rel="next" href="/collections/shop?page=2">
-    <link rel="alternate" type="application/json+oembed" href="https://theiacouture.com/collections/shop.oembed">
+    <meta id="in-context-paypal-metadata" data-shop-id="5466033" data-venmo-supported="true"
+          data-environment="production" data-locale="en_US" data-paypal-v4="true" data-currency="USD">
     <link href="https://monorail-edge.shopifysvc.com" rel="dns-prefetch">
     <script id="apple-pay-shop-capabilities" type="application/json">
         {
@@ -182,6 +178,16 @@
                 "amount": "1.00"
             }
         }
+
+
+
+
+
+
+
+
+
+
     </script>
     <script id="shopify-features" type="application/json">
         {
@@ -194,6 +200,16 @@
             "dynamic_checkout_cart_url": "https:\/\/cdn.shopify.com\/shopifycloud\/payment-sheet\/assets\/latest\/dynamic-checkout-cart.en.js",
             "locale": "en"
         }
+
+
+
+
+
+
+
+
+
+
     </script>
     <script>
 
@@ -221,20 +237,22 @@
         Shopify.cdnHost = "cdn.shopify.com";
     </script>
     <script type="module">
-        ! function(o) {
+        !function (o) {
             (o.Shopify = o.Shopify || {}).modules = !0
         }(window);
     </script>
     <script>
-        ! function(o) {
+        !function (o) {
             function n() {
                 var o = [];
 
                 function n() {
                     o.push(Array.prototype.slice.apply(arguments))
                 }
+
                 return n.q = o, n
             }
+
             var t = o.Shopify = o.Shopify || {};
             t.loadFeatures = n(), t.autoloadFeatures = n()
         }(window);
@@ -244,7 +262,7 @@
         window.ShopifyPay.apiHost = "shop.app\/pay";
     </script>
     <script>
-        (function() {
+        (function () {
             function asyncLoad() {
                 var urls = ["https:\/\/assets1.adroll.com\/shopify\/latest\/j\/shopify_rolling_bootstrap_v2.js?adroll_adv_id=B4SB37UHTRA6JGJTIXKBS7\u0026adroll_pix_id=BI2Y2ECVGVAD5KO2DFGTF6\u0026shop=theia.myshopify.com", "https:\/\/static.klaviyo.com\/onsite\/js\/klaviyo.js?company_id=HqxhT8\u0026shop=theia.myshopify.com", "https:\/\/accessibly.onthemapmarketing.com\/public\/widget\/run.js?shop=theia.myshopify.com", "https:\/\/d34uoa9py2cgca.cloudfront.net\/shopify-app\/helper-scripts\/sezzle-footer-logo-fix.js?shop=theia.myshopify.com", "https:\/\/static.klaviyo.com\/onsite\/js\/klaviyo.js?company_id=Sy8hAs\u0026shop=theia.myshopify.com"];
                 for (var i = 0; i < urls.length; i++) {
@@ -296,14 +314,13 @@
         }
     </script>
     <script>
-        window.ShopifyAnalytics.merchantGoogleAnalytics = function() {};
+        window.ShopifyAnalytics.merchantGoogleAnalytics = function () {
+        };
     </script>
     <script class="analytics">
         (window.gaDevIds = window.gaDevIds || []).push('BwiEti');
-
-
-        (function() {
-            var customDocumentWrite = function(content) {
+        (function () {
+            var customDocumentWrite = function (content) {
                 var jquery = null;
 
                 if (window.jQuery) {
@@ -317,14 +334,14 @@
                 }
             };
 
-            var hasLoggedConversion = function(token) {
+            var hasLoggedConversion = function (token) {
                 if (token) {
                     return document.cookie.indexOf('loggedConversion=' + token) !== -1;
                 }
                 return false;
             }
 
-            var setCookieIfConversion = function(token) {
+            var setCookieIfConversion = function (token) {
                 if (token) {
                     var twoMonthsFromNow = new Date(Date.now());
                     twoMonthsFromNow.setMonth(twoMonthsFromNow.getMonth() + 2);
@@ -345,8 +362,8 @@
                 'trackForm',
                 'trackLink'
             ];
-            trekkie.factory = function(method) {
-                return function() {
+            trekkie.factory = function (method) {
+                return function () {
                     var args = Array.prototype.slice.call(arguments);
                     args.unshift(method);
                     trekkie.push(args);
@@ -357,15 +374,15 @@
                 var key = trekkie.methods[i];
                 trekkie[key] = trekkie.factory(key);
             }
-            trekkie.load = function(config) {
+            trekkie.load = function (config) {
                 trekkie.config = config;
                 var first = document.getElementsByTagName('script')[0];
                 var script = document.createElement('script');
                 script.type = 'text/javascript';
-                script.onerror = function(e) {
+                script.onerror = function (e) {
                     var scriptFallback = document.createElement('script');
                     scriptFallback.type = 'text/javascript';
-                    scriptFallback.onerror = function(error) {
+                    scriptFallback.onerror = function (error) {
                         var Monorail = {
                             produce: function produce(monorailDomain, schemaId, payload) {
                                 var currentMs = new Date().getTime();
@@ -462,7 +479,7 @@
             });
 
             var loaded = false;
-            trekkie.ready(function() {
+            trekkie.ready(function () {
                 if (loaded) return;
                 loaded = true;
 
@@ -482,13 +499,14 @@
                     event = event || window.event;
                     var target = event.target || event.srcElement;
                     if (target && (target.getAttribute('action') || target.getAttribute('href'))) {
-                        ga(function(tracker) {
+                        ga(function (tracker) {
                             var linkerParam = tracker.get('linkerParam');
                             document.cookie = '_shopify_ga=' + linkerParam + '; ' + 'path=/';
                         });
                     }
                 }
-                addListener(window, 'load', function() {
+
+                addListener(window, 'load', function () {
                     for (var i = 0; i < document.forms.length; i++) {
                         var action = document.forms[i].getAttribute('action');
                         if (action && action.indexOf('/cart') >= 0) {
@@ -508,9 +526,11 @@
                 document.write = customDocumentWrite;
                 try {
                     window.ShopifyAnalytics.merchantGoogleAnalytics.call(this);
-                } catch (error) {};
+                } catch (error) {
+                }
+                ;
                 document.write = originalDocumentWrite;
-                (function() {
+                (function () {
                     if (window.BOOMR && (window.BOOMR.version || window.BOOMR.snippetExecuted)) {
                         return;
                     }
@@ -548,7 +568,7 @@
                         var doc = document;
                         var win = window;
                         window.BOOMR.snippetMethod = wasFallback ? "if" : "i";
-                        bootstrap = function(parent, scriptId) {
+                        bootstrap = function (parent, scriptId) {
                             var script = doc.createElement("script");
                             script.id = scriptId || "boomr-if-as";
                             script.src = window.BOOMR.url;
@@ -582,13 +602,13 @@
                             doc = win.document.open();
                         }
                         if (dom) {
-                            doc._boomrl = function() {
+                            doc._boomrl = function () {
                                 this.domain = dom;
                                 bootstrap();
                             };
                             doc.write("<body onload='document._boomrl();'>");
                         } else {
-                            win._boomrl = function() {
+                            win._boomrl = function () {
                                 bootstrap();
                             };
                             if (win.addEventListener) {
@@ -599,6 +619,7 @@
                         }
                         doc.close();
                     }
+
                     var link = document.createElement("link");
                     if (link.relList &&
                         typeof link.relList.supports === "function" &&
@@ -609,10 +630,10 @@
                         link.rel = "preload";
                         link.as = "script";
                         link.addEventListener("load", promote);
-                        link.addEventListener("error", function() {
+                        link.addEventListener("error", function () {
                             iframeLoader(true);
                         });
-                        setTimeout(function() {
+                        setTimeout(function () {
                             if (!promoted) {
                                 iframeLoader(true);
                             }
@@ -626,13 +647,14 @@
                     function boomerangSaveLoadTime(e) {
                         window.BOOMR_onload = (e && e.timeStamp) || new Date().getTime();
                     }
+
                     if (window.addEventListener) {
                         window.addEventListener("load", boomerangSaveLoadTime, false);
                     } else if (window.attachEvent) {
                         window.attachEvent("onload", boomerangSaveLoadTime);
                     }
                     if (document.addEventListener) {
-                        document.addEventListener("onBoomerangLoaded", function(e) {
+                        document.addEventListener("onBoomerangLoaded", function (e) {
                             e.detail.BOOMR.init({
                                 producer_url: "https://monorail-edge.shopifysvc.com/v1/produce",
                                 ResourceTiming: {
@@ -643,7 +665,7 @@
                             e.detail.BOOMR.t_end = new Date().getTime();
                         });
                     } else if (document.attachEvent) {
-                        document.attachEvent("onpropertychange", function(e) {
+                        document.attachEvent("onpropertychange", function (e) {
                             if (!e) e = event;
                             if (e.propertyName === "onBoomerangLoaded") {
                                 e.detail.BOOMR.init({
@@ -658,7 +680,6 @@
                         });
                     }
                 })();
-
 
 
                 window.ShopifyAnalytics.lib.page(
@@ -688,17 +709,15 @@
                 }
             });
 
-
             var eventsListenerScript = document.createElement('script');
             eventsListenerScript.async = true;
             eventsListenerScript.src = "//cdn.shopify.com/shopifycloud/shopify/assets/shop_events_listener-714e2e017903fad17d4471cb27d1f2c8a83b5a7a276f92420f7e5e40dbc9136e.js";
             document.getElementsByTagName('head')[0].appendChild(eventsListenerScript);
-
         })();
     </script>
     <script>
-        ! function(e) {
-            e.addEventListener("DOMContentLoaded", function() {
+        !function (e) {
+            e.addEventListener("DOMContentLoaded", function () {
                 var t = ['form[action^="/contact"] input[name="form_type"][value="contact"]', 'form[action*="/comments"] input[name="form_type"][value="new_comment"]'].join(",");
                 null !== e.querySelector(t) && (window.Shopify = window.Shopify || {}, window.Shopify.recaptchaV3 = window.Shopify.recaptchaV3 || {
                     siteKey: "6LcCR2cUAAAAANS1Gpq_mDIJ2pQuJphsSQaUEuc9"
@@ -706,9 +725,16 @@
             })
         }(document);
     </script>
-    <script integrity="sha256-2KbxRG1nAJxSTtTmhkiAC6kILrdVSO4o4QUDMcvnuig=" data-source-attribution="shopify.loadfeatures" defer="defer" src="//cdn.shopify.com/shopifycloud/shopify/assets/storefront/load_feature-d8a6f1446d67009c524ed4e68648800ba9082eb75548ee28e1050331cbe7ba28.js" crossorigin="anonymous"></script>
-    <script crossorigin="anonymous" defer="defer" src="//cdn.shopify.com/shopifycloud/shopify/assets/shopify_pay/storefront-b61f50798075db890698930c4405673937fe89353f7fea7be88b5ce16a9c0af8.js?v=20210208"></script>
-    <script integrity="sha256-h+g5mYiIAULyxidxudjy/2wpCz/3Rd1CbrDf4NudHa4=" data-source-attribution="shopify.dynamic-checkout" defer="defer" src="//cdn.shopify.com/shopifycloud/shopify/assets/storefront/features-87e8399988880142f2c62771b9d8f2ff6c290b3ff745dd426eb0dfe0db9d1dae.js" crossorigin="anonymous"></script>
+    <script integrity="sha256-2KbxRG1nAJxSTtTmhkiAC6kILrdVSO4o4QUDMcvnuig="
+            data-source-attribution="shopify.loadfeatures" defer="defer"
+            src="//cdn.shopify.com/shopifycloud/shopify/assets/storefront/load_feature-d8a6f1446d67009c524ed4e68648800ba9082eb75548ee28e1050331cbe7ba28.js"
+            crossorigin="anonymous"></script>
+    <script crossorigin="anonymous" defer="defer"
+            src="//cdn.shopify.com/shopifycloud/shopify/assets/shopify_pay/storefront-b61f50798075db890698930c4405673937fe89353f7fea7be88b5ce16a9c0af8.js?v=20210208"></script>
+    <script integrity="sha256-h+g5mYiIAULyxidxudjy/2wpCz/3Rd1CbrDf4NudHa4="
+            data-source-attribution="shopify.dynamic-checkout" defer="defer"
+            src="//cdn.shopify.com/shopifycloud/shopify/assets/storefront/features-87e8399988880142f2c62771b9d8f2ff6c290b3ff745dd426eb0dfe0db9d1dae.js"
+            crossorigin="anonymous"></script>
 
 
     <style id="shopify-dynamic-checkout-cart">
@@ -729,7 +755,8 @@
     </script>
 
     <script src="//cdn.shopify.com/s/files/1/0546/6033/t/32/assets/vendor-scripts-v9.js" defer="defer"></script>
-    <script src="//cdn.shopify.com/s/files/1/0546/6033/t/32/assets/theme.min.js?v=8260113599161302091" defer="defer"></script>
+    <script src="//cdn.shopify.com/s/files/1/0546/6033/t/32/assets/theme.min.js?v=8260113599161302091"
+            defer="defer"></script>
     <style>
         ul {
             list-style: none;
@@ -737,14 +764,14 @@
     </style>
 </head>
 
-<body class="template-collection" data-center-text="true" data-button_style="square" data-type_header_capitalize="true" data-type_headers_align_text="true" data-type_product_capitalize="true" data-swatch_style="round">
+<body class="template-collection" data-center-text="true" data-button_style="square" data-type_header_capitalize="true"
+      data-type_headers_align_text="true" data-type_product_capitalize="true" data-swatch_style="round">
 
 <a class="in-page-link visually-hidden skip-link" href="#MainContent">Skip to content</a>
 
 <div id="PageContainer" class="page-container">
     <div class="transition-body">
         <div id="shopify-section-header" class="shopify-section">
-
             <div id="NavDrawer" class="drawer drawer--right">
                 <div class="drawer__contents">
                     <div class="drawer__fixed-header">
@@ -752,8 +779,9 @@
                             <div class="h2 drawer__title"></div>
                             <div class="drawer__close">
                                 <button type="button" class="drawer__close-button js-drawer-close">
-                                    <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-close" viewBox="0 0 64 64">
-                                        <path d="M19 17.61l27.12 27.13m0-27.12L19 44.74" />
+                                    <svg aria-hidden="true" focusable="false" role="presentation"
+                                         class="icon icon-close" viewBox="0 0 64 64">
+                                        <path d="M19 17.61l27.12 27.13m0-27.12L19 44.74"/>
                                     </svg>
                                     <span class="icon__fallback-text">Close menu</span>
                                 </button>
@@ -763,61 +791,103 @@
                     <div class="drawer__scrollable">
                         <ul class="mobile-nav" role="navigation" aria-label="Primary">
                             <li class="mobile-nav__item appear-animation appear-delay-2">
-                                <div class="mobile-nav__has-sublist"><a href="/collections/shop" class="mobile-nav__link mobile-nav__link--top-level" id="Label-collections-shop1" data-active="true">
+                                <div class="mobile-nav__has-sublist">
+                                    <a href="{{ route('shop.listProducts') }}"
+                                       class="mobile-nav__link mobile-nav__link--top-level"
+                                       id="Label-collections-shop1" data-active="true">
                                         Shop
                                     </a>
                                     <div class="mobile-nav__toggle">
-                                        <button type="button" aria-controls="Linklist-collections-shop1" aria-open="true" aria-labelledby="Label-collections-shop1" class="collapsible-trigger collapsible--auto-height is-open"><span class="collapsible-trigger__icon collapsible-trigger__icon--open" role="presentation">
-                                                    <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon--wide icon-chevron-down" viewBox="0 0 28 16">
-                                                        <path d="M1.57 1.59l12.76 12.77L27.1 1.59" stroke-width="2" stroke="#000" fill="none" fill-rule="evenodd" />
-                                                    </svg>
-                                                </span>
+                                        <button type="button" aria-controls="Linklist-collections-shop1"
+                                                aria-open="true" aria-labelledby="Label-collections-shop1"
+                                                class="collapsible-trigger collapsible--auto-height is-open">
+                                            <span class="collapsible-trigger__icon collapsible-trigger__icon--open"
+                                                  role="presentation">
+                                                <svg aria-hidden="true" focusable="false" role="presentation"
+                                                     class="icon icon--wide icon-chevron-down" viewBox="0 0 28 16">
+                                                    <path d="M1.57 1.59l12.76 12.77L27.1 1.59" stroke-width="2"
+                                                          stroke="#000" fill="none" fill-rule="evenodd"/>
+                                                </svg>
+                                            </span>
                                         </button>
                                     </div>
                                 </div>
-                                <div id="Linklist-collections-shop1" class="mobile-nav__sublist collapsible-content collapsible-content--all is-open" style="height: auto;">
+                                <div id="Linklist-collections-shop1"
+                                     class="mobile-nav__sublist collapsible-content collapsible-content--all is-open"
+                                     style="height: auto;">
                                     <div class="collapsible-content__inner">
                                         <ul class="mobile-nav__sublist">
                                             <li class="mobile-nav__item">
                                                 <div class="mobile-nav__child-item">
-                                                    <a href="{{ route('shop.listProducts') }}" class="mobile-nav__link" id="Sublabel-collections-shop1" data-active="true">
+                                                    <a href="{{ route('shop.listProducts') }}" class="mobile-nav__link"
+                                                       id="Sublabel-collections-shop1" data-active="true">
                                                         Shop All Styles
                                                     </a>
-                                                    <button type="button" aria-controls="Sublinklist-collections-shop1-collections-shop1" aria-labelledby="Sublabel-collections-shop1" class="collapsible-trigger is-open"><span class="collapsible-trigger__icon collapsible-trigger__icon--circle collapsible-trigger__icon--open" role="presentation">
-                                                                <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon--wide icon-chevron-down" viewBox="0 0 28 16">
-                                                                    <path d="M1.57 1.59l12.76 12.77L27.1 1.59" stroke-width="2" stroke="#000" fill="none" fill-rule="evenodd" />
-                                                                </svg>
-                                                            </span>
+                                                    <button type="button"
+                                                            aria-controls="Sublinklist-collections-shop1-collections-shop1"
+                                                            aria-labelledby="Sublabel-collections-shop1"
+                                                            class="collapsible-trigger is-open"><span
+                                                            class="collapsible-trigger__icon collapsible-trigger__icon--circle collapsible-trigger__icon--open"
+                                                            role="presentation">
+                                                        <svg aria-hidden="true" focusable="false" role="presentation"
+                                                             class="icon icon--wide icon-chevron-down"
+                                                             viewBox="0 0 28 16">
+                                                            <path d="M1.57 1.59l12.76 12.77L27.1 1.59" stroke-width="2"
+                                                                  stroke="#000" fill="none" fill-rule="evenodd"/>
+                                                        </svg>
+                                                    </span>
                                                     </button>
                                                 </div>
-                                                <div id="Sublinklist-collections-shop1-collections-shop1" aria-labelledby="Sublabel-collections-shop1" class="mobile-nav__sublist collapsible-content collapsible-content--all is-open" style="height: auto;">
+                                                <div id="Sublinklist-collections-shop1-collections-shop1"
+                                                     aria-labelledby="Sublabel-collections-shop1"
+                                                     class="mobile-nav__sublist collapsible-content collapsible-content--all is-open"
+                                                     style="height: auto;">
                                                     <div class="collapsible-content__inner">
                                                         <ul class="mobile-nav__grandchildlist">
                                                             @foreach($styles as $style)
-                                                            <li class="mobile-nav__item">
-                                                                <a href="{{ route('shop.listProductsStyle', ['style' => $style->slug]) }}" class="mobile-nav__link">
-                                                                    {{ $style->name }}
-                                                                </a>
-                                                            </li>
+                                                                <li class="mobile-nav__item">
+                                                                    <a href="{{ route('shop.listProductsStyle', ['style' => $style->slug]) }}"
+                                                                       class="mobile-nav__link">
+                                                                        {{ $style->name }}
+                                                                    </a>
+                                                                </li>
                                                             @endforeach
                                                         </ul>
                                                     </div>
                                                 </div>
                                             </li>
                                             <li class="mobile-nav__item">
-                                                <div class="mobile-nav__child-item"><a href="{{ route('shop.listProductsNew') }}" class="mobile-nav__link" id="Sublabel-collections-new-arrivals2">
+                                                <div class="mobile-nav__child-item">
+                                                    <a href="{{ route('shop.listProductsNew') }}"
+                                                       class="mobile-nav__link" id="Sublabel-collections-new-arrivals2">
                                                         New Arrivals
-                                                    </a><button type="button" aria-controls="Sublinklist-collections-shop1-collections-new-arrivals2" aria-labelledby="Sublabel-collections-new-arrivals2" class="collapsible-trigger"><span class="collapsible-trigger__icon collapsible-trigger__icon--circle collapsible-trigger__icon--open" role="presentation">
-                                                                <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon--wide icon-chevron-down" viewBox="0 0 28 16">
-                                                                    <path d="M1.57 1.59l12.76 12.77L27.1 1.59" stroke-width="2" stroke="#000" fill="none" fill-rule="evenodd" />
-                                                                </svg>
-                                                            </span>
-                                                    </button></div>
-                                                <div id="Sublinklist-collections-shop1-collections-new-arrivals2" aria-labelledby="Sublabel-collections-new-arrivals2" class="mobile-nav__sublist collapsible-content collapsible-content--all">
+                                                    </a>
+                                                    <button type="button"
+                                                            aria-controls="Sublinklist-collections-shop1-collections-new-arrivals2"
+                                                            aria-labelledby="Sublabel-collections-new-arrivals2"
+                                                            class="collapsible-trigger">
+                                                        <span
+                                                            class="collapsible-trigger__icon collapsible-trigger__icon--circle collapsible-trigger__icon--open"
+                                                            role="presentation">
+                                                            <svg aria-hidden="true" focusable="false"
+                                                                 role="presentation"
+                                                                 class="icon icon--wide icon-chevron-down"
+                                                                 viewBox="0 0 28 16">
+                                                                <path d="M1.57 1.59l12.76 12.77L27.1 1.59"
+                                                                      stroke-width="2"
+                                                                      stroke="#000" fill="none" fill-rule="evenodd"/>
+                                                            </svg>
+                                                        </span>
+                                                    </button>
+                                                </div>
+                                                <div id="Sublinklist-collections-shop1-collections-new-arrivals2"
+                                                     aria-labelledby="Sublabel-collections-new-arrivals2"
+                                                     class="mobile-nav__sublist collapsible-content collapsible-content--all">
                                                     <div class="collapsible-content__inner">
                                                         <ul class="mobile-nav__grandchildlist">
                                                             <li class="mobile-nav__item">
-                                                                <a href="{{ route('shop.listProductsNew') }}" class="mobile-nav__link">
+                                                                <a href="{{ route('shop.listProductsNew') }}"
+                                                                   class="mobile-nav__link">
                                                                     Shop New Arrivals
                                                                 </a>
                                                             </li>
@@ -829,7 +899,10 @@
                                     </div>
                                 </div>
                             </li>
-                            <li class="mobile-nav__item appear-animation appear-delay-3"><a href="{{ route('shop.listProductsNew') }}" class="mobile-nav__link mobile-nav__link--top-level">New Arrivals</a></li>
+                            <li class="mobile-nav__item appear-animation appear-delay-3">
+                                <a href="{{ route('shop.listProductsNew') }}"
+                                   class="mobile-nav__link mobile-nav__link--top-level">New Arrivals</a>
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -854,7 +927,7 @@
                     box-shadow: 0 0 1px rgba(0, 0, 0, 0.2);
                 }
 
-                .toolbar+.header-sticky-wrapper .site-header {
+                .toolbar + .header-sticky-wrapper .site-header {
                     border-top: 0;
                 }
             </style>
@@ -904,44 +977,77 @@
                                                 }
                                             }
                                         </style>
-                                        <div class="h1 site-header__logo" itemscope itemtype="http://schema.org/Organization">
-                                            <a href="/shop" itemprop="url" class="site-header__logo-link logo--has-inverted">
-                                                <img class="small--hide" src="//cdn.shopify.com/s/files/1/0546/6033/files/THEIA_Logo_4b6eb676-6ab5-4d1b-b8fb-43716d9b8356_120x.png?v=1619811240" srcset="//cdn.shopify.com/s/files/1/0546/6033/files/THEIA_Logo_4b6eb676-6ab5-4d1b-b8fb-43716d9b8356_120x.png?v=1619811240 1x, //cdn.shopify.com/s/files/1/0546/6033/files/THEIA_Logo_4b6eb676-6ab5-4d1b-b8fb-43716d9b8356_120x@2x.png?v=1619811240 2x" alt="THEIA" itemprop="logo">
-                                                <img class="medium-up--hide" src="//cdn.shopify.com/s/files/1/0546/6033/files/THEIA_Logo_4b6eb676-6ab5-4d1b-b8fb-43716d9b8356_110x.png?v=1619811240" srcset="//cdn.shopify.com/s/files/1/0546/6033/files/THEIA_Logo_4b6eb676-6ab5-4d1b-b8fb-43716d9b8356_110x.png?v=1619811240 1x, //cdn.shopify.com/s/files/1/0546/6033/files/THEIA_Logo_4b6eb676-6ab5-4d1b-b8fb-43716d9b8356_110x@2x.png?v=1619811240 2x" alt="THEIA">
-                                            </a><a href="/shop" itemprop="url" class="site-header__logo-link logo--inverted">
-                                                <img class="small--hide" src="//cdn.shopify.com/s/files/1/0546/6033/files/Asset_1_1_120x.png?v=1619816247" srcset="//cdn.shopify.com/s/files/1/0546/6033/files/Asset_1_1_120x.png?v=1619816247 1x, //cdn.shopify.com/s/files/1/0546/6033/files/Asset_1_1_120x@2x.png?v=1619816247 2x" alt="THEIA" itemprop="logo">
-                                                <img class="medium-up--hide" src="//cdn.shopify.com/s/files/1/0546/6033/files/Asset_1_1_110x.png?v=1619816247" srcset="//cdn.shopify.com/s/files/1/0546/6033/files/Asset_1_1_110x.png?v=1619816247 1x, //cdn.shopify.com/s/files/1/0546/6033/files/Asset_1_1_110x@2x.png?v=1619816247 2x" alt="THEIA">
+                                        <div class="h1 site-header__logo" itemscope
+                                             itemtype="http://schema.org/Organization">
+                                            <a href="{{ route('shop.listProducts') }}" itemprop="url"
+                                               class="site-header__logo-link logo--has-inverted">
+                                                <img class="small--hide"
+                                                     src="//cdn.shopify.com/s/files/1/0546/6033/files/THEIA_Logo_4b6eb676-6ab5-4d1b-b8fb-43716d9b8356_120x.png?v=1619811240"
+                                                     srcset="//cdn.shopify.com/s/files/1/0546/6033/files/THEIA_Logo_4b6eb676-6ab5-4d1b-b8fb-43716d9b8356_120x.png?v=1619811240 1x, //cdn.shopify.com/s/files/1/0546/6033/files/THEIA_Logo_4b6eb676-6ab5-4d1b-b8fb-43716d9b8356_120x@2x.png?v=1619811240 2x"
+                                                     alt="THEIA" itemprop="logo">
+                                                <img class="medium-up--hide"
+                                                     src="//cdn.shopify.com/s/files/1/0546/6033/files/THEIA_Logo_4b6eb676-6ab5-4d1b-b8fb-43716d9b8356_110x.png?v=1619811240"
+                                                     srcset="//cdn.shopify.com/s/files/1/0546/6033/files/THEIA_Logo_4b6eb676-6ab5-4d1b-b8fb-43716d9b8356_110x.png?v=1619811240 1x, //cdn.shopify.com/s/files/1/0546/6033/files/THEIA_Logo_4b6eb676-6ab5-4d1b-b8fb-43716d9b8356_110x@2x.png?v=1619811240 2x"
+                                                     alt="THEIA">
+                                            </a>
+                                            <a href="/shop" itemprop="url"
+                                               class="site-header__logo-link logo--inverted">
+                                                <img class="small--hide"
+                                                     src="//cdn.shopify.com/s/files/1/0546/6033/files/Asset_1_1_120x.png?v=1619816247"
+                                                     srcset="//cdn.shopify.com/s/files/1/0546/6033/files/Asset_1_1_120x.png?v=1619816247 1x, //cdn.shopify.com/s/files/1/0546/6033/files/Asset_1_1_120x@2x.png?v=1619816247 2x"
+                                                     alt="THEIA" itemprop="logo">
+                                                <img class="medium-up--hide"
+                                                     src="//cdn.shopify.com/s/files/1/0546/6033/files/Asset_1_1_110x.png?v=1619816247"
+                                                     srcset="//cdn.shopify.com/s/files/1/0546/6033/files/Asset_1_1_110x.png?v=1619816247 1x, //cdn.shopify.com/s/files/1/0546/6033/files/Asset_1_1_110x@2x.png?v=1619816247 2x"
+                                                     alt="THEIA">
                                             </a>
                                         </div>
                                     </div>
                                     <div class="header-item header-item--navigation text-center">
-                                        <ul class="site-nav site-navigation small--hide" role="navigation" aria-label="Primary">
-                                            <li class="site-nav__item site-nav__expanded-item site-nav--has-dropdown site-nav--is-megamenu" aria-haspopup="true">
-
-                                                <a href="{{ route('shop.listProducts') }}" class="site-nav__link site-nav__link--underline site-nav__link--has-dropdown">
+                                        <ul class="site-nav site-navigation small--hide" role="navigation"
+                                            aria-label="Primary">
+                                            <li class="site-nav__item site-nav__expanded-item site-nav--has-dropdown site-nav--is-megamenu"
+                                                aria-haspopup="true">
+                                                <a href="{{ route('shop.listProducts') }}"
+                                                   class="site-nav__link site-nav__link--underline site-nav__link--has-dropdown">
                                                     Shop
                                                 </a>
                                                 <div class="site-nav__dropdown megamenu text-left">
                                                     <div class="page-width">
                                                         <div class="grid grid--center">
-                                                            <div class="grid__item medium-up--one-fifth appear-animation appear-delay-1"><a href="{{ route('shop.listProducts') }}" class="megamenu__colection-image" aria-label="Shop" style="background-image: url(//cdn.shopify.com/s/files/1/0546/6033/collections/resort-2016-collection-grid_53abf468-9d1d-406e-bcb1-9f5662adb754_400x.jpg?v=1620139942)"></a>
+                                                            <div
+                                                                class="grid__item medium-up--one-fifth appear-animation appear-delay-1">
+                                                                <a href="{{ route('shop.listProducts') }}"
+                                                                   class="megamenu__colection-image" aria-label="Shop"
+                                                                   style="background-image: url(//cdn.shopify.com/s/files/1/0546/6033/collections/resort-2016-collection-grid_53abf468-9d1d-406e-bcb1-9f5662adb754_400x.jpg?v=1620139942)"></a>
                                                                 <div class="h5">
-                                                                    <a href="{{ route('shop.listProducts') }}" class="site-nav__dropdown-link site-nav__dropdown-link--top-level">Shop All Styles</a>
+                                                                    <a href="{{ route('shop.listProducts') }}"
+                                                                       class="site-nav__dropdown-link site-nav__dropdown-link--top-level">Shop
+                                                                        All Styles</a>
                                                                 </div>
                                                                 @foreach($styles as $style)
-                                                                <div>
-                                                                    <a href="{{ route('shop.listProductsStyle', ['style' => $style->slug]) }}" class="site-nav__dropdown-link">
-                                                                        {{ $style->name }}
-                                                                    </a>
-                                                                </div>
+                                                                    <div>
+                                                                        <a href="{{ route('shop.listProductsStyle', ['style' => $style->slug]) }}"
+                                                                           class="site-nav__dropdown-link">
+                                                                            {{ $style->name }}
+                                                                        </a>
+                                                                    </div>
                                                                 @endforeach
                                                             </div>
-                                                            <div class="grid__item medium-up--one-fifth appear-animation appear-delay-2"><a href="{{ route('shop.listProductsNew') }}" class="megamenu__colection-image" aria-label="New Arrivals" style="background-image: url(//cdn.shopify.com/s/files/1/0546/6033/collections/884286_11797_copy_400x.jpg?v=1620139712)"></a>
+                                                            <div
+                                                                class="grid__item medium-up--one-fifth appear-animation appear-delay-2">
+                                                                <a href="{{ route('shop.listProductsNew') }}"
+                                                                   class="megamenu__colection-image"
+                                                                   aria-label="New Arrivals"
+                                                                   style="background-image: url(//cdn.shopify.com/s/files/1/0546/6033/collections/884286_11797_copy_400x.jpg?v=1620139712)"></a>
                                                                 <div class="h5">
-                                                                    <a href="{{ route('shop.listProductsNew') }}" class="site-nav__dropdown-link site-nav__dropdown-link--top-level">New Arrivals</a>
+                                                                    <a href="{{ route('shop.listProductsNew') }}"
+                                                                       class="site-nav__dropdown-link site-nav__dropdown-link--top-level">New
+                                                                        Arrivals</a>
                                                                 </div>
                                                                 <div>
-                                                                    <a href="{{ route('shop.listProductsNew') }}" class="site-nav__dropdown-link">
+                                                                    <a href="{{ route('shop.listProductsNew') }}"
+                                                                       class="site-nav__dropdown-link">
                                                                         Shop New Arrivals
                                                                     </a>
                                                                 </div>
@@ -950,26 +1056,17 @@
                                                     </div>
                                                 </div>
                                             </li>
-                                            <li class="site-nav__item site-nav__expanded-item">
-
-                                                <a href="{{ route('shop.listProductsNew') }}" class="site-nav__link site-nav__link--underline">
-                                                    New Arrivals
-                                                </a>
-                                            </li>
                                         </ul>
                                     </div>
                                     <div class="header-item header-item--icons">
                                         <div class="site-nav">
                                             <div class="site-nav__icons">
-                                                <a href="/search" class="site-nav__link site-nav__link--icon js-search-header">
-                                                    <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-search" viewBox="0 0 64 64">
-                                                        <path d="M47.16 28.58A18.58 18.58 0 1 1 28.58 10a18.58 18.58 0 0 1 18.58 18.58zM54 54L41.94 42" />
-                                                    </svg>
-                                                    <span class="icon__fallback-text">Search</span>
-                                                </a>
-                                                <button type="button" class="site-nav__link site-nav__link--icon js-drawer-open-nav medium-up--hide" aria-controls="NavDrawer">
-                                                    <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-hamburger" viewBox="0 0 64 64">
-                                                        <path d="M7 15h51M7 32h43M7 49h51" />
+                                                <button type="button"
+                                                        class="site-nav__link site-nav__link--icon js-drawer-open-nav medium-up--hide"
+                                                        aria-controls="NavDrawer">
+                                                    <svg aria-hidden="true" focusable="false" role="presentation"
+                                                         class="icon icon-hamburger" viewBox="0 0 64 64">
+                                                        <path d="M7 15h51M7 32h43M7 49h51"/>
                                                     </svg>
                                                     <span class="icon__fallback-text">Site navigation</span>
                                                 </button>
@@ -978,46 +1075,10 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="site-header__search-container">
-                                <div class="site-header__search">
-                                    <div class="page-width">
-                                        <form action="/search" method="get" role="search" id="HeaderSearchForm" class="site-header__search-form">
-                                            <input type="hidden" name="type" value="product">
-                                            <button type="submit" class="text-link site-header__search-btn site-header__search-btn--submit">
-                                                <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-search" viewBox="0 0 64 64">
-                                                    <path d="M47.16 28.58A18.58 18.58 0 1 1 28.58 10a18.58 18.58 0 0 1 18.58 18.58zM54 54L41.94 42" />
-                                                </svg>
-                                                <span class="icon__fallback-text">Search</span>
-                                            </button>
-                                            <input type="search" name="q" value="" placeholder="Search our store" class="site-header__search-input" aria-label="Search our store">
-                                        </form>
-                                        <button type="button" id="SearchClose" class="js-search-header-close text-link site-header__search-btn">
-                                            <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-close" viewBox="0 0 64 64">
-                                                <path d="M19 17.61l27.12 27.13m0-27.12L19 44.74" />
-                                            </svg>
-                                            <span class="icon__fallback-text">"Close (esc)"</span>
-                                        </button>
-                                    </div>
-                                </div>
-                                <div id="PredictiveWrapper" class="predictive-results hide" data-image-size="square">
-                                    <div class="page-width">
-                                        <div id="PredictiveResults" class="predictive-result__layout"></div>
-                                        <div class="text-center predictive-results__footer">
-                                            <button type="button" class="btn btn--small" data-predictive-search-button>
-                                                <small>
-                                                    View more
-                                                </small>
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
                         </header>
                     </div>
                 </div>
             </div>
-
-
         </div>
         <main class="main-content" id="MainContent">
             @yield('content')
@@ -1030,15 +1091,72 @@
                     border-top: 1px solid #e8e8e1;
                 }
             </style>
-            <footer class="site-footer" data-section-id="footer" data-section-type="footer-section" style="padding-top: 30px; padding-bottom: 30px">
+            <footer class="site-footer" data-section-id="footer" data-section-type="footer-section"
+                    style="padding-top: 30px; padding-bottom: 30px">
                 <div class="page-width">
-
                     <div class="grid">
+                        <div class="grid__item footer__item" data-type="menu">
+                            <style data-shopify="">
+                                @media only screen and (min-width: 769px) and (max-width: 959px) {
+                                    .footer__item {
+                                        width: 100%;
+                                        text-align: center;
+                                        padding-top: 40px;
+                                    }
+
+                                    .footer__item:nth-child(2n + 1) {
+                                        clear: left;
+                                    }
+                                }
+
+                                @media only screen and (min-width: 960px) {
+                                    .footer__item {
+                                        width: 100%;
+                                        text-align: center;
+                                    }
+                                }
+                            </style>
+                            <div>
+                                <div class="collapsible-content__inner">
+                                    <div class="footer__collapsible footer_collapsible--disabled">
+                                        <ul class="no-bullets site-footer__linklist">
+                                            <li data-open-accessibility-text-original="13.6px"
+                                                style="font-size: 13.6px;">
+                                                <a href="{{ route('pages.contact') }}"
+                                                   style="font-size: 13.6px;"
+                                                   data-open-accessibility-text-original="13.6px"
+                                                   class="navigable">Contact
+                                                </a>
+                                            </li>
+                                            <li data-open-accessibility-text-original="13.6px"
+                                                style="font-size: 13.6px;">
+                                                <a href="/pages/return-policy"
+                                                   style="font-size: 13.6px;"
+                                                   data-open-accessibility-text-original="13.6px"
+                                                   class="navigable">Return Policy</a>
+                                            </li>
+                                            <li data-open-accessibility-text-original="13.6px"
+                                                style="font-size: 13.6px;">
+                                                <a href="/pages/privacy-policy"
+                                                   style="font-size: 13.6px;"
+                                                   data-open-accessibility-text-original="13.6px"
+                                                   class="navigable">Privacy Policy</a>
+                                            </li>
+                                            <li data-open-accessibility-text-original="13.6px"
+                                                style="font-size: 13.6px;">
+                                                <a href="/pages/terms-of-service"
+                                                   style="font-size: 13.6px;"
+                                                   data-open-accessibility-text-original="13.6px"
+                                                   class="navigable">Terms of Service</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </footer>
-
-
         </div>
     </div>
 </div>
@@ -1046,14 +1164,18 @@
 </div>
 <div class="hide">
     <button data-id="prevArrowTemplate" class="slick-prev" aria-label="Previous" type="button">
-        <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-chevron-left" viewBox="0 0 284.49 498.98">
-            <path d="M249.49 0a35 35 0 0 1 24.75 59.75L84.49 249.49l189.75 189.74a35.002 35.002 0 1 1-49.5 49.5L10.25 274.24a35 35 0 0 1 0-49.5L224.74 10.25A34.89 34.89 0 0 1 249.49 0z" />
+        <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-chevron-left"
+             viewBox="0 0 284.49 498.98">
+            <path
+                d="M249.49 0a35 35 0 0 1 24.75 59.75L84.49 249.49l189.75 189.74a35.002 35.002 0 1 1-49.5 49.5L10.25 274.24a35 35 0 0 1 0-49.5L224.74 10.25A34.89 34.89 0 0 1 249.49 0z"/>
         </svg>
         <span class="icon__fallback-text">Previous</span>
     </button>
     <button data-id="nextArrowTemplate" class="slick-next" aria-label="Next" type="button">
-        <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-chevron-right" viewBox="0 0 284.49 498.98">
-            <path d="M35 498.98a35 35 0 0 1-24.75-59.75l189.74-189.74L10.25 59.75a35.002 35.002 0 0 1 49.5-49.5l214.49 214.49a35 35 0 0 1 0 49.5L59.75 488.73A34.89 34.89 0 0 1 35 498.98z" />
+        <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-chevron-right"
+             viewBox="0 0 284.49 498.98">
+            <path
+                d="M35 498.98a35 35 0 0 1-24.75-59.75l189.74-189.74L10.25 59.75a35.002 35.002 0 0 1 49.5-49.5l214.49 214.49a35 35 0 0 1 0 49.5L59.75 488.73A34.89 34.89 0 0 1 35 498.98z"/>
         </svg>
         <span class="icon__fallback-text">Next</span>
     </button>
@@ -1071,7 +1193,7 @@
 
     <button type="button" class="modal__close js-modal-close text-link">
         <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-close" viewBox="0 0 64 64">
-            <path d="M19 17.61l27.12 27.13m0-27.12L19 44.74" />
+            <path d="M19 17.61l27.12 27.13m0-27.12L19 44.74"/>
         </svg>
         <span class="icon__fallback-text">"Close (esc)"</span>
     </button>
@@ -1087,25 +1209,29 @@
 
         <div class="pswp__ui pswp__ui--hidden">
             <button class="btn btn--body btn--circle pswp__button pswp__button--arrow--left" title="Previous">
-                <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-chevron-left" viewBox="0 0 284.49 498.98">
-                    <path d="M249.49 0a35 35 0 0 1 24.75 59.75L84.49 249.49l189.75 189.74a35.002 35.002 0 1 1-49.5 49.5L10.25 274.24a35 35 0 0 1 0-49.5L224.74 10.25A34.89 34.89 0 0 1 249.49 0z" />
+                <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-chevron-left"
+                     viewBox="0 0 284.49 498.98">
+                    <path
+                        d="M249.49 0a35 35 0 0 1 24.75 59.75L84.49 249.49l189.75 189.74a35.002 35.002 0 1 1-49.5 49.5L10.25 274.24a35 35 0 0 1 0-49.5L224.74 10.25A34.89 34.89 0 0 1 249.49 0z"/>
                 </svg>
             </button>
 
             <button class="btn btn--body btn--circle btn--large pswp__button pswp__button--close" title="Close (esc)">
-                <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-close" viewBox="0 0 64 64">
-                    <path d="M19 17.61l27.12 27.13m0-27.12L19 44.74" />
+                <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-close"
+                     viewBox="0 0 64 64">
+                    <path d="M19 17.61l27.12 27.13m0-27.12L19 44.74"/>
                 </svg>
             </button>
 
             <button class="btn btn--body btn--circle pswp__button pswp__button--arrow--right" title="Next">
-                <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-chevron-right" viewBox="0 0 284.49 498.98">
-                    <path d="M35 498.98a35 35 0 0 1-24.75-59.75l189.74-189.74L10.25 59.75a35.002 35.002 0 0 1 49.5-49.5l214.49 214.49a35 35 0 0 1 0 49.5L59.75 488.73A34.89 34.89 0 0 1 35 498.98z" />
+                <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-chevron-right"
+                     viewBox="0 0 284.49 498.98">
+                    <path
+                        d="M35 498.98a35 35 0 0 1-24.75-59.75l189.74-189.74L10.25 59.75a35.002 35.002 0 0 1 49.5-49.5l214.49 214.49a35 35 0 0 1 0 49.5L59.75 488.73A34.89 34.89 0 0 1 35 498.98z"/>
                 </svg>
             </button>
         </div>
     </div>
 </div>
 </body>
-
 </html>
