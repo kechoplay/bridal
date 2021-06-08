@@ -1130,21 +1130,14 @@
                                             </li>
                                             <li data-open-accessibility-text-original="13.6px"
                                                 style="font-size: 13.6px;">
-                                                <a href="/pages/return-policy"
-                                                   style="font-size: 13.6px;"
-                                                   data-open-accessibility-text-original="13.6px"
-                                                   class="navigable">Return Policy</a>
-                                            </li>
-                                            <li data-open-accessibility-text-original="13.6px"
-                                                style="font-size: 13.6px;">
-                                                <a href="/pages/privacy-policy"
+                                                <a href="{{ route('pages.privacyPolicy') }}"
                                                    style="font-size: 13.6px;"
                                                    data-open-accessibility-text-original="13.6px"
                                                    class="navigable">Privacy Policy</a>
                                             </li>
                                             <li data-open-accessibility-text-original="13.6px"
                                                 style="font-size: 13.6px;">
-                                                <a href="/pages/terms-of-service"
+                                                <a href="{{ route('pages.termOfService') }}"
                                                    style="font-size: 13.6px;"
                                                    data-open-accessibility-text-original="13.6px"
                                                    class="navigable">Terms of Service</a>

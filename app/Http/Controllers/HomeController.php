@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Contact;
+use App\Policy;
 use App\SlideImage;
 use App\WeddingDressCategory;
 use App\DressProduct;
@@ -126,5 +127,19 @@ class HomeController extends Controller
             return redirect()->back();
         }
         return view('shop.product_details', compact('dress', 'styles'));
+    }
+
+    public function privacyPolicy()
+    {
+        $styles = WeddingDressCategory::all();
+        $policy = Policy::find(1);
+        return view('policy', compact('policy', 'styles'));
+    }
+
+    public function termOfService()
+    {
+        $styles = WeddingDressCategory::all();
+        $policy = Policy::find(1);
+        return view('term_of_service', compact('policy', 'styles'));
     }
 }

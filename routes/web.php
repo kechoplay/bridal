@@ -16,21 +16,25 @@ Route::get('/', function () {
 });
 Route::get('/', ['as' => 'homeIndex', 'uses' => 'HomeController@shopIndex']);
 
-Route::get('/bridal-product/', ['as' => 'bridalIndex', 'uses' => 'HomeController@bridalIndex']);
+Route::get('/bridal-product', ['as' => 'bridalIndex', 'uses' => 'HomeController@bridalIndex']);
 
 Route::get('/bridal-product/details/{slug}/{id}', ['as' => 'bridalDetails', 'uses' => 'HomeController@bridalDetails']);
 
-Route::get('/new-product/', ['as' => 'newIndex', 'uses' => 'HomeController@bridalIndex']);
+Route::get('/new-product', ['as' => 'newIndex', 'uses' => 'HomeController@bridalIndex']);
 
 Route::get('/new-product/details/{slug}/{id}', ['as' => 'newDetails', 'uses' => 'HomeController@bridalDetails']);
 
-Route::get('/special-product/', ['as' => 'specialIndex', 'uses' => 'HomeController@specialIndex']);
+Route::get('/special-product', ['as' => 'specialIndex', 'uses' => 'HomeController@specialIndex']);
 
-Route::get('/pages/contact/', ['as' => 'pages.contact', 'uses' => 'HomeController@contact']);
+Route::get('/pages/contact', ['as' => 'pages.contact', 'uses' => 'HomeController@contact']);
 
-Route::post('/pages/contact/', ['as' => 'pages.contactPost', 'uses' => 'HomeController@contactPost']);
+Route::get('/pages/privacy-policy', ['as' => 'pages.privacyPolicy', 'uses' => 'HomeController@privacyPolicy']);
 
-Route::get('/shop/', ['as' => 'shop.index', 'uses' => 'HomeController@shopIndex']);
+Route::get('/pages/terms-of-service', ['as' => 'pages.termOfService', 'uses' => 'HomeController@termOfService']);
+
+Route::post('/pages/contact', ['as' => 'pages.contactPost', 'uses' => 'HomeController@contactPost']);
+
+Route::get('/shop', ['as' => 'shop.index', 'uses' => 'HomeController@shopIndex']);
 
 Route::get('/shop/list-products', ['as' => 'shop.listProducts', 'uses' => 'HomeController@listProducts']);
 
@@ -72,4 +76,8 @@ Route::group(['prefix' => 'admin', 'middleware' => ['admin_access']], function (
     Route::post('/edit-style-dress/{id}', ['as' => 'admin.updateStyle', 'uses' => 'Admin\BridalController@updateStyle']);
 
     Route::get('/delete-style/{id}', ['as' => 'admin.deleteStyle', 'uses' => 'Admin\BridalController@deleteStyle']);
+
+    Route::get('/policy', ['as' => 'admin.policy', 'uses' => 'Admin\BridalController@policy']);
+
+    Route::post('/policy', ['as' => 'admin.savePolicy', 'uses' => 'Admin\BridalController@savePolicy']);
 });

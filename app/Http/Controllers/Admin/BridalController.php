@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\DressProduct;
+use App\Policy;
 use App\StyleDress;
 use App\User;
 use App\WeddingDressCategory;
@@ -244,5 +245,31 @@ class BridalController extends Controller
 
         return redirect()->route('admin.login');
 
+    }
+
+    public function policy()
+    {
+        $policy = Policy::find(1);
+        return view('admin.policy', compact('policy'));
+    }
+
+    public function savePolicy(Request $request)
+    {
+        $policy = $request->policy;
+        $term = $request->term;
+
+        $privacyPolicy = Policy::find(1);
+        if ($privacyPolicy) {
+            $privacyPolicy->privacy_policy = $policy;
+            $privacyPolicy->term_of_service = $term;
+            $privacyPolicy->save();
+        } else {
+            Policy::create([
+                'privacy_policy' => $policy,
+                'privacy_policy' => $term
+            ]);
+        }
+
+        return redirect()->route('admin.policy');
     }
 }
