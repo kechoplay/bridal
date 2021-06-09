@@ -1056,6 +1056,11 @@
                                                     </div>
                                                 </div>
                                             </li>
+                                            <li class="site-nav__item site-nav__expanded-item">
+                                                <a href="{{ route('shop.listProductsNew') }}" class="site-nav__link site-nav__link--underline">
+                                                    New Arrivals
+                                                </a>
+                                            </li>
                                         </ul>
                                     </div>
                                     <div class="header-item header-item--icons">
