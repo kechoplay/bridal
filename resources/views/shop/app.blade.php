@@ -112,13 +112,13 @@
         document.documentElement.className = document.documentElement.className.replace('no-js', 'js');
 
         window.theme = window.theme || {};
-        // theme.routes = {
-        //     home: "/",
-        //     cart: "/cart.js",
-        //     cartPage: "/cart",
-        //     cartAdd: "/cart/add.js",
-        //     cartChange: "/cart/change.js"
-        // };
+        theme.routes = {
+            home: "/",
+            cart: "/cart.js",
+            cartPage: "/cart",
+            cartAdd: "/cart/add.js",
+            cartChange: "/cart/change.js"
+        };
         theme.strings = {
             soldOut: "Sold Out",
             unavailable: "Unavailable",
@@ -181,16 +181,6 @@
                 "amount": "1.00"
             }
         }
-
-
-
-
-
-
-
-
-
-
     </script>
     <script id="shopify-features" type="application/json">
         {
@@ -203,16 +193,6 @@
             "dynamic_checkout_cart_url": "https:\/\/cdn.shopify.com\/shopifycloud\/payment-sheet\/assets\/latest\/dynamic-checkout-cart.en.js",
             "locale": "en"
         }
-
-
-
-
-
-
-
-
-
-
     </script>
     <script>
         (function() {
@@ -1126,8 +1106,8 @@
                                                      srcset="//cdn.shopify.com/s/files/1/0546/6033/files/THEIA_Logo_4b6eb676-6ab5-4d1b-b8fb-43716d9b8356_110x.png?v=1619811240 1x, //cdn.shopify.com/s/files/1/0546/6033/files/THEIA_Logo_4b6eb676-6ab5-4d1b-b8fb-43716d9b8356_110x@2x.png?v=1619811240 2x"
                                                      alt="THEIA">
                                             </a>
-                                            <a href="/shop" itemprop="url"
-                                               class="site-header__logo-link logo--inverted">
+                                            <a href="{{ route('shop.listProducts') }}" itemprop="url"
+                                                   class="site-header__logo-link logo--inverted">
                                                 <img class="small--hide"
                                                      src="//cdn.shopify.com/s/files/1/0546/6033/files/Asset_1_1_120x.png?v=1619816247"
                                                      srcset="//cdn.shopify.com/s/files/1/0546/6033/files/Asset_1_1_120x.png?v=1619816247 1x, //cdn.shopify.com/s/files/1/0546/6033/files/Asset_1_1_120x@2x.png?v=1619816247 2x"
@@ -1193,7 +1173,8 @@
                                                 </div>
                                             </li>
                                             <li class="site-nav__item site-nav__expanded-item">
-                                                <a href="{{ route('shop.listProductsNew') }}" class="site-nav__link site-nav__link--underline">
+                                                <a href="{{ route('shop.listProductsNew') }}"
+                                                   class="site-nav__link site-nav__link--underline">
                                                     New Arrivals
                                                 </a>
                                             </li>
@@ -1210,7 +1191,8 @@
                                                         <path d="M7 15h51M7 32h43M7 49h51"/>
                                                     </svg>
                                                     <span class="icon__fallback-text">Site navigation</span>
-                                                </button><a href="{{ route('shop.cartIndex')  }}" class="site-nav__link site-nav__link--icon js-drawer-open-cart" aria-controls="CartDrawer" data-icon="cart">
+                                                </button>
+                                                <a href="{{ route('shop.cartIndex')  }}" class="site-nav__link site-nav__link--icon js-drawer-open-cart" aria-controls="CartDrawer" data-icon="cart">
                                                         <span class="cart-link"><svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-cart" viewBox="0 0 64 64">
                                                                 <path fill="none" d="M14 17.44h46.79l-7.94 25.61H20.96l-9.65-35.1H3" />
                                                                 <circle cx="27" cy="53" r="2" />
@@ -1221,6 +1203,20 @@
                                                 </a>
                                             </div>
                                         </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="site-header__search-container hidden">
+                                <div class="site-header__search">
+                                    <div class="page-width">
+                                        <button type="button" id="SearchClose"
+                                                class="js-search-header-close text-link site-header__search-btn">
+                                            <svg aria-hidden="true" focusable="false" role="presentation"
+                                                 class="icon icon-close" viewBox="0 0 64 64">
+                                                <path d="M19 17.61l27.12 27.13m0-27.12L19 44.74"/>
+                                            </svg>
+                                            <span class="icon__fallback-text">"Close (esc)"</span>
+                                        </button>
                                     </div>
                                 </div>
                             </div>

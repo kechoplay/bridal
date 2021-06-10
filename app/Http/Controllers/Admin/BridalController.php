@@ -65,7 +65,7 @@ class BridalController extends Controller
             'description' => $description,
             'status' => $status,
             'category_id' => $style,
-            'thumbnail' => $thumbnail,
+//            'thumbnail' => $thumbnail,
             'slug' => Str::slug($nameDress)
         ]);
 
@@ -111,6 +111,7 @@ class BridalController extends Controller
             }
         } else {
             $imageList = json_decode($dress->img_path, true);
+            $thumbnail = $dress->thumbnail;
         }
 
         DressProduct::where('id', $id)->update([
@@ -119,7 +120,7 @@ class BridalController extends Controller
             'description' => $description,
             'category_id' => $style,
             'status' => $status,
-            'thumbnail' => $thumbnail,
+//            'thumbnail' => $thumbnail,
             'slug' => Str::slug($nameDress)
         ]);
 

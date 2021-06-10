@@ -52,7 +52,7 @@
                                             <span class="icon__fallback-text" aria-hidden="true">+</span>
                                         </button>
                                     </div><br>
-                                    <a href="/cart/change?id=39724991643836:6a640714358ddd884a337230f47bc2da&amp;quantity=0" class="cart__remove text-link" onclick="RemoveProduct({{@$item['id_dress']}})">
+                                    <a href="/cart/change" class="cart__remove text-link" onclick="RemoveProduct({{@$item['id_dress']}})">
                                         Xóa
                                     </a></div>
 
@@ -79,16 +79,7 @@
                             Đặt hàng
                         </button>
                         </a>
-
-
                         <div class="additional-checkout-buttons"><div class="dynamic-checkout__content" id="dynamic-checkout-cart" data-shopify="dynamic-checkout-cart"></div></div>
-
-                    </div>
-
-                    <div class="cart__item-row text-center">
-                        <small>
-                            Shipping, taxes, and discount codes calculated at checkout.<br />
-                        </small>
                     </div>
                 </div>
             </div>
