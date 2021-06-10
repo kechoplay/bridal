@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\DressProduct;
+use App\Policy;
 use App\StyleDress;
 use App\User;
 use App\WeddingDressCategory;
@@ -196,7 +197,37 @@ class BridalController extends Controller
 
     public function editStyle(Request $request)
     {
-        return view('admin.style.edit_style');
+        $id = $request->id;
+        $style = WeddingDressCategory::find($id);
+        return view('admin.style.edit_style', compact('style'));
+    }
+
+    public function updateStyle(Request $request)
+    {
+        $id = $request->id;
+        $name = $request->name;
+        $image = $request->image;
+
+        $style = WeddingDressCategory::find($id);
+        $path = public_path('image_style');
+        if (!File::exists($path))
+            File::makeDirectory($path, 0777, true);
+
+        if ($image) {
+            $nameImage = 'style_' . time() . '.' . $image->getClientOriginalExtension();
+            $image->move($path, $nameImage);
+            $imgPath = '/image_style/' . $nameImage;
+        } else {
+            $imgPath = $style->img_category;
+        }
+
+        WeddingDressCategory::where('id', $id)->update([
+            'name' => $name,
+            'slug' => Str::slug($name),
+            'img_category' => $imgPath
+        ]);
+
+        return redirect()->route('admin.listStyle');
     }
 
     public function deleteStyle(Request $request)
@@ -209,6 +240,8 @@ class BridalController extends Controller
             return redirect()->back();
         }
 
+        WeddingDressCategory::find($id)->delete();
+        return redirect()->route('admin.listStyle');
     }
 
     public function login()
@@ -247,6 +280,32 @@ class BridalController extends Controller
 
         return redirect()->route('admin.login');
 
+    }
+
+    public function policy()
+    {
+        $policy = Policy::find(1);
+        return view('admin.policy', compact('policy'));
+    }
+
+    public function savePolicy(Request $request)
+    {
+        $policy = $request->policy;
+        $term = $request->term;
+
+        $privacyPolicy = Policy::find(1);
+        if ($privacyPolicy) {
+            $privacyPolicy->privacy_policy = $policy;
+            $privacyPolicy->term_of_service = $term;
+            $privacyPolicy->save();
+        } else {
+            Policy::create([
+                'privacy_policy' => $policy,
+                'privacy_policy' => $term
+            ]);
+        }
+
+        return redirect()->route('admin.policy');
     }
 
 }

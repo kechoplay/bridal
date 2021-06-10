@@ -77,6 +77,12 @@
                         </li>
                     </ul>
                 </li>
+                <li class="nav-item">
+                    <a href="{{ route('admin.policy') }}" class="nav-link">
+                        <i class="nav-icon fas fa-tachometer-alt"></i>
+                        <p>Điều khoản</p>
+                    </a>
+                </li>
             </ul>
         </nav>
         <!-- /.sidebar-menu -->

@@ -14,16 +14,30 @@
 Route::get('/', function () {
     return view('index');
 });
-Route::get('/', ['as' => 'homeIndex', 'uses' => 'HomeController@homeIndex']);
-Route::get('/bridal-product/', ['as' => 'bridalIndex', 'uses' => 'HomeController@bridalIndex']);
+Route::get('/', ['as' => 'homeIndex', 'uses' => 'HomeController@shopIndex']);
+
+Route::get('/bridal-product', ['as' => 'bridalIndex', 'uses' => 'HomeController@bridalIndex']);
+
 Route::get('/bridal-product/details/{slug}/{id}', ['as' => 'bridalDetails', 'uses' => 'HomeController@bridalDetails']);
-Route::get('/new-product/', ['as' => 'newIndex', 'uses' => 'HomeController@bridalIndex']);
+
+Route::get('/new-product', ['as' => 'newIndex', 'uses' => 'HomeController@bridalIndex']);
+
 Route::get('/new-product/details/{slug}/{id}', ['as' => 'newDetails', 'uses' => 'HomeController@bridalDetails']);
-Route::get('/special-product/', ['as' => 'specialIndex', 'uses' => 'HomeController@specialIndex']);
-Route::get('/contact/', ['as' => 'contact', 'uses' => 'HomeController@contact']);
-Route::post('/contact/', ['as' => 'contactPost', 'uses' => 'HomeController@contactPost']);
-Route::get('/shop/', ['as' => 'shop.index', 'uses' => 'HomeController@shopIndex']);
+
+Route::get('/special-product', ['as' => 'specialIndex', 'uses' => 'HomeController@specialIndex']);
+
+Route::get('/pages/contact', ['as' => 'pages.contact', 'uses' => 'HomeController@contact']);
+
+Route::get('/pages/privacy-policy', ['as' => 'pages.privacyPolicy', 'uses' => 'HomeController@privacyPolicy']);
+
+Route::get('/pages/terms-of-service', ['as' => 'pages.termOfService', 'uses' => 'HomeController@termOfService']);
+
+Route::post('/pages/contact', ['as' => 'pages.contactPost', 'uses' => 'HomeController@contactPost']);
+
+Route::get('/shop', ['as' => 'shop.index', 'uses' => 'HomeController@shopIndex']);
+
 Route::get('/shop/list-products', ['as' => 'shop.listProducts', 'uses' => 'HomeController@listProducts']);
+
 Route::get('/shop/product-details/{nameProduct}', ['as' => 'shop.productDetails', 'uses' => 'HomeController@productDetails']);
 Route::get('/shop/cart', ['as' => 'shop.cartIndex', 'uses' => 'HomeController@cartIndex']);
 Route::post('/shop/add-cart', ['as' => 'shop.ajaxAddCart', 'uses' => 'HomeController@ajaxAddCart']);
@@ -33,7 +47,9 @@ Route::get('/shop/order-confirm', ['as' => 'shop.orderConfirm', 'uses' => 'HomeC
 Route::post('/shop/ajax-cart', ['as' => 'shop.ajaxCart', 'uses' => 'HomeController@ajaxCart']);
 
 Route::get('/collections/shop', ['as' => 'shop.listProducts', 'uses' => 'HomeController@listProducts']);
+
 Route::get('/collections/shop/new-arrivals', ['as' => 'shop.listProductsNew', 'uses' => 'HomeController@listProductsNew']);
+
 Route::get('/collections/{style}', ['as' => 'shop.listProductsStyle', 'uses' => 'HomeController@listProductsStyle']);
 
 Route::get('/admin/login', ['as' => 'admin.login', 'uses' => 'Admin\BridalController@login']);
@@ -66,4 +82,8 @@ Route::group(['prefix' => 'admin', 'middleware' => ['admin_access']], function (
     Route::post('/edit-style-dress/{id}', ['as' => 'admin.updateStyle', 'uses' => 'Admin\BridalController@updateStyle']);
 
     Route::get('/delete-style/{id}', ['as' => 'admin.deleteStyle', 'uses' => 'Admin\BridalController@deleteStyle']);
+
+    Route::get('/policy', ['as' => 'admin.policy', 'uses' => 'Admin\BridalController@policy']);
+
+    Route::post('/policy', ['as' => 'admin.savePolicy', 'uses' => 'Admin\BridalController@savePolicy']);
 });

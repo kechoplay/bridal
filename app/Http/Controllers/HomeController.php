@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Contact;
+use App\Policy;
 use App\SlideImage;
 use App\WeddingDressCategory;
 use App\DressProduct;
@@ -67,28 +68,26 @@ class HomeController extends Controller
 
     public function contact()
     {
-        return view('contact');
+        $styles = WeddingDressCategory::all();
+        return view('contact', compact('styles'));
     }
 
     public function contactPost(Request $request)
     {
         Contact::create([
-            'type_dress' => $request->style_dress,
-            'name' => $request->name,
-            'email' => $request->email,
-            'phone' => $request->phone,
-            'address' => $request->address,
-            'note' => $request->note,
+            'name' => $request->contact['name'],
+            'email' => $request->contact['email'],
+            'note' => $request->contact['body'],
         ]);
 
-        return redirect()->back()->with('message', 'Gửi thông tin thành công!');
+        return redirect()->back()->with('message', 'Thanks for contacting us. We\'ll get back to you as soon as possible.');
     }
 
     public function shopIndex()
     {
-        $dress = DressProduct::orderBy('id', 'desc')->take(8);
+        $dress = DressProduct::orderBy('id', 'desc')->limit(8)->get();
         foreach ($dress as $dr) {
-            $dr->img = json_decode($dr->img_path, true);
+            $dr->img = json_decode($dr->img_path, true)[0];
         }
         $styles = WeddingDressCategory::all();
         return view('shop.index', compact('styles', 'dress'));
@@ -130,6 +129,20 @@ class HomeController extends Controller
             return redirect()->back();
         }
         return view('shop.product_details', compact('dress', 'styles'));
+    }
+
+    public function privacyPolicy()
+    {
+        $styles = WeddingDressCategory::all();
+        $policy = Policy::find(1);
+        return view('policy', compact('policy', 'styles'));
+    }
+
+    public function termOfService()
+    {
+        $styles = WeddingDressCategory::all();
+        $policy = Policy::find(1);
+        return view('term_of_service', compact('policy', 'styles'));
     }
 
     public function cartIndex()

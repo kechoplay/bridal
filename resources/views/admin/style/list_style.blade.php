@@ -49,7 +49,7 @@
                                             <td><img src="{{ $style->img_category }}" style="max-width: 100px;"></td>
                                             <td>
                                                 <a href="{{ route('admin.deleteStyle', ['id' => $style->id]) }}"><button class="btn btn-danger">Xóa</button></a>
-                                                <a><button class="btn btn-secondary">Sửa</button></a>
+                                                <a href="{{ route('admin.editStyle', ['id' => $style->id]) }}"><button class="btn btn-secondary">Sửa</button></a>
                                             </td>
                                         </tr>
                                     @endforeach
