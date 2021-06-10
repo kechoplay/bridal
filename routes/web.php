@@ -25,6 +25,12 @@ Route::post('/contact/', ['as' => 'contactPost', 'uses' => 'HomeController@conta
 Route::get('/shop/', ['as' => 'shop.index', 'uses' => 'HomeController@shopIndex']);
 Route::get('/shop/list-products', ['as' => 'shop.listProducts', 'uses' => 'HomeController@listProducts']);
 Route::get('/shop/product-details/{nameProduct}', ['as' => 'shop.productDetails', 'uses' => 'HomeController@productDetails']);
+Route::get('/shop/cart', ['as' => 'shop.cartIndex', 'uses' => 'HomeController@cartIndex']);
+Route::post('/shop/add-cart', ['as' => 'shop.ajaxAddCart', 'uses' => 'HomeController@ajaxAddCart']);
+Route::get('/shop/cart-info', ['as' => 'shop.cartInfo', 'uses' => 'HomeController@cartInfo']);
+Route::post('/shop/order-confirm', ['as' => 'shop.orderConfirm', 'uses' => 'HomeController@orderConfirm']);
+Route::get('/shop/order-confirm', ['as' => 'shop.orderConfirm', 'uses' => 'HomeController@orderConfirm']);
+Route::post('/shop/ajax-cart', ['as' => 'shop.ajaxCart', 'uses' => 'HomeController@ajaxCart']);
 
 Route::get('/collections/shop', ['as' => 'shop.listProducts', 'uses' => 'HomeController@listProducts']);
 Route::get('/collections/shop/new-arrivals', ['as' => 'shop.listProductsNew', 'uses' => 'HomeController@listProductsNew']);

@@ -10,6 +10,8 @@ use App\StyleDress;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Route;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Session;
+
 
 class HomeController extends Controller
 {
@@ -122,10 +124,142 @@ class HomeController extends Controller
     {
         $nameProduct = $request->nameProduct;
         $dress = DressProduct::where('slug', $nameProduct)->first();
+        $dress->img_path = json_decode($dress->img_path, true);
         $styles = WeddingDressCategory::all();
         if (!$dress) {
             return redirect()->back();
         }
         return view('shop.product_details', compact('dress', 'styles'));
     }
+
+    public function cartIndex()
+    {
+        $styles = WeddingDressCategory::all();
+        $arrayCart = Session::get('cart');
+        $total = 0;
+        foreach ($arrayCart as $cart) {
+            $total += ($cart['price']*$cart['number']);
+        }
+        return view('shop.cart_index', compact( 'styles', 'arrayCart', 'total'));
+    }
+
+    public function ajaxCart(Request $request)
+    {
+        dd($request->id_add);
+        $id = null;
+        $flagAction = 0;
+        if(!empty($request->id_add)){
+            $id = $request->id_add;
+            $flagAction = 1;
+            if (Session::has('cart')) {
+                $arrayCart = Session::get('cart');
+                foreach ($arrayCart as &$cart) {
+                    if ($cart['id_dress'] == $id) {
+                        $cart['number']++;
+                        $price = $cart['number'] * $cart['price'];
+                        $flag = 1;
+                    }
+                }
+                Session::put('cart',$arrayCart);
+             }
+        }else if(!empty($request->id_sub)){
+            $id = $request->id_sub;
+            $price = 0;
+            $flagAction = 2;
+            if (Session::has('cart')) {
+                 $arrayCart = Session::get('cart');
+                 foreach ($arrayCart as &$cart) {
+                     if ($cart['id_dress'] == $id) {
+                            $cart['number']--;
+                            $price = $cart['number'] * $cart['price'];
+                     }
+                 }
+                 Session::put('cart', $arrayCart);
+             }
+
+        }else if(!empty($request->id_remove)){
+            $id = $request->id_remove;
+            $flagAction = 3;
+                    if (Session::has('cart')) {
+                        $arrayCart = Session::get('cart');
+                        foreach ($arrayCart as $key => $cart) {
+                            if ($cart['id_dress'] == $id) {
+                                unset($arrayCart[$key]);
+                            }
+                        }
+                    }
+             Session::put('cart',$arrayCart);
+        }
+        $arrayCart = Session::get('cart');
+        $total = 0;
+        foreach ($arrayCart as $key => $cart) {
+            $total += ($cart['price']*$cart['number']);
+            if ($cart['number'] == 0) {
+                unset($arrayCart[$key]);
+            }
+        }
+        Session::put('cart',$arrayCart);
+        $arrayCart = Session::get('cart');
+        foreach ($arrayCart as $key => $cart) {
+            $total += ($cart['price']*$cart['number']);
+        }
+        return response()->json(['success' => true,'arrayCart' => $arrayCart, 'total' => $total, 'flagAction' => $flagAction, 'id' => $id, 'price' => $price], 200);
+    }
+
+    public function cartInfo()
+    {
+        $styles = WeddingDressCategory::all();
+        $total = 0;
+        if (Session::has('cart')) {
+            $arrayCart = Session::get('cart');
+            foreach ($arrayCart as $cart) {
+                $total += ($cart['price']*$cart['number']);
+            }
+        }else{
+            $arrayCart = null;
+        }
+        return view('shop.cart_info', compact( 'styles', 'arrayCart', 'total'));
+    }
+
+    public function orderConfirm(Request $request)
+    {
+        $styles = WeddingDressCategory::all();
+        $total = 0;
+        if (Session::has('cart')) {
+            $arrayCart = Session::get('cart');
+            foreach ($arrayCart as $cart) {
+                $total += ($cart['price']*$cart['number']);
+            }
+        }else{
+            $arrayCart = null;
+        }
+        return view('shop.order_confirm', compact( 'styles', 'arrayCart','total'));
+    }
+
+    public function ajaxAddCart(Request $request)
+    {
+        $id_dress = $request->id;
+        $name = $request->name;
+        $price = $request->price;
+        $image = $request->image;
+        $slug = $request->slug;
+        $flag = 0;
+        if (Session::has('cart')) {
+            $arrayCart = Session::get('cart');
+            foreach ($arrayCart as &$cart) {
+                if ($cart['id_dress'] == $id_dress) {
+                    $cart['number'] += 1;
+                    $flag = 1;
+                }
+            }
+            Session::put('cart',$arrayCart);
+            if($flag == 0) {
+                Session::push("cart", ['id_dress' => $id_dress, 'name' => $name, 'price' => $price, 'image' => $image, 'slug' => $slug, 'number' => 1]);
+            }
+        }else{
+            Session::push("cart", ['id_dress' => $id_dress, 'name' => $name, 'price' => $price, 'image' => $image, 'slug' => $slug, 'number' => 1]);
+        }
+        return response()->json(['success' => true], 200);
+    }
+
 }

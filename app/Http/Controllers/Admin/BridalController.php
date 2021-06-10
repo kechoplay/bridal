@@ -14,6 +14,8 @@ use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
+use Intervention\Image\Facades\Image;
+
 
 class BridalController extends Controller
 {
@@ -44,12 +46,16 @@ class BridalController extends Controller
         $path = public_path('image');
         if (!File::exists($path))
             File::makeDirectory($path, 0777, true);
-
+        $thumbnail = null;
         $imageList = [];
         foreach ($images as $key => $image) {
             $name = $key . time() . '.' . $image->getClientOriginalExtension();
             $image->move($path, $name);
             $imageList[] = '/image/' . $name;
+            if($key == 0){
+                $nameThumbnail = 'small'.$key . time() . '.' . $image->getClientOriginalExtension();
+//                $thumbnail = $this->uploadThumbnail($image, $nameThumbnail,70 );
+            }
         }
 
         DressProduct::create([
@@ -58,6 +64,7 @@ class BridalController extends Controller
             'description' => $description,
             'status' => $status,
             'category_id' => $style,
+            'thumbnail' => $thumbnail,
             'slug' => Str::slug($nameDress)
         ]);
 
@@ -85,15 +92,21 @@ class BridalController extends Controller
 
         $dress = DressProduct::find($id);
         $path = public_path('image');
+
         if (!File::exists($path))
             File::makeDirectory($path, 0777, true);
 
         if ($images) {
             $imageList = [];
+            $thumbnail = null;
             foreach ($images as $key => $image) {
                 $name = $key . time() . '.' . $image->getClientOriginalExtension();
                 $image->move($path, $name);
                 $imageList[] = '/image/' . $name;
+                if($key == 0){
+                    $nameThumbnail = 'small'.$key . time() . '.' . $image->getClientOriginalExtension();
+//                    $thumbnail = $this->uploadThumbnail($image, $nameThumbnail,70 );
+                }
             }
         } else {
             $imageList = json_decode($dress->img_path, true);
@@ -105,10 +118,32 @@ class BridalController extends Controller
             'description' => $description,
             'category_id' => $style,
             'status' => $status,
+            'thumbnail' => $thumbnail,
             'slug' => Str::slug($nameDress)
         ]);
 
         return redirect()->route('admin.index');
+    }
+
+    function uploadThumbnail($file, $nameThumbnail, $resize_width = null)
+    {
+        $pathThumbnail = public_path('thumbnail');
+        if (!File::exists($pathThumbnail))
+            File::makeDirectory($pathThumbnail, 0777, true);
+        dd($file->getRealPath());
+        $size = getimagesize($file);
+        $width = $size[0];
+        $height = $size[1];
+        $rate = $width / $height;
+        $file = clone ($file);
+        if (!empty($resize_width) ) {
+            $newwidth = (int)$resize_width;
+            $newheight = (int)($resize_width * (1 / $rate));
+        }
+        $image = Image::make($file->getRealPath());
+        $image->resize($newwidth, $newheight);
+        $image->move($pathThumbnail, $nameThumbnail);
+        return '/thumbnail/' . $nameThumbnail;
     }
 
     public function delete(Request $request)
@@ -213,4 +248,5 @@ class BridalController extends Controller
         return redirect()->route('admin.login');
 
     }
+
 }
