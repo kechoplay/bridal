@@ -149,10 +149,7 @@
                                     </textarea>
 {{--                                </form>--}}
                                 <div class="product-single__description rte">
-                                    Fil Coupé Jacquard Cascading Ruffle Ankle Length Dress With Skirt Slit And Pockets.
-                                    <br data-mce-fragment="1"><br data-mce-fragment="1">• Center Back Zipper<br data-mce-fragment="1">• Ruched Bodice<br data-mce-fragment="1">• Ruffled Hem<br data-mce-fragment="1">• Pockets<br data-mce-fragment="1">• 43% Linen, 39%
-                                    Viscose, 18% Silk <br data-mce-fragment="1">• Lined<br data-mce-fragment="1">• Dry
-                                    Clean<br data-mce-fragment="1">• 8814954<br data-mce-fragment="1">
+                                    {!! $dress->description !!}
                                 </div>
 {{--                                <div class="collapsibles-wrapper collapsibles-wrapper--border-bottom">--}}
 {{--                                    <button type="button" class="label collapsible-trigger collapsible-trigger-btn collapsible-trigger-btn--borders" aria-controls="Product-content-1-6694898139324-6694898139324">--}}

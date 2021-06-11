@@ -55,7 +55,7 @@
                                          alt="">
                                 </noscript>
                             </div>
-                            <a href="/shop/list-products" class="hero__slide-link" aria-hidden="true"></a>
+                            <a href="{{ route('shop.listProducts') }}" class="hero__slide-link" aria-hidden="true"></a>
                             <div class="hero__text-wrap">
                                 <div class="page-width">
                                     <div class="hero__text-content vertical-bottom horizontal-center">
@@ -240,11 +240,11 @@
                                 </div>
                             @endforeach
                             <div class="grid__item text-center small--hide">
-                                <a href="/shop/list-products" class="btn">View all</a>
+                                <a href="{{ route('shop.listProducts') }}" class="btn">View all</a>
                             </div>
                             <div
                                 class="grid__item grid__item--view-all text-center small--one-half medium-up--one-quarter medium-up--hide">
-                                <a href="/shop/list-products" class="grid-product__see-all">
+                                <a href="{{ route('shop.listProducts') }}" class="grid-product__see-all">
                                     View all<br>
                                 </a>
                             </div>
