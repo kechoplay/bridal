@@ -102,9 +102,9 @@
 
 
 {{--                                <hr class="hr--medium">--}}
-{{--                                <form method="post" action="/cart/add" id="AddToCartForm-6694898139324" accept-charset="UTF-8" class="product-single__form" enctype="multipart/form-data">--}}
+{{--                                <form  action=""  accept-charset="UTF-8" class="product-single__form" enctype="multipart/form-data">--}}
                                 <meta name="csrf-token" content="{{ csrf_token() }}" />
-                                    <input type="hidden" name="form_type" value="product" /><input type="hidden" name="utf8" value="✓" />
+{{--                                    <input type="hidden" name="form_type" value="product" /><input type="hidden" name="utf8" value="✓" />--}}
 {{--                                    <div class="variant-wrapper variant-wrapper--button js">--}}
 {{--                                        <label class="variant__label" for="ProductSelect-6694898139324-option-0">--}}
 {{--                                            Size--}}
@@ -136,14 +136,17 @@
                                         <button name="add" id="addCart" class="btn btn--full btn--secondary" onclick="AddCart()" style="margin-bottom: 20px">
                                         <span id="addToCart" >Thêm vào giỏ hàng</span>
                                             </button>
-                                        <a href="#">
-                                            <button type="button" class="shopify-payment-button__button shopify-payment-button__button--unbranded _2ogcW-Q9I-rgsSkNbRiJzA _2EiMjnumZ6FVtlC7RViKtj _2-dUletcCZ2ZL1aaH0GXxT navigable" data-testid="Checkout-button" id="contact_product">Mua ngay</button>
-                                        </a>
+                                            <button type="button" class="shopify-payment-button__button shopify-payment-button__button--unbranded _2ogcW-Q9I-rgsSkNbRiJzA _2EiMjnumZ6FVtlC7RViKtj _2-dUletcCZ2ZL1aaH0GXxT navigable" data-testid="Checkout-button" id="contact_product" onclick="BuyNow()">Mua ngay</button>
                                         <div data-shopify="payment-button" class="shopify-payment-button">
                                             <button class="shopify-payment-button__button shopify-payment-button__button--unbranded shopify-payment-button__button--hidden" disabled="disabled" aria-hidden="true"></button>
                                             <button class="shopify-payment-button__more-options shopify-payment-button__button--hidden" disabled="disabled" aria-hidden="true"></button>
                                         </div>
                                     </div>
+                                    <textarea id="VariantsJson-6694898139324" class="hide" aria-hidden="true" aria-label="Product JSON">
+                                      [{"id":39724995412156,"title":"0 \/ White","option1":"0","option2":"White","option3":null,"sku":"8814954-2295-0","requires_shipping":true,"taxable":true,"featured_image":null,"available":true,"name":"Maika Cascading Ruffle Dress - 0 \/ White","public_title":"0 \/ White","options":["0","White"],"price":79500,"weight":0,"compare_at_price":null,"inventory_quantity":2,"inventory_management":"momentis","inventory_policy":"deny","barcode":null,"requires_selling_plan":false,"selling_plan_allocations":[]},{"id":39724995444924,"title":"2 \/ White","option1":"2","option2":"White","option3":null,"sku":"8814954-2295-2","requires_shipping":true,"taxable":true,"featured_image":null,"available":true,"name":"Maika Cascading Ruffle Dress - 2 \/ White","public_title":"2 \/ White","options":["2","White"],"price":79500,"weight":0,"compare_at_price":null,"inventory_quantity":2,"inventory_management":"momentis","inventory_policy":"deny","barcode":null,"requires_selling_plan":false,"selling_plan_allocations":[]},{"id":39724995477692,"title":"4 \/ White","option1":"4","option2":"White","option3":null,"sku":"8814954-2295-4","requires_shipping":true,"taxable":true,"featured_image":null,"available":true,"name":"Maika Cascading Ruffle Dress - 4 \/ White","public_title":"4 \/ White","options":["4","White"],"price":79500,"weight":0,"compare_at_price":null,"inventory_quantity":4,"inventory_management":"momentis","inventory_policy":"deny","barcode":null,"requires_selling_plan":false,"selling_plan_allocations":[]},{"id":39724995510460,"title":"6 \/ White","option1":"6","option2":"White","option3":null,"sku":"8814954-2295-6","requires_shipping":true,"taxable":true,"featured_image":null,"available":true,"name":"Maika Cascading Ruffle Dress - 6 \/ White","public_title":"6 \/ White","options":["6","White"],"price":79500,"weight":0,"compare_at_price":null,"inventory_quantity":6,"inventory_management":"momentis","inventory_policy":"deny","barcode":null,"requires_selling_plan":false,"selling_plan_allocations":[]},{"id":39724995543228,"title":"8 \/ White","option1":"8","option2":"White","option3":null,"sku":"8814954-2295-8","requires_shipping":true,"taxable":true,"featured_image":null,"available":true,"name":"Maika Cascading Ruffle Dress - 8 \/ White","public_title":"8 \/ White","options":["8","White"],"price":79500,"weight":0,"compare_at_price":null,"inventory_quantity":6,"inventory_management":"momentis","inventory_policy":"deny","barcode":null,"requires_selling_plan":false,"selling_plan_allocations":[]},{"id":39724995575996,"title":"10 \/ White","option1":"10","option2":"White","option3":null,"sku":"8814954-2295-10","requires_shipping":true,"taxable":true,"featured_image":null,"available":true,"name":"Maika Cascading Ruffle Dress - 10 \/ White","public_title":"10 \/ White","options":["10","White"],"price":79500,"weight":0,"compare_at_price":null,"inventory_quantity":2,"inventory_management":"momentis","inventory_policy":"deny","barcode":null,"requires_selling_plan":false,"selling_plan_allocations":[]},{"id":39724995608764,"title":"12 \/ White","option1":"12","option2":"White","option3":null,"sku":"8814954-2295-12","requires_shipping":true,"taxable":true,"featured_image":null,"available":true,"name":"Maika Cascading Ruffle Dress - 12 \/ White","public_title":"12 \/ White","options":["12","White"],"price":79500,"weight":0,"compare_at_price":null,"inventory_quantity":2,"inventory_management":"momentis","inventory_policy":"deny","barcode":null,"requires_selling_plan":false,"selling_plan_allocations":[]},{"id":39724995641532,"title":"14 \/ White","option1":"14","option2":"White","option3":null,"sku":"8814954-2295-14","requires_shipping":true,"taxable":true,"featured_image":null,"available":false,"name":"Maika Cascading Ruffle Dress - 14 \/ White","public_title":"14 \/ White","options":["14","White"],"price":79500,"weight":0,"compare_at_price":null,"inventory_quantity":0,"inventory_management":"momentis","inventory_policy":"deny","barcode":null,"requires_selling_plan":false,"selling_plan_allocations":[]},{"id":39724995674300,"title":"16 \/ White","option1":"16","option2":"White","option3":null,"sku":"8814954-2295-16","requires_shipping":true,"taxable":true,"featured_image":null,"available":true,"name":"Maika Cascading Ruffle Dress - 16 \/ White","public_title":"16 \/ White","options":["16","White"],"price":79500,"weight":0,"compare_at_price":null,"inventory_quantity":3,"inventory_management":"momentis","inventory_policy":"deny","barcode":null,"requires_selling_plan":false,"selling_plan_allocations":[]}]
+                                     </textarea><textarea id="CurrentVariantJson-6694898139324" class="hide" aria-hidden="true" aria-label="Variant JSON">
+                                       {"id":39724995412156,"title":"0 \/ White","option1":"0","option2":"White","option3":null,"sku":"8814954-2295-0","requires_shipping":true,"taxable":true,"featured_image":null,"available":true,"name":"Maika Cascading Ruffle Dress - 0 \/ White","public_title":"0 \/ White","options":["0","White"],"price":79500,"weight":0,"compare_at_price":null,"inventory_quantity":2,"inventory_management":"momentis","inventory_policy":"deny","barcode":null,"requires_selling_plan":false,"selling_plan_allocations":[]}
+                                    </textarea>
 {{--                                </form>--}}
                                 <div class="product-single__description rte">
                                     Fil Coupé Jacquard Cascading Ruffle Ankle Length Dress With Skirt Slit And Pockets.
@@ -151,7 +154,7 @@
                                     Viscose, 18% Silk <br data-mce-fragment="1">• Lined<br data-mce-fragment="1">• Dry
                                     Clean<br data-mce-fragment="1">• 8814954<br data-mce-fragment="1">
                                 </div>
-                                <div class="collapsibles-wrapper collapsibles-wrapper--border-bottom">
+{{--                                <div class="collapsibles-wrapper collapsibles-wrapper--border-bottom">--}}
 {{--                                    <button type="button" class="label collapsible-trigger collapsible-trigger-btn collapsible-trigger-btn--borders" aria-controls="Product-content-1-6694898139324-6694898139324">--}}
 {{--                                        Dress Sizes--}}
 {{--                                        <span class="collapsible-trigger__icon collapsible-trigger__icon--open" role="presentation">--}}
@@ -160,204 +163,6 @@
 {{--                                        </svg>--}}
 {{--                                    </span>--}}
 {{--                                    </button>--}}
-                                    <div id="Product-content-1-6694898139324-6694898139324" class="collapsible-content collapsible-content--all">
-                                        <div class="collapsible-content__inner rte">
-                                            <div>
-                                                <meta charset="utf-8">
-                                            </div>
-                                            <div>
-                                                <meta charset="utf-8">
-                                            </div>
-                                            <table>
-                                                <thead>
-                                                <tr>
-                                                    <td colspan="6">Body measurements Size Chart (Inches)</td>
-                                                </tr>
-                                                </thead>
-                                                <tbody>
-                                                <tr>
-                                                    <td colspan="2"></td>
-                                                    <td>Bust</td>
-                                                    <td>Waist</td>
-                                                    <td>High Hips</td>
-                                                    <td>Low Hips</td>
-                                                </tr>
-                                                <tr>
-                                                    <td rowspan="2">XS</td>
-                                                    <td>0</td>
-                                                    <td>32<sup>1/2</sup>
-                                                    </td>
-                                                    <td>25</td>
-                                                    <td>32</td>
-                                                    <td>35</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>2</td>
-                                                    <td><span style="font-size: 12.5px;">34</span></td>
-                                                    <td>
-                                                        <div>
-                                                            <meta charset="utf-8">
-                                                        </div>
-                                                        <sup><span style="font-size: 15px;">26</span>1/2</sup>
-                                                    </td>
-                                                    <td>
-                                                        <div>
-                                                            <meta charset="utf-8">
-                                                        </div>
-                                                        <span>33</span><sup>1/2</sup>
-                                                    </td>
-                                                    <td>
-                                                        <div>
-                                                            <meta charset="utf-8">
-                                                        </div>
-                                                        <span>36</span><sup>1/2</sup>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td rowspan="2">S</td>
-                                                    <td>4</td>
-                                                    <td>35</td>
-                                                    <td>
-                                                        <div>
-                                                            <meta charset="utf-8">
-                                                        </div>
-                                                        <sup><span style="font-size: 15px;">27</span>1/2</sup>
-                                                    </td>
-                                                    <td>
-                                                        <div>
-                                                            <meta charset="utf-8">
-                                                        </div>
-                                                        <span>34</span><sup>1/2</sup>
-                                                    </td>
-                                                    <td>
-                                                        <div>
-                                                            <meta charset="utf-8">
-                                                        </div>
-                                                        <span>37</span><sup>1/2</sup>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>6</td>
-                                                    <td>36</td>
-                                                    <td>
-                                                        <div>
-                                                            <meta charset="utf-8">
-                                                        </div>
-                                                        <sup><span style="font-size: 15px;">28</span>1/2</sup>
-                                                    </td>
-                                                    <td>
-                                                        <div>
-                                                            <meta charset="utf-8">
-                                                        </div>
-                                                        <span>35</span><sup>1/2</sup>
-                                                    </td>
-                                                    <td>
-                                                        <div>
-                                                            <meta charset="utf-8">
-                                                        </div>
-                                                        <span>38</span><sup>1/2</sup>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td rowspan="2">M</td>
-                                                    <td>8</td>
-                                                    <td>37</td>
-                                                    <td>
-                                                        <div>
-                                                            <meta charset="utf-8">
-                                                        </div>
-                                                        <sup><span style="font-size: 15px;">29</span>1/2</sup>
-                                                    </td>
-                                                    <td>
-                                                        <div>
-                                                            <meta charset="utf-8">
-                                                        </div>
-                                                        <span>36</span><sup>1/2</sup>
-                                                    </td>
-                                                    <td>
-                                                        <div>
-                                                            <meta charset="utf-8">
-                                                        </div>
-                                                        <span>39</span><sup>1/2</sup>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>10</td>
-                                                    <td>
-                                                        <div>
-                                                            <meta charset="utf-8">
-                                                        </div>
-                                                        <span>38</span><sup>1/2</sup>
-                                                    </td>
-                                                    <td>31</td>
-                                                    <td>38</td>
-                                                    <td>41</td>
-                                                </tr>
-                                                <tr>
-                                                    <td rowspan="2">L</td>
-                                                    <td>12</td>
-                                                    <td>40</td>
-                                                    <td>
-                                                        <div>
-                                                            <meta charset="utf-8">
-                                                        </div>
-                                                        <span>32</span><sup>1/2</sup>
-                                                    </td>
-                                                    <td>
-                                                        <div>
-                                                            <meta charset="utf-8">
-                                                        </div>
-                                                        <span>39</span><sup>1/2</sup>
-                                                    </td>
-                                                    <td>
-                                                        <div>
-                                                            <meta charset="utf-8">
-                                                        </div>
-                                                        <sup><span style="font-size: 15px;">42</span>1/2</sup>
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>14</td>
-                                                    <td>
-                                                        <div>
-                                                            <meta charset="utf-8">
-                                                        </div>
-                                                        <sup><span style="font-size: 15px;">41</span>1/2</sup>
-                                                    </td>
-                                                    <td>34</td>
-                                                    <td>41</td>
-                                                    <td>44</td>
-                                                </tr>
-                                                <tr>
-                                                    <td rowspan="2">XL</td>
-                                                    <td>16</td>
-                                                    <td>
-                                                        <div>
-                                                            <meta charset="utf-8">
-                                                        </div>
-                                                        <sup><span style="font-size: 15px;">43</span>1/2</sup>
-                                                    </td>
-                                                    <td>36</td>
-                                                    <td>43</td>
-                                                    <td>46</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>18</td>
-                                                    <td>
-                                                        <div>
-                                                            <meta charset="utf-8">
-                                                        </div>
-                                                        <sup><span style="font-size: 15px;">45</span>1/2</sup>
-                                                    </td>
-                                                    <td>38</td>
-                                                    <td>45</td>
-                                                    <td>48</td>
-                                                </tr>
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                    </div>
-                                </div>
 {{--                                <div class="social-sharing"><a target="_blank" rel="noopener" href="//www.facebook.com/sharer.php?u=https://theiacouture.com/products/theia-maika-cascading-ruffle-dress-white" class="social-sharing__link" title="Share on Facebook">--}}
 {{--                                        <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-facebook" viewBox="0 0 32 32">--}}
 {{--                                            <path fill="#444" d="M18.56 31.36V17.28h4.48l.64-5.12h-5.12v-3.2c0-1.28.64-2.56 2.56-2.56h2.56V1.28H19.2c-3.84 0-7.04 2.56-7.04 7.04v3.84H7.68v5.12h4.48v14.08h6.4z" />--}}
@@ -377,7 +182,7 @@
 {{--                                        <span class="social-sharing__title" aria-hidden="true">Pin it</span>--}}
 {{--                                        <span class="visually-hidden">Pin on Pinterest</span>--}}
 {{--                                    </a></div>--}}
-                            </div>
+                        </div>
                         </div>
                     </div>
                 </div>
@@ -401,6 +206,23 @@
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             }
         });
+        function BuyNow() {
+            var id_now = $('#id_dress').val();
+            var name = $('#name_dress').val();
+            var price = $('#price_dress').val();
+            var image = $('#image_dress').val();
+            var slug = $('#slug_dress').val();
+            $.ajax({
+                url: '/shop/ajax-buy-now',
+                type: 'post',
+                data: {id_now: id_now, name: name, price: price, image: image, slug : slug},
+                success: function (data) {
+                    window.location.href = '/shop/cart-info';
+                },error: function (e){
+                    console.log('Lỗi! mua ngay');
+                }
+            })
+        }
         function AddCart(){
            var id_dress = $('#id_dress').val();
            var name = $('#name_dress').val();

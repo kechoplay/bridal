@@ -80,7 +80,7 @@ class HomeController extends Controller
             'note' => $request->contact['body'],
         ]);
 
-        return redirect()->back()->with('message', 'Thanks for contacting us. We\'ll get back to you as soon as possible.');
+        return redirect()->back()->with('message', 'Cảm ơn bạn đã liên hê. Chúng tôi sẽ phản hồi bạn sớm nhất có thể.');
     }
 
     public function shopIndex()
@@ -148,19 +148,24 @@ class HomeController extends Controller
     public function cartIndex()
     {
         $styles = WeddingDressCategory::all();
-        $arrayCart = Session::get('cart');
         $total = 0;
-        foreach ($arrayCart as $cart) {
-            $total += ($cart['price']*$cart['number']);
+        $arrayCart = null;
+        if (Session::has('cart')) {
+            $arrayCart = Session::get('cart');
+            foreach ($arrayCart as $cart) {
+                $total += ($cart['price'] * $cart['number']);
+
+            }
         }
         return view('shop.cart_index', compact( 'styles', 'arrayCart', 'total'));
     }
 
     public function ajaxCart(Request $request)
     {
-        dd($request->id_add);
         $id = null;
         $flagAction = 0;
+        $number = 0;
+        $price = 0;
         if(!empty($request->id_add)){
             $id = $request->id_add;
             $flagAction = 1;
@@ -170,7 +175,7 @@ class HomeController extends Controller
                     if ($cart['id_dress'] == $id) {
                         $cart['number']++;
                         $price = $cart['number'] * $cart['price'];
-                        $flag = 1;
+                        $number = $cart['number'];
                     }
                 }
                 Session::put('cart',$arrayCart);
@@ -185,6 +190,7 @@ class HomeController extends Controller
                      if ($cart['id_dress'] == $id) {
                             $cart['number']--;
                             $price = $cart['number'] * $cart['price'];
+                            $number = $cart['number'];
                      }
                  }
                  Session::put('cart', $arrayCart);
@@ -206,7 +212,6 @@ class HomeController extends Controller
         $arrayCart = Session::get('cart');
         $total = 0;
         foreach ($arrayCart as $key => $cart) {
-            $total += ($cart['price']*$cart['number']);
             if ($cart['number'] == 0) {
                 unset($arrayCart[$key]);
             }
@@ -216,13 +221,15 @@ class HomeController extends Controller
         foreach ($arrayCart as $key => $cart) {
             $total += ($cart['price']*$cart['number']);
         }
-        return response()->json(['success' => true,'arrayCart' => $arrayCart, 'total' => $total, 'flagAction' => $flagAction, 'id' => $id, 'price' => $price], 200);
+        return response()->json(['success' => true,'arrayCart' => $arrayCart, 'total' => $total,
+            'flagAction' => $flagAction, 'id' => $id, 'price' => $price,'number'=>$number ], 200);
     }
 
     public function cartInfo()
     {
         $styles = WeddingDressCategory::all();
         $total = 0;
+        $totalNow = 0;
         if (Session::has('cart')) {
             $arrayCart = Session::get('cart');
             foreach ($arrayCart as $cart) {
@@ -231,7 +238,17 @@ class HomeController extends Controller
         }else{
             $arrayCart = null;
         }
-        return view('shop.cart_info', compact( 'styles', 'arrayCart', 'total'));
+        if (Session::has('buyNow')) {
+            $buyNow = Session::get('buyNow');
+        }else{
+            $buyNow = null;
+        }
+        if (Session::has('flagCart')) {
+            $flagCart = Session::get('flagCart');
+        }else{
+            $flagCart = -1;
+        }
+        return view('shop.cart_info', compact( 'styles', 'arrayCart', 'total','buyNow','flagCart','totalNow'));
     }
 
     public function orderConfirm(Request $request)
@@ -246,7 +263,25 @@ class HomeController extends Controller
         }else{
             $arrayCart = null;
         }
-        return view('shop.order_confirm', compact( 'styles', 'arrayCart','total'));
+        if (Session::has('buyNow')) {
+            $buyNow = Session::get('buyNow');
+        }else{
+            $buyNow = null;
+        }
+        if (Session::has('flagCart')) {
+            $flagCart = Session::get('flagCart');
+        }else{
+            $flagCart = -1;
+        }
+        $data = [
+            'email' => $request->email_order,
+            'name' => $request->name_order,
+            'address' => $request->address_order,
+            'phone' => $request->phone_order,
+            'note' => $request->note_order,
+
+        ];
+        return view('shop.order_confirm', compact( 'styles', 'arrayCart','total', 'data','buyNow','flagCart'));
     }
 
     public function ajaxAddCart(Request $request)
@@ -271,6 +306,45 @@ class HomeController extends Controller
             }
         }else{
             Session::push("cart", ['id_dress' => $id_dress, 'name' => $name, 'price' => $price, 'image' => $image, 'slug' => $slug, 'number' => 1]);
+        }
+        return response()->json(['success' => true], 200);
+    }
+
+    public function ajaxBuyNow(Request $request)
+    {
+        $id_now = $request->id_now;
+        $name = $request->name;
+        $price = $request->price;
+        $image = $request->image;
+        $slug = $request->slug;
+        if (Session::has('flagCart')) {
+            Session::put("flagCart", 1);
+        }else{
+            Session::push("flagCart", 1);
+        }
+        if (Session::has('buyNow')) {
+            $data = [
+                'id_now' => $id_now,
+                'name' => $name,
+                'price' => $price,
+                'image' => $image,
+                'slug' => $slug,
+                'number' => 1
+
+            ];
+            Session::put('buyNow',$data);
+        }else{
+            Session::push("buyNow", ['id_now' => $id_now, 'name' => $name, 'price' => $price, 'image' => $image, 'slug' => $slug, 'number' => 1]);
+        }
+        return response()->json(['success' => true], 200);
+    }
+
+    public function ajaxBuyCart()
+    {
+        if (Session::has('flagCart')) {
+            Session::put("flagCart", 0);
+        }else{
+            Session::push("flagCart", 0);
         }
         return response()->json(['success' => true], 200);
     }

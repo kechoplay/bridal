@@ -177,8 +177,7 @@
                                         phẩm</p>
                                     <div class="grid grid--uniform">
                                         @foreach($dress as $dr)
-                                            <div
-                                                class="grid__item grid-product small--one-half medium-up--one-quarter grid-product__has-quick-shop"
+                                            <div class="grid__item grid-product small--one-half medium-up--one-quarter grid-product__has-quick-shop"
                                                 data-aos="row-of-4" data-product-handle="theia-marley-jumpsuit-gold"
                                                 data-product-id="6715933458620">
                                                 <div class="grid-product__content">
@@ -191,6 +190,15 @@
                                                                      data-widths="[360, 540, 720, 900, 1080]"
                                                                      data-aspectratio="0.6665" data-sizes="auto" alt="">
                                                             </div>
+                                                            @if(!empty(json_decode($dr->img_path)[1]))
+                                                            <div class="grid-product__secondary-image small--hide">
+                                                                <img class="lazyautosizes lazyloaded"
+                                                                     data-widths="[360, 540, 720, 1000]"
+                                                                     data-aspectratio="0.6665"
+                                                                     data-sizes="auto"
+                                                                     srcset="{{ json_decode($dr->img_path)[1] }}">
+                                                            </div>
+                                                            @endif
                                                         </div>
 
                                                         <div class="grid-product__meta">
