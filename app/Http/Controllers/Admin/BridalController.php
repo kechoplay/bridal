@@ -43,6 +43,8 @@ class BridalController extends Controller
         $description = $request->description;
         $style = $request->style;
         $status = $request->status;
+        $price = $request->price;
+        $salePrice = $request->sale_price;
 
         $path = public_path('image');
         if (!File::exists($path))
@@ -61,6 +63,8 @@ class BridalController extends Controller
 
         DressProduct::create([
             'name' => $nameDress,
+            'price' => $price,
+            'sale_price' => $salePrice,
             'img_path' => json_encode($imageList),
             'description' => $description,
             'status' => $status,
@@ -90,6 +94,8 @@ class BridalController extends Controller
         $description = $request->description;
         $style = $request->style;
         $status = $request->status;
+        $price = $request->price;
+        $salePrice = $request->sale_price;
 
         $dress = DressProduct::find($id);
         $path = public_path('image');
@@ -116,6 +122,8 @@ class BridalController extends Controller
 
         DressProduct::where('id', $id)->update([
             'name' => $nameDress,
+            'price' => $price,
+            'sale_price' => $salePrice,
             'img_path' => json_encode($imageList),
             'description' => $description,
             'category_id' => $style,
