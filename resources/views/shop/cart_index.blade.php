@@ -3,7 +3,7 @@
     <div class="page-width page-content" id="vue-cart">
         <header class="section-header text-center">
             <h1 class="section-header__title">Giỏ Hàng</h1>
-            <div class="rte text-spacing"><p><a href='/collections/shop'>Quay lại mua sắm</a></p>
+            <div class="rte text-spacing"><p><a href='{{ route('shop.listProducts') }}'>Quay lại mua sắm</a></p>
             </div>
         </header>
         <meta name="csrf-token" content="{{ csrf_token() }}" />
