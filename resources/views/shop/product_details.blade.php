@@ -112,7 +112,6 @@
                                     <span class="product__unit-price--6694898139324"></span>/<span
                                         class="product__unit-base--6694898139324"></span>
                                 </div>
-
                                 <div style="margin-bottom: 10px;margin-top: 20%">
                                     <span id="alert-add-cart" style="color: green;text-align: center"></span>
                                 </div>
