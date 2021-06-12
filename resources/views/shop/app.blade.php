@@ -110,13 +110,13 @@
         document.documentElement.className = document.documentElement.className.replace('no-js', 'js');
 
         window.theme = window.theme || {};
-        // theme.routes = {
-        //     home: "/",
-        //     cart: "/cart.js",
-        //     cartPage: "/cart",
-        //     cartAdd: "/cart/add.js",
-        //     cartChange: "/cart/change.js"
-        // };
+        theme.routes = {
+            home: "/",
+            cart: "/cart.js",
+            cartPage: "/cart",
+            cartAdd: "/cart/add.js",
+            cartChange: "/cart/change.js"
+        };
         theme.strings = {
             soldOut: "Sold Out",
             unavailable: "Unavailable",
