@@ -10,15 +10,23 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 class MailOrder extends Mailable
 {
     use Queueable, SerializesModels;
-
+    public $data;
+    public $arrayCart;
+    public $buyNow;
+    public $flagCart;
+    public $total;
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($data,$arrayCart,$buyNow,$flagCart,$total)
     {
-        //
+        $this->data = $data;
+        $this->arrayCart = $arrayCart;
+        $this->buyNow = $buyNow;
+        $this->flagCart = $flagCart;
+        $this->total = $total;
     }
 
     /**
@@ -28,6 +36,8 @@ class MailOrder extends Mailable
      */
     public function build()
     {
-        return $this->view('view.name');
+        return $this->from('duylinhuet98@gmail.com')
+            ->view('send_mail');
+
     }
 }

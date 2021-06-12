@@ -191,7 +191,12 @@
     </div>
     <input type="hidden" value="{{ @$dress->id }}" id="id_dress">
     <input type="hidden" value="{{ @$dress->name }}" id="name_dress">
-    <input type="hidden" value="{{ @$dress->price }}" id="price_dress">
+    @if($dress->sale_price >0)
+    <input type="hidden" value="{{ @$dress->sale_price }}" id="price_dress">
+    @endif
+    @if($dress->sale_price == 0)
+        <input type="hidden" value="{{ @$dress->price }}" id="price_dress">
+    @endif
     <input type="hidden" value="{{ @$dress->img_path[0] }}" id="image_dress">
     <input type="hidden" value="{{ @$dress->slug }}" id="slug_dress">
 {{--    <script type='text/javascript' src='/js/jquery.min.js' id='jquery-core-js'></script>--}}

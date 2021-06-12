@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Contact;
+use App\Mail\MailOrder;
 use App\Policy;
 use App\SlideImage;
 use App\WeddingDressCategory;
@@ -12,6 +13,7 @@ use Illuminate\Http\Request;
 use Illuminate\Routing\Route;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Mail;
 
 
 class HomeController extends Controller
@@ -281,6 +283,8 @@ class HomeController extends Controller
             'note' => $request->note_order,
 
         ];
+        Mail::to($request->email_order)->send(new MailOrder($data,$arrayCart,$buyNow,$flagCart,$total));
+
         return view('shop.order_confirm', compact( 'styles', 'arrayCart','total', 'data','buyNow','flagCart'));
     }
 
