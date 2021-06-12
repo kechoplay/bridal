@@ -36,7 +36,7 @@ class MailOrder extends Mailable
      */
     public function build()
     {
-        return $this->from('duylinhuet98@gmail.com')
+        return $this->from(env("MAIL_FROM_ADDRESS","xxxx@gmail.com"), env("MAIL_FROM_NAME","vuong"))
             ->view('send_mail');
 
     }
