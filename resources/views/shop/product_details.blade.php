@@ -106,6 +106,7 @@
                                     window.inventories = window.inventories || {};
                                     window.inventories['6694898139324'] = {};
                                 </script>
+                                </h1>
 
 
 {{--                                <hr class="hr--medium">--}}
