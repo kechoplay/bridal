@@ -83,6 +83,12 @@
                         <p>Điều khoản</p>
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a href="{{ route('admin.contact') }}" class="nav-link">
+                        <i class="nav-icon fas fa-tachometer-alt"></i>
+                        <p>Liên hệ</p>
+                    </a>
+                </li>
             </ul>
         </nav>
         <!-- /.sidebar-menu -->

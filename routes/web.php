@@ -32,6 +32,8 @@ Route::get('/pages/privacy-policy', ['as' => 'pages.privacyPolicy', 'uses' => 'H
 
 Route::get('/pages/terms-of-service', ['as' => 'pages.termOfService', 'uses' => 'HomeController@termOfService']);
 
+Route::get('/pages/introduce', ['as' => 'pages.introduce', 'uses' => 'HomeController@introduce']);
+
 Route::post('/pages/contact', ['as' => 'pages.contactPost', 'uses' => 'HomeController@contactPost']);
 
 Route::get('/shop', ['as' => 'shop.index', 'uses' => 'HomeController@shopIndex']);
@@ -88,4 +90,6 @@ Route::group(['prefix' => 'admin', 'middleware' => ['admin_access']], function (
     Route::get('/policy', ['as' => 'admin.policy', 'uses' => 'Admin\BridalController@policy']);
 
     Route::post('/policy', ['as' => 'admin.savePolicy', 'uses' => 'Admin\BridalController@savePolicy']);
+
+    Route::get('/contact', ['as' => 'admin.contact', 'uses' => 'Admin\BridalController@contact']);
 });

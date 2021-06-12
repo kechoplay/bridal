@@ -110,13 +110,13 @@
         document.documentElement.className = document.documentElement.className.replace('no-js', 'js');
 
         window.theme = window.theme || {};
-        // theme.routes = {
-        //     home: "/",
-        //     cart: "/cart.js",
-        //     cartPage: "/cart",
-        //     cartAdd: "/cart/add.js",
-        //     cartChange: "/cart/change.js"
-        // };
+        theme.routes = {
+            home: "/",
+            cart: "/cart.js",
+            cartPage: "/cart",
+            cartAdd: "/cart/add.js",
+            cartChange: "/cart/change.js"
+        };
         theme.strings = {
             soldOut: "Sold Out",
             unavailable: "Unavailable",
@@ -1273,10 +1273,18 @@
                                         <ul class="no-bullets site-footer__linklist">
                                             <li data-open-accessibility-text-original="13.6px"
                                                 style="font-size: 13.6px;">
+                                                <a href="{{ route('pages.introduce') }}"
+                                                   style="font-size: 13.6px;"
+                                                   data-open-accessibility-text-original="13.6px"
+                                                   class="navigable">Giới thiệu
+                                                </a>
+                                            </li>
+                                            <li data-open-accessibility-text-original="13.6px"
+                                                style="font-size: 13.6px;">
                                                 <a href="{{ route('pages.contact') }}"
                                                    style="font-size: 13.6px;"
                                                    data-open-accessibility-text-original="13.6px"
-                                                   class="navigable">Contact
+                                                   class="navigable">Liên hệ
                                                 </a>
                                             </li>
                                             <li data-open-accessibility-text-original="13.6px"
@@ -1284,14 +1292,14 @@
                                                 <a href="{{ route('pages.privacyPolicy') }}"
                                                    style="font-size: 13.6px;"
                                                    data-open-accessibility-text-original="13.6px"
-                                                   class="navigable">Privacy Policy</a>
+                                                   class="navigable">Chính sách bảo mật</a>
                                             </li>
                                             <li data-open-accessibility-text-original="13.6px"
                                                 style="font-size: 13.6px;">
                                                 <a href="{{ route('pages.termOfService') }}"
                                                    style="font-size: 13.6px;"
                                                    data-open-accessibility-text-original="13.6px"
-                                                   class="navigable">Terms of Service</a>
+                                                   class="navigable">Điều khoản dịch vụ</a>
                                             </li>
                                         </ul>
                                     </div>
