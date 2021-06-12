@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="theme-color" content="#111111">
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
     <link rel="canonical" href="https://theiacouture.com/collections/shop">
     <link rel="preconnect" href="https://cdn.shopify.com">
     <link rel="preconnect" href="https://fonts.shopifycdn.com">
@@ -153,9 +154,6 @@
     <script>
         window.performance && window.performance.mark && window.performance.mark('shopify.content_for_header.start');
     </script>
-    <meta name="google-site-verification" content="9dl8r3jUz9v0miEbWcFJz3zSK6y1wP0-6ThIKgSBbCQ">
-    <meta name="google-site-verification" content="BXyeMoQ3IWQfT1jN-QrHvJcxEE0by8cXCc_TMTDOmy0">
-    <meta name="google-site-verification" content="nkJlg4Qfh-k6kEzVlwTDAndVQbY95alsPwdF3Gi0szM">
     <meta id="shopify-digital-wallet" name="shopify-digital-wallet" content="/5466033/digital_wallets/dialog">
     <meta name="shopify-checkout-api-token" content="7b2241810495641f0e2a45472fe65e51">
     <meta id="in-context-paypal-metadata" data-shop-id="5466033" data-venmo-supported="true"
@@ -213,39 +211,7 @@
 
     </script>
     <script>
-        (function() {
-            if ("sendBeacon" in navigator && "performance" in window) {
-                var session_token = document.cookie.match(/_shopify_s=([^;]*)/);
 
-                function handle_abandonment_event(e) {
-                    var entries = performance.getEntries().filter(function(entry) {
-                        return /monorail-edge.shopifysvc.com/.test(entry.name);
-                    });
-                    if (!window.abandonment_tracked && entries.length === 0) {
-                        window.abandonment_tracked = true;
-                        var currentMs = Date.now();
-                        var navigation_start = performance.timing.navigationStart;
-                        var payload = {
-                            shop_id: 5466033,
-                            url: window.location.href,
-                            navigation_start,
-                            duration: currentMs - navigation_start,
-                            session_token: session_token && session_token.length === 2 ? session_token[1] : "",
-                            page_type: "collection"
-                        };
-                        window.navigator.sendBeacon("https://monorail-edge.shopifysvc.com/v1/produce", JSON.stringify({
-                            schema_id: "online_store_buyer_site_abandonment/1.1",
-                            payload: payload,
-                            metadata: {
-                                event_created_at_ms: currentMs,
-                                event_sent_at_ms: currentMs
-                            }
-                        }));
-                    }
-                }
-                window.addEventListener('pagehide', handle_abandonment_event);
-            }
-        }());
     </script>
     <script>
         var Shopify = Shopify || {};
@@ -562,8 +528,7 @@
                 try {
                     window.ShopifyAnalytics.merchantGoogleAnalytics.call(this);
                 } catch (error) {
-                }
-                ;
+                };
                 document.write = originalDocumentWrite;
                 (function () {
                     if (window.BOOMR && (window.BOOMR.version || window.BOOMR.snippetExecuted)) {
@@ -928,107 +893,6 @@
                     </div>
                 </div>
             </div>
-{{--            <div id="CartDrawer" class="drawer drawer--right">--}}
-{{--                <form id="CartDrawerForm" action="/cart" method="post" novalidate class="drawer__contents">--}}
-{{--                    <div class="drawer__fixed-header">--}}
-{{--                        <div class="drawer__header appear-animation appear-delay-1">--}}
-{{--                            <div class="h2 drawer__title">Cart</div>--}}
-{{--                            <div class="drawer__close">--}}
-{{--                                <button type="button" class="drawer__close-button js-drawer-close">--}}
-{{--                                    <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-close" viewBox="0 0 64 64">--}}
-{{--                                        <path d="M19 17.61l27.12 27.13m0-27.12L19 44.74" />--}}
-{{--                                    </svg>--}}
-{{--                                    <span class="icon__fallback-text">Close cart</span>--}}
-{{--                                </button>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-
-{{--                    <div class="drawer__inner">--}}
-{{--                        <div class="drawer__scrollable">--}}
-{{--                            <div data-products="" class="appear-animation appear-delay-2">--}}
-{{--                                <div class="cart__items" data-count="2" data-cart-subtotal="$1,490.00">--}}
-{{--                                    <div class="cart__item" data-key="39724991643836:6a640714358ddd884a337230f47bc2da">--}}
-{{--                                        <div class="cart__image cart__image--small">--}}
-{{--                                            <a href="/products/theia-alondra-tea-length-dress-sky-blue?variant=39724991643836" style="height: 0px; padding-bottom: 150%; font-size: 16px;" data-open-accessibility-text-original="16px" class="navigable">--}}
-{{--                                                <img class="lazyautosizes lazyloaded" data-widths="[180, 360, 540]" data-aspectratio="" data-sizes="auto" alt="Alondra T-Length Dress" data-srcset="//cdn.shopify.com/s/files/1/0546/6033/products/8815656_2568_1_180x.jpg?v=1620055934 180w, //cdn.shopify.com/s/files/1/0546/6033/products/8815656_2568_1_360x.jpg?v=1620055934 360w, //cdn.shopify.com/s/files/1/0546/6033/products/8815656_2568_1_540x.jpg?v=1620055934 540w" sizes="100px" srcset="//cdn.shopify.com/s/files/1/0546/6033/products/8815656_2568_1_180x.jpg?v=1620055934 180w, //cdn.shopify.com/s/files/1/0546/6033/products/8815656_2568_1_360x.jpg?v=1620055934 360w, //cdn.shopify.com/s/files/1/0546/6033/products/8815656_2568_1_540x.jpg?v=1620055934 540w">--}}
-{{--                                            </a>--}}
-{{--                                        </div>--}}
-{{--                                        <div class="cart__item-details">--}}
-{{--                                            <div class="cart__item-title">--}}
-{{--                                                <a href="/products/theia-alondra-tea-length-dress-sky-blue?variant=39724991643836" class="cart__item-name navigable" data-open-accessibility-text-original="17px" style="font-size: 17px;">--}}
-{{--                                                    Alondra T-Length Dress--}}
-{{--                                                </a><div class="cart__item--variants"><div>--}}
-{{--                                                        <span data-open-accessibility-text-original="13.6px" style="font-size: 13.6px;">Size:</span> 4</div>--}}
-{{--                                                    <div><span data-open-accessibility-text-original="13.6px" style="font-size: 13.6px;">Color:</span> Sky Blue</div></div>--}}
-{{--                                            </div>--}}
-{{--                                            <div class="cart__item-sub">--}}
-{{--                                                <div>--}}
-{{--                                                    <div class="js-qty__wrapper">--}}
-{{--                                                        <label for="cart_updates_39724991643836:6a640714358ddd884a337230f47bc2da-ajax" class="hidden-label">Quantity</label>--}}
-{{--                                                        <input type="text" id="cart_updates_39724991643836:6a640714358ddd884a337230f47bc2da-ajax" name="updates[]" class="js-qty__num" value="2" min="0" pattern="[0-9]*" data-id="39724991643836:6a640714358ddd884a337230f47bc2da">--}}
-{{--                                                        <button type="button" class="js-qty__adjust js-qty__adjust--minus navigable" aria-label="Reduce item quantity by one">--}}
-{{--                                                            <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-minus" viewBox="0 0 20 20"><path fill="#444" d="M17.543 11.029H2.1A1.032 1.032 0 0 1 1.071 10c0-.566.463-1.029 1.029-1.029h15.443c.566 0 1.029.463 1.029 1.029 0 .566-.463 1.029-1.029 1.029z"></path></svg>--}}
-{{--                                                            <span class="icon__fallback-text" aria-hidden="true" data-open-accessibility-text-original="16px" style="font-size: 16px;">−</span>--}}
-{{--                                                        </button>--}}
-{{--                                                        <button type="button" class="js-qty__adjust js-qty__adjust--plus navigable" aria-label="Increase item quantity by one">--}}
-{{--                                                            <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-plus" viewBox="0 0 20 20"><path fill="#444" d="M17.409 8.929h-6.695V2.258c0-.566-.506-1.029-1.071-1.029s-1.071.463-1.071 1.029v6.671H1.967C1.401 8.929.938 9.435.938 10s.463 1.071 1.029 1.071h6.605V17.7c0 .566.506 1.029 1.071 1.029s1.071-.463 1.071-1.029v-6.629h6.695c.566 0 1.029-.506 1.029-1.071s-.463-1.071-1.029-1.071z"></path></svg>--}}
-{{--                                                            <span class="icon__fallback-text" aria-hidden="true" data-open-accessibility-text-original="16px" style="font-size: 16px;">+</span>--}}
-{{--                                                        </button>--}}
-{{--                                                    </div></div>--}}
-
-{{--                                                <div class="cart__item-price-col text-right">--}}
-
-{{--                                         <span class="cart__price" data-open-accessibility-text-original="16px" style="font-size: 16px;">$745.00</span>--}}
-{{--                                                </div>--}}
-{{--                                            </div>--}}
-{{--                                        </div>--}}
-{{--                                    </div>--}}
-
-{{--                                </div></div>--}}
-
-
-{{--                        </div>--}}
-
-{{--                        <div class="drawer__footer appear-animation appear-delay-4">--}}
-{{--                            <div data-discounts>--}}
-
-{{--                            </div>--}}
-
-{{--                            <div class="cart__item-sub cart__item-row">--}}
-{{--                                <div class="ajaxcart__subtotal">Subtotal</div>--}}
-{{--                                <div data-subtotal>$0.00</div>--}}
-{{--                            </div>--}}
-
-{{--                            <div class="cart__item-row text-center">--}}
-{{--                                <small>--}}
-{{--                                    Shipping, taxes, and discount codes calculated at checkout.<br />--}}
-{{--                                </small>--}}
-{{--                            </div>--}}
-
-
-
-{{--                            <div class="cart__checkout-wrapper">--}}
-{{--                                <button type="submit" name="checkout" data-terms-required="false" class="btn cart__checkout">--}}
-{{--                                    Check out--}}
-{{--                                </button>--}}
-
-
-{{--                                <div class="additional-checkout-buttons additional-checkout-buttons--vertical">--}}
-{{--                                    <div class="dynamic-checkout__content" id="dynamic-checkout-cart" data-shopify="dynamic-checkout-cart"></div>--}}
-{{--                                </div>--}}
-
-{{--                            </div>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-
-{{--                    <div class="drawer__cart-empty appear-animation appear-delay-2">--}}
-{{--                        <div class="drawer__scrollable">--}}
-{{--                            Your cart is currently empty.--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                </form>--}}
-{{--            </div>--}}
             <style>
                 .site-nav__link,
                 .site-nav__dropdown-link:not(.site-nav__dropdown-link--top-level) {
