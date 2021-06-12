@@ -6,6 +6,7 @@
             border: 1px solid black;
             border-collapse: collapse;
         }
+
         th, td {
             padding: 5px;
             text-align: left;
@@ -19,48 +20,48 @@
     <th style="background-color: #1782f1;color: white">THÔNG TIN ĐƠN ĐẶT HÀNG</th>
     </thead>
     <tbody>
-        <td style="background-color: #1782f1;color: white">THÔNG TIN SẢN PHẨM</td>
-        <td>
-            <table>
-                <thead>
-                <th>Tên sản phẩm</th>
-                <th>Số lượng mua</th>
-                <th>Đơn giá</th>
-                <th>Thành tiền</th>
-                </thead>
-                <tbody>
-                    @if( @$flagCart == 0)
-                        @foreach($arrayCart as $item)
-                        <tr>
-                            <td>{{ @$item['name'] }}</td>
-                            <td>{{ @$item['number'] }}</td>
-                             <td>{{ @$item['price'] }}</td>
-                             <td>{{ $item['price']*$item['number'] }}</td>
-                        </tr>
-                        @endforeach
-                    @endif
-                     @if( @$flagCart == 1)
-                         <tr>
-                            <td>{{ @$buyNow['name'] }}</td>
-                            <td>{{ @$buyNow['number'] }}</td>
-                            <td>{{ @$buyNow['price'] }}</td>
-                            <td>{{ @$buyNow['price'] }}</td>
-                         </tr>
-                     @endif
-                </tbody>
-            </table>
-            <br>
-            <span style="font-weight: 700">TỔNG GIÁ TRỊ ĐƠN HÀNG:</span>
-            <span>
+    <td style="background-color: #1782f1;color: white">THÔNG TIN SẢN PHẨM</td>
+    <td>
+        <table>
+            <thead>
+            <th>Tên sản phẩm</th>
+            <th>Số lượng mua</th>
+            <th>Đơn giá</th>
+            <th>Thành tiền</th>
+            </thead>
+            <tbody>
+            @if( @$flagCart == 0)
+                @foreach($arrayCart as $item)
+                    <tr>
+                        <td>{{ @$item['name'] }}</td>
+                        <td>{{ @$item['number'] }}</td>
+                        <td>{{ number_format($item['price']) }}</td>
+                        <td>{{ number_format($item['price']*$item['number']) }}</td>
+                    </tr>
+                @endforeach
+            @endif
+            @if( @$flagCart == 1)
+                <tr>
+                    <td>{{ @$buyNow['name'] }}</td>
+                    <td>{{ @$buyNow['number'] }}</td>
+                    <td>{{ number_format($buyNow['price']) }}</td>
+                    <td>{{ number_format($buyNow['price']) }}</td>
+                </tr>
+            @endif
+            </tbody>
+        </table>
+        <br>
+        <span style="font-weight: 700">TỔNG GIÁ TRỊ ĐƠN HÀNG:</span>
+        <span>
                  @if(@$flagCart == 0 )
-                     {{ @$total }} VNĐ
-                 @endif
-                  @if(@$flagCart == 1 )
-                      {{ @$buyNow['price'] }} VNĐ
-                  @endif
+                {{ number_format($total) }} VNĐ
+            @endif
+            @if(@$flagCart == 1 )
+                {{ number_format($buyNow['price']) }} VNĐ
+            @endif
             </span>
-            <span style="font-weight: 700">(Tổng tiền chưa bao gồm phí ship)</span>
-        </td>
+        <span style="font-weight: 700">(Tổng tiền chưa bao gồm phí ship)</span>
+    </td>
     <tr>
         <td style="background-color: #1782f1;color: white">THÔNG TIN NGƯỜI MUA</td>
         <td style="color: black">

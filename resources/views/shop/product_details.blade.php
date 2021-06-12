@@ -90,7 +90,7 @@
                                 <h1 class="h2 product-single__title">
                                     {{ $dress->name }}
                                 </h1><span id="PriceA11y-6694898139324" class="visually-hidden">Regular price</span><span id="ProductPrice-6694898139324" class="product__price">
-                                $795.00
+                                {{ number_format($dress->price) }} đ
                             </span>
                                 <div class="product__unit-price product__unit-price--spacing product__unit-price-wrapper--6694898139324 hide">
                                      <span class="product__unit-price--6694898139324"></span>/<span class="product__unit-base--6694898139324"></span>

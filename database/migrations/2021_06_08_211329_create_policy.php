@@ -17,6 +17,7 @@ class CreatePolicy extends Migration
             $table->increments('id');
             $table->text('privacy_policy')->nullable();
             $table->text('term_of_service')->nullable();
+            $table->text('introduce')->nullable();
             $table->timestamps();
         });
     }

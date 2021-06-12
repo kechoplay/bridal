@@ -147,6 +147,13 @@ class HomeController extends Controller
         return view('term_of_service', compact('policy', 'styles'));
     }
 
+    public function introduce()
+    {
+        $styles = WeddingDressCategory::all();
+        $policy = Policy::find(1);
+        return view('introduce', compact('policy', 'styles'));
+    }
+
     public function cartIndex()
     {
         $styles = WeddingDressCategory::all();

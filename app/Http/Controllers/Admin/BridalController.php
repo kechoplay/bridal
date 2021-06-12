@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Contact;
 use App\DressProduct;
 use App\Policy;
 use App\StyleDress;
@@ -267,20 +268,29 @@ class BridalController extends Controller
     {
         $policy = $request->policy;
         $term = $request->term;
+        $introduce = $request->introduce;
 
         $privacyPolicy = Policy::find(1);
         if ($privacyPolicy) {
             $privacyPolicy->privacy_policy = $policy;
             $privacyPolicy->term_of_service = $term;
+            $privacyPolicy->introduce = $introduce;
             $privacyPolicy->save();
         } else {
             Policy::create([
                 'privacy_policy' => $policy,
-                'privacy_policy' => $term
+                'term_of_service' => $term,
+                'introduce' => $introduce
             ]);
         }
 
         return redirect()->route('admin.policy');
+    }
+
+    public function contact()
+    {
+        $contact = Contact::orderBy('created_at')->get();
+        return view('admin.contact', compact('contact'));
     }
 
 }
