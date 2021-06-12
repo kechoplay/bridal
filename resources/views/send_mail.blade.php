@@ -34,8 +34,8 @@
                         <tr>
                             <td>{{ @$item['name'] }}</td>
                             <td>{{ @$item['number'] }}</td>
-                             <td>{{ @$item['price'] }}</td>
-                             <td>{{ $item['price']*$item['number'] }}</td>
+                             <td>{{ @number_format($item['price']) }}</td>
+                             <td>{{ @number_format($item['price']*$item['number']) }} đ</td>
                         </tr>
                         @endforeach
                     @endif
@@ -43,8 +43,8 @@
                          <tr>
                             <td>{{ @$buyNow['name'] }}</td>
                             <td>{{ @$buyNow['number'] }}</td>
-                            <td>{{ @$buyNow['price'] }}</td>
-                            <td>{{ @$buyNow['price'] }}</td>
+                            <td>{{ @number_format($buyNow['price']) }}</td>
+                            <td>{{ @number_format($buyNow['price']) }} đ</td>
                          </tr>
                      @endif
                 </tbody>
@@ -53,10 +53,10 @@
             <span style="font-weight: 700">TỔNG GIÁ TRỊ ĐƠN HÀNG:</span>
             <span>
                  @if(@$flagCart == 0 )
-                     {{ @$total }} VNĐ
+                     {{ @number_format($total) }} VNĐ
                  @endif
                   @if(@$flagCart == 1 )
-                      {{ @$buyNow['price'] }} VNĐ
+                      {{ @number_format($buyNow['price']) }} VNĐ
                   @endif
             </span>
             <span style="font-weight: 700">(Tổng tiền chưa bao gồm phí ship)</span>

@@ -225,14 +225,32 @@
                                             <div class="grid-product__image-mask">
                                                 <div class="image-wrap" style="height: 0; padding-bottom: 150.0%;">
                                                     <img class="grid-product__image lazyload"
-                                                         data-src="{{ $dr->img }}?v={{ time() }}"
+                                                         data-src="{{ $dr->img[0] }}?v={{ time() }}"
                                                          data-widths="[360, 540, 720, 900, 1080]"
                                                          data-aspectratio="0.6666666666666666" data-sizes="auto" alt="">
                                                 </div>
                                             </div>
+                                            @if(!empty($dr->img[1]))
+                                                <div class="grid-product__secondary-image small--hide">
+                                                    <img class="lazyautosizes lazyloaded"
+                                                         data-widths="[360, 540, 720, 1000]"
+                                                         data-aspectratio="0.6665"
+                                                         data-sizes="auto"
+                                                         data-srcset="{{ $dr->img[1] }}">
+                                                </div>
+                                            @endif
                                             <div class="grid-product__meta">
                                                 <div class="grid-product__title grid-product__title--body">
                                                     {{ $dr->name }}
+                                                </div>
+                                                <div class="grid-product__price"><span class="visually-hidden" data-open-accessibility-text-original="13.6px" style="font-size: 13.6px;">Regular price</span>
+                                                    @if($dr->sale_price != 0)
+                                                        <span class="grid-product__price--original" data-open-accessibility-text-original="13.6px" style="font-size: 13.6px;">{{ @number_format($dr->price) }} VNĐ</span>
+                                                        <span class="visually-hidden" data-open-accessibility-text-original="13.6px" style="font-size: 13.6px;"></span>{{ @number_format($dr->sale_price) }} VNĐ
+                                                    @endif
+                                                    @if($dr->sale_price == 0)
+                                                        {{ @number_format($dr->price) }} VNĐ
+                                                    @endif
                                                 </div>
                                             </div>
                                         </a>

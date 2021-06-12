@@ -62,7 +62,7 @@
 
                                 <div class="cart__item-price-col text-right">
                                      <span class="cart__price" id="price_{{@$item['id_dress']}}">
-                                        {{ @$item['price'] * @$item['number'] }} đ
+                                        {{ @number_format($item['price'] * @$item['number']) }} VNĐ
                                       </span>
                                 </div>
                             </div>
@@ -76,10 +76,10 @@
                     </div>
                     <div class="cart__item-sub cart__item-row">
                         <div>Tổng</div>
-                        <div id="total_{{@$item['id_dress']}}">{{@$total}} VNĐ</div>
+                        <div id="total_{{@$item['id_dress']}}" style="float: right">{{@number_format($total)}} VNĐ</div>
                     </div>
                     <div class="cart__item-row cart__checkout-wrapper" >
-                        <button name="checkout" data-terms-required="false" class="btn cart__checkout" @if(@$total == 0)disabled="disable"@endif onclick="BuyCart()">
+                        <button id="buy_product" name="checkout" data-terms-required="false" class="btn cart__checkout" @if(@$total == 0)disabled="disable"@endif onclick="BuyCart()">
                             Đặt hàng
                         </button>
                         <div class="additional-checkout-buttons"><div class="dynamic-checkout__content" id="dynamic-checkout-cart" data-shopify="dynamic-checkout-cart"></div></div>

@@ -88,10 +88,17 @@
 {{--                                <div style="margin-bottom: 10.5px" class="product-single__vendor">Sustainable</div>--}}
 
                                 <h1 class="h2 product-single__title">
-                                    {{ $dress->name }}
-                                </h1><span id="PriceA11y-6694898139324" class="visually-hidden">Regular price</span><span id="ProductPrice-6694898139324" class="product__price">
-                                $795.00
-                            </span>
+                                    {{ @$dress->name }}
+                                    <div style="margin-top: 10px">
+                                    <span class="product__price-wrap-6236056355004" data-open-accessibility-text-original="16px" style="font-size: 16px;">
+                                     <span id="ComparePrice-6236056355004" class="product__price product__price--compare" data-open-accessibility-text-original="16px" style="font-size: 16px;">
+                                         {{ @number_format($dress->price) }} vnđ
+                                     </span>
+                                    </span>
+                                    <span id="ProductPrice-6236056355004" class="product__price on-sale" data-open-accessibility-text-original="16px" style="font-size: 16px;">
+                                       {{ @number_format($dress->sale_price) }} vnđ
+                                    </span>
+                                    </div>
                                 <div class="product__unit-price product__unit-price--spacing product__unit-price-wrapper--6694898139324 hide">
                                      <span class="product__unit-price--6694898139324"></span>/<span class="product__unit-base--6694898139324"></span>
                                 </div>

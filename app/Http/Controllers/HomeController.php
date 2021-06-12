@@ -89,7 +89,7 @@ class HomeController extends Controller
     {
         $dress = DressProduct::orderBy('id', 'desc')->limit(8)->get();
         foreach ($dress as $dr) {
-            $dr->img = json_decode($dr->img_path, true)[0];
+            $dr->img = json_decode($dr->img_path, true);
         }
         $styles = WeddingDressCategory::all();
         return view('shop.index', compact('styles', 'dress'));
@@ -168,6 +168,7 @@ class HomeController extends Controller
         $flagAction = 0;
         $number = 0;
         $price = 0;
+        $arrayCart = null;
         if(!empty($request->id_add)){
             $id = $request->id_add;
             $flagAction = 1;
@@ -211,17 +212,21 @@ class HomeController extends Controller
                     }
              Session::put('cart',$arrayCart);
         }
-        $arrayCart = Session::get('cart');
         $total = 0;
-        foreach ($arrayCart as $key => $cart) {
-            if ($cart['number'] == 0) {
-                unset($arrayCart[$key]);
+        if (Session::has('cart')) {
+            $arrayCart = Session::get('cart');
+            foreach ($arrayCart as $key => $cart) {
+                if ($cart['number'] == 0) {
+                    unset($arrayCart[$key]);
+                }
             }
+            Session::put('cart',$arrayCart);
         }
-        Session::put('cart',$arrayCart);
-        $arrayCart = Session::get('cart');
-        foreach ($arrayCart as $key => $cart) {
-            $total += ($cart['price']*$cart['number']);
+        if (Session::has('cart')) {
+            $arrayCart = Session::get('cart');
+            foreach ($arrayCart as $key => $cart) {
+                $total += ($cart['price'] * $cart['number']);
+            }
         }
         return response()->json(['success' => true,'arrayCart' => $arrayCart, 'total' => $total,
             'flagAction' => $flagAction, 'id' => $id, 'price' => $price,'number'=>$number ], 200);
@@ -284,7 +289,9 @@ class HomeController extends Controller
 
         ];
         Mail::to($request->email_order)->send(new MailOrder($data,$arrayCart,$buyNow,$flagCart,$total));
-
+        Session::forget('cart');
+        Session::forget('buyNow');
+        Session::forget('flagCart');
         return view('shop.order_confirm', compact( 'styles', 'arrayCart','total', 'data','buyNow','flagCart'));
     }
 

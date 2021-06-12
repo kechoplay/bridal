@@ -205,6 +205,15 @@
                                                             <div class="grid-product__title grid-product__title--body">
                                                                 {{ $dr->name }}
                                                             </div>
+                                                            <div class="grid-product__price"><span class="visually-hidden" data-open-accessibility-text-original="13.6px" style="font-size: 13.6px;">Regular price</span>
+                                                                @if($dr->sale_price != 0)
+                                                                <span class="grid-product__price--original" data-open-accessibility-text-original="13.6px" style="font-size: 13.6px;">{{ @number_format($dr->price) }} VNĐ</span>
+                                                                <span class="visually-hidden" data-open-accessibility-text-original="13.6px" style="font-size: 13.6px;"></span>{{ @number_format($dr->sale_price) }} VNĐ
+                                                                @endif
+                                                                @if($dr->sale_price == 0)
+                                                                    {{ @number_format($dr->price) }} VNĐ
+                                                                @endif
+                                                            </div>
                                                         </div>
                                                     </a>
                                                 </div>

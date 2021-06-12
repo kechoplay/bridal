@@ -84,10 +84,10 @@
           <dd>
             <span class="order-summary__emphasis total-recap__final-price skeleton-while-loading">
             @if($flagCart == 0)
-            {{@$total}} VNĐ
+            {{@number_format($total)}} VNĐ
             @endif
             @if($flagCart == 1)
-            {{@$buyNow['price']}} VNĐ
+            {{@number_format($buyNow['price'])}} VNĐ
             @endif
             @if($flagCart == -1) VNĐ
             0
@@ -294,7 +294,7 @@
                                                 </td>
                                                 <td class="product__price">
                                             <span
-                                                class="order-summary__emphasis skeleton-while-loading">{{ @$item['price'] }} đ</span>
+                                                class="order-summary__emphasis skeleton-while-loading">{{ @number_format($item['price']) }} đ</span>
                                                 </td>
                                             </tr>
                                         @endforeach
@@ -321,7 +321,7 @@
                                                 </td>
                                                 <td class="product__price">
                                             <span
-                                                class="order-summary__emphasis skeleton-while-loading">{{@$buyNow['price']}} đ</span>
+                                                class="order-summary__emphasis skeleton-while-loading">{{@number_format($buyNow['price'])}} đ</span>
                                                 </td>
                                             </tr>
                                     @endif
@@ -348,10 +348,10 @@
                                     <td class="total-line__price payment-due" data-presentment-currency="USD">
                                         <span class="payment-due__price skeleton-while-loading--lg" data-checkout-payment-due-target="303300">
                                          @if($flagCart == 0)
-                                                {{@$total}}
+                                                {{@number_format($total)}}
                                             @endif
                                          @if($flagCart == 1)
-                                                 {{@$buyNow['price']}}
+                                                 {{@number_format($buyNow['price'])}}
                                              @endif
                                          @if($flagCart == -1)
                                                  0
