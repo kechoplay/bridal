@@ -1101,7 +1101,7 @@
                                         </style>
                                         <div class="h1 site-header__logo" itemscope
                                              itemtype="http://schema.org/Organization">
-                                            <a href="{{ route('shop.listProducts') }}" itemprop="url"
+                                            <a href="{{ route('homeIndex') }}" itemprop="url"
                                                class="site-header__logo-link logo--has-inverted">
                                                 <img class="small--hide"
                                                      src="//cdn.shopify.com/s/files/1/0546/6033/files/THEIA_Logo_4b6eb676-6ab5-4d1b-b8fb-43716d9b8356_120x.png?v=1619811240"
@@ -1112,7 +1112,7 @@
                                                      srcset="//cdn.shopify.com/s/files/1/0546/6033/files/THEIA_Logo_4b6eb676-6ab5-4d1b-b8fb-43716d9b8356_110x.png?v=1619811240 1x, //cdn.shopify.com/s/files/1/0546/6033/files/THEIA_Logo_4b6eb676-6ab5-4d1b-b8fb-43716d9b8356_110x@2x.png?v=1619811240 2x"
                                                      alt="THEIA">
                                             </a>
-                                            <a href="{{ route('shop.listProducts') }}" itemprop="url"
+                                            <a href="{{ route('homeIndex') }}" itemprop="url"
                                                    class="site-header__logo-link logo--inverted">
                                                 <img class="small--hide"
                                                      src="//cdn.shopify.com/s/files/1/0546/6033/files/Asset_1_1_120x.png?v=1619816247"

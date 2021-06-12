@@ -53,7 +53,7 @@
 <header class="banner" data-header role="banner" >
     <div class="wrap">
 
-        <a class="logo logo--left" href="{{route('shop.index')}}"><span class="logo__text heading-1">THEIA</span></a>
+        <a class="logo logo--left" href="{{route('homeIndex')}}"><span class="logo__text heading-1">THEIA</span></a>
 
         <h1 class="visually-hidden">
             Information
@@ -106,7 +106,7 @@
         <div class="main" style="padding-top: 0.8em !important;">
             <header class="main__header" role="banner">
 
-                <a class="logo logo--left" href="{{route('shop.index')}}"><span class="logo__text heading-1">THEIA</span></a>
+                <a class="logo logo--left" href="{{route('homeIndex')}}"><span class="logo__text heading-1">THEIA</span></a>
 
                 <h1 class="visually-hidden">
                     Information
@@ -247,7 +247,7 @@
         <aside class="sidebar" role="complementary" style="padding-top: 1em !important;">
             <div class="sidebar__header">
 
-                <a class="logo logo--left" href="{{route('shop.index')}}"><span class="logo__text heading-1">THEIA</span></a>
+                <a class="logo logo--left" href="{{route('homeIndex')}}"><span class="logo__text heading-1">THEIA</span></a>
 
                 <h1 class="visually-hidden">
                     Thông tin đặt hàng

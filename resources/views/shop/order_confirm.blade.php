@@ -76,7 +76,7 @@
 <header class="banner" data-header role="banner" style="padding-top: 1em !important;">
     <div class="wrap">
 
-        <a class="logo logo--left" href="{{ route('shop.index') }}"><span class="logo__text heading-1">THEIA</span></a>
+        <a class="logo logo--left" href="{{ route('homeIndex') }}"><span class="logo__text heading-1">THEIA</span></a>
 
         <h1 class="visually-hidden">
             Shipping
@@ -135,7 +135,7 @@
         <div class="main" style="padding-top: 0.8em !important;">
             <header class="main__header" role="banner" style="padding-top: 1em !important;">
 
-                <a class="logo logo--left" href="{{ route('shop.index') }}"><span
+                <a class="logo logo--left" href="{{ route('homeIndex') }}"><span
                         class="logo__text heading-1">THEIA</span></a>
                 <div class="shown-if-js" data-alternative-payments>
                 </div>
@@ -239,7 +239,7 @@
         <aside class="sidebar" role="complementary" style="padding-top: 1em !important;">
             <div class="sidebar__header">
 
-                <a class="logo logo--left" href="{{ route('shop.index') }}"><span
+                <a class="logo logo--left" href="{{ route('homeIndex') }}"><span
                         class="logo__text heading-1">THEIA</span></a>
 
                 <h1 class="visually-hidden">

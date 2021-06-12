@@ -95,9 +95,15 @@ class HomeController extends Controller
         return view('shop.index', compact('styles', 'dress'));
     }
 
-    public function listProducts()
+    public function listProducts(Request $request)
     {
-        $dress = DressProduct::paginate(20);
+        $search = $request->keySearch;
+        if (!empty($search)) {
+            $dress = DressProduct::Where('name', 'like', '%' . $search . '%')
+                ->orderBy('created_at', 'desc')->paginate(20);
+        }else {
+            $dress = DressProduct::paginate(20);
+        }
         $styles = WeddingDressCategory::all();
         $isStyle = false;
         return view('shop.list_products', compact('dress', 'styles', 'isStyle'));

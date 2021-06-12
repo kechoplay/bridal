@@ -168,10 +168,18 @@
                                                 Filter
                                             </button>
                                         </div>
-
-                                        <div class="collection-filter__item collection-filter__item--count small--hide">
+                                        <div class="collection-filter__item collection-filter__item--count small--hide ">
                                             {{ $dress->count() }} sản phẩm
                                         </div>
+                                        <form class="col-sm-4" action="" method="GET" style="margin-bottom: 10px">
+                                            <div class="search">
+                                                <div class="form-group has-feedback">
+                                                    <span class="glyphicon glyphicon-search form-control-feedback"></span>
+                                                    <input name="keySearch" type="text" class="form-control" value="{{@$search}}"
+                                                           placeholder="Tìm kiếm sản phẩm" aria-controls="table-question">
+                                                </div>
+                                            </div>
+                                        </form>
                                     </div>
                                     <p class="medium-up--hide text-center" data-scroll-to>{{ $dress->count() }} sản
                                         phẩm</p>

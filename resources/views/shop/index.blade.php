@@ -214,14 +214,13 @@
                     <div class="grid-overflow-wrapper">
                         <div class="grid grid--uniform" data-aos="overflow__animation">
                             @foreach($dress as $dr)
-                                <div
-                                    class="grid__item grid-product small--one-half medium-up--one-quarter grid-product__has-quick-shop"
+                                <div class="grid__item grid-product small--one-half medium-up--one-quarter grid-product__has-quick-shop"
                                     data-aos="row-of-4"
                                     data-product-handle="theia-dana-mock-neck-midi-dress-tropical-ombre"
                                     data-product-id="6694897713340">
                                     <div class="grid-product__content">
-                                        <a href="{{ route('shop.productDetails', ['nameProduct' => $dr->slug]) }}"
-                                           class="grid-product__link">
+                                      <div class="grid-product__link">
+                                        <a href="{{ route('shop.productDetails', ['nameProduct' => $dr->slug]) }}">
                                             <div class="grid-product__image-mask">
                                                 <div class="image-wrap" style="height: 0; padding-bottom: 150.0%;">
                                                     <img class="grid-product__image lazyload"
@@ -229,16 +228,16 @@
                                                          data-widths="[360, 540, 720, 900, 1080]"
                                                          data-aspectratio="0.6666666666666666" data-sizes="auto" alt="">
                                                 </div>
-                                            </div>
-                                            @if(!empty($dr->img[1]))
+                                                 @if(!empty($dr->img[1]))
                                                 <div class="grid-product__secondary-image small--hide">
                                                     <img class="lazyautosizes lazyloaded"
                                                          data-widths="[360, 540, 720, 1000]"
                                                          data-aspectratio="0.6665"
-                                                         data-sizes="auto"
-                                                         data-srcset="{{ $dr->img[1] }}">
+                                                         data-sizes="auto" alt=""
+                                                         srcset="{{ $dr->img[1] }}">
                                                 </div>
-                                            @endif
+                                                 @endif
+                                            </div>
                                             <div class="grid-product__meta">
                                                 <div class="grid-product__title grid-product__title--body">
                                                     {{ $dr->name }}
@@ -254,6 +253,7 @@
                                                 </div>
                                             </div>
                                         </a>
+                                       </div>
                                     </div>
                                 </div>
                             @endforeach
@@ -265,7 +265,6 @@
                                 <a href="{{ route('shop.listProducts') }}" class="grid-product__see-all">
                                     View all<br>
                                 </a>
-                            </div>
                         </div>
                     </div>
                 </div>

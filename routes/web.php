@@ -36,7 +36,7 @@ Route::get('/pages/introduce', ['as' => 'pages.introduce', 'uses' => 'HomeContro
 
 Route::post('/pages/contact', ['as' => 'pages.contactPost', 'uses' => 'HomeController@contactPost']);
 
-Route::get('/shop', ['as' => 'shop.index', 'uses' => 'HomeController@shopIndex']);
+//Route::get('/shop', ['as' => 'shop.index', 'uses' => 'HomeController@shopIndex']);
 
 Route::get('/shop/list-products', ['as' => 'shop.listProducts', 'uses' => 'HomeController@listProducts']);
 

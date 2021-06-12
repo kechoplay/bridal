@@ -155,6 +155,7 @@
                                        {"id":39724995412156,"title":"0 \/ White","option1":"0","option2":"White","option3":null,"sku":"8814954-2295-0","requires_shipping":true,"taxable":true,"featured_image":null,"available":true,"name":"Maika Cascading Ruffle Dress - 0 \/ White","public_title":"0 \/ White","options":["0","White"],"price":79500,"weight":0,"compare_at_price":null,"inventory_quantity":2,"inventory_management":"momentis","inventory_policy":"deny","barcode":null,"requires_selling_plan":false,"selling_plan_allocations":[]}
                                     </textarea>
 {{--                                </form>--}}
+                                <p style="font-weight: 700">Mô tả:</p>
                                 <div class="product-single__description rte">
                                     {!! $dress->description !!}
                                 </div>
