@@ -121,11 +121,11 @@
                                             onclick="AddCart()" style="margin-bottom: 20px">
                                         <span id="addToCart">Thêm vào giỏ hàng</span>
                                     </button>
-                                    <button type="button"
-                                            class="shopify-payment-button__button shopify-payment-button__button--unbranded _2ogcW-Q9I-rgsSkNbRiJzA _2EiMjnumZ6FVtlC7RViKtj _2-dUletcCZ2ZL1aaH0GXxT navigable"
-                                            data-testid="Checkout-button" id="contact_product" onclick="BuyNow()">Mua
-                                        ngay
-                                    </button>
+{{--                                    <button type="button"--}}
+{{--                                            class="shopify-payment-button__button shopify-payment-button__button--unbranded _2ogcW-Q9I-rgsSkNbRiJzA _2EiMjnumZ6FVtlC7RViKtj _2-dUletcCZ2ZL1aaH0GXxT navigable"--}}
+{{--                                            data-testid="Checkout-button" id="contact_product" onclick="BuyNow()">Mua--}}
+{{--                                        ngay--}}
+{{--                                    </button>--}}
                                     <div data-shopify="payment-button" class="shopify-payment-button">
                                         <button
                                             class="shopify-payment-button__button shopify-payment-button__button--unbranded shopify-payment-button__button--hidden"
