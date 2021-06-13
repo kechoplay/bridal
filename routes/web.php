@@ -92,4 +92,10 @@ Route::group(['prefix' => 'admin', 'middleware' => ['admin_access']], function (
     Route::post('/policy', ['as' => 'admin.savePolicy', 'uses' => 'Admin\BridalController@savePolicy']);
 
     Route::get('/contact', ['as' => 'admin.contact', 'uses' => 'Admin\BridalController@contact']);
+
+    Route::get('/order', ['as' => 'admin.order', 'uses' => 'Admin\BridalController@order']);
+
+    Route::get('/order/detail/{id}', ['as' => 'admin.orderDetail', 'uses' => 'Admin\BridalController@orderDetail']);
+
+    Route::post('/order/detail/change-status', ['as' => 'admin.changeStatus', 'uses' => 'Admin\BridalController@changeStatus']);
 });

@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use App\Contact;
 use App\DressProduct;
+use App\OrderDetail;
+use App\Orders;
 use App\Policy;
 use App\StyleDress;
 use App\User;
@@ -289,8 +291,37 @@ class BridalController extends Controller
 
     public function contact()
     {
-        $contact = Contact::orderBy('created_at')->get();
+        $contact = Contact::orderBy('created_at', 'desc')->get();
         return view('admin.contact', compact('contact'));
+    }
+
+    public function order()
+    {
+        $orders = Orders::orderBy('order_date', 'desc')->get();
+        return view('admin.order', compact('orders'));
+    }
+
+    public function orderDetail(Request $request)
+    {
+        $orderId = $request->id;
+        $order = Orders::find($orderId);
+        $orderDetail = OrderDetail::with(['product'])->where('order_id', $orderId)->get();
+        $total = 0;
+        foreach ($orderDetail as $item) {
+            $total += $item->quantity * $item->price;
+            $item->product->img = json_decode($item->product->img_path, true)[0];
+        }
+        return view('admin.order_detail', compact('orderDetail', 'order', 'total'));
+    }
+
+    public function changeStatus(Request $request)
+    {
+        $orderId = $request->id;
+        $status = $request->status;
+
+        Orders::where('id', $orderId)->update(['status' => $status]);
+
+        return response()->json(['success' => true], 200);
     }
 
 }
