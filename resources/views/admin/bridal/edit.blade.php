@@ -27,6 +27,14 @@
                                         <input type="text" class="form-control" id="name" name="name" value="{{ $dress->name }}" required>
                                     </div>
                                     <div class="form-group">
+                                        <label for="name">Giá</label>
+                                        <input type="number" class="form-control" id="price" name="price" value="{{ $dress->price }}" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="name">Giá giảm</label>
+                                        <input type="number" class="form-control" id="sale_price" name="sale_price" value="{{ $dress->sale_price }}" required>
+                                    </div>
+                                    <div class="form-group">
                                         <label for="image">Ảnh</label>
                                         <div class="input-group">
                                             <div class="custom-file">

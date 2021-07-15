@@ -24,29 +24,18 @@
                                     <thead>
                                     <tr>
                                         <th>Tên</th>
-                                        <th>Ảnh</th>
-                                        <th>Giá</th>
-                                        <th>Giá giảm</th>
-                                        <th style="width: 10%;"></th>
+                                        <th>Email</th>
+                                        <th>Nội dung</th>
+                                        <th>Ngày gửi</th>
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    @foreach($dress as $dr)
+                                    @foreach($contact as $ct)
                                         <tr>
-                                            <td>{{ $dr->name }}</td>
-                                            <td>
-                                                <img src="{{ $dr->image }}" style="max-width: 100px;">
-                                            </td>
-                                            <td>
-                                                {{ number_format($dr->price) }}
-                                            </td>
-                                            <td>
-                                                {{ number_format($dr->sale_price) }}
-                                            </td>
-                                            <td>
-                                                <a href="{{ route('admin.deleteBridal', ['id' => $dr->id]) }}"><button class="btn btn-danger">Xóa</button></a>
-                                                <a href="{{ route('admin.editBridal', ['id' => $dr->id]) }}"><button class="btn btn-secondary">Sửa</button></a>
-                                            </td>
+                                            <td>{{ $ct->name }}</td>
+                                            <td>{{ $ct->email }}</td>
+                                            <td>{{ $ct->note }}</td>
+                                            <td>{{ $ct->created_at }}</td>
                                         </tr>
                                     @endforeach
                                     </tbody>

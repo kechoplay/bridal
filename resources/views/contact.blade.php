@@ -25,7 +25,7 @@
                                 @endif
                                 <div class="grid grid--small">
                                     <div class="grid__item medium-up--one-half">
-                                        <label for="ContactFormName-page-contact-template-0">Name</label>
+                                        <label for="ContactFormName-page-contact-template-0">Họ và tên</label>
                                         <input type="text" id="ContactFormName-page-contact-template-0" required
                                                class="input-full" name="contact[name]" autocapitalize="words" value="">
                                     </div>
@@ -37,12 +37,12 @@
                                                autocapitalize="off" value="">
                                     </div>
                                 </div>
-                                <label for="ContactFormMessage-page-contact-template-0">Message</label>
+                                <label for="ContactFormMessage-page-contact-template-0">Nội dung</label>
                                 <textarea rows="5" id="ContactFormMessage-page-contact-template-0" class="input-full"
                                           name="contact[body]" required></textarea>
 
                                 <button type="submit" class="btn navigable">
-                                    Send
+                                    Gửi
                                 </button>
                             </form>
                         </div>

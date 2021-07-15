@@ -32,9 +32,11 @@ Route::get('/pages/privacy-policy', ['as' => 'pages.privacyPolicy', 'uses' => 'H
 
 Route::get('/pages/terms-of-service', ['as' => 'pages.termOfService', 'uses' => 'HomeController@termOfService']);
 
+Route::get('/pages/introduce', ['as' => 'pages.introduce', 'uses' => 'HomeController@introduce']);
+
 Route::post('/pages/contact', ['as' => 'pages.contactPost', 'uses' => 'HomeController@contactPost']);
 
-Route::get('/shop', ['as' => 'shop.index', 'uses' => 'HomeController@shopIndex']);
+//Route::get('/shop', ['as' => 'shop.index', 'uses' => 'HomeController@shopIndex']);
 
 Route::get('/shop/list-products', ['as' => 'shop.listProducts', 'uses' => 'HomeController@listProducts']);
 
@@ -42,9 +44,11 @@ Route::get('/shop/product-details/{nameProduct}', ['as' => 'shop.productDetails'
 Route::get('/shop/cart', ['as' => 'shop.cartIndex', 'uses' => 'HomeController@cartIndex']);
 Route::post('/shop/add-cart', ['as' => 'shop.ajaxAddCart', 'uses' => 'HomeController@ajaxAddCart']);
 Route::get('/shop/cart-info', ['as' => 'shop.cartInfo', 'uses' => 'HomeController@cartInfo']);
-Route::post('/shop/order-confirm', ['as' => 'shop.orderConfirm', 'uses' => 'HomeController@orderConfirm']);
+Route::post('/shop/cart-store', ['as' => 'shop.cartStore', 'uses' => 'HomeController@orderConfirm']);
 Route::get('/shop/order-confirm', ['as' => 'shop.orderConfirm', 'uses' => 'HomeController@orderConfirm']);
 Route::post('/shop/ajax-cart', ['as' => 'shop.ajaxCart', 'uses' => 'HomeController@ajaxCart']);
+Route::post('/shop/ajax-buy-now', ['as' => 'shop.ajaxBuyNow', 'uses' => 'HomeController@ajaxBuyNow']);
+Route::post('/shop/ajax-buy-cart', ['as' => 'shop.ajaxBuyCart', 'uses' => 'HomeController@ajaxBuyCart']);
 
 Route::get('/collections/shop', ['as' => 'shop.listProducts', 'uses' => 'HomeController@listProducts']);
 
@@ -86,4 +90,12 @@ Route::group(['prefix' => 'admin', 'middleware' => ['admin_access']], function (
     Route::get('/policy', ['as' => 'admin.policy', 'uses' => 'Admin\BridalController@policy']);
 
     Route::post('/policy', ['as' => 'admin.savePolicy', 'uses' => 'Admin\BridalController@savePolicy']);
+
+    Route::get('/contact', ['as' => 'admin.contact', 'uses' => 'Admin\BridalController@contact']);
+
+    Route::get('/order', ['as' => 'admin.order', 'uses' => 'Admin\BridalController@order']);
+
+    Route::get('/order/detail/{id}', ['as' => 'admin.orderDetail', 'uses' => 'Admin\BridalController@orderDetail']);
+
+    Route::post('/order/detail/change-status', ['as' => 'admin.changeStatus', 'uses' => 'Admin\BridalController@changeStatus']);
 });

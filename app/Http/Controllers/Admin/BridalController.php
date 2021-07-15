@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Contact;
 use App\DressProduct;
+use App\OrderDetail;
+use App\Orders;
 use App\Policy;
 use App\StyleDress;
 use App\User;
@@ -43,29 +46,27 @@ class BridalController extends Controller
         $description = $request->description;
         $style = $request->style;
         $status = $request->status;
+        $price = $request->price;
+        $salePrice = $request->sale_price;
 
         $path = public_path('image');
         if (!File::exists($path))
             File::makeDirectory($path, 0777, true);
-        $thumbnail = null;
         $imageList = [];
         foreach ($images as $key => $image) {
             $name = $key . time() . '.' . $image->getClientOriginalExtension();
             $image->move($path, $name);
             $imageList[] = '/image/' . $name;
-            if($key == 0){
-                $nameThumbnail = 'small'.$key . time() . '.' . $image->getClientOriginalExtension();
-//                $thumbnail = $this->uploadThumbnail($image, $nameThumbnail,70 );
-            }
         }
 
         DressProduct::create([
             'name' => $nameDress,
+            'price' => $price,
+            'sale_price' => $salePrice,
             'img_path' => json_encode($imageList),
             'description' => $description,
             'status' => $status,
             'category_id' => $style,
-//            'thumbnail' => $thumbnail,
             'slug' => Str::slug($nameDress)
         ]);
 
@@ -90,6 +91,8 @@ class BridalController extends Controller
         $description = $request->description;
         $style = $request->style;
         $status = $request->status;
+        $price = $request->price;
+        $salePrice = $request->sale_price;
 
         $dress = DressProduct::find($id);
         $path = public_path('image');
@@ -99,53 +102,27 @@ class BridalController extends Controller
 
         if ($images) {
             $imageList = [];
-            $thumbnail = null;
             foreach ($images as $key => $image) {
                 $name = $key . time() . '.' . $image->getClientOriginalExtension();
                 $image->move($path, $name);
                 $imageList[] = '/image/' . $name;
-                if($key == 0){
-                    $nameThumbnail = 'small'.$key . time() . '.' . $image->getClientOriginalExtension();
-//                    $thumbnail = $this->uploadThumbnail($image, $nameThumbnail,70 );
-                }
             }
         } else {
             $imageList = json_decode($dress->img_path, true);
-            $thumbnail = $dress->thumbnail;
         }
 
         DressProduct::where('id', $id)->update([
             'name' => $nameDress,
+            'price' => $price,
+            'sale_price' => $salePrice,
             'img_path' => json_encode($imageList),
             'description' => $description,
             'category_id' => $style,
             'status' => $status,
-//            'thumbnail' => $thumbnail,
             'slug' => Str::slug($nameDress)
         ]);
 
         return redirect()->route('admin.index');
-    }
-
-    function uploadThumbnail($file, $nameThumbnail, $resize_width = null)
-    {
-        $pathThumbnail = public_path('thumbnail');
-        if (!File::exists($pathThumbnail))
-            File::makeDirectory($pathThumbnail, 0777, true);
-        dd($file->getRealPath());
-        $size = getimagesize($file);
-        $width = $size[0];
-        $height = $size[1];
-        $rate = $width / $height;
-        $file = clone ($file);
-        if (!empty($resize_width) ) {
-            $newwidth = (int)$resize_width;
-            $newheight = (int)($resize_width * (1 / $rate));
-        }
-        $image = Image::make($file->getRealPath());
-        $image->resize($newwidth, $newheight);
-        $image->move($pathThumbnail, $nameThumbnail);
-        return '/thumbnail/' . $nameThumbnail;
     }
 
     public function delete(Request $request)
@@ -293,20 +270,58 @@ class BridalController extends Controller
     {
         $policy = $request->policy;
         $term = $request->term;
+        $introduce = $request->introduce;
 
         $privacyPolicy = Policy::find(1);
         if ($privacyPolicy) {
             $privacyPolicy->privacy_policy = $policy;
             $privacyPolicy->term_of_service = $term;
+            $privacyPolicy->introduce = $introduce;
             $privacyPolicy->save();
         } else {
             Policy::create([
                 'privacy_policy' => $policy,
-                'privacy_policy' => $term
+                'term_of_service' => $term,
+                'introduce' => $introduce
             ]);
         }
 
         return redirect()->route('admin.policy');
+    }
+
+    public function contact()
+    {
+        $contact = Contact::orderBy('created_at', 'desc')->get();
+        return view('admin.contact', compact('contact'));
+    }
+
+    public function order()
+    {
+        $orders = Orders::orderBy('order_date', 'desc')->get();
+        return view('admin.order', compact('orders'));
+    }
+
+    public function orderDetail(Request $request)
+    {
+        $orderId = $request->id;
+        $order = Orders::find($orderId);
+        $orderDetail = OrderDetail::with(['product'])->where('order_id', $orderId)->get();
+        $total = 0;
+        foreach ($orderDetail as $item) {
+            $total += $item->quantity * $item->price;
+            $item->product->img = json_decode($item->product->img_path, true)[0];
+        }
+        return view('admin.order_detail', compact('orderDetail', 'order', 'total'));
+    }
+
+    public function changeStatus(Request $request)
+    {
+        $orderId = $request->id;
+        $status = $request->status;
+
+        Orders::where('id', $orderId)->update(['status' => $status]);
+
+        return response()->json(['success' => true], 200);
     }
 
 }

@@ -17,6 +17,20 @@
                 <div class="row">
                     <form action="{{ route('admin.savePolicy') }}" method="post" class="row">
                         {{ csrf_field() }}
+                        <div class="col-md-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h3 class="card-title">Giới thiệu</h3>
+                                </div>
+                                <!-- /.card-header -->
+                                <div class="card-body">
+                                    <textarea id="introduce"
+                                              name="introduce">{{ isset($policy->introduce) ? $policy->introduce : '' }}</textarea>
+                                </div>
+                                <!-- /.card-body -->
+                            </div>
+                            <!-- /.card -->
+                        </div>
                         <div class="col-md-6">
                             <div class="card">
                                 <div class="card-header">
@@ -76,6 +90,20 @@
                 ]
             });
             $('#term').summernote({
+                toolbar: [
+                    // [groupName, [list of button]]
+                    ['style', ['bold', 'italic', 'underline', 'clear']],
+                    ['font', ['strikethrough', 'superscript', 'subscript']],
+                    ['fontsize', ['fontsize']],
+                    ['color', ['color']],
+                    ['para', ['ul', 'ol', 'paragraph']],
+                    ['height', ['height']]
+                ],
+                height: 300,                 // set editor height
+                minHeight: null,             // set minimum height of editor
+                maxHeight: null
+            });
+            $('#introduce').summernote({
                 toolbar: [
                     // [groupName, [list of button]]
                     ['style', ['bold', 'italic', 'underline', 'clear']],

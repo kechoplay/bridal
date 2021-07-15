@@ -168,17 +168,24 @@
                                                 Filter
                                             </button>
                                         </div>
-
-                                        <div class="collection-filter__item collection-filter__item--count small--hide">
+                                        <div class="collection-filter__item collection-filter__item--count small--hide ">
                                             {{ $dress->count() }} sản phẩm
                                         </div>
+                                        <form class="col-sm-4" action="" method="GET" style="margin-bottom: 10px">
+                                            <div class="search">
+                                                <div class="form-group has-feedback">
+                                                    <span class="glyphicon glyphicon-search form-control-feedback"></span>
+                                                    <input name="keySearch" type="text" class="form-control" value="{{@$search}}"
+                                                           placeholder="Tìm kiếm sản phẩm" aria-controls="table-question">
+                                                </div>
+                                            </div>
+                                        </form>
                                     </div>
                                     <p class="medium-up--hide text-center" data-scroll-to>{{ $dress->count() }} sản
                                         phẩm</p>
                                     <div class="grid grid--uniform">
                                         @foreach($dress as $dr)
-                                            <div
-                                                class="grid__item grid-product small--one-half medium-up--one-quarter grid-product__has-quick-shop"
+                                            <div class="grid__item grid-product small--one-half medium-up--one-quarter grid-product__has-quick-shop"
                                                 data-aos="row-of-4" data-product-handle="theia-marley-jumpsuit-gold"
                                                 data-product-id="6715933458620">
                                                 <div class="grid-product__content">
@@ -191,11 +198,29 @@
                                                                      data-widths="[360, 540, 720, 900, 1080]"
                                                                      data-aspectratio="0.6665" data-sizes="auto" alt="">
                                                             </div>
+                                                            @if(!empty(json_decode($dr->img_path)[1]))
+                                                            <div class="grid-product__secondary-image small--hide">
+                                                                <img class="lazyautosizes lazyloaded"
+                                                                     data-widths="[360, 540, 720, 1000]"
+                                                                     data-aspectratio="0.6665"
+                                                                     data-sizes="auto"
+                                                                     srcset="{{ json_decode($dr->img_path)[1] }}">
+                                                            </div>
+                                                            @endif
                                                         </div>
 
                                                         <div class="grid-product__meta">
                                                             <div class="grid-product__title grid-product__title--body">
                                                                 {{ $dr->name }}
+                                                            </div>
+                                                            <div class="grid-product__price"><span class="visually-hidden" data-open-accessibility-text-original="13.6px" style="font-size: 13.6px;">Regular price</span>
+                                                                @if($dr->sale_price != 0)
+                                                                <span class="grid-product__price--original" data-open-accessibility-text-original="13.6px" style="font-size: 13.6px;">{{ @number_format($dr->price) }} VNĐ</span>
+                                                                <span class="visually-hidden" data-open-accessibility-text-original="13.6px" style="font-size: 13.6px;"></span>{{ @number_format($dr->sale_price) }} VNĐ
+                                                                @endif
+                                                                @if($dr->sale_price == 0)
+                                                                    {{ @number_format($dr->price) }} VNĐ
+                                                                @endif
                                                             </div>
                                                         </div>
                                                     </a>
