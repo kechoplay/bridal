@@ -23,7 +23,7 @@
                                 {{ csrf_field() }}
                                 <div class="card-body">
                                     <div class="form-group">
-                                        <label for="name">Tên váy</label>
+                                        <label for="name">Tên sản phẩm</label>
                                         <input type="text" class="form-control" id="name" name="name" required>
                                     </div>
                                     <div class="form-group">
@@ -43,19 +43,11 @@
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label for="name">Mẫu váy</label>
+                                        <label for="name">Danh mục</label>
                                         <select name="style" class="form-control">
                                             @foreach($styles as $style)
                                                 <option value="{{ $style->id }}">{{ $style->name }}</option>
                                             @endforeach
-                                        </select>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="status">Phân loại</label>
-                                        <select name="status" class="form-control">
-                                             <option value="0" selected>Thường</option>
-                                             <option value="1">bộ váy cưới</option>
-                                             <option value="2">bộ váy đặc biệt</option>
                                         </select>
                                     </div>
                                     <div class="form-group">

@@ -23,7 +23,7 @@
                                 {{ csrf_field() }}
                                 <div class="card-body">
                                     <div class="form-group">
-                                        <label for="name">Tên váy</label>
+                                        <label for="name">Tên sản phẩm</label>
                                         <input type="text" class="form-control" id="name" name="name" value="{{ $dress->name }}" required>
                                     </div>
                                     <div class="form-group">
@@ -49,7 +49,7 @@
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label for="name">Mẫu váy</label>
+                                        <label for="name">Danh mục</label>
                                         <select name="style" class="form-control">
                                             @foreach($styles as $style)
                                                 <option value="{{ $style->id }}" {{ ($style->id == $dress->category_id) ? 'selected' : '' }}>{{ $style->name }}</option>
@@ -57,15 +57,31 @@
                                         </select>
                                     </div>
                                     <div class="form-group">
-                                        <label for="status">Phân loại</label>
-                                        <select name="status" class="form-control">
-                                            <option value="0" @if($dress->status == 0) selected @endif>Thường</option>
-                                            <option value="1" @if($dress->status == 1) selected @endif>bộ váy cưới</option>
-                                            <option value="2" @if($dress->status == 2) selected @endif>bộ váy đặc biệt</option>
+                                        <label for="name">Danh mục</label>
+                                        <select name="style" class="form-control">
+                                            @foreach($styles as $style)
+                                                <option value="{{ $style->id }}" {{ ($style->id == $dress->category_id) ? 'selected' : '' }}>{{ $style->name }}</option>
+                                            @endforeach
                                         </select>
                                     </div>
                                     <div class="form-group">
-                                        <label for="description">Miêu tả</label>
+                                        <label for="name">Màu vải</label>
+                                        <select name="style" class="form-control">
+                                            @foreach($styles as $style)
+                                                <option value="{{ $style->id }}" {{ ($style->id == $dress->category_id) ? 'selected' : '' }}>{{ $style->name }}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="name">Màu hoa</label>
+                                        <select name="style" class="form-control">
+                                            @foreach($styles as $style)
+                                                <option value="{{ $style->id }}" {{ ($style->id == $dress->category_id) ? 'selected' : '' }}>{{ $style->name }}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="description">Kích thước</label>
                                         <textarea class="form-control" id="description" name="description">{{ $dress->description }}</textarea>
                                     </div>
                                 </div>

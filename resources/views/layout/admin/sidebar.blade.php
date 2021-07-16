@@ -29,7 +29,7 @@
                     <a href="#" class="nav-link">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
                         <p>
-                            Váy
+                            Sản phẩm
                             <i class="right fas fa-angle-left"></i>
                         </p>
                     </a>
@@ -37,13 +37,13 @@
                         <li class="nav-item">
                             <a href="{{ route('admin.index') }}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>Danh sách váy</p>
+                                <p>Danh sách sản phẩm</p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="{{ route('admin.addBridal') }}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>Thêm váy</p>
+                                <p>Thêm sản phẩm</p>
                             </a>
                         </li>
                     </ul>
@@ -52,7 +52,7 @@
                     <a href="#" class="nav-link">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
                         <p>
-                            Mẫu váy
+                            Danh mục
                             <i class="right fas fa-angle-left"></i>
                         </p>
                     </a>
@@ -60,13 +60,13 @@
                         <li class="nav-item">
                             <a href="{{ route('admin.listStyle') }}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>Danh sách mẫu</p>
+                                <p>Danh sách danh mục</p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="{{ route('admin.addStyle') }}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>Thêm mẫu</p>
+                                <p>Thêm danh mục</p>
                             </a>
                         </li>
                     </ul>
@@ -86,7 +86,7 @@
                 <li class="nav-item">
                     <a href="{{ route('admin.order') }}" class="nav-link">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
-                        <p>Hóa đơn</p>
+                        <p>Đơn hàng</p>
                     </a>
                 </li>
             </ul>

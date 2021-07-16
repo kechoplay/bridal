@@ -23,7 +23,7 @@
                                 {{ csrf_field() }}
                                 <div class="card-body">
                                     <div class="form-group">
-                                        <label for="name">Tên mẫu</label>
+                                        <label for="name">Tên danh mục</label>
                                         <input type="text" class="form-control" id="name" name="name" required>
                                     </div>
                                 </div>
