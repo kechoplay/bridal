@@ -17,7 +17,8 @@ class CreateTableShippingMethod extends Migration
             $table->increments('id');
             $table->string('ship_name_vi')->default(null)->nullable();
             $table->string('ship_name_en')->default(null)->nullable();
-            $table->integer('ship_day')->default(null)->nullable();
+            $table->string('ship_time_vi')->default(null)->nullable();
+            $table->string('ship_time_en')->default(null)->nullable();
             $table->integer('ship_fee')->default(null)->nullable();
             $table->timestamps();
         });

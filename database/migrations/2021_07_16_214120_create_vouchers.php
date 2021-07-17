@@ -14,7 +14,12 @@ class CreateVouchers extends Migration
     public function up()
     {
         Schema::create('vouchers', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id');
+            $table->string('code')->unique()->default(null)->nullable();
+            $table->integer('discount')->default(null)->nullable();
+            $table->dateTime('start_time')->default(null)->nullable();
+            $table->dateTime('end_time')->default(null)->nullable();
+            $table->integer('status')->default(0)->nullable();
             $table->timestamps();
         });
     }

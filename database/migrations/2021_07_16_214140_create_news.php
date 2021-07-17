@@ -14,7 +14,12 @@ class CreateNews extends Migration
     public function up()
     {
         Schema::create('news', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id');
+            $table->string('title_vi')->default(null)->nullable();
+            $table->string('title_en')->default(null)->nullable();
+            $table->text('description_vi')->default(null)->nullable();
+            $table->text('description_en')->default(null)->nullable();
+            $table->integer('status')->default(0)->nullable();
             $table->timestamps();
         });
     }

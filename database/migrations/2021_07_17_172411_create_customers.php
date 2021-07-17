@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateFeadback extends Migration
+class CreateCustomers extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,8 @@ class CreateFeadback extends Migration
      */
     public function up()
     {
-        Schema::create('feedback', function (Blueprint $table) {
-            $table->increments('id');
+        Schema::create('customers', function (Blueprint $table) {
+            $table->bigIncrements('id');
             $table->timestamps();
         });
     }
@@ -26,6 +26,6 @@ class CreateFeadback extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('feadback');
+        Schema::dropIfExists('customers');
     }
 }

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateFeadback extends Migration
+class CreateVoucherUser extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,10 @@ class CreateFeadback extends Migration
      */
     public function up()
     {
-        Schema::create('feedback', function (Blueprint $table) {
+        Schema::create('voucher_user', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('voucher_id')->default(null)->nullable();
+            $table->integer('user_id')->default(null)->nullable();
             $table->timestamps();
         });
     }
@@ -26,6 +28,6 @@ class CreateFeadback extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('feadback');
+        Schema::dropIfExists('voucher_user');
     }
 }
