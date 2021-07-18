@@ -89,6 +89,12 @@
                         <p>Đơn hàng</p>
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a href="{{ route('admin.sizes') }}" class="nav-link">
+                        <i class="nav-icon fas fa-tachometer-alt"></i>
+                        <p>Kích thước</p>
+                    </a>
+                </li>
             </ul>
         </nav>
         <!-- /.sidebar-menu -->

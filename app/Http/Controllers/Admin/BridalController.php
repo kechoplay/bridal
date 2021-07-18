@@ -7,6 +7,7 @@ use App\DressProduct;
 use App\OrderDetail;
 use App\Orders;
 use App\Policy;
+use App\Sizes;
 use App\StyleDress;
 use App\User;
 use App\WeddingDressCategory;
@@ -322,6 +323,38 @@ class BridalController extends Controller
         Orders::where('id', $orderId)->update(['status' => $status]);
 
         return response()->json(['success' => true], 200);
+    }
+
+    public function sizeManagement()
+    {
+        $sizes = Sizes::all();
+
+        return view('admin.size_management', compact('sizes'));
+    }
+
+    public function saveNewSize(Request $request)
+    {
+        $sizeName = $request->size_name;
+        Sizes::create(['name' => $sizeName]);
+
+        return redirect()->back();
+    }
+
+    public function editSize(Request $request)
+    {
+        $sizeName = $request->size_name;
+        $id = $request->id;
+        Sizes::where('id', $id)->update(['name' => $sizeName]);
+
+        return redirect()->back();
+    }
+
+    public function deleteSize(Request $request)
+    {
+        $id = $request->id;
+        Sizes::where('id', $id)->delete();
+
+        return redirect()->back();
     }
 
 }

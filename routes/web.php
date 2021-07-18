@@ -65,27 +65,27 @@ Route::group(['prefix' => 'admin', 'middleware' => ['admin_access']], function (
 
     Route::get('', ['as' => 'admin.index', 'uses' => 'Admin\BridalController@index']);
 
-    Route::get('/add-bridal', ['as' => 'admin.addBridal', 'uses' => 'Admin\BridalController@create']);
+    Route::get('/add-product', ['as' => 'admin.addBridal', 'uses' => 'Admin\BridalController@create']);
 
-    Route::post('/add-bridal', ['as' => 'admin.saveBridal', 'uses' => 'Admin\BridalController@store']);
+    Route::post('/add-product', ['as' => 'admin.saveBridal', 'uses' => 'Admin\BridalController@store']);
 
-    Route::get('/update-bridal/{id}', ['as' => 'admin.editBridal', 'uses' => 'Admin\BridalController@edit']);
+    Route::get('/update-product/{id}', ['as' => 'admin.editBridal', 'uses' => 'Admin\BridalController@edit']);
 
-    Route::post('/update-bridal/{id}', ['as' => 'admin.updateBridal', 'uses' => 'Admin\BridalController@update']);
+    Route::post('/update-product/{id}', ['as' => 'admin.updateBridal', 'uses' => 'Admin\BridalController@update']);
 
-    Route::get('/delete-bridal/{id}', ['as' => 'admin.deleteBridal', 'uses' => 'Admin\BridalController@delete']);
+    Route::get('/delete-product/{id}', ['as' => 'admin.deleteBridal', 'uses' => 'Admin\BridalController@delete']);
 
-    Route::get('/style-dress', ['as' => 'admin.listStyle', 'uses' => 'Admin\BridalController@listStyle']);
+    Route::get('/category', ['as' => 'admin.listStyle', 'uses' => 'Admin\BridalController@listStyle']);
 
-    Route::get('/add-style-dress', ['as' => 'admin.addStyle', 'uses' => 'Admin\BridalController@addStyle']);
+    Route::get('/add-category', ['as' => 'admin.addStyle', 'uses' => 'Admin\BridalController@addStyle']);
 
-    Route::post('/add-style-dress', ['as' => 'admin.saveStyle', 'uses' => 'Admin\BridalController@saveStyle']);
+    Route::post('/add-category', ['as' => 'admin.saveStyle', 'uses' => 'Admin\BridalController@saveStyle']);
 
-    Route::get('/edit-style-dress/{id}', ['as' => 'admin.editStyle', 'uses' => 'Admin\BridalController@editStyle']);
+    Route::get('/edit-category/{id}', ['as' => 'admin.editStyle', 'uses' => 'Admin\BridalController@editStyle']);
 
-    Route::post('/edit-style-dress/{id}', ['as' => 'admin.updateStyle', 'uses' => 'Admin\BridalController@updateStyle']);
+    Route::post('/edit-category/{id}', ['as' => 'admin.updateStyle', 'uses' => 'Admin\BridalController@updateStyle']);
 
-    Route::get('/delete-style/{id}', ['as' => 'admin.deleteStyle', 'uses' => 'Admin\BridalController@deleteStyle']);
+    Route::get('/delete-category/{id}', ['as' => 'admin.deleteStyle', 'uses' => 'Admin\BridalController@deleteStyle']);
 
     Route::get('/policy', ['as' => 'admin.policy', 'uses' => 'Admin\BridalController@policy']);
 
@@ -98,4 +98,12 @@ Route::group(['prefix' => 'admin', 'middleware' => ['admin_access']], function (
     Route::get('/order/detail/{id}', ['as' => 'admin.orderDetail', 'uses' => 'Admin\BridalController@orderDetail']);
 
     Route::post('/order/detail/change-status', ['as' => 'admin.changeStatus', 'uses' => 'Admin\BridalController@changeStatus']);
+
+    Route::get('/sizes', ['as' => 'admin.sizes', 'uses' => 'Admin\BridalController@sizeManagement']);
+
+    Route::post('/sizes', ['as' => 'admin.saveNewSize', 'uses' => 'Admin\BridalController@saveNewSize']);
+
+    Route::post('/sizes/{id}', ['as' => 'admin.editSize', 'uses' => 'Admin\BridalController@editSize']);
+
+    Route::get('/sizes/delete/{id}', ['as' => 'admin.deleteSize', 'uses' => 'Admin\BridalController@deleteSize']);
 });

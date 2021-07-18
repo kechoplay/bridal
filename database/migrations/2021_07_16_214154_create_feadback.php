@@ -15,6 +15,10 @@ class CreateFeadback extends Migration
     {
         Schema::create('feedback', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('product_id')->default(null)->nullable();
+            $table->integer('user_id')->default(null)->nullable();
+            $table->text('content')->default(null)->nullable();
+            $table->text('list_image')->default(null)->nullable();
             $table->timestamps();
         });
     }
@@ -26,6 +30,6 @@ class CreateFeadback extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('feadback');
+        Schema::dropIfExists('feedback');
     }
 }
