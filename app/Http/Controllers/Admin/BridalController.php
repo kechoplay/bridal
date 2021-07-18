@@ -8,6 +8,7 @@ use App\DressProduct;
 use App\OrderDetail;
 use App\Orders;
 use App\Policy;
+use App\ShippingMethod;
 use App\Sizes;
 use App\StyleDress;
 use App\User;
@@ -392,6 +393,13 @@ class BridalController extends Controller
         Colors::where('id', $id)->delete();
 
         return redirect()->back();
+    }
+
+    public function shippingMethodManagement()
+    {
+        $shippingMethod = ShippingMethod::all();
+
+        return view('admin.shipping_method_management', compact('shippingMethod'));
     }
 
 }

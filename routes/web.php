@@ -107,6 +107,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['admin_access']], function (
 
     Route::get('/sizes/delete/{id}', ['as' => 'admin.deleteSize', 'uses' => 'Admin\BridalController@deleteSize']);
 
+    // size
     Route::get('/colors', ['as' => 'admin.colors', 'uses' => 'Admin\BridalController@colorsManagement']);
 
     Route::post('/colors', ['as' => 'admin.saveNewColor', 'uses' => 'Admin\BridalController@saveNewColor']);
@@ -114,4 +115,13 @@ Route::group(['prefix' => 'admin', 'middleware' => ['admin_access']], function (
     Route::post('/colors/{id}', ['as' => 'admin.editColor', 'uses' => 'Admin\BridalController@editColor']);
 
     Route::get('/colors/delete/{id}', ['as' => 'admin.deleteColor', 'uses' => 'Admin\BridalController@deleteColor']);
+
+    // shipping method
+    Route::get('/shipping-method', ['as' => 'admin.shippingMethod', 'uses' => 'Admin\BridalController@shippingMethodManagement']);
+
+    Route::post('/shipping-method', ['as' => 'admin.saveNewShippingMethod', 'uses' => 'Admin\BridalController@saveNewColor']);
+
+    Route::post('/shipping-method/{id}', ['as' => 'admin.editShippingMethod', 'uses' => 'Admin\BridalController@editColor']);
+
+    Route::get('/shipping-method/delete/{id}', ['as' => 'admin.deleteShippingMethod', 'uses' => 'Admin\BridalController@deleteColor']);
 });
