@@ -106,4 +106,12 @@ Route::group(['prefix' => 'admin', 'middleware' => ['admin_access']], function (
     Route::post('/sizes/{id}', ['as' => 'admin.editSize', 'uses' => 'Admin\BridalController@editSize']);
 
     Route::get('/sizes/delete/{id}', ['as' => 'admin.deleteSize', 'uses' => 'Admin\BridalController@deleteSize']);
+
+    Route::get('/colors', ['as' => 'admin.colors', 'uses' => 'Admin\BridalController@colorsManagement']);
+
+    Route::post('/colors', ['as' => 'admin.saveNewColor', 'uses' => 'Admin\BridalController@saveNewColor']);
+
+    Route::post('/colors/{id}', ['as' => 'admin.editColor', 'uses' => 'Admin\BridalController@editColor']);
+
+    Route::get('/colors/delete/{id}', ['as' => 'admin.deleteColor', 'uses' => 'Admin\BridalController@deleteColor']);
 });

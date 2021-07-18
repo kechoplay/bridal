@@ -95,6 +95,12 @@
                         <p>Kích thước</p>
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a href="{{ route('admin.colors') }}" class="nav-link">
+                        <i class="nav-icon fas fa-tachometer-alt"></i>
+                        <p>Màu</p>
+                    </a>
+                </li>
             </ul>
         </nav>
         <!-- /.sidebar-menu -->

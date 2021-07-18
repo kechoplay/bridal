@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Colors;
 use App\Contact;
 use App\DressProduct;
 use App\OrderDetail;
@@ -353,6 +354,42 @@ class BridalController extends Controller
     {
         $id = $request->id;
         Sizes::where('id', $id)->delete();
+
+        return redirect()->back();
+    }
+
+    public function colorsManagement()
+    {
+        $colors = Colors::all();
+
+        return view('admin.color_management', compact('colors'));
+    }
+
+    public function saveNewColor(Request $request)
+    {
+        $colorNameVi = $request->color_name_vi;
+        $colorNameEn = $request->color_name_en;
+        $colorCode = $request->color_code;
+        Colors::create(['name_vi' => $colorNameVi, 'name_en' => $colorNameEn, 'code' => $colorCode]);
+
+        return redirect()->back();
+    }
+
+    public function editColor(Request $request)
+    {
+        $colorNameVi = $request->color_name_vi;
+        $colorNameEn = $request->color_name_en;
+        $colorCode = $request->color_code;
+        $id = $request->id;
+        Colors::where('id', $id)->update(['name_vi' => $colorNameVi, 'name_en' => $colorNameEn, 'code' => $colorCode]);
+
+        return redirect()->back();
+    }
+
+    public function deleteColor(Request $request)
+    {
+        $id = $request->id;
+        Colors::where('id', $id)->delete();
 
         return redirect()->back();
     }

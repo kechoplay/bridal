@@ -20,6 +20,8 @@
     <link rel="stylesheet" href="/plugins/summernote/summernote-bs4.min.css">
     <!-- overlayScrollbars -->
     <link rel="stylesheet" href="/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+    <!-- color picker -->
+    <link rel="stylesheet" href="/plugins/spectrum/dist/spectrum.min.css">
     <style>
         .hidden {
             display: none;
@@ -54,6 +56,8 @@
 <script src="/dist/js/demo.js"></script>
 <!-- Summernote -->
 <script src="/plugins/summernote/summernote-bs4.min.js"></script>
+<!-- color picker -->
+<script src="/plugins/spectrum/dist/spectrum.min.js"></script>
 
 @stack('js')
 </body>
