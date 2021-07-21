@@ -101,6 +101,12 @@
                         <p>Màu</p>
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a href="{{ route('admin.shippingMethod') }}" class="nav-link">
+                        <i class="nav-icon fas fa-tachometer-alt"></i>
+                        <p>Chế độ ship</p>
+                    </a>
+                </li>
             </ul>
         </nav>
         <!-- /.sidebar-menu -->

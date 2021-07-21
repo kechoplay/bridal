@@ -119,9 +119,11 @@ Route::group(['prefix' => 'admin', 'middleware' => ['admin_access']], function (
     // shipping method
     Route::get('/shipping-method', ['as' => 'admin.shippingMethod', 'uses' => 'Admin\BridalController@shippingMethodManagement']);
 
-    Route::post('/shipping-method', ['as' => 'admin.saveNewShippingMethod', 'uses' => 'Admin\BridalController@saveNewColor']);
+    Route::get('/shipping-method/create', ['as' => 'admin.createShippingMethod', 'uses' => 'Admin\BridalController@createShippingMethod']);
 
-    Route::post('/shipping-method/{id}', ['as' => 'admin.editShippingMethod', 'uses' => 'Admin\BridalController@editColor']);
+    Route::post('/shipping-method/create', ['as' => 'admin.saveNewShippingMethod', 'uses' => 'Admin\BridalController@saveShippingMethod']);
+
+    Route::get('/shipping-method/edit/{id}', ['as' => 'admin.editShippingMethod', 'uses' => 'Admin\BridalController@editShippingMethod']);
 
     Route::get('/shipping-method/delete/{id}', ['as' => 'admin.deleteShippingMethod', 'uses' => 'Admin\BridalController@deleteColor']);
 });

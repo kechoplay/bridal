@@ -22,6 +22,7 @@
                                 <h3 class="card-title">Danh sách ship</h3>
                             </div>
                             <div class="card-body">
+                                <a href="{{ route('admin.createShippingMethod') }}"><button class="btn btn-primary" style="margin-bottom: 10px">Thêm phương thức ship</button></a>
                                 <table id="example1" class="table table-bordered table-striped">
                                     <thead>
                                     <tr>
@@ -31,7 +32,7 @@
                                         <th>Thời gian ship EN</th>
                                         <th>Giá ship VI</th>
                                         <th>Giá ship EN</th>
-                                        <th style="width: 30%;"></th>
+                                        <th style="width: 10%;"></th>
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -45,7 +46,7 @@
                                             <td>{{ $item->ship_fee_en }}</td>
                                             <td>
                                                 <a href="{{ route('admin.deleteShippingMethod', ['id' => $item->id]) }}"><button class="btn btn-danger">Xóa</button></a>
-                                                <button class="btn btn-secondary" onclick="setupEdit({{ $item }})">Sửa</button>
+                                                <a href="{{ route('admin.editShippingMethod', ['id' => $item->id]) }}"><button class="btn btn-secondary">Sửa</button></a>
                                             </td>
                                         </tr>
                                     @endforeach

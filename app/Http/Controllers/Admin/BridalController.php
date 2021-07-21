@@ -399,7 +399,37 @@ class BridalController extends Controller
     {
         $shippingMethod = ShippingMethod::all();
 
-        return view('admin.shipping_method_management', compact('shippingMethod'));
+        return view('admin.shipping_method.shipping_method_management', compact('shippingMethod'));
+    }
+
+    public function createShippingMethod()
+    {
+        return view('admin.shipping_method.create');
+    }
+
+    public function saveShippingMethod(Request $request)
+    {
+        try {
+            $shipNameVi = $request->ship_name_vi;
+            $shipNameEn = $request->ship_name_en;
+            $shipTimeVi = $request->ship_time_vi;
+            $shipTimeEn = $request->ship_time_en;
+            $shipFeeVi = $request->ship_fee_vi;
+            $shipFeeEn = $request->ship_fee_en;
+
+            ShippingMethod::create([
+                'ship_name_vi' => $shipNameVi,
+                'ship_name_en' => $shipNameEn,
+                'ship_time_vi' => $shipTimeVi,
+                'ship_time_en' => $shipTimeEn,
+                'ship_fee_vi' => $shipFeeVi,
+                'ship_fee_en' => $shipFeeEn,
+            ]);
+        } catch (\Exception $exception) {
+            Log::error($exception);
+            return redirect()->back();
+        }
+        return redirect()->route('admin.shippingMethod');
     }
 
 }
