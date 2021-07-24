@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Colors;
 use App\Contact;
+use App\Discount;
 use App\DressProduct;
 use App\OrderDetail;
 use App\Orders;
@@ -13,6 +14,7 @@ use App\Sizes;
 use App\StyleDress;
 use App\User;
 use App\WeddingDressCategory;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
@@ -397,7 +399,7 @@ class BridalController extends Controller
 
     public function shippingMethodManagement()
     {
-        $shippingMethod = ShippingMethod::all();
+        $shippingMethod = ShippingMethod::orderBy('id', 'DESC')->get();
 
         return view('admin.shipping_method.shipping_method_management', compact('shippingMethod'));
     }
@@ -416,15 +418,21 @@ class BridalController extends Controller
             $shipTimeEn = $request->ship_time_en;
             $shipFeeVi = $request->ship_fee_vi;
             $shipFeeEn = $request->ship_fee_en;
+            $id = $request->id;
 
-            ShippingMethod::create([
+            $data = [
                 'ship_name_vi' => $shipNameVi,
                 'ship_name_en' => $shipNameEn,
                 'ship_time_vi' => $shipTimeVi,
                 'ship_time_en' => $shipTimeEn,
                 'ship_fee_vi' => $shipFeeVi,
                 'ship_fee_en' => $shipFeeEn,
-            ]);
+            ];
+            if (!$id) {
+                ShippingMethod::create($data);
+            } else {
+                ShippingMethod::where('id', $id)->update($data);
+            }
         } catch (\Exception $exception) {
             Log::error($exception);
             return redirect()->back();
@@ -432,4 +440,89 @@ class BridalController extends Controller
         return redirect()->route('admin.shippingMethod');
     }
 
+    public function editShippingMethod(Request $request)
+    {
+        $id = $request->id;
+        $shipping = ShippingMethod::find($id);
+
+        return view('admin.shipping_method.create', compact('shipping'));
+    }
+
+    public function deleteShippingMethod(Request $request)
+    {
+        $id = $request->id;
+        ShippingMethod::where('id', $id)->delete();
+        return redirect()->back();
+    }
+
+    public function discountManagement()
+    {
+        $discounts = Discount::orderBy('id', 'DESC')->get();
+        foreach ($discounts as $discount) {
+            $discount->start_time = Carbon::createFromTimestamp(strtotime($discount->start_time))->format('Y-m-d');
+            $discount->end_time = Carbon::createFromTimestamp(strtotime($discount->end_time))->format('Y-m-d');
+        }
+
+        return view('admin.discount.discount_management', compact('discounts'));
+    }
+
+    public function createDiscount()
+    {
+        $products = DressProduct::all();
+        return view('admin.discount.create', compact('products'));
+    }
+
+    public function saveDiscount(Request $request)
+    {
+        try {
+            $id = $request->id;
+            $nameVi = $request->name_vi;
+            $nameEn = $request->name_en;
+            $startTime = $request->start_time;
+            $endTime = $request->end_time;
+            $discount = $request->discount;
+            $listProduct = $request->list_product;
+            $descriptionVi = $request->description_vi;
+            $descriptionEn = $request->description_en;
+
+            $data = [
+                'name_vi' => $nameVi,
+                'name_en' => $nameEn,
+                'start_time' => $startTime,
+                'end_time' => $endTime,
+                'discount' => $discount,
+                'product_list' => json_encode($listProduct),
+                'description_vi' => $descriptionVi,
+                'description_en' => $descriptionEn,
+            ];
+            if (!$id) {
+                Discount::create($data);
+            } else {
+                Discount::where('id', $id)->update($data);
+            }
+        } catch (\Exception $exception) {
+            Log::error($exception);
+            return redirect()->back();
+        }
+
+        return redirect()->route('admin.discount');
+    }
+
+    public function editDiscount(Request $request)
+    {
+        $id = $request->id;
+        $discount = Discount::find($id);
+        $discount->product_list = json_decode($discount->product_list, true);
+        $discount->start_time = Carbon::createFromTimestamp(strtotime($discount->start_time))->format('Y-m-d');
+        $discount->end_time = Carbon::createFromTimestamp(strtotime($discount->end_time))->format('Y-m-d');
+        $products = DressProduct::all();
+        return view('admin.discount.create', compact('products', 'discount'));
+    }
+
+    public function deleteDiscount(Request $request)
+    {
+        $id = $request->id;
+        Discount::where('id', $id)->delete();
+        return redirect()->back();
+    }
 }

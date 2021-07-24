@@ -107,6 +107,12 @@
                         <p>Chế độ ship</p>
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a href="{{ route('admin.discount') }}" class="nav-link">
+                        <i class="nav-icon fas fa-tachometer-alt"></i>
+                        <p>Chương trình giảm giá</p>
+                    </a>
+                </li>
             </ul>
         </nav>
         <!-- /.sidebar-menu -->

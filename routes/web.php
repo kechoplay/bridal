@@ -125,5 +125,16 @@ Route::group(['prefix' => 'admin', 'middleware' => ['admin_access']], function (
 
     Route::get('/shipping-method/edit/{id}', ['as' => 'admin.editShippingMethod', 'uses' => 'Admin\BridalController@editShippingMethod']);
 
-    Route::get('/shipping-method/delete/{id}', ['as' => 'admin.deleteShippingMethod', 'uses' => 'Admin\BridalController@deleteColor']);
+    Route::get('/shipping-method/delete/{id}', ['as' => 'admin.deleteShippingMethod', 'uses' => 'Admin\BridalController@deleteShippingMethod']);
+
+    // discount program
+    Route::get('/discount', ['as' => 'admin.discount', 'uses' => 'Admin\BridalController@discountManagement']);
+
+    Route::get('/discount/create', ['as' => 'admin.createDiscount', 'uses' => 'Admin\BridalController@createDiscount']);
+
+    Route::post('/discount/create', ['as' => 'admin.saveNewDiscount', 'uses' => 'Admin\BridalController@saveDiscount']);
+
+    Route::get('/discount/edit/{id}', ['as' => 'admin.editDiscount', 'uses' => 'Admin\BridalController@editDiscount']);
+
+    Route::get('/discount/delete/{id}', ['as' => 'admin.deleteDiscount', 'uses' => 'Admin\BridalController@deleteDiscount']);
 });
