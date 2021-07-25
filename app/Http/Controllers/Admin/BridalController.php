@@ -31,7 +31,7 @@ class BridalController extends Controller
     //
     public function index(Request $request)
     {
-        $dress = DressProduct::all();
+        $dress = DressProduct::with(['colorDress', 'colorFlower', 'sizes'])->orderBy('id', 'DESC')->get();
         foreach ($dress as $dr) {
             $dr->image = json_decode($dr->img_path, true)[0];
         }
@@ -41,18 +41,25 @@ class BridalController extends Controller
     public function create(Request $request)
     {
         $styles = WeddingDressCategory::all();
-        return view('admin.bridal.add', compact('styles'));
+        $colors = Colors::all();
+        $sizes = Sizes::all();
+        return view('admin.bridal.add', compact('styles', 'colors', 'sizes'));
     }
 
     public function store(Request $request)
     {
-        $nameDress = $request->name;
+        $nameVi = $request->name;
+        $nameEn = $request->name_en;
+        $color1 = $request->color1;
+        $color2 = $request->color2;
+        $processTime = $request->process_time;
+        $size = $request->size;
         $images = $request->images;
         $description = $request->description;
+        $descriptionEn = $request->description_en;
         $style = $request->style;
-        $status = $request->status;
         $price = $request->price;
-        $salePrice = $request->sale_price;
+        $priceEn = $request->price_en;
 
         $path = public_path('image');
         if (!File::exists($path))
@@ -65,14 +72,19 @@ class BridalController extends Controller
         }
 
         DressProduct::create([
-            'name' => $nameDress,
+            'name' => $nameVi,
+            'name_en' => $nameEn,
             'price' => $price,
-            'sale_price' => $salePrice,
+            'price_en' => $priceEn,
+            'color1' => $color1,
+            'color2' => $color2,
+            'size' => $size,
+            'process_time' => $processTime,
             'img_path' => json_encode($imageList),
             'description' => $description,
-            'status' => $status,
+            'description_en' => $descriptionEn,
             'category_id' => $style,
-            'slug' => Str::slug($nameDress)
+            'slug' => Str::slug($nameVi)
         ]);
 
         return redirect()->route('admin.index');
@@ -84,20 +96,27 @@ class BridalController extends Controller
         $dress = DressProduct::find($id);
         $styles = WeddingDressCategory::all();
         $dress->img_path = json_decode($dress->img_path, true);
+        $colors = Colors::all();
+        $sizes = Sizes::all();
 
-        return view('admin.bridal.edit', compact('dress', 'styles'));
+        return view('admin.bridal.edit', compact('dress', 'styles', 'colors', 'sizes'));
     }
 
     public function update(Request $request)
     {
         $id = $request->id;
         $nameDress = $request->name;
+        $nameEn = $request->name_en;
+        $color1 = $request->color1;
+        $color2 = $request->color2;
+        $processTime = $request->process_time;
+        $size = $request->size;
         $images = $request->images;
         $description = $request->description;
+        $descriptionEn = $request->description_en;
         $style = $request->style;
-        $status = $request->status;
         $price = $request->price;
-        $salePrice = $request->sale_price;
+        $priceEn = $request->price_en;
 
         $dress = DressProduct::find($id);
         $path = public_path('image');
@@ -118,12 +137,17 @@ class BridalController extends Controller
 
         DressProduct::where('id', $id)->update([
             'name' => $nameDress,
+            'name_en' => $nameEn,
             'price' => $price,
-            'sale_price' => $salePrice,
+            'price_en' => $priceEn,
+            'color1' => $color1,
+            'color2' => $color2,
+            'size' => $size,
+            'process_time' => $processTime,
             'img_path' => json_encode($imageList),
             'description' => $description,
+            'description_en' => $descriptionEn,
             'category_id' => $style,
-            'status' => $status,
             'slug' => Str::slug($nameDress)
         ]);
 

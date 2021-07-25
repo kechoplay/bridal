@@ -20,4 +20,19 @@ class DressProduct extends Model
     {
         return $this->belongsTo('App\StyleDress');
     }
+
+    public function colorDress()
+    {
+        return $this->hasOne('App\Colors', 'id', 'color1');
+    }
+
+    public function colorFlower()
+    {
+        return $this->hasOne('App\Colors', 'id', 'color2');
+    }
+
+    public function sizes()
+    {
+        return $this->hasOne('App\Sizes', 'id', 'size');
+    }
 }

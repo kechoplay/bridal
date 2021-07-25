@@ -26,7 +26,9 @@
                                         <th>Tên</th>
                                         <th>Ảnh</th>
                                         <th>Giá</th>
-                                        <th>Giá giảm</th>
+                                        <th>Màu váy</th>
+                                        <th>Màu hoa</th>
+                                        <th>Kích cỡ</th>
                                         <th style="width: 10%;"></th>
                                     </tr>
                                     </thead>
@@ -41,7 +43,13 @@
                                                 {{ number_format($dr->price) }}
                                             </td>
                                             <td>
-                                                {{ number_format($dr->sale_price) }}
+                                                {{ json_decode($dr->colorDress, true)['name_vi'] }}
+                                            </td>
+                                            <td>
+                                                {{ json_decode($dr->colorFlower, true)['name_vi'] }}
+                                            </td>
+                                            <td>
+                                                {{ json_decode($dr->sizes, true)['name'] }}
                                             </td>
                                             <td>
                                                 <a href="{{ route('admin.deleteBridal', ['id' => $dr->id]) }}"><button class="btn btn-danger">Xóa</button></a>
