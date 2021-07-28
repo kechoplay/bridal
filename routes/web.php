@@ -14,47 +14,52 @@
 Route::get('/', function () {
     return view('index');
 });
-Route::get('/', ['as' => 'homeIndex', 'uses' => 'HomeController@shopIndex']);
 
-Route::get('/bridal-product', ['as' => 'bridalIndex', 'uses' => 'HomeController@bridalIndex']);
+Route::group(['middleware' => 'language'], function () {
+    Route::get('/', ['as' => 'homeIndex', 'uses' => 'HomeController@shopIndex']);
 
-Route::get('/bridal-product/details/{slug}/{id}', ['as' => 'bridalDetails', 'uses' => 'HomeController@bridalDetails']);
+    Route::get('/bridal-product', ['as' => 'bridalIndex', 'uses' => 'HomeController@bridalIndex']);
 
-Route::get('/new-product', ['as' => 'newIndex', 'uses' => 'HomeController@bridalIndex']);
+    Route::get('/bridal-product/details/{slug}/{id}', ['as' => 'bridalDetails', 'uses' => 'HomeController@bridalDetails']);
 
-Route::get('/new-product/details/{slug}/{id}', ['as' => 'newDetails', 'uses' => 'HomeController@bridalDetails']);
+    Route::get('/new-product', ['as' => 'newIndex', 'uses' => 'HomeController@bridalIndex']);
 
-Route::get('/special-product', ['as' => 'specialIndex', 'uses' => 'HomeController@specialIndex']);
+    Route::get('/new-product/details/{slug}/{id}', ['as' => 'newDetails', 'uses' => 'HomeController@bridalDetails']);
 
-Route::get('/pages/contact', ['as' => 'pages.contact', 'uses' => 'HomeController@contact']);
+    Route::get('/special-product', ['as' => 'specialIndex', 'uses' => 'HomeController@specialIndex']);
 
-Route::get('/pages/privacy-policy', ['as' => 'pages.privacyPolicy', 'uses' => 'HomeController@privacyPolicy']);
+    Route::get('/pages/contact', ['as' => 'pages.contact', 'uses' => 'HomeController@contact']);
 
-Route::get('/pages/terms-of-service', ['as' => 'pages.termOfService', 'uses' => 'HomeController@termOfService']);
+    Route::get('/pages/privacy-policy', ['as' => 'pages.privacyPolicy', 'uses' => 'HomeController@privacyPolicy']);
 
-Route::get('/pages/introduce', ['as' => 'pages.introduce', 'uses' => 'HomeController@introduce']);
+    Route::get('/pages/terms-of-service', ['as' => 'pages.termOfService', 'uses' => 'HomeController@termOfService']);
 
-Route::post('/pages/contact', ['as' => 'pages.contactPost', 'uses' => 'HomeController@contactPost']);
+    Route::get('/pages/introduce', ['as' => 'pages.introduce', 'uses' => 'HomeController@introduce']);
+
+    Route::post('/pages/contact', ['as' => 'pages.contactPost', 'uses' => 'HomeController@contactPost']);
 
 //Route::get('/shop', ['as' => 'shop.index', 'uses' => 'HomeController@shopIndex']);
 
-Route::get('/shop/list-products', ['as' => 'shop.listProducts', 'uses' => 'HomeController@listProducts']);
+    Route::get('/shop/list-products', ['as' => 'shop.listProducts', 'uses' => 'HomeController@listProducts']);
 
-Route::get('/shop/product-details/{nameProduct}', ['as' => 'shop.productDetails', 'uses' => 'HomeController@productDetails']);
-Route::get('/shop/cart', ['as' => 'shop.cartIndex', 'uses' => 'HomeController@cartIndex']);
+    Route::get('/shop/product-details/{nameProduct}', ['as' => 'shop.productDetails', 'uses' => 'HomeController@productDetails']);
+    Route::get('/shop/cart', ['as' => 'shop.cartIndex', 'uses' => 'HomeController@cartIndex']);
+
+    Route::get('/shop/cart-info', ['as' => 'shop.cartInfo', 'uses' => 'HomeController@cartInfo']);
+    Route::post('/shop/cart-store', ['as' => 'shop.cartStore', 'uses' => 'HomeController@orderConfirm']);
+    Route::get('/shop/order-confirm', ['as' => 'shop.orderConfirm', 'uses' => 'HomeController@orderConfirm']);
+    Route::post('/shop/ajax-cart', ['as' => 'shop.ajaxCart', 'uses' => 'HomeController@ajaxCart']);
+    Route::post('/shop/ajax-buy-now', ['as' => 'shop.ajaxBuyNow', 'uses' => 'HomeController@ajaxBuyNow']);
+    Route::post('/shop/ajax-buy-cart', ['as' => 'shop.ajaxBuyCart', 'uses' => 'HomeController@ajaxBuyCart']);
+
+    Route::get('/collections/shop', ['as' => 'shop.listProducts', 'uses' => 'HomeController@listProducts']);
+
+    Route::get('/collections/shop/new-arrivals', ['as' => 'shop.listProductsNew', 'uses' => 'HomeController@listProductsNew']);
+
+    Route::get('/collections/{style}', ['as' => 'shop.listProductsStyle', 'uses' => 'HomeController@listProductsStyle']);
+});
+
 Route::post('/shop/add-cart', ['as' => 'shop.ajaxAddCart', 'uses' => 'HomeController@ajaxAddCart']);
-Route::get('/shop/cart-info', ['as' => 'shop.cartInfo', 'uses' => 'HomeController@cartInfo']);
-Route::post('/shop/cart-store', ['as' => 'shop.cartStore', 'uses' => 'HomeController@orderConfirm']);
-Route::get('/shop/order-confirm', ['as' => 'shop.orderConfirm', 'uses' => 'HomeController@orderConfirm']);
-Route::post('/shop/ajax-cart', ['as' => 'shop.ajaxCart', 'uses' => 'HomeController@ajaxCart']);
-Route::post('/shop/ajax-buy-now', ['as' => 'shop.ajaxBuyNow', 'uses' => 'HomeController@ajaxBuyNow']);
-Route::post('/shop/ajax-buy-cart', ['as' => 'shop.ajaxBuyCart', 'uses' => 'HomeController@ajaxBuyCart']);
-
-Route::get('/collections/shop', ['as' => 'shop.listProducts', 'uses' => 'HomeController@listProducts']);
-
-Route::get('/collections/shop/new-arrivals', ['as' => 'shop.listProductsNew', 'uses' => 'HomeController@listProductsNew']);
-
-Route::get('/collections/{style}', ['as' => 'shop.listProductsStyle', 'uses' => 'HomeController@listProductsStyle']);
 
 Route::get('/admin/login', ['as' => 'admin.login', 'uses' => 'Admin\BridalController@login']);
 

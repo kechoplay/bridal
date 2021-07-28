@@ -151,7 +151,9 @@
             timePickerIncrement: 30,
             locale: {
                 format: 'DD/MM/YYYY'
-            }
-        })
+            },
+            startDate: '{{ $dress->start_time }}',
+            endDate: '{{ $dress->end_time }}'
+        }).setStartDate()
     </script>
 @endpush

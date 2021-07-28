@@ -168,6 +168,11 @@
             });
 
             function BuyNow() {
+                $.ajaxSetup({
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    }
+                });
                 var id_now = $('#id_dress').val();
                 var name = $('#name_dress').val();
                 var price = $('#price_dress').val();
@@ -186,6 +191,11 @@
             }
 
             function AddCart() {
+                $.ajaxSetup({
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    }
+                });
                 var id_dress = $('#id_dress').val();
                 var name = $('#name_dress').val();
                 var price = $('#price_dress').val();

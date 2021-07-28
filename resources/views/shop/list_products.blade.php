@@ -4,7 +4,7 @@
         <div class="page-width page-content page-content--top">
             <header class="section-header section-header--flush">
                 <h1 class="section-header__title">
-                    {{ $isStyle ? $styleDress->name : 'Shop' }}
+                    {{ $isStyle ? $styleDress->name : __('Shop') }}
                 </h1>
             </header>
         </div>
@@ -46,7 +46,7 @@
                                                     <button type="button"
                                                             class="collapsible-trigger collapsible-trigger-btn collapsible--auto-height tag-list__header"
                                                             aria-controls="SidebarDrawer-1">
-                                                        {{ $isStyle ? $styleDress->name : 'Shop' }}
+                                                        {{ $isStyle ? $styleDress->name : __('Shop') }}
                                                         <span
                                                             class="collapsible-trigger__icon collapsible-trigger__icon--open"
                                                             role="presentation">
@@ -92,7 +92,7 @@
                                             <button type="button"
                                                     class="collapsible-trigger collapsible-trigger-btn collapsible--auto-height tag-list__header"
                                                     aria-controls="CollectionSidebar-1" style="padding-top: unset">
-                                                {{ $isStyle ? $styleDress->name : 'Shop' }}
+                                                {{ $isStyle ? $styleDress->name : __('Shop') }}
                                                 <span class="collapsible-trigger__icon collapsible-trigger__icon--open"
                                                       role="presentation">
                                                 <svg aria-hidden="true" focusable="false" role="presentation"
@@ -219,7 +219,7 @@
                                                                 <span class="visually-hidden" data-open-accessibility-text-original="13.6px" style="font-size: 13.6px;"></span>{{ @number_format($dr->sale_price) }} VNĐ
                                                                 @endif
                                                                 @if($dr->sale_price == 0)
-                                                                    {{ @number_format($dr->price) }} VNĐ
+                                                                    {{ @number_format($dr->price) }} {{ __('VNĐ') }}
                                                                 @endif
                                                             </div>
                                                         </div>
