@@ -5,7 +5,7 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Support\Facades\Auth;
 
-class AdminAccess
+class UserAccess
 {
     /**
      * Handle an incoming request.
@@ -16,10 +16,10 @@ class AdminAccess
      */
     public function handle($request, Closure $next)
     {
-//        if (Auth::check()) {
+        if (Auth::guard('customers')->check()) {
             return $next($request);
-//        } else {
-//            return redirect()->route('admin.login');
-//        }
+        } else {
+            return redirect()->route('userLogin');
+        }
     }
 }

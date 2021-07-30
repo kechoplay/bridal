@@ -12,10 +12,14 @@ use App\ShippingMethod;
 use App\Sizes;
 use App\StyleDress;
 use App\User;
+use App\Voucher;
+use App\VoucherUser;
 use App\WeddingDressCategory;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Session;
@@ -432,4 +436,99 @@ class BridalController extends Controller
         return redirect()->route('admin.shippingMethod');
     }
 
+    public function listVoucher()
+    {
+        $voucher = Voucher::query()
+            ->select('vouchers.id','vouchers.code','vouchers.discount','vouchers.start_time','vouchers.end_time', 'vouchers.status')
+            ->addSelect(DB::raw("(SELECT COUNT(voucher_user.voucher_id) FROM voucher_user WHERE voucher_user.voucher_id = vouchers.id ) as total_use"))
+            ->leftJoin('voucher_user', function ($join) {
+                $join->on('vouchers.id', '=', 'voucher_user.voucher_id');
+            })
+            ->groupBy('vouchers.id')
+            ->groupBy('vouchers.code')
+            ->groupBy('vouchers.discount')
+            ->groupBy('vouchers.start_time')
+            ->groupBy('vouchers.end_time')
+            ->groupBy('vouchers.status')
+            ->orderBy('vouchers.id', 'desc')
+            ->get()
+            ->toArray();
+        return view('admin.voucher.list_voucher', compact('voucher'));
+    }
+
+    public function addVoucher()
+    {
+           $code = str_random(10);
+        return view('admin.voucher.add_voucher',compact('code'));
+    }
+
+    public function saveVoucher(Request $request)
+    {
+        $codeTest = null;
+        $code = $request->code;
+        $codeTest = Voucher::query()->where('code', $code)->value('code');
+        if($codeTest){
+            $code = str_random(10);
+        }
+        $discount = $request->discount;
+        $startTime = date('Y-m-d H:i:s', strtotime($request->start_time));
+        $endTime = date('Y-m-d 23:59:59', strtotime($request->end_time));
+        if(strtotime($endTime) < time()){
+            $status = 1;
+        }else{
+            $status = 0;
+        }
+        Voucher::query()->create([
+           'code' => $code,
+           'discount' => $discount,
+           'start_time' => $startTime,
+           'end_time' => $endTime,
+            'status' => $status,
+        ]);
+        return redirect()->route('admin.listVoucher');
+    }
+
+    public function editVoucher(Request $request)
+    {
+        $id = $request->id;
+        $voucher = Voucher::find($id);
+        $date = date('Y-m-d', strtotime($voucher->start_time));
+        $time = date('H:i', strtotime($voucher->start_time));
+        $startTime = $date.'T'.$time;
+        return view('admin.voucher.edit_voucher', compact('voucher','startTime'));
+    }
+
+    public function updateVoucher(Request $request)
+    {
+        $id = $request->id;
+        $code = $request->code;
+        $discount = $request->discount;
+        $startTime = date('Y-m-d H:i:s', strtotime($request->start_time));
+        $endTime = date('Y-m-d 23:59:59', strtotime($request->end_time));
+        if(strtotime($endTime) < time()){
+            $status = 1;
+        }else{
+            $status = 0;
+        }
+        Voucher::query()->where('id', $id)->update([
+            'code' => $code,
+            'discount' => $discount,
+            'start_time' => $startTime,
+            'end_time' => $endTime,
+            'status' => $status,
+        ]);
+
+        return redirect()->route('admin.listVoucher');
+    }
+
+    public function deleteVoucher(Request $request)
+    {
+        $id = $request->id;
+        $listUserVoucher = VoucherUser::query()->where('voucher_id', $id)->get();
+        foreach ($listUserVoucher as $value){
+            $value->delete();
+        }
+        Voucher::query()->where('id', $id)->delete();
+        return redirect()->route('admin.listVoucher');
+    }
 }
