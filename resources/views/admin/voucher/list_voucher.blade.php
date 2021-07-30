@@ -54,9 +54,15 @@
                                             <td>{{ date('H:i - d/m/Y', strtotime($voucher['start_time'])) }} </td>
                                             <td>{{ date('H:i - d/m/Y', strtotime($voucher['end_time'])) }} </td>
                                             <td>{{ $voucher['total_use'] }} </td>
-                                            <td>{{ $voucher['status'] }} </td>
-                                            <td></td>
-
+                                            @if(strtotime($voucher['start_time'])>time())
+                                            <td>Chưa mở </td>
+                                            @endif
+                                            @if(strtotime($voucher['start_time'])<time() && strtotime($voucher['end_time'])>time())
+                                                <td>Đang mở </td>
+                                            @endif
+                                            @if($voucher['status'] == 1)
+                                                <td>Hết hạn </td>
+                                            @endif
                                             <td>
                                                 <a href="{{ route('admin.deleteVoucher', ['id' => $voucher['id']]) }}"><button class="btn btn-danger">Xóa</button></a>
                                                 <a href="{{ route('admin.editVoucher', ['id' => $voucher['id']]) }}"><button class="btn btn-secondary">Sửa</button></a>
