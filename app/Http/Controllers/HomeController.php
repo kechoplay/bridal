@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Address;
 use App\Contact;
+use App\Customers;
 use App\Mail\MailOrder;
 use App\OrderDetail;
 use App\Orders;
@@ -14,8 +16,10 @@ use App\StyleDress;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Route;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Session;
@@ -317,7 +321,9 @@ class HomeController extends Controller
         } else {
             $flagCart = -1;
         }
-        return view('shop.cart_info', compact('styles', 'arrayCart', 'total', 'buyNow', 'flagCart', 'totalNow'));
+        $customer_id = Auth::guard('customers')->user()->id;
+        $address = Address::query()->where('customer_id', $customer_id)->first();
+        return view('shop.cart_info', compact('styles', 'arrayCart', 'total', 'buyNow', 'flagCart', 'totalNow','address'));
     }
 
     public function orderConfirm(Request $request)

@@ -80,6 +80,7 @@
     <div class="col-sm-6" style="float: left">
         <div>Tên shop</div>
         <div>Địa chỉ shop</div>
+        <div></div>
     </div>
     <div class="col-sm-6" style="float: right">
         <div>Hotline:</div>
@@ -89,6 +90,6 @@
 </div>
 <br>
 <br>
-<div>( Không trả lời lại email này - Đây là email tự động của shop )</div>
+<p>( Không trả lời lại email này - Đây là email tự động của shop )</p>
 </body>
 </html>

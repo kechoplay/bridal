@@ -160,7 +160,7 @@
                                         <div data-shopify-pay-email-flow="true" class="field field--required">
                                             <label class="field__label" for="checkout_email">Email</label>
                                             <div class="field__input-wrapper">
-                                                <input name="email_order" id="email_order" placeholder="Email đặt hàng" data-autofocus="true"   aria-required="true" class="field__input" size="30" type="email" required>
+                                                <input name="email_order" id="email_order" placeholder="Email đặt hàng" data-autofocus="true"   aria-required="true" class="field__input" size="30" type="email"  @if($address)value="{{ @$address->email }}"@endif required>
                                             </div>
                                         </div>        </div>
                                 </div>
@@ -181,13 +181,13 @@
                                             <div data-address-field="name" data-autocomplete-field-container="true" class="field field--optional">
                                                 <label class="field__label" for="checkout_shipping_address_company">Họ và tên</label>
                                                 <div class="field__input-wrapper">
-                                                    <input name="name_order" id="name_order" placeholder="Họ và tên" autocomplete="shipping organization" autocorrect="off" data-backup="company" class="field__input" size="30" type="text"  required/>
+                                                    <input name="name_order" id="name_order" placeholder="Họ và tên" autocomplete="shipping organization" autocorrect="off" data-backup="company" class="field__input" size="30" type="text"  @if($address)value="{{ @$address->name }}"@endif required/>
                                                 </div>
                                             </div>
                                             <div data-address-field="address1" data-autocomplete-field-container="true" class="field field--required">
                                                 <label class="field__label" for="checkout_shipping_address_address1">Địa chỉ</label>
                                                 <div class="field__input-wrapper">
-                                                    <input name="address_order" id="address_order" placeholder="Địa chỉ nhận hàng" autocomplete="shipping address-line1" autocorrect="off" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-required="true" data-backup="address1" data-autocomplete-trigger="true" data-autocomplete-title="Suggestions" data-autocomplete-single-item="1 item available" data-autocomplete-multi-item=" items available" data-autocomplete-item-selection="" data-autocomplete-close="Close suggestions" class="field__input" size="30" type="text" required/>
+                                                    <input name="address_order" id="address_order" placeholder="Địa chỉ nhận hàng" autocomplete="shipping address-line1" autocorrect="off" role="combobox" aria-autocomplete="list" aria-expanded="false" aria-required="true"  data-autocomplete-trigger="true" class="field__input" size="30" type="text" @if($address)value="{{ @$address->address }}"@endif required/>
 
                                                     <p class="field__additional-info visually-hidden" data-address-civic-number-warning>
                                                         <svg class="icon-svg icon-svg--size-16 field__message__icon" aria-hidden="true" focusable="false"> <use xlink:href="#info" /> </svg>
@@ -197,7 +197,7 @@
                                             <div data-address-field="phone" class="field field--required">
                                                 <label class="field__label" for="checkout_shipping_address_phone">Số điện thoại</label>
                                                 <div class="field__input-wrapper field__input-wrapper--icon-right">
-                                                    <input name="phone_order" id="phone_order" required placeholder="Số điện thoại" autocomplete="shipping tel" autocorrect="off" data-backup="phone" data-phone-formatter="true"  class="field__input field__input--numeric" aria-required="true" size="30" type="tel" />
+                                                    <input name="phone_order" id="phone_order" required placeholder="Số điện thoại" autocomplete="shipping tel" autocorrect="off" data-backup="phone" data-phone-formatter="true"  class="field__input field__input--numeric" aria-required="true" size="30" @if($address)value="{{ @$address->phone }}"@endif type="tel" />
                                                     <div class="field__icon">
                                                         <div data-tooltip="true" id="phone_tooltip" class="tooltip-container"><button type="button" class="tooltip-control" data-tooltip-control="true" aria-label="More information" aria-describedby="tooltip-for-phone" aria-controls="tooltip-for-phone" aria-pressed="false"><svg class="icon-svg icon-svg--color-adaptive-lighter icon-svg--size-16 icon-svg--block icon-svg--center" role="presentation" aria-hidden="true" focusable="false"> <use xlink:href="#question" /> </svg></button><span class="tooltip" role="tooltip" id="tooltip-for-phone">Trong trường hợp chúng tôi cần liên hệ với bạn(gọi nhận hàng)</span></div>
                                                     </div>
