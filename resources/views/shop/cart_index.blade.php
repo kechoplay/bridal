@@ -2,15 +2,15 @@
 @section('content')
     <div class="page-width page-content" id="vue-cart">
         <header class="section-header text-center">
-            <h1 class="section-header__title">Giỏ Hàng</h1>
-            <div class="rte text-spacing"><p><a href='{{ route('shop.listProducts') }}'>Quay lại mua sắm</a></p>
+            <h1 class="section-header__title">{{ __('Giỏ hàng') }}</h1>
+            <div class="rte text-spacing"><p><a href='{{ route('shop.listProducts') }}'>{{ __('Quay lại mua sắm') }}</a></p>
             </div>
         </header>
         <meta name="csrf-token" content="{{ csrf_token() }}"/>
         <div class="cart__page" id="cart-index">
             <div class="cart__page-col">
                 @if(empty($arrayCart))
-                    <p>Chưa có đơn hàng nào trong giỏ !</p>
+                    <p>{{ __('Chưa có đơn hàng nào trong giỏ !') }}</p>
                 @endif
                 @if(!empty($arrayCart))
                     @foreach($arrayCart as $item)

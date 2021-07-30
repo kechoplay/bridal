@@ -92,19 +92,19 @@
                                         <span id="ComparePrice-4464780836919"
                                               class="product__price product__price--compare"
                                               data-open-accessibility-text-original="16px" style="font-size: 16px;">
-                                            {{ number_format($dress->price) }} đ
+                                            {{ number_format($dress->price) . __('VNĐ') }}
                                         </span>
                                     </span>
                                     <span id="ComparePriceA11y-4464780836919" class="visually-hidden"
                                           data-open-accessibility-text-original="16px" style="font-size: 16px;">Sale price</span>
                                     <span id="ProductPrice-4464780836919" class="product__price on-sale"
                                           data-open-accessibility-text-original="16px" style="font-size: 16px;">
-                                        {{ number_format($dress->sale_price) }} đ
+                                        {{ number_format($dress->sale_price) . __('VNĐ') }}
                                     </span>
                                 @else
                                     <span id="PriceA11y-6694898139324" class="visually-hidden">Regular price</span>
                                     <span id="ProductPrice-6694898139324" class="product__price">
-                                    {{ number_format($dress->price) }} đ
+                                    {{ number_format($dress->price) . __('VNĐ') }}
                                     </span>
                                 @endif
                                 <div
@@ -118,7 +118,7 @@
                                 <div class="payment-buttons">
                                     <button name="add" id="addCart" class="btn btn--full btn--secondary"
                                             onclick="AddCart()" style="margin-bottom: 20px">
-                                        <span id="addToCart">Thêm vào giỏ hàng</span>
+                                        <span id="addToCart">{{ __('Thêm vào giỏ hàng') }}</span>
                                     </button>
 {{--                                    <button type="button"--}}
 {{--                                            class="shopify-payment-button__button shopify-payment-button__button--unbranded _2ogcW-Q9I-rgsSkNbRiJzA _2EiMjnumZ6FVtlC7RViKtj _2-dUletcCZ2ZL1aaH0GXxT navigable"--}}

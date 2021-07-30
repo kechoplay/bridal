@@ -69,7 +69,7 @@
                                             </h2>
                                             <div class="hero__link">
                                                 <a href="{{ route('shop.listProducts')}}" class="btn btn--inverse">
-                                                    Shop all
+                                                    {{ __('Shop All Styles') }}
                                                 </a></div>
                                         </div>
                                     </div>
@@ -206,7 +206,7 @@
                 <div class="page-width">
                     <div class="section-header">
                         <h2 class="section-header__title">
-                            New Arrivals
+                            {{ __('New Arrivals') }}
                         </h2>
                     </div>
                 </div>

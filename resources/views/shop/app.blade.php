@@ -820,7 +820,7 @@
                                                 <div class="mobile-nav__child-item">
                                                     <a href="{{ route('shop.listProducts') }}" class="mobile-nav__link"
                                                        id="Sublabel-collections-shop1" data-active="true">
-                                                        Shop All Styles
+                                                        {{ __('Shop All Styles') }}
                                                     </a>
                                                     <button type="button"
                                                             aria-controls="Sublinklist-collections-shop1-collections-shop1"
@@ -860,7 +860,7 @@
                                                 <div class="mobile-nav__child-item">
                                                     <a href="{{ route('shop.listProductsNew') }}"
                                                        class="mobile-nav__link" id="Sublabel-collections-new-arrivals2">
-                                                        New Arrivals
+                                                        {{ __('New Arrivals') }}
                                                     </a>
                                                     <button type="button"
                                                             aria-controls="Sublinklist-collections-shop1-collections-new-arrivals2"
@@ -888,7 +888,7 @@
                                                             <li class="mobile-nav__item">
                                                                 <a href="{{ route('shop.listProductsNew') }}"
                                                                    class="mobile-nav__link">
-                                                                    Shop New Arrivals
+                                                                    {{ __('Newest') }}
                                                                 </a>
                                                             </li>
                                                         </ul>
@@ -901,7 +901,7 @@
                             </li>
                             <li class="mobile-nav__item appear-animation appear-delay-3">
                                 <a href="{{ route('shop.listProductsNew') }}"
-                                   class="mobile-nav__link mobile-nav__link--top-level">New Arrivals</a>
+                                   class="mobile-nav__link mobile-nav__link--top-level">{{ __('New Arrivals') }}</a>
                             </li>
                         </ul>
                     </div>
@@ -1023,7 +1023,7 @@
                                                                 <div class="h5">
                                                                     <a href="{{ route('shop.listProducts') }}"
                                                                        class="site-nav__dropdown-link site-nav__dropdown-link--top-level">
-                                                                        Shop All Styles
+                                                                        {{ __('Shop All Styles') }}
                                                                     </a>
                                                                 </div>
                                                                 @foreach($styles as $style)
@@ -1043,13 +1043,13 @@
                                                                    style="background-image: url(//cdn.shopify.com/s/files/1/0546/6033/collections/884286_11797_copy_400x.jpg?v=1620139712)"></a>
                                                                 <div class="h5">
                                                                     <a href="{{ route('shop.listProductsNew') }}"
-                                                                       class="site-nav__dropdown-link site-nav__dropdown-link--top-level">New
-                                                                        Arrivals</a>
+                                                                       class="site-nav__dropdown-link site-nav__dropdown-link--top-level">
+                                                                        {{ __('New Arrivals') }}</a>
                                                                 </div>
                                                                 <div>
                                                                     <a href="{{ route('shop.listProductsNew') }}"
                                                                        class="site-nav__dropdown-link">
-                                                                        Shop New Arrivals
+                                                                        {{ __('Newest') }}
                                                                     </a>
                                                                 </div>
                                                             </div>
@@ -1060,7 +1060,7 @@
                                             <li class="site-nav__item site-nav__expanded-item">
                                                 <a href="{{ route('shop.listProductsNew') }}"
                                                    class="site-nav__link site-nav__link--underline">
-                                                    New Arrivals
+                                                    {{ __('New Arrivals') }}
                                                 </a>
                                             </li>
                                         </ul>
@@ -1069,7 +1069,7 @@
                                         <div class="site-nav">
                                             <div class="site-nav__icons">
                                                 <a href="javascript: void(0);" class="header_lang_a inline brad">
-                                                    {{ (\Illuminate\Support\Facades\Session::get('language') && \Illuminate\Support\Facades\Session::get('language') == 'en') ? 'English' : 'VI' }} <span class="arrow_icon_down"></span>
+                                                    {{ (config('app.locale') && config('app.locale') == 'en') ? 'English' : 'VI' }} <span class="arrow_icon_down"></span>
                                                 </a>
                                                 <div class="header_lang_list_wrap brad tal">
                                                     <div class="lang_list">
