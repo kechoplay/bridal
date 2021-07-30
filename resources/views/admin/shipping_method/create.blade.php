@@ -21,30 +21,31 @@
                         <div class="card card-primary">
                             <form method="post" action="{{ route('admin.saveNewShippingMethod') }}" enctype="multipart/form-data">
                                 {{ csrf_field() }}
+                                <input type="hidden" value="{{ isset($shipping) ? $shipping->id : 0 }}" name="id">
                                 <div class="card-body">
                                     <div class="form-group">
                                         <label for="name">Tên ship VI</label>
-                                        <input type="text" class="form-control" id="ship_name_vi" name="ship_name_vi" required>
+                                        <input type="text" class="form-control" id="ship_name_vi" name="ship_name_vi" value="{{ isset($shipping) ? $shipping->ship_name_vi : '' }}" required>
                                     </div>
                                     <div class="form-group">
                                         <label for="name">Tên ship EN</label>
-                                        <input type="text" class="form-control" id="ship_name_en" name="ship_name_en" required>
+                                        <input type="text" class="form-control" id="ship_name_en" name="ship_name_en" value="{{ isset($shipping) ? $shipping->ship_name_en : '' }}" required>
                                     </div>
                                     <div class="form-group">
                                         <label for="name">Thời gian VI</label>
-                                        <input type="text" class="form-control" id="ship_time_vi" name="ship_time_vi" required>
+                                        <input type="text" class="form-control" id="ship_time_vi" name="ship_time_vi" value="{{ isset($shipping) ? $shipping->ship_time_vi : '' }}" required>
                                     </div>
                                     <div class="form-group">
                                         <label for="name">Thời gian EN</label>
-                                        <input type="text" class="form-control" id="ship_time_en" name="ship_time_en" required>
+                                        <input type="text" class="form-control" id="ship_time_en" name="ship_time_en" value="{{ isset($shipping) ? $shipping->ship_time_en : '' }}" required>
                                     </div>
                                     <div class="form-group">
                                         <label for="name">Giá VI</label>
-                                        <input type="number" class="form-control" id="ship_fee_vi" name="ship_fee_vi" required>
+                                        <input type="number" class="form-control" id="ship_fee_vi" name="ship_fee_vi" value="{{ isset($shipping) ? $shipping->ship_fee_vi : '' }}" required>
                                     </div>
                                     <div class="form-group">
                                         <label for="name">Giá EN</label>
-                                        <input type="number" class="form-control" id="ship_fee_en" name="ship_fee_en" required>
+                                        <input type="number" class="form-control" id="ship_fee_en" name="ship_fee_en" value="{{ isset($shipping) ? $shipping->ship_fee_en : '' }}" required>
                                     </div>
                                 </div>
                                 <!-- /.card-body -->

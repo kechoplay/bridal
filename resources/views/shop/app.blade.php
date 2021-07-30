@@ -73,6 +73,41 @@
             src: url("https://fonts.shopifycdn.com/neue_haas_unica/neuehaasunica_i6.b8c5ef668db291f2c5d9c275e2635ba1fead1c90.woff2?h1=dGhlaWFjb3V0dXJlLmNvbQ&hmac=3b8d3aaa1af8d29e1dfa9335e4a75e0b3efbf4d43fb7ed9636cd5aef95b3fb21") format("woff2"),
             url("https://fonts.shopifycdn.com/neue_haas_unica/neuehaasunica_i6.3363176b64a45aad70c218c1908772b375a3b441.woff?h1=dGhlaWFjb3V0dXJlLmNvbQ&hmac=ea1b8d68ced7a94c3336f14853631cfb43fb9eb3144ff240335721e4e9e82b0d") format("woff");
         }
+        .header_lang_list_wrap {
+            position: absolute;
+            top: 68px;
+            right: 45px;
+            width: 90px;
+            height: auto;
+            border: 1px solid #dfe2e5;
+            z-index: 10;
+            background: #fff;
+            -webkit-box-shadow: 0 5px 10px rgb(48 101 141 / 30%);
+            -moz-box-shadow: 0 5px 10px rgba(48,101,141,.3);
+            box-shadow: 0 5px 10px rgb(48 101 141 / 30%);
+            overflow: hidden;
+        }
+        .tal {
+            text-align: left;
+        }
+        .brad {
+            -webkit-border-radius: 4px;
+            -moz-border-radius: 4px;
+            border-radius: 4px;
+        }
+        .header_lang_list_wrap {
+            display: none;
+        }
+        .header_lang_list_wrap a.first {
+            padding-top: 15px;
+        }
+        .header_lang_list_wrap a {
+            display: block;
+            text-decoration: none;
+            padding: 10px 15px;
+            font-size: 14px;
+            line-height: 14px;
+        }
     </style>
     <link href="/css/theme.css?v={{ time() }}" rel="stylesheet" type="text/css" media="all"/>
     <style data-shopify>
@@ -177,16 +212,6 @@
                 "amount": "1.00"
             }
         }
-
-
-
-
-
-
-
-
-
-
     </script>
     <script id="shopify-features" type="application/json">
         {
@@ -199,19 +224,6 @@
             "dynamic_checkout_cart_url": "https:\/\/cdn.shopify.com\/shopifycloud\/payment-sheet\/assets\/latest\/dynamic-checkout-cart.en.js",
             "locale": "en"
         }
-
-
-
-
-
-
-
-
-
-
-    </script>
-    <script>
-
     </script>
     <script>
         var Shopify = Shopify || {};
@@ -787,14 +799,15 @@
                                     <a href="{{ route('shop.listProducts') }}"
                                        class="mobile-nav__link mobile-nav__link--top-level"
                                        id="Label-collections-shop1" data-active="true">
-                                        Shop
+                                        {{ __('Shop') }}
                                     </a>
                                     <div class="mobile-nav__toggle">
-                                        <button type="button" aria-controls="Linklist-collections-shop1" aria-open="true" aria-labelledby="Label-collections-shop1" class="collapsible-trigger collapsible--auto-height is-open"><span class="collapsible-trigger__icon collapsible-trigger__icon--open" role="presentation">
-                                                    <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon--wide icon-chevron-down" viewBox="0 0 28 16">
-                                                        <path d="M1.57 1.59l12.76 12.77L27.1 1.59" stroke-width="2" stroke="#000" fill="none" fill-rule="evenodd" />
-                                                    </svg>
-                                                </span>
+                                        <button type="button" aria-controls="Linklist-collections-shop1" aria-open="true" aria-labelledby="Label-collections-shop1" class="collapsible-trigger collapsible--auto-height is-open">
+                                            <span class="collapsible-trigger__icon collapsible-trigger__icon--open" role="presentation">
+                                                <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon--wide icon-chevron-down" viewBox="0 0 28 16">
+                                                    <path d="M1.57 1.59l12.76 12.77L27.1 1.59" stroke-width="2" stroke="#000" fill="none" fill-rule="evenodd" />
+                                                </svg>
+                                            </span>
                                         </button>
                                     </div>
                                 </div>
@@ -812,16 +825,17 @@
                                                     <button type="button"
                                                             aria-controls="Sublinklist-collections-shop1-collections-shop1"
                                                             aria-labelledby="Sublabel-collections-shop1"
-                                                            class="collapsible-trigger is-open"><span
+                                                            class="collapsible-trigger is-open">
+                                                        <span
                                                             class="collapsible-trigger__icon collapsible-trigger__icon--circle collapsible-trigger__icon--open"
                                                             role="presentation">
-                                                        <svg aria-hidden="true" focusable="false" role="presentation"
-                                                             class="icon icon--wide icon-chevron-down"
-                                                             viewBox="0 0 28 16">
-                                                            <path d="M1.57 1.59l12.76 12.77L27.1 1.59" stroke-width="2"
-                                                                  stroke="#000" fill="none" fill-rule="evenodd"/>
-                                                        </svg>
-                                                    </span>
+                                                            <svg aria-hidden="true" focusable="false" role="presentation"
+                                                                 class="icon icon--wide icon-chevron-down"
+                                                                 viewBox="0 0 28 16">
+                                                                <path d="M1.57 1.59l12.76 12.77L27.1 1.59" stroke-width="2"
+                                                                      stroke="#000" fill="none" fill-rule="evenodd"/>
+                                                            </svg>
+                                                        </span>
                                                     </button>
                                                 </div>
                                                 <div id="Sublinklist-collections-shop1-collections-shop1"
@@ -996,7 +1010,7 @@
                                                 aria-haspopup="true">
                                                 <a href="{{ route('shop.listProducts') }}"
                                                    class="site-nav__link site-nav__link--underline site-nav__link--has-dropdown">
-                                                    Shop
+                                                    {{ __('Shop') }}
                                                 </a>
                                                 <div class="site-nav__dropdown megamenu text-left">
                                                     <div class="page-width">
@@ -1008,8 +1022,9 @@
                                                                    style="background-image: url(//cdn.shopify.com/s/files/1/0546/6033/collections/resort-2016-collection-grid_53abf468-9d1d-406e-bcb1-9f5662adb754_400x.jpg?v=1620139942)"></a>
                                                                 <div class="h5">
                                                                     <a href="{{ route('shop.listProducts') }}"
-                                                                       class="site-nav__dropdown-link site-nav__dropdown-link--top-level">Shop
-                                                                        All Styles</a>
+                                                                       class="site-nav__dropdown-link site-nav__dropdown-link--top-level">
+                                                                        Shop All Styles
+                                                                    </a>
                                                                 </div>
                                                                 @foreach($styles as $style)
                                                                     <div>
@@ -1053,22 +1068,31 @@
                                     <div class="header-item header-item--icons">
                                         <div class="site-nav">
                                             <div class="site-nav__icons">
+                                                <a href="javascript: void(0);" class="header_lang_a inline brad">
+                                                    {{ (\Illuminate\Support\Facades\Session::get('language') && \Illuminate\Support\Facades\Session::get('language') == 'en') ? 'English' : 'VI' }} <span class="arrow_icon_down"></span>
+                                                </a>
+                                                <div class="header_lang_list_wrap brad tal">
+                                                    <div class="lang_list">
+                                                        <a href="{{ url()->current() }}?lang=en" class="first">English</a>
+                                                        <a href="{{ url()->current() }}?lang=vi" class="">VI</a>
+                                                    </div>
+                                                </div>
                                                 @if(empty(auth()->guard('customers')->user()->name))
-                                                <a class="site-nav__link site-nav__link--icon small--hide" href="{{ route('userLogin') }}">
-                                                    <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-user" viewBox="0 0 64 64">
-                                                        <path d="M35 39.84v-2.53c3.3-1.91 6-6.66 6-11.41 0-7.63 0-13.82-9-13.82s-9 6.19-9 13.82c0 4.75 2.7 9.51 6 11.41v2.53c-10.18.85-18 6-18 12.16h42c0-6.19-7.82-11.31-18-12.16z"/></svg>
-                                                    <span class="icon__fallback-text">Log in</span></a>
+                                                    <a class="site-nav__link site-nav__link--icon small--hide" href="{{ route('userLogin') }}">
+                                                        <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-user" viewBox="0 0 64 64">
+                                                            <path d="M35 39.84v-2.53c3.3-1.91 6-6.66 6-11.41 0-7.63 0-13.82-9-13.82s-9 6.19-9 13.82c0 4.75 2.7 9.51 6 11.41v2.53c-10.18.85-18 6-18 12.16h42c0-6.19-7.82-11.31-18-12.16z"/></svg>
+                                                        <span class="icon__fallback-text">Log in</span></a>
                                                 @endif
-                                                 @if(!empty(auth()->guard('customers')->user()->name))
-                                                     <a class="site-nav__link site-nav__link--icon small--hide" href="{{ route('userDetail') }}">
-                                                      <div style="text-align: center">
-                                                        <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-user-circle-o" viewBox="0 0 64 64">
-                                                             <path d="M35 39.84v-2.53c3.3-1.91 6-6.66 6-11.41 0-7.63 0-13.82-9-13.82s-9 6.19-9 13.82c0 4.75 2.7 9.51 6 11.41v2.53c-10.18.85-18 6-18 12.16h42c0-6.19-7.82-11.31-18-12.16z"/></svg>
-                                                         <p style="text-transform: capitalize">{{ auth()->guard('customers')->user()->name }}</p>
-                                                        <span class="icon__fallback-text">User detail</span>
-                                                      </div>
-                                                     </a>
-                                                 @endif
+                                                @if(!empty(auth()->guard('customers')->user()->name))
+                                                    <a class="site-nav__link site-nav__link--icon small--hide" href="{{ route('userDetail') }}">
+                                                        <div style="text-align: center">
+                                                            <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-user-circle-o" viewBox="0 0 64 64">
+                                                                <path d="M35 39.84v-2.53c3.3-1.91 6-6.66 6-11.41 0-7.63 0-13.82-9-13.82s-9 6.19-9 13.82c0 4.75 2.7 9.51 6 11.41v2.53c-10.18.85-18 6-18 12.16h42c0-6.19-7.82-11.31-18-12.16z"/></svg>
+                                                            <p style="text-transform: capitalize">{{ auth()->guard('customers')->user()->name }}</p>
+                                                            <span class="icon__fallback-text">User detail</span>
+                                                        </div>
+                                                    </a>
+                                                @endif
                                                 <button type="button"
                                                         class="site-nav__link site-nav__link--icon js-drawer-open-nav medium-up--hide"
                                                         aria-controls="NavDrawer">
@@ -1079,13 +1103,13 @@
                                                     <span class="icon__fallback-text">Site navigation</span>
                                                 </button>
                                                 <a href="{{ route('shop.cartIndex')  }}" class="site-nav__link site-nav__link--icon js-drawer-open-cart" aria-controls="CartDrawer" data-icon="cart">
-                                                        <span class="cart-link"><svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-cart" viewBox="0 0 64 64">
-                                                                <path fill="none" d="M14 17.44h46.79l-7.94 25.61H20.96l-9.65-35.1H3" />
-                                                                <circle cx="27" cy="53" r="2" />
-                                                                <circle cx="47" cy="53" r="2" />
-                                                            </svg><span class="icon__fallback-text">Cart</span>
-                                                            <span id="CartBubble" class="cart-link__bubble"></span>
-                                                        </span>
+                                                    <span class="cart-link"><svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-cart" viewBox="0 0 64 64">
+                                                            <path fill="none" d="M14 17.44h46.79l-7.94 25.61H20.96l-9.65-35.1H3" />
+                                                            <circle cx="27" cy="53" r="2" />
+                                                            <circle cx="47" cy="53" r="2" />
+                                                        </svg><span class="icon__fallback-text">Cart</span>
+                                                        <span id="CartBubble" class="cart-link__bubble"></span>
+                                                    </span>
                                                 </a>
                                             </div>
                                         </div>
@@ -1156,7 +1180,7 @@
                                                 <a href="{{ route('pages.introduce') }}"
                                                    style="font-size: 13.6px;"
                                                    data-open-accessibility-text-original="13.6px"
-                                                   class="navigable">Giới thiệu
+                                                   class="navigable">{{ __('Giới thiệu') }}
                                                 </a>
                                             </li>
                                             <li data-open-accessibility-text-original="13.6px"
@@ -1164,7 +1188,7 @@
                                                 <a href="{{ route('pages.contact') }}"
                                                    style="font-size: 13.6px;"
                                                    data-open-accessibility-text-original="13.6px"
-                                                   class="navigable">Liên hệ
+                                                   class="navigable">{{ __('Liên hệ') }}
                                                 </a>
                                             </li>
                                             <li data-open-accessibility-text-original="13.6px"
@@ -1172,14 +1196,14 @@
                                                 <a href="{{ route('pages.privacyPolicy') }}"
                                                    style="font-size: 13.6px;"
                                                    data-open-accessibility-text-original="13.6px"
-                                                   class="navigable">Chính sách bảo mật</a>
+                                                   class="navigable">{{ __('Chính sách bảo mật') }}</a>
                                             </li>
                                             <li data-open-accessibility-text-original="13.6px"
                                                 style="font-size: 13.6px;">
                                                 <a href="{{ route('pages.termOfService') }}"
                                                    style="font-size: 13.6px;"
                                                    data-open-accessibility-text-original="13.6px"
-                                                   class="navigable">Điều khoản dịch vụ</a>
+                                                   class="navigable">{{ __('Điều khoản dịch vụ') }}</a>
                                             </li>
                                         </ul>
                                     </div>
@@ -1265,5 +1289,22 @@
         </div>
     </div>
 </div>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js""></script>
+<script>
+    $(document).on('click', '.header_lang_a', function () {
+        $('.header_lang_list_wrap').css('display', 'block');
+    })
+    $(document).mouseup(function(e)
+    {
+        var container = $(".header_lang_list_wrap");
+
+        // if the target of the click isn't the container nor a descendant of the container
+        if (!container.is(e.target) && container.has(e.target).length === 0)
+        {
+            container.hide();
+        }
+    });
+</script>
+@stack('js')
 </body>
 </html>

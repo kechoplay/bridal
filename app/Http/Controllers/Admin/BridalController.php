@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Colors;
 use App\Contact;
+use App\Discount;
 use App\DressProduct;
 use App\OrderDetail;
 use App\Orders;
@@ -15,9 +16,9 @@ use App\User;
 use App\Voucher;
 use App\VoucherUser;
 use App\WeddingDressCategory;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
@@ -33,7 +34,7 @@ class BridalController extends Controller
     //
     public function index(Request $request)
     {
-        $dress = DressProduct::all();
+        $dress = DressProduct::with(['colorDress', 'colorFlower', 'sizes'])->orderBy('id', 'DESC')->get();
         foreach ($dress as $dr) {
             $dr->image = json_decode($dr->img_path, true)[0];
         }
@@ -43,18 +44,25 @@ class BridalController extends Controller
     public function create(Request $request)
     {
         $styles = WeddingDressCategory::all();
-        return view('admin.bridal.add', compact('styles'));
+        $colors = Colors::all();
+        $sizes = Sizes::all();
+        return view('admin.bridal.add', compact('styles', 'colors', 'sizes'));
     }
 
     public function store(Request $request)
     {
-        $nameDress = $request->name;
+        $nameVi = $request->name;
+        $nameEn = $request->name_en;
+        $color1 = $request->color1;
+        $color2 = $request->color2;
+        $processTime = $request->process_time;
+        $size = $request->size;
         $images = $request->images;
         $description = $request->description;
+        $descriptionEn = $request->description_en;
         $style = $request->style;
-        $status = $request->status;
         $price = $request->price;
-        $salePrice = $request->sale_price;
+        $priceEn = $request->price_en;
 
         $path = public_path('image');
         if (!File::exists($path))
@@ -67,14 +75,19 @@ class BridalController extends Controller
         }
 
         DressProduct::create([
-            'name' => $nameDress,
+            'name' => $nameVi,
+            'name_en' => $nameEn,
             'price' => $price,
-            'sale_price' => $salePrice,
+            'price_en' => $priceEn,
+            'color1' => $color1,
+            'color2' => $color2,
+            'size' => $size,
+            'process_time' => $processTime,
             'img_path' => json_encode($imageList),
             'description' => $description,
-            'status' => $status,
+            'description_en' => $descriptionEn,
             'category_id' => $style,
-            'slug' => Str::slug($nameDress)
+            'slug' => Str::slug($nameVi)
         ]);
 
         return redirect()->route('admin.index');
@@ -86,20 +99,30 @@ class BridalController extends Controller
         $dress = DressProduct::find($id);
         $styles = WeddingDressCategory::all();
         $dress->img_path = json_decode($dress->img_path, true);
+        $processTimeArr = explode(' - ', $dress->process_time);
+        $dress->start_time = $processTimeArr[0];
+        $dress->end_time = $processTimeArr[1];
+        $colors = Colors::all();
+        $sizes = Sizes::all();
 
-        return view('admin.bridal.edit', compact('dress', 'styles'));
+        return view('admin.bridal.edit', compact('dress', 'styles', 'colors', 'sizes'));
     }
 
     public function update(Request $request)
     {
         $id = $request->id;
         $nameDress = $request->name;
+        $nameEn = $request->name_en;
+        $color1 = $request->color1;
+        $color2 = $request->color2;
+        $processTime = $request->process_time;
+        $size = $request->size;
         $images = $request->images;
         $description = $request->description;
+        $descriptionEn = $request->description_en;
         $style = $request->style;
-        $status = $request->status;
         $price = $request->price;
-        $salePrice = $request->sale_price;
+        $priceEn = $request->price_en;
 
         $dress = DressProduct::find($id);
         $path = public_path('image');
@@ -120,12 +143,17 @@ class BridalController extends Controller
 
         DressProduct::where('id', $id)->update([
             'name' => $nameDress,
+            'name_en' => $nameEn,
             'price' => $price,
-            'sale_price' => $salePrice,
+            'price_en' => $priceEn,
+            'color1' => $color1,
+            'color2' => $color2,
+            'size' => $size,
+            'process_time' => $processTime,
             'img_path' => json_encode($imageList),
             'description' => $description,
+            'description_en' => $descriptionEn,
             'category_id' => $style,
-            'status' => $status,
             'slug' => Str::slug($nameDress)
         ]);
 
@@ -401,7 +429,7 @@ class BridalController extends Controller
 
     public function shippingMethodManagement()
     {
-        $shippingMethod = ShippingMethod::all();
+        $shippingMethod = ShippingMethod::orderBy('id', 'DESC')->get();
 
         return view('admin.shipping_method.shipping_method_management', compact('shippingMethod'));
     }
@@ -420,15 +448,21 @@ class BridalController extends Controller
             $shipTimeEn = $request->ship_time_en;
             $shipFeeVi = $request->ship_fee_vi;
             $shipFeeEn = $request->ship_fee_en;
+            $id = $request->id;
 
-            ShippingMethod::create([
+            $data = [
                 'ship_name_vi' => $shipNameVi,
                 'ship_name_en' => $shipNameEn,
                 'ship_time_vi' => $shipTimeVi,
                 'ship_time_en' => $shipTimeEn,
                 'ship_fee_vi' => $shipFeeVi,
                 'ship_fee_en' => $shipFeeEn,
-            ]);
+            ];
+            if (!$id) {
+                ShippingMethod::create($data);
+            } else {
+                ShippingMethod::where('id', $id)->update($data);
+            }
         } catch (\Exception $exception) {
             Log::error($exception);
             return redirect()->back();
@@ -436,6 +470,91 @@ class BridalController extends Controller
         return redirect()->route('admin.shippingMethod');
     }
 
+    public function editShippingMethod(Request $request)
+    {
+        $id = $request->id;
+        $shipping = ShippingMethod::find($id);
+
+        return view('admin.shipping_method.create', compact('shipping'));
+    }
+
+    public function deleteShippingMethod(Request $request)
+    {
+        $id = $request->id;
+        ShippingMethod::where('id', $id)->delete();
+        return redirect()->back();
+    }
+
+    public function discountManagement()
+    {
+        $discounts = Discount::orderBy('id', 'DESC')->get();
+        foreach ($discounts as $discount) {
+            $discount->start_time = Carbon::createFromTimestamp(strtotime($discount->start_time))->format('Y-m-d');
+            $discount->end_time = Carbon::createFromTimestamp(strtotime($discount->end_time))->format('Y-m-d');
+        }
+
+        return view('admin.discount.discount_management', compact('discounts'));
+    }
+
+    public function createDiscount()
+    {
+        $products = DressProduct::all();
+        return view('admin.discount.create', compact('products'));
+    }
+
+    public function saveDiscount(Request $request)
+    {
+        try {
+            $id = $request->id;
+            $nameVi = $request->name_vi;
+            $nameEn = $request->name_en;
+            $startTime = $request->start_time;
+            $endTime = $request->end_time;
+            $discount = $request->discount;
+            $listProduct = $request->list_product;
+            $descriptionVi = $request->description_vi;
+            $descriptionEn = $request->description_en;
+
+            $data = [
+                'name_vi' => $nameVi,
+                'name_en' => $nameEn,
+                'start_time' => $startTime,
+                'end_time' => $endTime,
+                'discount' => $discount,
+                'product_list' => json_encode($listProduct),
+                'description_vi' => $descriptionVi,
+                'description_en' => $descriptionEn,
+            ];
+            if (!$id) {
+                Discount::create($data);
+            } else {
+                Discount::where('id', $id)->update($data);
+            }
+        } catch (\Exception $exception) {
+            Log::error($exception);
+            return redirect()->back();
+        }
+
+        return redirect()->route('admin.discount');
+    }
+
+    public function editDiscount(Request $request)
+    {
+        $id = $request->id;
+        $discount = Discount::find($id);
+        $discount->product_list = json_decode($discount->product_list, true);
+        $discount->start_time = Carbon::createFromTimestamp(strtotime($discount->start_time))->format('Y-m-d');
+        $discount->end_time = Carbon::createFromTimestamp(strtotime($discount->end_time))->format('Y-m-d');
+        $products = DressProduct::all();
+        return view('admin.discount.create', compact('products', 'discount'));
+    }
+
+    public function deleteDiscount(Request $request)
+    {
+        $id = $request->id;
+        Discount::where('id', $id)->delete();
+        return redirect()->back();
+    }
     public function listVoucher()
     {
         $voucher = Voucher::query()

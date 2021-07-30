@@ -97,8 +97,12 @@ class HomeController extends Controller
     public function shopIndex()
     {
         $dress = DressProduct::orderBy('id', 'desc')->limit(8)->get();
+        $language = Session::get('language');
         foreach ($dress as $dr) {
             $dr->img = json_decode($dr->img_path, true);
+            if ($language == 'en') {
+                $dr->name = $dr->name_en;
+            }
         }
         $styles = WeddingDressCategory::all();
         return view('shop.index', compact('styles', 'dress'));
@@ -131,6 +135,13 @@ class HomeController extends Controller
         $slug = $request->style;
         $styleDress = WeddingDressCategory::where('slug', $slug)->first();
         $dress = DressProduct::where('category_id', $styleDress->id)->paginate(20);
+        $language = Session::get('language');
+        foreach ($dress as $dr) {
+            if ($language == 'en') {
+                $dr->name = $dr->name_en;
+                $dr->price = $dr->price_en;
+            }
+        }
         $styles = WeddingDressCategory::all();
         $isStyle = true;
         return view('shop.list_products', compact('dress', 'styles', 'isStyle', 'styleDress'));

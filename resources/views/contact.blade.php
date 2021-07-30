@@ -4,10 +4,10 @@
         <div class="page-width page-width--narrow page-content page-content--with-blocks">
             <header class="section-header">
                 <h1 class="section-header__title" data-open-accessibility-text-original="29px" style="font-size: 29px;">
-                    Contact us</h1>
+                    {{ __('Contact us') }}</h1>
             </header>
             <div class="rte text-spacing">
-                Contact
+                {{ __('Contact') }}
             </div>
         </div>
         <div class="page-blocks">
@@ -25,7 +25,7 @@
                                 @endif
                                 <div class="grid grid--small">
                                     <div class="grid__item medium-up--one-half">
-                                        <label for="ContactFormName-page-contact-template-0">Họ và tên</label>
+                                        <label for="ContactFormName-page-contact-template-0">{{ __('Họ và tên') }}</label>
                                         <input type="text" id="ContactFormName-page-contact-template-0" required
                                                class="input-full" name="contact[name]" autocapitalize="words" value="">
                                     </div>
@@ -37,12 +37,12 @@
                                                autocapitalize="off" value="">
                                     </div>
                                 </div>
-                                <label for="ContactFormMessage-page-contact-template-0">Nội dung</label>
+                                <label for="ContactFormMessage-page-contact-template-0">{{ __('Nội dung') }}</label>
                                 <textarea rows="5" id="ContactFormMessage-page-contact-template-0" class="input-full"
                                           name="contact[body]" required></textarea>
 
                                 <button type="submit" class="btn navigable">
-                                    Gửi
+                                    {{ __('Gửi') }}
                                 </button>
                             </form>
                         </div>

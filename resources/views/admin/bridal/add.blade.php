@@ -23,16 +23,20 @@
                                 {{ csrf_field() }}
                                 <div class="card-body">
                                     <div class="form-group">
-                                        <label for="name">Tên sản phẩm</label>
+                                        <label for="name">Tên sản phẩm VI</label>
                                         <input type="text" class="form-control" id="name" name="name" required>
                                     </div>
                                     <div class="form-group">
-                                        <label for="name">Giá</label>
-                                        <input type="number" class="form-control" id="price" name="price" required>
+                                        <label for="name">Tên sản phẩm EN</label>
+                                        <input type="text" class="form-control" id="name_en" name="name_en" required>
                                     </div>
                                     <div class="form-group">
-                                        <label for="name">Giá giảm</label>
-                                        <input type="number" class="form-control" id="sale_price" name="sale_price" required>
+                                        <label for="name">Giá VI (VND)</label>
+                                        <input type="number" class="form-control" style="width: 18%" id="price" name="price" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="name">Giá EN ($)</label>
+                                        <input type="number" class="form-control" style="width: 18%" id="price_en" name="price_en" required>
                                     </div>
                                     <div class="form-group">
                                         <label for="image">Ảnh</label>
@@ -51,8 +55,43 @@
                                         </select>
                                     </div>
                                     <div class="form-group">
-                                        <label for="description">Miêu tả</label>
+                                        <label for="name">Kích cỡ</label>
+                                        <select name="size" class="form-control" required>
+                                            <option value="">---</option>
+                                            @foreach($sizes as $size)
+                                                <option value="{{ $size->id }}">{{ $size->name }}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="name">Màu vải</label>
+                                        <select name="color1" class="form-control" required>
+                                            <option value="">---</option>
+                                            @foreach($colors as $color)
+                                                <option value="{{ $color->id }}">{{ $color->name_vi }}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="name">Màu hoa</label>
+                                        <select name="color2" class="form-control" required>
+                                            <option value="">---</option>
+                                            @foreach($colors as $color)
+                                                <option value="{{ $color->id }}">{{ $color->name_vi }}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="name">Thời gian xử lý</label>
+                                        <input type="text" class="form-control" style="width: 18%" id="process_time" name="process_time">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="description">Miêu tả VI</label>
                                         <textarea class="form-control" id="description" name="description"></textarea>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="description">Miêu tả EN</label>
+                                        <textarea class="form-control" id="description_en" name="description_en"></textarea>
                                     </div>
                                 </div>
                                 <!-- /.card-body -->
@@ -87,5 +126,26 @@
             minHeight: null,             // set minimum height of editor
             maxHeight: null
         });
+        $('#description_en').summernote({
+            toolbar: [
+                // [groupName, [list of button]]
+                ['style', ['bold', 'italic', 'underline', 'clear']],
+                ['font', ['strikethrough', 'superscript', 'subscript']],
+                ['fontsize', ['fontsize']],
+                ['color', ['color']],
+                ['para', ['ul', 'ol', 'paragraph']],
+                ['height', ['height']]
+            ],
+            height: 300,                 // set editor height
+            minHeight: null,             // set minimum height of editor
+            maxHeight: null
+        });
+        $('#process_time').daterangepicker({
+            timePicker: true,
+            timePickerIncrement: 30,
+            locale: {
+                format: 'DD/MM/YYYY'
+            }
+        })
     </script>
 @endpush

@@ -14,31 +14,33 @@
 Route::get('/', function () {
     return view('index');
 });
-Route::get('/', ['as' => 'homeIndex', 'uses' => 'HomeController@shopIndex']);
 
-Route::get('/bridal-product', ['as' => 'bridalIndex', 'uses' => 'HomeController@bridalIndex']);
+Route::group(['middleware' => 'language'], function () {
+    Route::get('/', ['as' => 'homeIndex', 'uses' => 'HomeController@shopIndex']);
 
-Route::get('/bridal-product/details/{slug}/{id}', ['as' => 'bridalDetails', 'uses' => 'HomeController@bridalDetails']);
+    Route::get('/bridal-product', ['as' => 'bridalIndex', 'uses' => 'HomeController@bridalIndex']);
 
-Route::get('/new-product', ['as' => 'newIndex', 'uses' => 'HomeController@bridalIndex']);
+    Route::get('/bridal-product/details/{slug}/{id}', ['as' => 'bridalDetails', 'uses' => 'HomeController@bridalDetails']);
 
-Route::get('/new-product/details/{slug}/{id}', ['as' => 'newDetails', 'uses' => 'HomeController@bridalDetails']);
+    Route::get('/new-product', ['as' => 'newIndex', 'uses' => 'HomeController@bridalIndex']);
 
-Route::get('/special-product', ['as' => 'specialIndex', 'uses' => 'HomeController@specialIndex']);
+    Route::get('/new-product/details/{slug}/{id}', ['as' => 'newDetails', 'uses' => 'HomeController@bridalDetails']);
 
-Route::get('/pages/contact', ['as' => 'pages.contact', 'uses' => 'HomeController@contact']);
+    Route::get('/special-product', ['as' => 'specialIndex', 'uses' => 'HomeController@specialIndex']);
 
-Route::get('/pages/privacy-policy', ['as' => 'pages.privacyPolicy', 'uses' => 'HomeController@privacyPolicy']);
+    Route::get('/pages/contact', ['as' => 'pages.contact', 'uses' => 'HomeController@contact']);
 
-Route::get('/pages/terms-of-service', ['as' => 'pages.termOfService', 'uses' => 'HomeController@termOfService']);
+    Route::get('/pages/privacy-policy', ['as' => 'pages.privacyPolicy', 'uses' => 'HomeController@privacyPolicy']);
 
-Route::get('/pages/introduce', ['as' => 'pages.introduce', 'uses' => 'HomeController@introduce']);
+    Route::get('/pages/terms-of-service', ['as' => 'pages.termOfService', 'uses' => 'HomeController@termOfService']);
 
-Route::post('/pages/contact', ['as' => 'pages.contactPost', 'uses' => 'HomeController@contactPost']);
+    Route::get('/pages/introduce', ['as' => 'pages.introduce', 'uses' => 'HomeController@introduce']);
+
+    Route::post('/pages/contact', ['as' => 'pages.contactPost', 'uses' => 'HomeController@contactPost']);
 
 //Route::get('/shop', ['as' => 'shop.index', 'uses' => 'HomeController@shopIndex']);
 
-Route::get('/shop/list-products', ['as' => 'shop.listProducts', 'uses' => 'HomeController@listProducts']);
+    Route::get('/shop/list-products', ['as' => 'shop.listProducts', 'uses' => 'HomeController@listProducts']);
 
 Route::get('/shop/product-details/{nameProduct}', ['as' => 'shop.productDetails', 'uses' => 'HomeController@productDetails']);
 
@@ -54,9 +56,11 @@ Route::group(['middleware' => ['user_access']], function () {
 });
 Route::get('/collections/shop', ['as' => 'shop.listProducts', 'uses' => 'HomeController@listProducts']);
 
-Route::get('/collections/shop/new-arrivals', ['as' => 'shop.listProductsNew', 'uses' => 'HomeController@listProductsNew']);
+    Route::get('/collections/shop/new-arrivals', ['as' => 'shop.listProductsNew', 'uses' => 'HomeController@listProductsNew']);
 
-Route::get('/collections/{style}', ['as' => 'shop.listProductsStyle', 'uses' => 'HomeController@listProductsStyle']);
+    Route::get('/collections/{style}', ['as' => 'shop.listProductsStyle', 'uses' => 'HomeController@listProductsStyle']);
+});
+
 
 Route::get('/admin/login', ['as' => 'admin.login', 'uses' => 'Admin\BridalController@login']);
 
@@ -139,7 +143,18 @@ Route::group(['prefix' => 'admin', 'middleware' => ['admin_access']], function (
 
     Route::get('/shipping-method/edit/{id}', ['as' => 'admin.editShippingMethod', 'uses' => 'Admin\BridalController@editShippingMethod']);
 
-    Route::get('/shipping-method/delete/{id}', ['as' => 'admin.deleteShippingMethod', 'uses' => 'Admin\BridalController@deleteColor']);
+    Route::get('/shipping-method/delete/{id}', ['as' => 'admin.deleteShippingMethod', 'uses' => 'Admin\BridalController@deleteShippingMethod']);
+
+    // discount program
+    Route::get('/discount', ['as' => 'admin.discount', 'uses' => 'Admin\BridalController@discountManagement']);
+
+    Route::get('/discount/create', ['as' => 'admin.createDiscount', 'uses' => 'Admin\BridalController@createDiscount']);
+
+    Route::post('/discount/create', ['as' => 'admin.saveNewDiscount', 'uses' => 'Admin\BridalController@saveDiscount']);
+
+    Route::get('/discount/edit/{id}', ['as' => 'admin.editDiscount', 'uses' => 'Admin\BridalController@editDiscount']);
+
+    Route::get('/discount/delete/{id}', ['as' => 'admin.deleteDiscount', 'uses' => 'Admin\BridalController@deleteDiscount']);
 });
 
 Route::get('/account/login', ['as' => 'userLogin', 'uses' => 'UserController@userLogin']);

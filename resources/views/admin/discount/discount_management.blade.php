@@ -5,7 +5,7 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>Sản phẩm</h1>
+                        <h1>Chương trình giảm giá</h1>
                     </div>
                 </div>
             </div><!-- /.container-fluid -->
@@ -16,44 +16,33 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-12">
-                        <div class="card">
-
+                        <div class="card card-primary">
                             <!-- /.card-header -->
+                            <div class="card-header">
+                                <h3 class="card-title">Danh sách giảm giá</h3>
+                            </div>
                             <div class="card-body">
+                                <a href="{{ route('admin.createDiscount') }}"><button class="btn btn-primary" style="margin-bottom: 10px">Thêm chương trình giảm giá</button></a>
                                 <table id="example1" class="table table-bordered table-striped">
                                     <thead>
                                     <tr>
-                                        <th>Tên</th>
-                                        <th>Ảnh</th>
-                                        <th>Giá</th>
-                                        <th>Màu váy</th>
-                                        <th>Màu hoa</th>
-                                        <th>Kích cỡ</th>
+                                        <th>Tên giảm giá VI</th>
+                                        <th>Tên giảm giá EN</th>
+                                        <th>Thời gian giảm giá</th>
+                                        <th>Phần trăm giảm</th>
                                         <th style="width: 10%;"></th>
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    @foreach($dress as $dr)
+                                    @foreach($discounts as $discount)
                                         <tr>
-                                            <td>{{ $dr->name }}</td>
+                                            <td>{{ $discount->name_vi }}</td>
+                                            <td>{{ $discount->name_en }}</td>
+                                            <td>{{ $discount->start_time . ' - ' .$discount->end_time }}</td>
+                                            <td>{{ $discount->discount }} (%)</td>
                                             <td>
-                                                <img src="{{ $dr->image }}" style="max-width: 100px;">
-                                            </td>
-                                            <td>
-                                                {{ number_format($dr->price) }}
-                                            </td>
-                                            <td>
-                                                {{ json_decode($dr->colorDress, true)['name_vi'] }}
-                                            </td>
-                                            <td>
-                                                {{ json_decode($dr->colorFlower, true)['name_vi'] }}
-                                            </td>
-                                            <td>
-                                                {{ json_decode($dr->sizes, true)['name'] }}
-                                            </td>
-                                            <td>
-                                                <a href="{{ route('admin.deleteBridal', ['id' => $dr->id]) }}"><button class="btn btn-danger">Xóa</button></a>
-                                                <a href="{{ route('admin.editBridal', ['id' => $dr->id]) }}"><button class="btn btn-secondary">Sửa</button></a>
+                                                <a href="{{ route('admin.deleteDiscount', ['id' => $discount->id]) }}"><button class="btn btn-danger">Xóa</button></a>
+                                                <a href="{{ route('admin.editDiscount', ['id' => $discount->id]) }}"><button class="btn btn-secondary">Sửa</button></a>
                                             </td>
                                         </tr>
                                     @endforeach
