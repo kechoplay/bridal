@@ -117,10 +117,9 @@
                                 </div>
                                 <div class="payment-buttons">
                                     <button name="add" id="addCart" class="btn btn--full btn--secondary"
-                                            onclick="AddCart()" style="margin-bottom: 20px">
+                                            @if(!empty(auth()->guard('customers')->user()->name))onclick="AddCart()"
+                                            @endif style="margin-bottom: 5px;background-color: #0d0a0a;color: white">
                                         <span id="addToCart">{{ __('Thêm vào giỏ hàng') }}</span>
-                                            @if(!empty(auth()->guard('customers')->user()->name))onclick="AddCart()"@endif style="margin-bottom: 5px;background-color: #0d0a0a;color: white">
-                                        <span id="addToCart">Thêm vào giỏ hàng</span>
                                     </button>
                                     @if(empty(auth()->guard('customers')->user()->name))
                                     <p style="padding-top: unset;font-size: 12px;color: #7d0e0e">Vui lòng đăng nhập để sử dụng chức năng giỏ hàng <span><a href="{{ route('userLogin') }}" style="text-decoration: none;box-shadow: 0 3px black;">Đăng nhập</a></span></p>
