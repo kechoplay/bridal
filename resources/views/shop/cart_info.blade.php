@@ -337,7 +337,37 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="order-summary__section order-summary__section--discount" data-reduction-form="update">
+                            <h3 class="visually-hidden">Discount</h3>
 
+                            <form class="edit_checkout" action="/5466033/checkouts/6de63736d2060e544ec0f63aadf7796c" accept-charset="UTF-8" method="post"><input type="hidden" name="_method" value="patch" /><input type="hidden" name="authenticity_token" value="Bdpt3ISEWjRUhTG7dSL1dAdKb7NQZRmfi1w4u2yqk71aaIYq-5lHKt4OJ1OntNUGcRW0NxQpJL0jMpPmyDe4Tw" />
+                                <input type="hidden" name="step" value="contact_information" />
+                            </form>
+                            <form class="edit_checkout" action="/5466033/checkouts/6de63736d2060e544ec0f63aadf7796c" accept-charset="UTF-8" method="post"><input type="hidden" name="_method" value="patch" /><input type="hidden" name="authenticity_token" value="_sWPf-Bx8JNrivro5CAYw8SUCgHBMchVxTHOHEeHyXOhd2SJn2ztjeEB7AA2tjixssvRhYV99XdtX2VB4xrigQ" />
+                                <input type="hidden" name="step" value="contact_information" />
+                                <div class="fieldset">
+                                    <div class="field ">
+                                        <label class="field__label" for="checkout_reduction_code">Discount code</label>
+                                        <div class="field__input-btn-wrapper">
+                                            <div class="field__input-wrapper">
+                                                <input placeholder="Discount code" class="field__input" id="checkout_reduction_code" data-discount-field="true" autocomplete="off" aria-required="true" size="30" type="text" name="checkout[reduction_code]" />
+                                            </div>
+                                            <button name="button" type="submit" class="field__input-btn btn btn--disabled" aria-busy="false">
+                                                <span class="btn__content visually-hidden-on-mobile" aria-hidden="true">
+                                                    Apply
+                                                </span>
+                                                <span class="visually-hidden">
+                                                             Apply Discount Code
+                                                </span>
+                                                <svg class="icon-svg icon-svg--size-16 btn__icon shown-on-mobile" aria-hidden="true" focusable="false"> <use xlink:href="#arrow" /> </svg>
+                                                <svg class="icon-svg icon-svg--size-18 btn__spinner icon-svg--spinner-button" aria-hidden="true" focusable="false"> <use xlink:href="#spinner-button" /> </svg>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+
+                        </div>
                         <div class="order-summary__section order-summary__section--total-lines" data-order-summary-section="payment-lines">
                             <table class="total-line-table">
                                 <tfoot class="total-line-table__footer">

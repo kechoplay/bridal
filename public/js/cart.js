@@ -17,6 +17,7 @@
         $.ajax({
             url: '/shop/ajax-cart',
             type: 'post',
+            headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
             data: {id_add: id_add, id_sub: id_sub, id_remove: id_remove},
             success: function (data) {
             if(data){
@@ -63,6 +64,7 @@
         $.ajax({
             url: '/shop/ajax-buy-cart',
             type: 'post',
+            headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
             data: {},
             success: function (data) {
                 window.location.href = '/shop/cart-info';

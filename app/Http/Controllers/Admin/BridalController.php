@@ -585,10 +585,6 @@ class BridalController extends Controller
     {
         $codeTest = null;
         $code = $request->code;
-        $codeTest = Voucher::query()->where('code', $code)->value('code');
-        if($codeTest){
-            $code = str_random(10);
-        }
         $discount = $request->discount;
         $startTime = date('Y-m-d H:i:s', strtotime($request->start_time));
         $endTime = date('Y-m-d 23:59:59', strtotime($request->end_time));

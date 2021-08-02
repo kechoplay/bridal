@@ -35,4 +35,9 @@ class DressProduct extends Model
     {
         return $this->hasOne('App\Sizes', 'id', 'size');
     }
+
+    public function Cart()
+    {
+        return $this->belongsTo('App\Cart');
+    }
 }
