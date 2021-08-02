@@ -92,19 +92,19 @@
                                         <span id="ComparePrice-4464780836919"
                                               class="product__price product__price--compare"
                                               data-open-accessibility-text-original="16px" style="font-size: 16px;">
-                                            {{ number_format($dress->price) }} đ
+                                            {{ number_format($dress->price) . __('VNĐ') }}
                                         </span>
                                     </span>
                                     <span id="ComparePriceA11y-4464780836919" class="visually-hidden"
                                           data-open-accessibility-text-original="16px" style="font-size: 16px;">Sale price</span>
                                     <span id="ProductPrice-4464780836919" class="product__price on-sale"
                                           data-open-accessibility-text-original="16px" style="font-size: 16px;">
-                                        {{ number_format($dress->sale_price) }} đ
+                                        {{ number_format($dress->sale_price) . __('VNĐ') }}
                                     </span>
                                 @else
                                     <span id="PriceA11y-6694898139324" class="visually-hidden">Regular price</span>
                                     <span id="ProductPrice-6694898139324" class="product__price">
-                                    {{ number_format($dress->price) }} đ
+                                    {{ number_format($dress->price) . __('VNĐ') }}
                                     </span>
                                 @endif
                                 <div
@@ -117,8 +117,9 @@
                                 </div>
                                 <div class="payment-buttons">
                                     <button name="add" id="addCart" class="btn btn--full btn--secondary"
-                                            @if(!empty(auth()->guard('customers')->user()->name))onclick="AddCart()"@endif style="margin-bottom: 5px;background-color: #0d0a0a;color: white">
-                                        <span id="addToCart">Thêm vào giỏ hàng</span>
+                                            @if(!empty(auth()->guard('customers')->user()->name))onclick="AddCart()"
+                                            @endif style="margin-bottom: 5px;background-color: #0d0a0a;color: white">
+                                        <span id="addToCart">{{ __('Thêm vào giỏ hàng') }}</span>
                                     </button>
                                     @if(empty(auth()->guard('customers')->user()->name))
                                     <p style="padding-top: unset;font-size: 12px;color: #7d0e0e">Vui lòng đăng nhập để sử dụng chức năng giỏ hàng <span><a href="{{ route('userLogin') }}" style="text-decoration: none;box-shadow: 0 3px black;">Đăng nhập</a></span></p>

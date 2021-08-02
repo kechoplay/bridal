@@ -17,6 +17,7 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Route;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Log;
@@ -111,21 +112,41 @@ class HomeController extends Controller
     public function listProducts(Request $request)
     {
         $search = $request->keySearch;
+        $language = Session::get('language');
         if (!empty($search)) {
-            $dress = DressProduct::Where('name', 'like', '%' . $search . '%')
-                ->orderBy('created_at', 'desc')->paginate(20);
+            $dress = DressProduct::where('name', 'like', '%' . $search . '%')
+                ->orderBy('id', 'desc')->get();
         } else {
-            $dress = DressProduct::paginate(20);
+            $dress = DressProduct::all();
+        }
+        if ($language == 'en') {
+            foreach ($dress as $item) {
+                $item->name = $item->name_en;
+                $item->price = $item->price_en;
+            }
         }
         $styles = WeddingDressCategory::all();
         $isStyle = false;
         return view('shop.list_products', compact('dress', 'styles', 'isStyle'));
     }
 
-    public function listProductsNew()
+    public function listProductsNew(Request $request)
     {
-        $dress = DressProduct::orderBy('id', 'desc')->paginate(20);
+        $search = $request->keySearch;
+        if (!empty($search)) {
+            $dress = DressProduct::where('name', 'like', '%' . $search . '%')
+                ->orderBy('id', 'desc')->get();
+        } else {
+            $dress = DressProduct::orderBy('id', 'desc')->all();
+        }
         $styles = WeddingDressCategory::all();
+        $language = Session::get('language');
+        if ($language == 'en') {
+            foreach ($dress as $item) {
+                $item->name = $item->name_en;
+                $item->price = $item->price_en;
+            }
+        }
         $isStyle = false;
         return view('shop.list_products', compact('dress', 'styles', 'isStyle'));
     }
@@ -134,7 +155,13 @@ class HomeController extends Controller
     {
         $slug = $request->style;
         $styleDress = WeddingDressCategory::where('slug', $slug)->first();
-        $dress = DressProduct::where('category_id', $styleDress->id)->paginate(20);
+        $search = $request->keySearch;
+        if (!empty($search)) {
+            $dress = DressProduct::where('category_id', $styleDress->id)->where('name', 'like', '%' . $search . '%')
+                ->orderBy('created_at', 'desc')->orderBy('id', 'desc')->get();
+        } else {
+            $dress = DressProduct::where('category_id', $styleDress->id)->orderBy('id', 'desc')->get();
+        }
         $language = Session::get('language');
         foreach ($dress as $dr) {
             if ($language == 'en') {
@@ -150,8 +177,14 @@ class HomeController extends Controller
     public function productDetails(Request $request)
     {
         $nameProduct = $request->nameProduct;
+        $language = Session::get('language');
         $dress = DressProduct::where('slug', $nameProduct)->first();
         $dress->img_path = json_decode($dress->img_path, true);
+        if ($language == 'en') {
+            $dress->name = $dress->name_en;
+            $dress->price = $dress->price_en;
+            $dress->description = $dress->description_en;
+        }
         $styles = WeddingDressCategory::all();
         if (!$dress) {
             return redirect()->back();
