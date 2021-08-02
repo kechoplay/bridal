@@ -76,7 +76,7 @@
         .header_lang_list_wrap {
             position: absolute;
             top: 68px;
-            right: 45px;
+            right: 120px;
             width: 90px;
             height: auto;
             border: 1px solid #dfe2e5;

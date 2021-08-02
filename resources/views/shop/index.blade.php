@@ -219,51 +219,51 @@
                                     data-product-handle="theia-dana-mock-neck-midi-dress-tropical-ombre"
                                     data-product-id="6694897713340">
                                     <div class="grid-product__content">
-                                      <div class="grid-product__link">
-                                        <a href="{{ route('shop.productDetails', ['nameProduct' => $dr->slug]) }}">
-                                            <div class="grid-product__image-mask">
-                                                <div class="image-wrap" style="height: 0; padding-bottom: 150.0%;">
-                                                    <img class="grid-product__image lazyload"
-                                                         data-src="{{ $dr->img[0] }}?v={{ time() }}"
-                                                         data-widths="[360, 540, 720, 900, 1080]"
-                                                         data-aspectratio="0.6666666666666666" data-sizes="auto" alt="">
+                                        <div class="grid-product__link">
+                                            <a href="{{ route('shop.productDetails', ['nameProduct' => $dr->slug]) }}">
+                                                <div class="grid-product__image-mask">
+                                                    <div class="image-wrap" style="height: 0; padding-bottom: 150.0%;">
+                                                        <img class="grid-product__image lazyload"
+                                                             data-src="{{ $dr->img[0] }}?v={{ time() }}"
+                                                             data-widths="[360, 540, 720, 900, 1080]"
+                                                             data-aspectratio="0.6666666666666666" data-sizes="auto" alt="">
+                                                    </div>
+                                                     @if(!empty($dr->img[1]))
+                                                    <div class="grid-product__secondary-image small--hide">
+                                                        <img class="lazyautosizes lazyloaded"
+                                                             data-widths="[360, 540, 720, 1000]"
+                                                             data-aspectratio="0.6665"
+                                                             data-sizes="auto" alt=""
+                                                             srcset="{{ $dr->img[1] }}">
+                                                    </div>
+                                                     @endif
                                                 </div>
-                                                 @if(!empty($dr->img[1]))
-                                                <div class="grid-product__secondary-image small--hide">
-                                                    <img class="lazyautosizes lazyloaded"
-                                                         data-widths="[360, 540, 720, 1000]"
-                                                         data-aspectratio="0.6665"
-                                                         data-sizes="auto" alt=""
-                                                         srcset="{{ $dr->img[1] }}">
+                                                <div class="grid-product__meta">
+                                                    <div class="grid-product__title grid-product__title--body">
+                                                        {{ $dr->name }}
+                                                    </div>
+                                                    <div class="grid-product__price"><span class="visually-hidden" data-open-accessibility-text-original="13.6px" style="font-size: 13.6px;">Regular price</span>
+                                                        @if($dr->sale_price != 0)
+                                                            <span class="grid-product__price--original" data-open-accessibility-text-original="13.6px" style="font-size: 13.6px;">{{ @number_format($dr->price) . __('$') }}</span>
+                                                            <span class="visually-hidden" data-open-accessibility-text-original="13.6px" style="font-size: 13.6px;"></span>{{ @number_format($dr->sale_price) . __('$') }}
+                                                        @endif
+                                                        @if($dr->sale_price == 0)
+                                                            {{ @number_format($dr->price) . __('$') }}
+                                                        @endif
+                                                    </div>
                                                 </div>
-                                                 @endif
-                                            </div>
-                                            <div class="grid-product__meta">
-                                                <div class="grid-product__title grid-product__title--body">
-                                                    {{ $dr->name }}
-                                                </div>
-                                                <div class="grid-product__price"><span class="visually-hidden" data-open-accessibility-text-original="13.6px" style="font-size: 13.6px;">Regular price</span>
-                                                    @if($dr->sale_price != 0)
-                                                        <span class="grid-product__price--original" data-open-accessibility-text-original="13.6px" style="font-size: 13.6px;">{{ @number_format($dr->price) }} VNĐ</span>
-                                                        <span class="visually-hidden" data-open-accessibility-text-original="13.6px" style="font-size: 13.6px;"></span>{{ @number_format($dr->sale_price) }} VNĐ
-                                                    @endif
-                                                    @if($dr->sale_price == 0)
-                                                        {{ @number_format($dr->price) }} VNĐ
-                                                    @endif
-                                                </div>
-                                            </div>
-                                        </a>
-                                       </div>
+                                            </a>
+                                        </div>
                                     </div>
                                 </div>
                             @endforeach
                             <div class="grid__item text-center small--hide">
-                                <a href="{{ route('shop.listProducts') }}" class="btn">View all</a>
+                                <a href="{{ route('shop.listProducts') }}" class="btn">{{ __('View all') }}</a>
                             </div>
                             <div
                                 class="grid__item grid__item--view-all text-center small--one-half medium-up--one-quarter medium-up--hide">
                                 <a href="{{ route('shop.listProducts') }}" class="grid-product__see-all">
-                                    View all<br>
+                                    {{ __('View all') }}<br>
                                 </a>
                         </div>
                     </div>

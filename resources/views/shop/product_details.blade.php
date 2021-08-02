@@ -122,7 +122,7 @@
                                         <span id="addToCart">{{ __('Thêm vào giỏ hàng') }}</span>
                                     </button>
                                     @if(empty(auth()->guard('customers')->user()->name))
-                                    <p style="padding-top: unset;font-size: 12px;color: #7d0e0e">Vui lòng đăng nhập để sử dụng chức năng giỏ hàng <span><a href="{{ route('userLogin') }}" style="text-decoration: none;box-shadow: 0 3px black;">Đăng nhập</a></span></p>
+                                    <p style="padding-top: unset;font-size: 12px;color: #7d0e0e">{{ __('Vui lòng đăng nhập để sử dụng chức năng giỏ hàng') }} <span><a href="{{ route('userLogin') }}" style="text-decoration: none;box-shadow: 0 3px black;">{{ __('Đăng nhập') }}</a></span></p>
                                     @endif
 {{--                                    <button type="button"--}}
 {{--                                            class="shopify-payment-button__button shopify-payment-button__button--unbranded _2ogcW-Q9I-rgsSkNbRiJzA _2EiMjnumZ6FVtlC7RViKtj _2-dUletcCZ2ZL1aaH0GXxT navigable"--}}

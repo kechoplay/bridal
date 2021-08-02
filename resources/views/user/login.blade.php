@@ -13,7 +13,7 @@
                 </div>
             @endif
         <header class="section-header">
-            <h1 class="section-header__title">Login</h1>
+            <h1 class="section-header__title">{{ __('Login') }}</h1>
         </header>
 
         <div class="note note--success hide" id="ResetSuccess">
@@ -27,22 +27,22 @@
                 <input type="email" name="email_user" id="CustomerEmail" class="input-full" autocorrect="off" autocapitalize="off" autofocus>
                 <div class="grid">
                     <div class="grid__item one-half">
-                        <label for="CustomerPassword">Password</label>
+                        <label for="CustomerPassword">{{ __('Password') }}</label>
                     </div>
                     <div class="grid__item one-half text-right">
                         <small class="label-info">
                             <a href="#recover" id="RecoverPassword">
-                                Forgot password?
+                                {{ __('Forgot password?') }}
                             </a>
                         </small>
                     </div>
                 </div>
                 <input type="password" value="" name="pass_user" id="CustomerPassword" class="input-full"><p>
                     <button type="submit" class="btn btn--full">
-                        Sign In
+                        {{ __('Sign In') }}
                     </button>
                 </p>
-                <p><a href="{{ route('userRegister') }}" id="customer_register_link">Create account</a></p><input type="hidden" name="return_url" value="/account" />
+                <p><a href="{{ route('userRegister') }}" id="customer_register_link">{{ __('Create Account') }}</a></p><input type="hidden" name="return_url" value="/account" />
             </form></div>
 
             <div id="RecoverPasswordForm" hidden>
