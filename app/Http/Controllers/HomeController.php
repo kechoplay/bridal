@@ -6,6 +6,7 @@ use App\Address;
 use App\Cart;
 use App\Contact;
 use App\Customers;
+use App\Discount;
 use App\Mail\MailOrder;
 use App\OrderDetail;
 use App\Orders;
@@ -102,12 +103,25 @@ class HomeController extends Controller
     {
         $dress = DressProduct::orderBy('id', 'desc')->limit(8)->get();
         $language = Session::get('language');
+        $timeNow = Carbon::now()->format('Y-m-d');
+        $discounts = Discount::whereDate('start_time', '<=', $timeNow)->whereDate('end_time', '>=', $timeNow)->get();
         foreach ($dress as $dr) {
             $dr->img = json_decode($dr->img_path, true);
             if ($language == 'en') {
                 $dr->name = $dr->name_en;
+                $dr->price = $dr->price_en;
+            }
+            if ($discounts->count() > 0) {
+                foreach ($discounts as $discount) {
+                    $productList = json_decode($discount->product_list, true);
+                    $percent = $discount->discount;
+                    if (in_array($dr->id, $productList)) {
+                        $dr->sale_price = $dr->price - floatval(($dr->price * $percent) / 100);
+                    }
+                }
             }
         }
+//        dd($discounts);
         $styles = WeddingDressCategory::all();
         return view('shop.index', compact('styles', 'dress'));
     }
@@ -116,17 +130,30 @@ class HomeController extends Controller
     {
         $search = $request->keySearch;
         $language = Session::get('language');
+        $timeNow = Carbon::now()->format('Y-m-d');
+        $discounts = Discount::whereDate('start_time', '<=', $timeNow)->whereDate('end_time', '>=', $timeNow)->get();
         if (!empty($search)) {
             $dress = DressProduct::where('name', 'like', '%' . $search . '%')
                 ->orderBy('id', 'desc')->get();
         } else {
             $dress = DressProduct::all();
         }
-        if ($language == 'en') {
-            foreach ($dress as $item) {
+
+        foreach ($dress as $item) {
+            if ($language == 'en') {
                 $item->name = $item->name_en;
                 $item->price = $item->price_en;
             }
+            if ($discounts->count() > 0) {
+                foreach ($discounts as $discount) {
+                    $productList = json_decode($discount->product_list, true);
+                    $percent = $discount->discount;
+                    if (in_array($item->id, $productList)) {
+                        $item->sale_price = $item->price - floatval(($item->price * $percent) / 100);
+                    }
+                }
+            }
+
         }
         $styles = WeddingDressCategory::all();
         $isStyle = false;
@@ -135,6 +162,8 @@ class HomeController extends Controller
 
     public function listProductsNew(Request $request)
     {
+        $timeNow = Carbon::now()->format('Y-m-d');
+        $discounts = Discount::whereDate('start_time', '<=', $timeNow)->whereDate('end_time', '>=', $timeNow)->get();
         $search = $request->keySearch;
         if (!empty($search)) {
             $dress = DressProduct::where('name', 'like', '%' . $search . '%')
@@ -144,10 +173,20 @@ class HomeController extends Controller
         }
         $styles = WeddingDressCategory::all();
         $language = Session::get('language');
-        if ($language == 'en') {
-            foreach ($dress as $item) {
+
+        foreach ($dress as $item) {
+            if ($language == 'en') {
                 $item->name = $item->name_en;
                 $item->price = $item->price_en;
+            }
+            if ($discounts->count() > 0) {
+                foreach ($discounts as $discount) {
+                    $productList = json_decode($discount->product_list, true);
+                    $percent = $discount->discount;
+                    if (in_array($item->id, $productList)) {
+                        $item->sale_price = $item->price - floatval(($item->price * $percent) / 100);
+                    }
+                }
             }
         }
         $isStyle = false;
@@ -156,6 +195,8 @@ class HomeController extends Controller
 
     public function listProductsStyle(Request $request)
     {
+        $timeNow = Carbon::now()->format('Y-m-d');
+        $discounts = Discount::whereDate('start_time', '<=', $timeNow)->whereDate('end_time', '>=', $timeNow)->get();
         $slug = $request->style;
         $styleDress = WeddingDressCategory::where('slug', $slug)->first();
         $search = $request->keySearch;
@@ -171,6 +212,15 @@ class HomeController extends Controller
                 $dr->name = $dr->name_en;
                 $dr->price = $dr->price_en;
             }
+            if ($discounts->count() > 0) {
+                foreach ($discounts as $discount) {
+                    $productList = json_decode($discount->product_list, true);
+                    $percent = $discount->discount;
+                    if (in_array($dr->id, $productList)) {
+                        $dr->sale_price = $dr->price - floatval(($dr->price * $percent) / 100);
+                    }
+                }
+            }
         }
         $styles = WeddingDressCategory::all();
         $isStyle = true;
@@ -179,6 +229,8 @@ class HomeController extends Controller
 
     public function productDetails(Request $request)
     {
+        $timeNow = Carbon::now()->format('Y-m-d');
+        $discounts = Discount::whereDate('start_time', '<=', $timeNow)->whereDate('end_time', '>=', $timeNow)->get();
         $nameProduct = $request->nameProduct;
         $language = Session::get('language');
         $dress = DressProduct::where('slug', $nameProduct)->first();
@@ -187,6 +239,15 @@ class HomeController extends Controller
             $dress->name = $dress->name_en;
             $dress->price = $dress->price_en;
             $dress->description = $dress->description_en;
+        }
+        if ($discounts->count() > 0) {
+            foreach ($discounts as $discount) {
+                $productList = json_decode($discount->product_list, true);
+                $percent = $discount->discount;
+                if (in_array($dress->id, $productList)) {
+                    $dress->sale_price = $dress->price - floatval(($dress->price * $percent) / 100);
+                }
+            }
         }
         $styles = WeddingDressCategory::all();
         if (!$dress) {
@@ -308,7 +369,7 @@ class HomeController extends Controller
             $flagCart = -1;
         }
         $address = Address::query()->where('customer_id', $customer_id)->first();
-        return view('shop.cart_info', compact('styles', 'arrayCart', 'total', 'buyNow', 'flagCart', 'totalNow','address'));
+        return view('shop.cart_info', compact('styles', 'arrayCart', 'total', 'buyNow', 'flagCart', 'totalNow', 'address'));
     }
 
     public function orderConfirm(Request $request)

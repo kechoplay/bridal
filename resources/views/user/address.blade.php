@@ -2,28 +2,28 @@
 @section('content')
         <div class="page-width page-width--narrow page-content">
             <header class="section-header">
-                <h1 class="section-header__title">Address</h1>
+                <h1 class="section-header__title">{{ __('Address') }}</h1>
 {{--                <button type="button" class="btn btn--secondary btn--small section-header__link address-new-toggle">Add address</button>--}}
             </header>
 
             <div id="AddressNewForm" class="form-vertical js-address-form text-left">
                 @if(empty($address))
                 <form method="post" action="{{ route('addressStore') }}" id="address_form_edit" accept-charset="UTF-8">
-                    <h2>Add address</h2>
+                    <h2>{{ __('Add address') }}</h2>
                 @endif
                 @if(!empty($address))
                  <form method="post" action="{{ route('addressSave',['id' => $address->id]) }}" id="address_form_edit" accept-charset="UTF-8">
-                     <h2>Edit address</h2>
+                     <h2>{{ __('Edit address') }}</h2>
                 @endif
                      @csrf
                      <div class="grid grid--small">
                          <div class="grid__item medium-up--one-half">
-                             <label for="AddressZipNew">Name</label>
+                             <label for="AddressZipNew">{{ __('Name') }}</label>
                              <input type="text" id="name_order" class="input-full" name="name_order" @if(!empty($address))value="{{ $address->name }}"@endif required>
                          </div>
 
                          <div class="grid__item medium-up--one-half">
-                             <label for="AddressPhoneNew">Phone</label>
+                             <label for="AddressPhoneNew">{{ __('Phone') }}</label>
                              <input type="tel" id="phone_order" class="input-full" name="phone_order" @if(!empty($address))value="{{ $address->phone }}"@endif required>
                          </div>
                      </div>

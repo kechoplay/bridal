@@ -3,28 +3,31 @@
     <main class="main-content" id="MainContent">
         <div class="page-width page-width--tiny page-content">
             <header class="section-header">
-                <h1 class="section-header__title">Create Account</h1>
+                <h1 class="section-header__title">{{ __('Create Account') }}</h1>
             </header>
             @if(session()->has('error'))
                 <div class="alert alert-danger" style="background-color: #ec1515;padding: 10px;margin-bottom: 20px">
                     {{ session()->get('error') }}
                 </div>
             @endif
-            <div class="form-vertical"><form method="post" action="{{ route('registerSave') }}" id="create_customer" accept-charset="UTF-8">
+            <div class="form-vertical">
+                <form method="post" action="{{ route('registerSave') }}" id="create_customer" accept-charset="UTF-8">
                     <input type="hidden" name="utf8" value="✓" />
                     @csrf
-                    <label for="FirstName">Name</label>
+                    <label for="FirstName">{{ __('Name') }}</label>
                     <input type="text" name="name_user" id="name_user" class="input-full" autocapitalize="words" autofocus required>
 
                     <label for="Email">Email</label>
                     <input type="email" name="email_user" id="email_user" class="input-full" autocorrect="off" autocapitalize="off" required>
 
-                    <label for="CreatePassword">Password</label>
+                    <label for="CreatePassword">{{ __('Password') }}</label>
                     <input type="password" name="pass_user" id="pass_user" class="input-full" required>
 
                     <p>
-                        <input type="submit" value="Create" class="btn btn--full">
-                    </p></form></div>
+                        <input type="submit" value="{{ __('Create') }}" class="btn btn--full">
+                    </p>
+                </form>
+            </div>
         </div>
 
     </main>
