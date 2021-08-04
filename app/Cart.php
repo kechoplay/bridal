@@ -10,7 +10,7 @@ class Cart extends Model
     protected $guarded = [];
     public $timestamps = true;
 
-    public function dressProsuct()
+    public function dressProduct()
     {
         return $this->hasMany('App\DressProduct', 'product_id', 'id');
     }

@@ -46,13 +46,22 @@ Route::get('/shop/product-details/{nameProduct}', ['as' => 'shop.productDetails'
 
 Route::group(['middleware' => ['user_access']], function () {
     Route::get('/shop/cart', ['as' => 'shop.cartIndex', 'uses' => 'HomeController@cartIndex']);
+
     Route::post('/shop/add-cart', ['as' => 'shop.ajaxAddCart', 'uses' => 'HomeController@ajaxAddCart']);
+
     Route::get('/shop/cart-info', ['as' => 'shop.cartInfo', 'uses' => 'HomeController@cartInfo']);
+
     Route::post('/shop/cart-store', ['as' => 'shop.cartStore', 'uses' => 'HomeController@orderConfirm']);
+
     Route::get('/shop/order-confirm', ['as' => 'shop.orderConfirm', 'uses' => 'HomeController@orderConfirm']);
+
     Route::post('/shop/ajax-cart', ['as' => 'shop.ajaxCart', 'uses' => 'HomeController@ajaxCart']);
+
     Route::post('/shop/ajax-buy-now', ['as' => 'shop.ajaxBuyNow', 'uses' => 'HomeController@ajaxBuyNow']);
+
     Route::post('/shop/ajax-buy-cart', ['as' => 'shop.ajaxBuyCart', 'uses' => 'HomeController@ajaxBuyCart']);
+
+    Route::post('/shop/check-discount', ['as' => 'checkDiscount', 'uses' => 'HomeController@checkDiscount']);
 });
 Route::get('/collections/shop', ['as' => 'shop.listProducts', 'uses' => 'HomeController@listProducts']);
 
@@ -158,16 +167,25 @@ Route::group(['prefix' => 'admin', 'middleware' => ['admin_access']], function (
 });
 
 Route::get('/account/login', ['as' => 'userLogin', 'uses' => 'UserController@userLogin']);
+
 Route::post('/account/check-login', ['as' => 'checkLogin', 'uses' => 'UserController@checkLogin']);
+
 Route::get('/account/register', ['as' => 'userRegister', 'uses' => 'UserController@userRegister']);
+
 Route::post('/account/register-save', ['as' => 'registerSave', 'uses' => 'UserController@registerSave']);
+
 Route::get('/account/reset-pass', ['as' => 'userResetPass', 'uses' => 'UserController@userResetPass']);
 
 Route::group(['middleware' => ['user_access']], function () {
     Route::get('/account/user-detail', ['as' => 'userDetail', 'uses' => 'UserController@userDetail']);
+
     Route::get('/account/user-logout', ['as' => 'userLogout', 'uses' => 'UserController@userlogout']);
+
     Route::get('/account/user-address', ['as' => 'userAddress', 'uses' => 'UserController@userAddress']);
+
     Route::post('/account/address-store', ['as' => 'addressStore', 'uses' => 'UserController@addressStore']);
+
     Route::post('/account/address-save/{id}', ['as' => 'addressSave', 'uses' => 'UserController@addressSave']);
+
     Route::post('/account/address-destroy', ['as' => 'addressDestroy', 'uses' => 'UserController@addressDestroy']);
 });

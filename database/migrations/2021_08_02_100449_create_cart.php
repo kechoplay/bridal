@@ -18,7 +18,13 @@ class CreateCart extends Migration
             $table->integer('customer_id')->nullable();
             $table->integer('product_id')->default(null)->nullable();
             $table->integer('number')->default(null)->nullable();
-            $table->tinyInteger('status')->default(1)->nullable();
+            $table->string('name')->default(null)->nullable();
+            $table->string('slug')->default(null)->nullable();
+            $table->string('image')->default(null)->nullable();
+            $table->string('color')->default(null)->nullable();
+            $table->integer('size')->default(null)->nullable();
+            $table->integer('price')->default(null)->nullable();
+            $table->tinyInteger('status')->default(0)->nullable();
             $table->timestamps();
         });
     }

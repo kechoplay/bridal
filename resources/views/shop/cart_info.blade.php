@@ -29,6 +29,7 @@
 
     <!--[if gte IE 9]><!-->
     <link rel="stylesheet" href="//cdn.shopify.com/app/services/5466033/assets/122321436860/checkout_stylesheet/v2-ltr-edge-1861300a509749f47020b0e786604d3f-2145" media="all" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/fontawesome.min.css" media="all" />
 
     <!--<![endif]-->
 
@@ -221,6 +222,7 @@
                         <div>
                             <p style="font-size: 12px">Chú ý: Đảm bảo thông tin đặt hàng là chính xác trước khi ấn đặt hàng</p>
                         </div>
+                        <input type="hidden" id="voucher_code" name="voucher_code">
                         <div class="step__footer row" >
                                 <button type="submit" class="step__footer__continue-btn btn" aria-busy="false"><span class="btn__content" data-continue-button-content="true">Đặt hàng</span><svg class="icon-svg icon-svg--size-18 btn__spinner icon-svg--spinner-button" aria-hidden="true" focusable="false"> <use xlink:href="#spinner-button" /> </svg></button>
                                 <a class="step__footer__previous-link" href="{{route('shop.cartIndex')}}"><svg focusable="false" aria-hidden="true" class="icon-svg icon-svg--color-accent icon-svg--size-10 previous-link__icon" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 10"><path d="M8 1L7 0 3 4 2 5l1 1 4 4 1-1-4-4"/></svg><span class="step__footer__previous-link-content">Quay lại giỏ hàng</span></a>
@@ -293,8 +295,8 @@
                                                     <span class="visually-hidden">{{ @$item['number'] }}</span>
                                                 </td>
                                                 <td class="product__price">
-                                            <span
-                                                class="order-summary__emphasis skeleton-while-loading">{{ @number_format($item['price']) }} đ</span>
+                                                <span class="order-summary__emphasis skeleton-while-loading">
+                                                {{ @number_format($item['price']) }} vnđ</span>
                                                 </td>
                                             </tr>
                                         @endforeach
@@ -320,8 +322,7 @@
                                                     <span class="visually-hidden">{{@$buyNow['number']}}</span>
                                                 </td>
                                                 <td class="product__price">
-                                            <span
-                                                class="order-summary__emphasis skeleton-while-loading">{{@number_format($buyNow['price'])}} đ</span>
+                                            <span class="order-summary__emphasis skeleton-while-loading">{{@number_format($buyNow['price'])}} vnđ</span>
                                                 </td>
                                             </tr>
                                     @endif
@@ -337,30 +338,26 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="order-summary__section order-summary__section--discount" data-reduction-form="update">
+                        <div class="order-summary__section order-summary__section--discount" data-reduction-form="update" style="padding-bottom: unset" id="input_voucher">
                             <h3 class="visually-hidden">Discount</h3>
 
-                            <form class="edit_checkout" action="/5466033/checkouts/6de63736d2060e544ec0f63aadf7796c" accept-charset="UTF-8" method="post"><input type="hidden" name="_method" value="patch" /><input type="hidden" name="authenticity_token" value="Bdpt3ISEWjRUhTG7dSL1dAdKb7NQZRmfi1w4u2yqk71aaIYq-5lHKt4OJ1OntNUGcRW0NxQpJL0jMpPmyDe4Tw" />
+                            <form class="edit_checkout"  accept-charset="UTF-8" ><input type="hidden" name="_method" value="patch" /><input type="hidden" name="authenticity_token" value="Bdpt3ISEWjRUhTG7dSL1dAdKb7NQZRmfi1w4u2yqk71aaIYq-5lHKt4OJ1OntNUGcRW0NxQpJL0jMpPmyDe4Tw" />
                                 <input type="hidden" name="step" value="contact_information" />
                             </form>
-                            <form class="edit_checkout" action="/5466033/checkouts/6de63736d2060e544ec0f63aadf7796c" accept-charset="UTF-8" method="post"><input type="hidden" name="_method" value="patch" /><input type="hidden" name="authenticity_token" value="_sWPf-Bx8JNrivro5CAYw8SUCgHBMchVxTHOHEeHyXOhd2SJn2ztjeEB7AA2tjixssvRhYV99XdtX2VB4xrigQ" />
+                            <form class="edit_checkout" accept-charset="UTF-8" ><input type="hidden" name="_method" value="patch" /><input type="hidden" name="authenticity_token" value="_sWPf-Bx8JNrivro5CAYw8SUCgHBMchVxTHOHEeHyXOhd2SJn2ztjeEB7AA2tjixssvRhYV99XdtX2VB4xrigQ" />
+                                <meta name="csrf-token" content="{{ csrf_token() }}"/>
                                 <input type="hidden" name="step" value="contact_information" />
                                 <div class="fieldset">
                                     <div class="field ">
-                                        <label class="field__label" for="checkout_reduction_code">Discount code</label>
+                                        <label class="field__label" for="checkout_reduction_code">Voucher code</label>
                                         <div class="field__input-btn-wrapper">
                                             <div class="field__input-wrapper">
-                                                <input placeholder="Discount code" class="field__input" id="checkout_reduction_code" data-discount-field="true" autocomplete="off" aria-required="true" size="30" type="text" name="checkout[reduction_code]" />
+                                                <input placeholder="Discount code" class="field__input" id="discount_code" data-discount-field="true" autocomplete="off" aria-required="true" size="30" type="text" name="checkout[reduction_code]" />
                                             </div>
-                                            <button name="button" type="submit" class="field__input-btn btn btn--disabled" aria-busy="false">
-                                                <span class="btn__content visually-hidden-on-mobile" aria-hidden="true">
+                                            <button name="button" type="button" class="field__input-btn btn btn--disabled" aria-busy="false" style="background-color: black" onclick="checkCode()">
+                                                <span class="btn__content "  >
                                                     Apply
                                                 </span>
-                                                <span class="visually-hidden">
-                                                             Apply Discount Code
-                                                </span>
-                                                <svg class="icon-svg icon-svg--size-16 btn__icon shown-on-mobile" aria-hidden="true" focusable="false"> <use xlink:href="#arrow" /> </svg>
-                                                <svg class="icon-svg icon-svg--size-18 btn__spinner icon-svg--spinner-button" aria-hidden="true" focusable="false"> <use xlink:href="#spinner-button" /> </svg>
                                             </button>
                                         </div>
                                     </div>
@@ -368,15 +365,71 @@
                             </form>
 
                         </div>
+                        <div id="error_voucher" style="color: #c21e1e"></div>
+                        <div id="voucher_show" hidden style="width: 120px ;background-color: #d7d0d0;padding: 10px;border-radius: 6px">
+                            <span><i class="fa fa-user-circle-o fa-2x"></i>Voucher</span>
+                            <span style="float: right;cursor: pointer" onclick="deleteVoucher()" >X</span>
+                            <span id="name_voucher"></span><span id="name_discount"></span>
+                        </div>
+                        <input type="hidden" id="value_total_old" value="
+                          @if($flagCart == 0)
+                        {{@$total}}
+                        @endif
+                        @if($flagCart == 1)
+                        {{@$buyNow['price']}}
+                        @endif
+                        @if($flagCart == -1)
+                            0
+                        @endif">
                         <div class="order-summary__section order-summary__section--total-lines" data-order-summary-section="payment-lines">
                             <table class="total-line-table">
+                                <tbody class="total-line-table__tbody">
+                                <tr class="total-line total-line--subtotal">
+                                    <th class="total-line__name" scope="row">total old</th>
+                                    <td class="total-line__price">
+                                <span id ="total_old" class="order-summary__emphasis skeleton-while-loading" data-checkout-subtotal-price-target="72640">
+                                     @if($flagCart == 0)
+                                        {{@number_format($total)}}
+                                    @endif
+                                    @if($flagCart == 1)
+                                        {{@number_format($buyNow['price'])}}
+                                    @endif
+                                    @if($flagCart == -1)
+                                        0
+                                    @endif
+                                </span><span>VNĐ</span>
+                                    </td>
+                                </tr>
+                                <tr class="total-line total-line--subtotal" id="show_total_subvoucher" style="display: none">
+                                    <th class="total-line__name" scope="row">apply voucher <span id="show_apply_voucher"></span></th>
+                                    <td class="total-line__price">
+                                        <span>-</span>
+                                <span id ="sub_voucher" class="order-summary__emphasis skeleton-while-loading" data-checkout-subtotal-price-target="72640">
+
+                                </span><span> VNĐ</span>
+                                    </td>
+                                </tr>
+                                <tr class="total-line total-line--shipping">
+                                    <th class="total-line__name" scope="row">
+                                <span>
+                                    Shipping
+                                </span>
+
+                                    </th>
+                                    <td class="total-line__price">
+                            <span class="skeleton-while-loading order-summary__small-text" data-checkout-total-shipping-target="0">
+                                Calculated at next step
+                                    </span>
+                                    </td>
+                                </tr>
+                                </tbody>
                                 <tfoot class="total-line-table__footer">
                                 <tr class="total-line">
                                     <th class="total-line__name payment-due-label" scope="row">
                                         <span class="payment-due-label__total">Tổng</span>
                                     </th>
                                     <td class="total-line__price payment-due" data-presentment-currency="USD">
-                                        <span class="payment-due__price skeleton-while-loading--lg" data-checkout-payment-due-target="303300">
+                                        <span class="payment-due__price skeleton-while-loading--lg" data-checkout-payment-due-target="303300" id="total_order">
                                          @if($flagCart == 0)
                                                 {{@number_format($total)}}
                                             @endif
@@ -387,7 +440,7 @@
                                                  0
                                              @endif
                                         </span>
-                                        <span class="payment-due__currency remove-while-loading">VNĐ</span>
+                                        <span class="payment-due__currency remove-while-loading" style="font-size:16px;font-weight: 800">VNĐ</span>
                                     </td>
                                 </tr>
 
@@ -397,13 +450,12 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="visually-hidden" data-order-summary-section="accessibility-live-region">
                     <div aria-live="polite" aria-atomic="true" role="status">
                         Updated total price:
                         <span data-checkout-payment-due-target="303300">
-       {{@$total}}
-    </span>
+                        {{@$total}}
+                    </span>
                     </div>
                 </div>
 
@@ -422,5 +474,9 @@
         </aside>
     </div>
 </div>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
+<script type='text/javascript' src='/js/jquery-migrate.min.js' id='jquery-migrate-js'></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script type='text/javascript' src='/js/discount.js'></script>
 </body>
 </html>
