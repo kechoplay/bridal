@@ -74,6 +74,11 @@ Route::group(['middleware' => 'language'], function () {
         Route::post('/account/address-save/{id}', ['as' => 'addressSave', 'uses' => 'UserController@addressSave']);
 
         Route::post('/account/address-destroy', ['as' => 'addressDestroy', 'uses' => 'UserController@addressDestroy']);
+
+        Route::get('/order/history', ['as' => 'history', 'uses' => 'UserController@history']);
+
+        Route::get('/order/view/{id}', ['as' => 'order-view', 'uses' => 'UserController@orderView']);
+
     });
 
     Route::get('/collections/shop', ['as' => 'shop.listProducts', 'uses' => 'HomeController@listProducts']);

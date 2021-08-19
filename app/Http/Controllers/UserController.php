@@ -27,30 +27,33 @@ use Illuminate\Support\Facades\Mail;
 
 class UserController extends Controller
 {
-    public function userLogin(){
+    public function userLogin()
+    {
         $styles = WeddingDressCategory::all();
         $isStyle = false;
-        return view('user.login', compact( 'styles', 'isStyle'));
+        return view('user.login', compact('styles', 'isStyle'));
     }
 
-    public function userRegister(){
+    public function userRegister()
+    {
         $styles = WeddingDressCategory::all();
         $isStyle = false;
-        return view('user.register', compact( 'styles', 'isStyle'));
+        return view('user.register', compact('styles', 'isStyle'));
     }
 
-    public function registerSave(Request $request){
+    public function registerSave(Request $request)
+    {
         $checkMail = Customers::query()->where('email', $request->email_user)->first();
-        if($checkMail){
-            return redirect()->route('userRegister')->with('error','Error! Email already exists.');
-        }else {
+        if ($checkMail) {
+            return redirect()->route('userRegister')->with('error', 'Error! Email already exists.');
+        } else {
             Customers::query()->create([
                 'name' => $request->name_user,
                 'email' => $request->email_user,
                 'password' => Hash::make($request->pass_user),
             ]);
         }
-        return redirect()->route('userLogin')->with('success','Success! please login.');
+        return redirect()->route('userLogin')->with('success', 'Success! please login.');
     }
 
     public function checkLogin(Request $request)
@@ -67,53 +70,84 @@ class UserController extends Controller
         }
     }
 
-    public function userDetail(){
+    public function userDetail()
+    {
         $styles = WeddingDressCategory::all();
         $isStyle = false;
         $customer_id = Auth::guard('customers')->user()->id;
         $address = Address::query()->where('customer_id', $customer_id)->first();
-        return view('user.detail', compact( 'styles', 'isStyle','address'));
+        return view('user.detail', compact('styles', 'isStyle', 'address'));
     }
 
-    public function userLogout(){
+    public function userLogout()
+    {
         Auth::guard('customers')->logout();
         $styles = WeddingDressCategory::all();
         $isStyle = false;
         return redirect()->route('userLogin');
     }
 
-    public function userAddress(){
+    public function userAddress()
+    {
         $styles = WeddingDressCategory::all();
         $isStyle = false;
         $customer_id = Auth::guard('customers')->user()->id;
         $address = Address::query()->where('customer_id', $customer_id)->first();
-        return view('user.address', compact( 'styles', 'isStyle', 'address'));
+        return view('user.address', compact('styles', 'isStyle', 'address'));
     }
 
-    public function addressStore(Request $request){
+    public function addressStore(Request $request)
+    {
         Address::query()->create([
-           'customer_id' => Auth::guard('customers')->user()->id,
-           'name' => $request->name_order,
-           'phone' => $request->phone_order,
-           'email' => $request->email_order,
+            'customer_id' => Auth::guard('customers')->user()->id,
+            'name' => $request->name_order,
+            'phone' => $request->phone_order,
+            'email' => $request->email_order,
             'address' => $request->address_order,
         ]);
-        return redirect()->route('userDetail')->with('success','add address success!');
+        return redirect()->route('userDetail')->with('success', 'add address success!');
     }
 
-    public function addressSave($id,Request $request){
+    public function addressSave($id, Request $request)
+    {
         Address::query()->where('id', $id)->update([
             'name' => $request->name_order,
             'phone' => $request->phone_order,
             'email' => $request->email_order,
             'address' => $request->address_order,
         ]);
-        return redirect()->route('userDetail')->with('success','save address success!');
+        return redirect()->route('userDetail')->with('success', 'save address success!');
     }
 
-    public function addressDestroy(Request $request){
+    public function addressDestroy(Request $request)
+    {
         $id = $request->id;
         Address::query()->where('id', $id)->delete();
-        return response()->json(['success' => true,'msg' => 'Delete success!'], 200);
+        return response()->json(['success' => true, 'msg' => 'Delete success!'], 200);
     }
+
+    public function history(Request $request)
+    {
+        $customer_id = Auth::guard('customers')->user()->id;
+        $products = DB::table('orders')
+            ->where('customer_id', $customer_id)
+            ->join('order_detail', 'orders.id', '=', 'order_detail.order_id')
+            ->join('dress_product', 'order_detail.product_id', '=', 'dress_product.id')
+            ->select()
+            ->get();
+        foreach ($products as $product) {
+            $product->image = json_decode($product->img_path, true)[0];
+        }
+        return view('user.history', compact('products'));
+    }
+
+    public function orderView(Request  $request)
+    {
+        $product_id = $request->id;
+        $product = DressProduct::query()->where('id',$product_id)->first();
+        $product->image = json_decode($product->img_path, true)[0];
+        return view('user.order', compact('product'));
+    }
+
+
 }
