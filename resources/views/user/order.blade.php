@@ -1,4 +1,7 @@
 @extends('layout.admin.main')
+@push('css')
+    <link rel="stylesheet" href="/css/view/order.css">
+@endpush
 @section('content')
     <div class="content-wrapper">
         <section class="content-header">
@@ -72,23 +75,23 @@
                                                         </div>
                                                     </div>
                                                 </td>
-                                                <td class="price">119.000 ₫</td>
+                                                <td class="price"> {{$product->price}} ₫</td>
                                                 <td class="discount-amount">0 ₫</td>
-                                                <td class="raw-total">119.000 ₫</td>
+                                                <td class="raw-total"> {{$product->price}} ₫</td>
                                             </tr>
                                             </tbody>
                                             <tfoot>
                                             <tr>
                                                 <td colspan="3"><span>Tạm tính</span></td>
-                                                <td>119.000 ₫</td>
+                                                <td class="text-right"> {{$product->price}} ₫</td>
                                             </tr>
                                             <tr>
                                                 <td colspan="3"><span>Phí vận chuyển</span></td>
-                                                <td>25.000 ₫</td>
+                                                <td class="text-right">0 ₫</td>
                                             </tr>
                                             <tr>
                                                 <td colspan="3"><span>Tổng cộng</span></td>
-                                                <td><span class="sum">144.000 ₫</span></td>
+                                                <td class="text-right"> {{$product->price}} ₫</td>
                                             </tr>
                                             </tfoot>
                                         </table>
@@ -106,35 +109,39 @@
          aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
         <div class="modal-dialog  modal-lg" role="document">
             <div class="modal-content">
-                <div class="modal-header">
-                    <div class="write-review__product">
-                        <h4 style="    color: rgb(120, 120, 120);    font-weight: 400;"> Chia sẻ về sản phẩm : </h4>
+                <form action="{{ route('sendFeedback') }}" method="post" enctype="multipart/form-data">
+                    {{ csrf_field() }}
+                    <div class="modal-header">
+                        <div class="write-review__product">
+                            <h4 style="    color: rgb(120, 120, 120);    font-weight: 400;"> Chia sẻ về sản phẩm : </h4>
+                        </div>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
                     </div>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <textarea style=" border: 1px solid rgb(238, 238, 238);
+                    <div class="modal-body">
+                    <textarea id="content" style=" border: 1px solid rgb(238, 238, 238);
                                     padding: 12px;
                                     border-radius: 4px;
                                     resize: none;
                                     width: 100%;
                                     outline: 0px;
-                                    margin: 24px 0px 12px;"
+                                    margin: 24px 0px 12px;" name="msg_content"
                               rows="8" placeholder="Chia sẻ thêm thông tin sản phẩm"
                               class="write-review__input"></textarea>
-                </div>
-                <div class="modal-footer">
-                    <div class="write-review__buttons" style="width: 100%; flex: 1 1 0%;
+                    </div>
+                    <div class="modal-footer">
+                        <div class="write-review__buttons" style="width: 100%; flex: 1 1 0%;
                         align-items: flex-end;
                         display: flex;
                         -webkit-box-pack: justify;
                         justify-content: space-between;
                         padding: 0px 0px 16px;
                         margin: 12px 0px 0px;">
-                        <input class="write-review__file" hidden type="file" multiple="">
-                        <button style="  color: rgb(11, 116, 229);
+                            <input id="input-image" class="write-review__file" accept="image/png, image/gif, image/jpeg" name="images[]" hidden type="file"
+                                   multiple>
+                            <input type="text" hidden value="{{$product->id}}" name="id">
+                            <button style="  color: rgb(11, 116, 229);
                                     width: 49%;
                                     height: 36px;
                                     background: 0px center;
@@ -149,11 +156,13 @@
                                     align-items: center;
                                     outline: 0px;
                                     border: 1px solid rgb(11, 116, 229);"
-                                type="button" class="write-review__button write-review__button--image">
-                            <i class="fa fa-photo-video"></i>
-                            <span>Thêm ảnh</span>
-                        </button>
-                        <button style="  color: rgb(11, 116, 229);
+                                    type="button" class="write-review__button write-review__button--image"
+                                    id="add-image"
+                            >
+                                <i class="fa fa-photo-video"></i>
+                                <span>Thêm ảnh</span>
+                            </button>
+                            <button style="  color: rgb(11, 116, 229);
                                     width: 49%;
                                     height: 36px;
                                     background: 0px center;
@@ -167,32 +176,16 @@
                                     -webkit-box-align: center;
                                     align-items: center;
                                     outline: 0px;
-                                    border: 1px solid rgb(11, 116, 229);"
-                                type="button" class="write-review__button write-review__button--submit"><span>Gửi đánh giá</span>
-                        </button>
+                                    border: 1px solid rgb(11, 116, 229);" id="send"
+                                    type="submit" class="write-review__button write-review__button--submit"><span>Gửi đánh giá</span>
+                            </button>
+                        </div>
                     </div>
-                </div>
+                </form>
             </div>
         </div>
     </div>
 @endsection
-
-@push('styles')
-
-@endpush
 @push('js')
-    <script>
-        $(function () {
-            $("#example1").DataTable({
-                "responsive": true,
-                "lengthChange": false,
-                "autoWidth": false,
-                "sort": false,
-            });
-        });
-        $('#myModal').on('shown.bs.modal', function () {
-            $('#myInput').trigger('focus')
-        })
-
-    </script>
+    <script src="/js/viewjs/order.js?v={{time()}}"></script>
 @endpush

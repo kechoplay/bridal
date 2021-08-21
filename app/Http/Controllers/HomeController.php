@@ -253,7 +253,15 @@ class HomeController extends Controller
         if (!$dress) {
             return redirect()->back();
         }
-        return view('shop.product_details', compact('dress', 'styles'));
+        $feedBacks = DB::table('feedback')
+            ->where('product_id', $dress->id)
+            ->join('customers', 'feedback.user_id', '=', 'customers.id')
+            ->get();
+        foreach ($feedBacks as $item ){
+            $item->time = date("d/m/Y", strtotime($item->created_at));
+            $item->list_image = json_decode($item->list_image, true);
+        }
+        return view('shop.product_details', compact('dress', 'styles', 'feedBacks'));
     }
 
     public function privacyPolicy()
@@ -283,7 +291,7 @@ class HomeController extends Controller
         $customer_id = Auth::guard('customers')->user()->id;
         $total = 0;
         $arrayCart = Cart::query()->where('customer_id', $customer_id)->get()->toArray();
-        if ($arrayCart){
+        if ($arrayCart) {
             foreach ($arrayCart as $cart) {
                 $total += ($cart['price'] * $cart['number']);
             }
@@ -350,7 +358,7 @@ class HomeController extends Controller
         $total = 0;
         $totalNow = 0;
         $customer_id = Auth::guard('customers')->user()->id;
-        $arrayCart = Cart::query()->where('customer_id',$customer_id)->get()->toArray();
+        $arrayCart = Cart::query()->where('customer_id', $customer_id)->get()->toArray();
         if ($arrayCart) {
             foreach ($arrayCart as $cart) {
                 $total += ($cart['price'] * $cart['number']);
@@ -385,11 +393,11 @@ class HomeController extends Controller
             $voucherCode = $request->voucher_code;
             $discount = null;
             $totalDiscount = null;
-            if($voucherCode){
+            if ($voucherCode) {
                 $voucher = Voucher::query()->where('code', $voucherCode)->where('status', 0)->first();
                 $discount = $voucher->discount;
                 $userVoucher = VoucherUser::query()->create([
-                   'voucher_id' => $voucher->id,
+                    'voucher_id' => $voucher->id,
                     'user_id' => $customer_id,
                 ]);
             }
@@ -414,15 +422,15 @@ class HomeController extends Controller
                         'price' => $cart['price']
                     ]);
                 }
-                if($discount){
-                    $totalDiscount = ($total*$discount)/100;
+                if ($discount) {
+                    $totalDiscount = ($total * $discount) / 100;
                 }
             } else {
                 $arrayCart = null;
             }
             if (Session::has('buyNow')) {
                 $buyNow = Session::get('buyNow');
-                if($discount) {
+                if ($discount) {
                     $totalDiscount = ($buyNow['price'] * $discount) / 100;
                 }
             } else {
@@ -442,18 +450,18 @@ class HomeController extends Controller
             ];
             Mail::to($request->email_order)->send(new MailOrder($data, $arrayCart, $buyNow, $flagCart, $total));
             $arrayCart = Cart::query()->where('customer_id', $customer_id)->get();
-            foreach ($arrayCart as $cart){
+            foreach ($arrayCart as $cart) {
                 $cart->delete();
             }
             Session::forget('buyNow');
             Session::forget('flagCart');
             DB::commit();
-            $arrayCart = OrderDetail::query()->leftJoin('dress_product','order_detail.dress_id','dress_product.id')
+            $arrayCart = OrderDetail::query()->leftJoin('dress_product', 'order_detail.dress_id', 'dress_product.id')
                 ->where('order_detail.order_id', $orders->id)->get();
-            foreach ( $arrayCart as $item) {
+            foreach ($arrayCart as $item) {
                 $item->img_path = json_decode($item->img_path, true)[0];
             }
-            return view('shop.order_confirm', compact('styles', 'arrayCart', 'total', 'data', 'buyNow', 'flagCart','discount', 'totalDiscount'));
+            return view('shop.order_confirm', compact('styles', 'arrayCart', 'total', 'data', 'buyNow', 'flagCart', 'discount', 'totalDiscount'));
         } catch (\Exception $exception) {
             Log::error($exception);
             DB::rollBack();
@@ -473,12 +481,12 @@ class HomeController extends Controller
         $slug = $request->slug;
         $cart_old = Cart::query()->where('product_id', $id_dress)->where('customer_id', $customer_id)
             ->where('size', $size)->where('color', $color)->first();
-        if($cart_old){
+        if ($cart_old) {
             Cart::query()->where('id', $cart_old->id)->update([
                 'number' => $cart_old->number + 1,
                 'price' => $price,
             ]);
-        }else{
+        } else {
             Cart::query()->create([
                 'customer_id' => $customer_id,
                 'product_id' => $id_dress,
@@ -538,21 +546,21 @@ class HomeController extends Controller
     {
         $code = $request->code;
         $voucher = Voucher::query()->where('code', $code)->first();
-        if(!$voucher){
-            return response()->json(['success' => false,'msg' => 'The voucher is invalid'], 200);
+        if (!$voucher) {
+            return response()->json(['success' => false, 'msg' => 'The voucher is invalid'], 200);
         }
-        if($voucher->status == 1){
-            return response()->json(['success' => false,'msg' => 'The voucher has expired'], 200);
+        if ($voucher->status == 1) {
+            return response()->json(['success' => false, 'msg' => 'The voucher has expired'], 200);
         }
-        if($voucher->status == 0 && strtotime($voucher->start_time) > time()){
-            return response()->json(['success' => false,'msg' => 'The voucher is invalid'], 200);
+        if ($voucher->status == 0 && strtotime($voucher->start_time) > time()) {
+            return response()->json(['success' => false, 'msg' => 'The voucher is invalid'], 200);
         }
-        if($voucher->status == 0 && strtotime($voucher->start_time) < time() && strtotime($voucher->end_time) > time()){
+        if ($voucher->status == 0 && strtotime($voucher->start_time) < time() && strtotime($voucher->end_time) > time()) {
             $customer_id = Auth::guard('customers')->user()->id;
-            $checkVoucher = VoucherUser::query()->where('user_id', $customer_id)->where('voucher_id',$voucher->id)->first();
-            if($checkVoucher) {
+            $checkVoucher = VoucherUser::query()->where('user_id', $customer_id)->where('voucher_id', $voucher->id)->first();
+            if ($checkVoucher) {
                 return response()->json(['success' => false, 'msg' => 'The voucher has been used'], 200);
-            }else{
+            } else {
                 return response()->json(['success' => true, 'discount' => $voucher->discount], 200);
             }
         }

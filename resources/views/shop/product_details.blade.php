@@ -20,7 +20,6 @@
             </style>
             <div class="page-content page-content--product">
                 <div class="page-width">
-
                     <div class="grid grid--product-images--partial">
                         <div class="grid__item medium-up--one-half product-single__sticky">
                             <div data-product-images data-zoom="true" data-has-slideshow="true">
@@ -122,13 +121,16 @@
                                         <span id="addToCart">{{ __('Thêm vào giỏ hàng') }}</span>
                                     </button>
                                     @if(empty(auth()->guard('customers')->user()->name))
-                                    <p style="padding-top: unset;font-size: 12px;color: #7d0e0e">{{ __('Vui lòng đăng nhập để sử dụng chức năng giỏ hàng') }} <span><a href="{{ route('userLogin') }}" style="text-decoration: none;box-shadow: 0 3px black;">{{ __('Đăng nhập') }}</a></span></p>
+                                        <p style="padding-top: unset;font-size: 12px;color: #7d0e0e">{{ __('Vui lòng đăng nhập để sử dụng chức năng giỏ hàng') }}
+                                            <span><a href="{{ route('userLogin') }}"
+                                                     style="text-decoration: none;box-shadow: 0 3px black;">{{ __('Đăng nhập') }}</a></span>
+                                        </p>
                                     @endif
-{{--                                    <button type="button"--}}
-{{--                                            class="shopify-payment-button__button shopify-payment-button__button--unbranded _2ogcW-Q9I-rgsSkNbRiJzA _2EiMjnumZ6FVtlC7RViKtj _2-dUletcCZ2ZL1aaH0GXxT navigable"--}}
-{{--                                            data-testid="Checkout-button" id="contact_product" onclick="BuyNow()">Mua--}}
-{{--                                        ngay--}}
-{{--                                    </button>--}}
+                                    {{--                                    <button type="button"--}}
+                                    {{--                                            class="shopify-payment-button__button shopify-payment-button__button--unbranded _2ogcW-Q9I-rgsSkNbRiJzA _2EiMjnumZ6FVtlC7RViKtj _2-dUletcCZ2ZL1aaH0GXxT navigable"--}}
+                                    {{--                                            data-testid="Checkout-button" id="contact_product" onclick="BuyNow()">Mua--}}
+                                    {{--                                        ngay--}}
+                                    {{--                                    </button>--}}
                                     <div data-shopify="payment-button" class="shopify-payment-button">
                                         <button
                                             class="shopify-payment-button__button shopify-payment-button__button--unbranded shopify-payment-button__button--hidden"
@@ -144,9 +146,37 @@
                             </div>
                         </div>
                     </div>
+                    <br>
+
                 </div>
             </div>
 
+            <div class="col-12 " style="padding-left:20px">
+                ĐÁNH GIÁ - NHẬN XÉT TỪ KHÁCH HÀNG <br><br>
+                <div class="box" style="width: 85%; margin:auto">
+                    <table id="example1" class="table borderless">
+                        <tbody>
+                        @foreach($feedBacks as $item)
+                            <tr>
+                                <td>
+                                    <span style="text-transform: capitalize">
+                                    <b> <i class=" fa-user"></i> {{$item->name}}</b>
+                                    </span><br>
+                                    <p> {{$item->content}}</p>
+                                    @if( count($item->list_image) >0 )
+                                        @foreach($item->list_image as $value)
+                                            <img style="width: 150px; " src="{{$value}}" alt="">
+                                        @endforeach
+                                    @endif
+                                    <br>
+                                    <span style="color: rgb(120, 120, 120);"> Nhận xét vào ngày : {{$item->time}}</span>
+                                </td>
+                            </tr>
+                        @endforeach
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
         <div id="shopify-section-product-story-sections" class="shopify-section">
             <div class="page-blocks"></div>
@@ -221,4 +251,20 @@
             }
         </script>
 
-@endsection
+        @endsection
+
+        @push('js')
+            <script>
+                $(function () {
+                    $("#example1").DataTable({
+                        "responsive": true,
+                        "lengthChange": false,
+                        "autoWidth": false,
+                        "sort": false,
+                        'filter': false,
+                        'border-bottom': 0,
+                        'border-spacing': 0
+                    });
+                });
+            </script>
+    @endpush

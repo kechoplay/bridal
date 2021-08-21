@@ -3,12 +3,16 @@
 namespace App\Http\Controllers;
 
 use App\Address;
+use App\Colors;
 use App\Contact;
 use App\Customers;
+use App\Feedback;
 use App\Mail\MailOrder;
+use App\News;
 use App\OrderDetail;
 use App\Orders;
 use App\Policy;
+use App\Sizes;
 use App\SlideImage;
 use App\WeddingDressCategory;
 use App\DressProduct;
@@ -18,11 +22,13 @@ use Illuminate\Http\Request;
 use Illuminate\Routing\Route;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Mail;
+use PhpParser\Node\Expr\New_;
 
 
 class UserController extends Controller
@@ -141,12 +147,76 @@ class UserController extends Controller
         return view('user.history', compact('products'));
     }
 
-    public function orderView(Request  $request)
+    public function orderView(Request $request)
     {
         $product_id = $request->id;
-        $product = DressProduct::query()->where('id',$product_id)->first();
+        $product = DressProduct::query()->where('id', $product_id)->first();
         $product->image = json_decode($product->img_path, true)[0];
         return view('user.order', compact('product'));
+    }
+
+    public function sendFeedback(Request $request)
+    {
+        $imageList = [];
+        $images = $request->images;
+        $customer_id = Auth::guard('customers')->user()->id;
+        $path = public_path('image');
+        if (!File::exists($path))
+            File::makeDirectory($path, 0777, true);
+        foreach ($images as $key => $image) {
+            $name = $key . time() . '.' . $image->getClientOriginalExtension();
+            $image->move($path, $name);
+            $imageList[] = '/image/' . $name;
+        }
+        $data = [
+            'product_id' => $request->id,
+            'user_id' => $customer_id,
+            'content' => $request->msg_content,
+            'list_image' => json_encode($imageList)
+        ];
+        Feedback::create($data);
+        return back();
+    }
+
+    public function viewNew()
+    {
+        $product_id = 2;
+        $product = DressProduct::query()->where('id', $product_id)->first();
+        $product->image = json_decode($product->img_path, true)[0];
+
+
+        $customer_id = Auth::guard('customers')->user()->id;
+        $products = DB::table('orders')
+            ->where('customer_id', $customer_id)
+            ->join('order_detail', 'orders.id', '=', 'order_detail.order_id')
+            ->join('dress_product', 'order_detail.product_id', '=', 'dress_product.id')
+            ->select()
+            ->get();
+        foreach ($products as $product) {
+            $product->image = json_decode($product->img_path, true)[0];
+        }
+
+        return view('news.news',  compact('products'));
+    }
+
+    public function viewCreateNew()
+    {
+        $styles = WeddingDressCategory::all();
+        $colors = Colors::all();
+        $sizes = Sizes::all();
+        return view('news.create_new', compact('styles', 'colors', 'sizes'));
+    }
+
+    public function saveNew(Request $request)
+    {
+        $data = [
+            'title_vi' => $request->title_vi,
+            'title_en' => $request->title_en,
+            'description_vi' => $request->description_vi,
+            'description_en' => $request->description_en,
+        ];
+        News::create($data);
+        return back();
     }
 
 

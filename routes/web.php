@@ -79,6 +79,15 @@ Route::group(['middleware' => 'language'], function () {
 
         Route::get('/order/view/{id}', ['as' => 'order-view', 'uses' => 'UserController@orderView']);
 
+        Route::post('/order/send-feedback', ['as' => 'sendFeedback', 'uses' => 'UserController@sendFeedback']);
+
+        Route::get('/news/create/', ['as' => 'createView', 'uses' => 'UserController@viewCreateNew']);
+
+        Route::post('/news/save-new/', ['as' => 'saveNew', 'uses' => 'UserController@saveNew']);
+
+        Route::get('/news/list/', ['as' => 'listView', 'uses' => 'UserController@viewNew']);
+
+
     });
 
     Route::get('/collections/shop', ['as' => 'shop.listProducts', 'uses' => 'HomeController@listProducts']);

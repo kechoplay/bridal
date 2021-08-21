@@ -95,6 +95,28 @@
                     </ul>
                 </li>
                 <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas  fa-edit"></i>
+                        <p style="text-transform: capitalize">
+                            Update tin tức
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview" style="font-size: 14px">
+                        <li class="nav-item" >
+                            <a href="{{ route('listView') }}" class="nav-link">
+                                <i class="far  fa-list-alt" style="padding-right: 10px"></i> <p> Bảng tin</p>
+
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('createView') }}" class="nav-link" >
+                                <i class="far fa-plus-square"  style="padding-right: 10px"></i> <p>Tạo mới</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item">
                     <a href="{{ route('admin.policy') }}" class="nav-link">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
                         <p>Điều khoản</p>
@@ -134,6 +156,12 @@
                     <a href="{{ route('admin.discount') }}" class="nav-link">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
                         <p>Chương trình giảm giá</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ route('history') }}" class="nav-link">
+                        <i class="nav-icon fas fa-history"></i>
+                        <p>Lịch sử mua hàng</p>
                     </a>
                 </li>
             </ul>
