@@ -14,12 +14,12 @@
                 @endif
                 @if(!empty($arrayCart))
                     @foreach($arrayCart as $item)
-                        <div id="cart_{{@$item['id']}}" class="cart__item"
+                        <div id="cart_{{@$item['id_dress']}}" class="cart__item"
                              data-key="39724991643836:6a640714358ddd884a337230f47bc2da">
                             <div class="cart__image">
                                 <a href="/shop/product-details/{{$item['slug']}}"
                                    style="height: 0; padding-bottom: 150.0%;">
-                                    <img id="image_{{@$item['id']}}" class="lazyload"
+                                    <img id="image_{{@$item['id_dress']}}" class="lazyload"
                                          data-src="{{@$item['image']}}"
                                          data-widths="[180, 360, 540]"
                                          data-aspectratio=""
@@ -29,7 +29,7 @@
                             </div>
                             <div class="cart__item-details">
                                 <div class="cart__item-title">
-                                    <div id="name_{{@$item['id']}}">  {{ @$item['name'] }}</div>
+                                    <div id="name_{{@$item['id_dress']}}">  {{ @$item['name'] }}</div>
                                     {{--                                </a><div class="cart__item--variants"><div><span>Size:</span> 4</div><div><span>Color:</span> Sky Blue</div></div><div class="cart__item--variants">--}}
 
                                 </div>
@@ -40,7 +40,7 @@
                                                 for="cart_updates_39724991643836:6a640714358ddd884a337230f47bc2da-page"
                                                 class="hidden-label">Quantity</label>
                                             <input type="text"
-                                                   id="number_{{ @$item['id'] }}"
+                                                   id="number_{{ @$item['id_dress'] }}"
                                                    name="updates[]"
                                                    class="js-qty__num"
                                                    value="{{ @$item['number'] }}"
@@ -51,7 +51,7 @@
                                             <button type="button"
                                                     class="js-qty__adjust js-qty__adjust--minus"
                                                     aria-label="Reduce item quantity by one"
-                                                    onclick="SubProduct({{@$item['id']}})">
+                                                    onclick="SubProduct({{@$item['id_dress']}})">
                                                 <svg aria-hidden="true" focusable="false" role="presentation"
                                                      class="icon icon-minus" viewBox="0 0 20 20">
                                                     <path fill="#444"
@@ -62,7 +62,7 @@
                                             <button type="button"
                                                     class="js-qty__adjust js-qty__adjust--plus"
                                                     aria-label="Increase item quantity by one"
-                                                    onclick="AddProduct({{@$item['id']}})">
+                                                    onclick="AddProduct({{@$item['id_dress']}})">
                                                 <svg aria-hidden="true" focusable="false" role="presentation"
                                                      class="icon icon-plus" viewBox="0 0 20 20">
                                                     <path fill="#444"
@@ -73,15 +73,15 @@
                                         </div>
                                         <br>
                                         <div style="cursor: pointer" class="cart__remove text-link"
-                                             onclick="RemoveProduct({{@$item['id']}})">
-                                            Xóa
+                                             onclick="RemoveProduct({{@$item['id_dress']}})">
+                                            {{ __('Xóa') }}
                                         </div>
                                     </div>
 
                                     <div class="cart__item-price-col text-right">
-                                     <span class="cart__price" id="price_{{@$item['id']}}">
-                                        {{ @number_format($item['price'] * @$item['number']) }}
-                                      </span><span>VNĐ</span>
+                                     <span class="cart__price" id="price_{{@$item['id_dress']}}">
+                                        {{ @number_format($item['price'] * @$item['number']) }} {{ __('VNĐ') }}
+                                      </span>
                                     </div>
                                 </div>
                             </div>
@@ -94,12 +94,12 @@
                 </div>
                 <div class="cart__item-sub cart__item-row">
                     <div>Tổng</div>
-                    <div id="total_{{@$item['id']}}" style="float: right">{{@number_format($total)}}</div><span>VNĐ</span>
+                    <div id="total_{{@$item['id_dress']}}" style="float: right">{{@number_format($total)}} {{ __('VNĐ') }}</div>
                 </div>
                 <div class="cart__item-row cart__checkout-wrapper">
                     <button id="buy_product" name="checkout" data-terms-required="false" class="btn cart__checkout"
                             @if(@$total == 0)disabled="disable" @endif onclick="BuyCart()">
-                        Đặt hàng
+                        {{ __('Đặt hàng') }}
                     </button>
                     <div class="additional-checkout-buttons">
                         <div class="dynamic-checkout__content" id="dynamic-checkout-cart"
@@ -118,5 +118,103 @@
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
     <script type='text/javascript' src='/js/jquery-migrate.min.js' id='jquery-migrate-js'></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script type='text/javascript' src='/js/cart.js'></script>
+{{--    <script type='text/javascript' src='/js/cart.js'></script>--}}
+    <script>
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+
+        function SubProduct(id_sub) {
+            ajaxCart(id_add=null,id_sub,id_remove=null);
+        }
+        function AddProduct(id_add) {
+            ajaxCart(id_add,id_sub=null,id_remove=null);
+        }
+        function RemoveProduct(id_remove) {
+            ajaxCart(id_add=null,id_sub=null,id_remove);
+        }
+        function ajaxCart(id_add,id_sub,id_remove) {
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+            $.ajax({
+                url: '/shop/ajax-cart',
+                type: 'post',
+                data: {id_add: id_add, id_sub: id_sub, id_remove: id_remove},
+                success: function (data) {
+                    if(data){
+                        if(data.flagAction == 1){
+                            $('#number_'+data.id).val(data.number);
+                            var price= number_format(data.price)+' {{ __('VNĐ') }}';
+                            var total= number_format(data.total)+' {{ __('VNĐ') }}';
+                            $('#price_'+data.id).text(price);
+                            $('#total_'+data.id).text(total);
+
+                        }
+                        if(data.flagAction == 2){
+                            if(data.number == 0){
+                                $('#cart_'+data.id).hide();
+                            }
+                            console.log('total'+data.total);
+                            $('#number_'+data.id).val(data.number);
+                            var price2= number_format(data.price)+' {{ __('VNĐ') }}';
+                            var total2= number_format(data.total)+' {{ __('VNĐ') }}';
+                            $('#price_'+data.id).text(price2);
+                            $('#total_'+data.id).text(total2);
+                            if(data.total == 0){
+                                $('#buy_product').attr('disabled', true);;
+                            }
+
+                        }
+                        if(data.flagAction == 3){
+                            $('#cart_'+data.id).hide();
+                            var total3= number_format(data.total)+' {{ __('VNĐ') }}';
+                            $('#total_'+data.id).text(total3);
+                            if(data.total == 0){
+                                $('#buy_product').attr('disabled', true);;
+                            }
+                        }
+                    }
+                },error: function (e){
+                    console.log('Lỗi! thay đổi thất bại');
+                }
+            })
+
+        }
+
+        function BuyCart() {
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+            $.ajax({
+                url: '/shop/ajax-buy-cart',
+                type: 'post',
+                data: {},
+                success: function (data) {
+                    window.location.href = '/shop/cart-info';
+                },error: function (e){
+                    console.log('Lỗi! Mua giỏ hàng');
+                }
+            })
+
+        }
+
+        function number_format(number,decimals,dec_point,thousands_sep) {
+            number  = number*1;//makes sure `number` is numeric value
+            var str = number.toFixed(decimals?decimals:0).toString().split('.');
+            var parts = [];
+            for ( var i=str[0].length; i>0; i-=3 ) {
+                parts.unshift(str[0].substring(Math.max(0,i-3),i));
+            }
+            str[0] = parts.join(thousands_sep?thousands_sep:',');
+            return str.join(dec_point?dec_point:'.');
+        }
+
+    </script>
 @endsection

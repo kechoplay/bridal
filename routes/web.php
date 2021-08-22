@@ -87,7 +87,7 @@ Route::group(['middleware' => 'language'], function () {
 
         Route::get('/news/list/', ['as' => 'listView', 'uses' => 'UserController@viewNew']);
 
-
+        Route::post('/shop/check-voucher', ['as' => 'checkVoucher', 'uses' => 'HomeController@checkVoucher']);
     });
 
     Route::get('/collections/shop', ['as' => 'shop.listProducts', 'uses' => 'HomeController@listProducts']);
@@ -158,6 +158,8 @@ Route::group(['prefix' => 'admin', 'middleware' => ['admin_access']], function (
     Route::get('/order/detail/{id}', ['as' => 'admin.orderDetail', 'uses' => 'Admin\BridalController@orderDetail']);
 
     Route::post('/order/detail/change-status', ['as' => 'admin.changeStatus', 'uses' => 'Admin\BridalController@changeStatus']);
+
+    Route::post('/order/detail/save-data', ['as' => 'admin.changeStatus', 'uses' => 'Admin\BridalController@saveDate']);
 
     Route::get('/sizes', ['as' => 'admin.sizes', 'uses' => 'Admin\BridalController@sizeManagement']);
 

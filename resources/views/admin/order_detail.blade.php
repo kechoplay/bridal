@@ -10,8 +10,11 @@
                     <div class="col-sm-4">
                         <select class="form-control" name="status" id="status">
                             <option value="0" {{ $order->status == 0 ? 'selected' : '' }}>Chưa xử lý</option>
-                            <option value="1" {{ $order->status == 1 ? 'selected' : '' }}>Đang xử lý</option>
-                            <option value="2" {{ $order->status == 2 ? 'selected' : '' }}>Hoàn thành</option>
+                            <option value="0" {{ $order->status == 1 ? 'selected' : '' }}>Chưa thanh toán</option>
+                            <option value="0" {{ $order->status == 2 ? 'selected' : '' }}>Đã thanh toán</option>
+                            <option value="1" {{ $order->status == 3 ? 'selected' : '' }}>Đang xử lý</option>
+                            <option value="2" {{ $order->status == 4 ? 'selected' : '' }}>Hoàn thành</option>
+                            <option value="2" {{ $order->status == 5 ? 'selected' : '' }}>Hủy đơn hàng</option>
                         </select>
                     </div>
                     <button class="btn btn-primary col-md-2" onclick="changeStatus()">Đổi trạng thái</button>
@@ -33,6 +36,9 @@
                                 Địa chỉ : <span><strong>{{ $order->address }}</strong></span><br>
                                 Điện thoại : <span><strong>{{ $order->mobile }}</strong></span><br>
                                 Email : <span><strong>{{ $order->email }}</strong></span><br>
+                                Ngày chuyển hàng: <input type="date" id="send_date" name="send_date" value="{{ $order->send_date }}">
+                                Mã vận đơn: <input type="text" id="code" name="code" value="{{ $order->code }}">
+                                <button class="btn btn-primary col-md-2" onclick="saveDate()">Lưu</button>
                                 <style type="text/css">
                                     th, td {
                                         border: 1px thin black;
@@ -94,6 +100,27 @@
                 data: {
                     status: $('#status').val(),
                     id: $('#order_id').val()
+                },
+                success: function (data) {
+                    window.location.reload()
+                }
+
+            })
+        }
+
+        function saveDate() {
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+            $.ajax({
+                url: '/admin/order/detail/save-data',
+                method: 'post',
+                data: {
+                    id: $('#order_id').val(),
+                    send_date: $('#send_date').val(),
+                    code: $('#code').val()
                 },
                 success: function (data) {
                     window.location.reload()

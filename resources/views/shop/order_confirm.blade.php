@@ -140,318 +140,33 @@
                 <div class="shown-if-js" data-alternative-payments>
                 </div>
             </header>
-                <p id="msg_success" class="note note--success" data-open-accessibility-text-original="16px" style="font-size: 16px;color: white;background-color: green;padding: 5px">
-                    Đặt hàng thành công! Thông tin đơn hàng sẽ được gửi đến mail của bạn
-                </p>
+            <p id="msg_success" class="note note--success" data-open-accessibility-text-original="16px"
+               style="font-size: 16px;color: white;background-color: green;padding: 5px">
+                {{ __('Đặt hàng thành công') }}
+            </p>
             <main class="main__content" role="main" style="padding-top: 0.8em !important;">
                 <div class="step" data-step="shipping_method" data-last-step="false">
-                        <input type="hidden" name="previous_step" id="previous_step" value="shipping_method"/>
-                        <input type="hidden" name="step" value="payment_method"/>
-                        <div class="step__sections">
-                            <div class="section">
-                                <div class="content-box">
-                                    <div role="table" class="content-box__row content-box__row--tight-spacing-vertical">
-                                        <div role="row" class="review-block">
-                                            <div class="review-block__inner">
-                                                <div role="rowheader" class="review-block__label">
-                                                    Tên:
-                                                </div>
-                                                <div role="cell" class="review-block__content">
-                                                    <bdo dir="ltr">{{$data['name']}}</bdo>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div role="row" class="review-block">
-                                            <div class="review-block__inner">
-                                                <div role="rowheader" class="review-block__label">
-                                                    Email đặt:
-                                                </div>
-                                                <div role="cell" class="review-block__content">
-                                                    <bdo dir="ltr">{{$data['email']}}</bdo>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div role="row" class="review-block">
-                                            <div class="review-block__inner">
-                                                <div role="rowheader" class="review-block__label">
-                                                    Địa chỉ:
-                                                </div>
-                                                <div role="cell" class="review-block__content">
-                                                    <address class="address address--tight">
-                                                        {{$data['address']}}
-                                                    </address>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div role="row" class="review-block">
-                                            <div class="review-block__inner">
-                                                <div role="rowheader" class="review-block__label">
-                                                   SĐT:
-                                                </div>
-                                                <div role="cell" class="review-block__content">
-                                                    <bdo dir="ltr">{{$data['phone']}}</bdo>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div role="row" class="review-block">
-                                            <div class="review-block__inner">
-                                                <div role="rowheader" class="review-block__label">
-                                                    Ghi chú:
-                                                </div>
-                                                <div role="cell" class="review-block__content">
-                                                    <address class="address address--tight">
-                                                        {{$data['note']}}
-                                                    </address>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                            <div class="step__footer row" data-step-footer style="text-align: center">
-                                <a class="step__footer__previous-link" href="{{route('shop.listProducts')}}"><button class="btn btn-primary" style="background-color: #a7a7a1;color: black; padding: 5px !important;">Quay lại mua sắm</button></a>
-                            </div>
+
+                    <div class="step__footer row" data-step-footer style="text-align: center">
+                        <a class="step__footer__previous-link" href="{{route('shop.listProducts')}}">
+                            <button class="btn btn-primary"
+                                    style="background-color: #a7a7a1;color: black;">{{ __('Quay lại mua sắm') }}
+                            </button>
+                        </a>
+                    </div>
                 </div>
             </main>
             <footer class="main__footer" role="contentinfo">
-{{--                <ul class="policy-list" role="list">--}}
-{{--                    <li class="policy-list__item ">--}}
-{{--                        <a aria-haspopup="dialog" data-modal="policy-refund-policy" data-title-text="Refund policy"--}}
-{{--                           data-close-text="Close" data-iframe="true"--}}
-{{--                           href="/5466033/policies/refund-policy.html?locale=en">Refund policy</a>--}}
-{{--                    </li>--}}
-{{--                    <li class="policy-list__item ">--}}
-{{--                        <a aria-haspopup="dialog" data-modal="policy-privacy-policy" data-title-text="Privacy policy"--}}
-{{--                           data-close-text="Close" data-iframe="true"--}}
-{{--                           href="/5466033/policies/privacy-policy.html?locale=en">Privacy policy</a>--}}
-{{--                    </li>--}}
-{{--                    <li class="policy-list__item ">--}}
-{{--                        <a aria-haspopup="dialog" data-modal="policy-terms-of-service"--}}
-{{--                           data-title-text="Terms of service" data-close-text="Close" data-iframe="true"--}}
-{{--                           href="/5466033/policies/terms-of-service.html?locale=en">Terms of service</a>--}}
-{{--                    </li>--}}
-{{--                </ul>--}}
-
-
             </footer>
         </div>
-        <aside class="sidebar" role="complementary" style="padding-top: 1em !important;">
-            <div class="sidebar__header">
-
-                <a class="logo logo--left" href="{{ route('homeIndex') }}"><span
-                        class="logo__text heading-1">THEIA</span></a>
-
-                <h1 class="visually-hidden">
-                    Shipping
-                </h1>
-
-
-            </div>
-            <div class="sidebar__content">
-                <div id="order-summary" class="order-summary order-summary--is-collapsed" data-order-summary>
-                    <h2 class="" style="font-weight: 700">Tổng đơn đặt hàng</h2>
-
-                    <div class="order-summary__sections">
-                        <div class="order-summary__section order-summary__section--product-list">
-                            <div class="order-summary__section__content">
-                                <table class="product-table">
-                                    <caption style="font-weight: 700">Danh sách</caption>
-                                    <thead class="product-table__header">
-                                    <tr>
-                                        <th scope="col"><span >Ảnh</span></th>
-                                        <th scope="col"><span >Tên sản phẩm</span></th>
-                                        <th scope="col"><span class="visually-hidden">Quantity</span></th>
-                                        <th scope="col"><span >giá</span></th>
-                                    </tr>
-                                    </thead>
-                                    <tbody data-order-summary-section="line-items">
-                                    @if(!empty($arrayCart) && $flagCart == 0)
-                                    @foreach($arrayCart as $item)
-                                    <tr class="product" data-product-id="6694897647804" data-variant-id="39724991643836"
-                                        data-product-type="Cocktail" data-customer-ready-visible>
-                                        <td class="product__image">
-                                            <div class="product-thumbnail ">
-                                                <div class="product-thumbnail__wrapper">
-                                                    <img alt="" class="product-thumbnail__image" src="{{ $item->img_path }}" height="200" width="200"/>
-                                                </div>
-                                                <span class="product-thumbnail__quantity" aria-hidden="true">{{ $item->quantity }}</span>
-                                            </div>
-
-                                        </td>
-                                        <th class="product__description" scope="row">
-                                            <span class="product__description__name order-summary__emphasis" style="text-align: center">{{ $item->name }}</span>
-{{--                                            <span class="product__description__variant order-summary__small-text">4 / Sky Blue</span>--}}
-
-                                        </th>
-                                        <td class="product__quantity">
-                                         <span class="visually-hidden">{{ $item->quantity }}</span>
-                                        </td>
-                                        <td class="product__price">
-                                            <span class="order-summary__emphasis skeleton-while-loading">
-                                                @if(!empty($item->sale_price))
-                                                {{ @number_format($item->sale_price) }}
-                                                @endif
-                                                    @if(empty($item->sale_price))
-                                                        {{ @number_format($item->price) }}
-                                                    @endif
-                                                vnđ</span>
-                                        </td>
-                                    </tr>
-                                    @endforeach
-                                    @endif
-                                    @if(!empty($buyNow) && $flagCart == 1)
-                                        <tr class="product" data-product-id="6694897647804" data-variant-id="39724991643836"
-                                            data-product-type="Cocktail" data-customer-ready-visible>
-                                            <td class="product__image">
-                                                <div class="product-thumbnail ">
-                                                    <div class="product-thumbnail__wrapper">
-                                                        <img alt="" class="product-thumbnail__image" src="{{@$buyNow['image']}}" height="200" width="200"/>
-                                                    </div>
-                                                    <span class="product-thumbnail__quantity" aria-hidden="true">{{@$buyNow['number']}}</span>
-                                                </div>
-
-                                            </td>
-                                            <th class="product__description" scope="row">
-                                                <span class="product__description__name order-summary__emphasis" style="text-align: center">{{@$buyNow['name']}}</span>
-                                                {{--                                            <span class="product__description__variant order-summary__small-text">4 / Sky Blue</span>--}}
-
-                                            </th>
-                                            <td class="product__quantity">
-                                                <span class="visually-hidden">{{@$buyNow['number']}}</span>
-                                            </td>
-                                            <td class="product__price">
-                                            <span
-                                                class="order-summary__emphasis skeleton-while-loading">{{@number_format($buyNow['price'])}} vnđ</span>
-                                            </td>
-                                        </tr>
-                                    @endif
-                                    @if(empty($arrayCart) && $flagCart == 0)
-                                        <p>Chưa có sản phẩm nào trong giỏ hàng<p>
-                                    @endif
-                                    @if(empty($buyNow) && $flagCart == 1)
-                                        <p>Chưa có sản phẩm nào trong giỏ hàng<p>
-                                    @endif
-                                    @if(empty($arrayCart) && empty($buyNow)  && $flagCart == -1)
-                                        <p>Chưa có sản phẩm nào trong giỏ hàng<p>
-                                    @endif
-                                    </tbody>
-                                </table>
-
-                                <div class="order-summary__scroll-indicator" aria-hidden="true" tabindex="-1">
-                                    Cuộn để xen sản phẩm
-                                    <svg aria-hidden="true" focusable="false" class="icon-svg icon-svg--size-12">
-                                        <use xlink:href="#down-arrow"/>
-                                    </svg>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="order-summary__section order-summary__section--total-lines"
-                             data-order-summary-section="payment-lines">
-                            <table class="total-line-table">
-                                <tbody class="total-line-table__tbody">
-                                <tr class="total-line total-line--subtotal">
-                                    <th class="total-line__name" scope="row">total old</th>
-                                    <td class="total-line__price">
-                                <span id ="total_old" class="order-summary__emphasis skeleton-while-loading" data-checkout-subtotal-price-target="72640">
-                                     @if($flagCart == 0)
-                                        {{@number_format($total)}}
-                                    @endif
-                                    @if($flagCart == 1)
-                                        {{@number_format($buyNow['price'])}}
-                                    @endif
-                                    @if($flagCart == -1)
-                                        0
-                                    @endif
-                                </span><span>VNĐ</span>
-                                    </td>
-                                </tr>
-                                @if(!empty($totalDiscount))
-                                <tr class="total-line total-line--subtotal" id="show_total_subvoucher" >
-                                    <th class="total-line__name" scope="row">apply voucher <span id="show_apply_voucher"> (-{{$discount}}%)</span></th>
-                                    <td class="total-line__price">
-                                        <span>-</span>
-                                <span id ="sub_voucher" class="order-summary__emphasis skeleton-while-loading" data-checkout-subtotal-price-target="72640">
-
-                                </span>{{ number_format($totalDiscount) }}<span> VNĐ</span>
-                                    </td>
-                                </tr>
-                                @endif
-                                <tr class="total-line total-line--shipping">
-                                    <th class="total-line__name" scope="row">
-                                <span>
-                                    Shipping
-                                </span>
-
-                                    </th>
-                                    <td class="total-line__price">
-                            <span class="skeleton-while-loading order-summary__small-text" data-checkout-total-shipping-target="0">
-                                Calculated at next step
-                                    </span>
-                                    </td>
-                                </tr>
-                                </tbody>
-                                <tfoot class="total-line-table__footer">
-                                <tr class="total-line">
-                                    <th class="total-line__name payment-due-label" scope="row">
-                                        <span class="payment-due-label__total">Tổng</span>
-                                    </th>
-                                    <td class="total-line__price payment-due" data-presentment-currency="USD">
-                                        <span class="payment-due__price skeleton-while-loading--lg">
-                                         @if(!empty($totalDiscount))
-                                            @if($flagCart == 0)
-                                                {{@number_format($total-$totalDiscount)}}
-                                            @endif
-                                            @if($flagCart == 1)
-                                                {{@number_format($buyNow['price']-$totalDiscount)}}
-                                            @endif
-                                            @if($flagCart == -1)
-                                                0
-                                            @endif
-                                          @endif
-                                             @if(empty($totalDiscount))
-                                                 @if($flagCart == 0)
-                                                     {{@number_format($total)}}
-                                                 @endif
-                                                 @if($flagCart == 1)
-                                                     {{@number_format($buyNow['price'])}}
-                                                 @endif
-                                                 @if($flagCart == -1)
-                                                     0
-                                                 @endif
-                                             @endif
-                                        </span>
-                                        <span class="payment-due__currency remove-while-loading">VNĐ</span>
-                                    </td>
-                                </tr>
-
-                                </tfoot>
-                            </table>
-
-                        </div>
-                    </div>
-                </div>
-
-                <div class="visually-hidden" data-order-summary-section="accessibility-live-region">
-                    <div aria-live="polite" aria-atomic="true" role="status">
-                        Updated total price:
-                        <span data-checkout-payment-due-target="573553">
-                        $5,735.53
-                     </span>
-                    </div>
-                </div>
-
-            </div>
-        </aside>
     </div>
 </div>
 <script type='text/javascript' src='/js/jquery-migrate.min.js' id='jquery-migrate-js'></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script>
-    setTimeout(function() {
+    setTimeout(function () {
         $('#msg_success').hide();
-    },4000);
+    }, 4000);
 </script>
 </body>
 </html>
