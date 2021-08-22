@@ -16,41 +16,61 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-body">
-                                <table id="example1" class="table table-bordered ">
+                                <table id="example2" class="table table-bordered ">
                                     <thead>
                                     <tr>
-                                        <th>Mã đơn hàng</th>
-                                        <th>Ngày mua</th>
-                                        <th>Sản phẩm</th>
-                                        <th>Tổng tiền</th>
-                                        <th class="text-right"> Trạng thái đơn <br> hàng</th>
+                                        <th>No</th>
+                                        <th>Tiêu đề</th>
+                                        <th>Nội dung</th>
+                                        <th>Trạng thái</th>
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    @foreach($products as $product)
+                                    @foreach($news as  $key => $new)
                                         <tr>
                                             <td>
-                                                <a href="{{ route('order-view', ['id' => $product->id]) }}"> {{$product->id}}</a>
-                                            </td>
-                                            <td>{{$product->order_date}}</td>
-                                            <td>
-                                                {{ $product->name}}
+                                                {{$key +1 }}
                                             </td>
                                             <td>
-                                                {{$product->price * $product->quantity}} ₫
+                                                <div class="box-title">
+                                                    <span>
+                                                       <b> Tiều đề :</b>
+                                                    </span>
+                                                    <br>
+                                                    <span style="padding-left: 10px;"> {{$new->title_vi}}</span>
+                                                </div>
+                                                <div class="box-title" style="color: rgb(142, 142, 142);">
+                                                    <span>
+                                                       <b> Title :</b>
+                                                    </span>
+                                                    <br>
+                                                    <span style="padding-left: 10px">  {{$new->title_en}}</span>
+                                                </div>
                                             </td>
-                                            <td class="text-right" style="text-transform: capitalize;">
-                                                @switch($product->status)
-                                                    @case(0)
-                                                    <span style=""> Đã xử lý </span>
-                                                    @break
-                                                    @case(1)
-                                                    <span style="color: greenyellow">  Đang xử lý</span>
-                                                    @break
-                                                    @case(2)
-                                                    <span style="  color: green"> Giao thành công</span>
-                                                    @break
-                                                @endswitch
+                                            <td>
+                                                <div class="box-title">
+                                                    <span>
+                                                       <b> Nội dung :</b>
+                                                    </span>
+                                                    <br>
+                                                    <span style="padding-left: 10px;">  {!! $new->description_vi !!} </span>
+                                                </div>
+                                                <div class="box-title">
+                                                    <span>
+                                                       <b> Description :</b>
+                                                    </span>
+                                                    <br>
+                                                    <span style="padding-left: 10px;">  {!! $new->description_en !!} </span>
+                                                </div>
+                                                <br>
+                                            </td>
+                                            <td>
+                                                @if($new->status == 0 )
+                                                    <span> Đợi đăng </span>
+                                                @endif
+                                                @if($new->status == 1 )
+                                                    <span style="color: green"> Đã đăng </span>
+                                                @endif
                                             </td>
                                         </tr>
                                     @endforeach
@@ -67,7 +87,7 @@
 @push('js')
     <script>
         $(function () {
-            $("#example1").DataTable({
+            $("#example2").DataTable({
                 "responsive": true,
                 "lengthChange": false,
                 "autoWidth": false,

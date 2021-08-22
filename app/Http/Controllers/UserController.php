@@ -180,23 +180,8 @@ class UserController extends Controller
 
     public function viewNew()
     {
-        $product_id = 2;
-        $product = DressProduct::query()->where('id', $product_id)->first();
-        $product->image = json_decode($product->img_path, true)[0];
-
-
-        $customer_id = Auth::guard('customers')->user()->id;
-        $products = DB::table('orders')
-            ->where('customer_id', $customer_id)
-            ->join('order_detail', 'orders.id', '=', 'order_detail.order_id')
-            ->join('dress_product', 'order_detail.product_id', '=', 'dress_product.id')
-            ->select()
-            ->get();
-        foreach ($products as $product) {
-            $product->image = json_decode($product->img_path, true)[0];
-        }
-
-        return view('news.news',  compact('products'));
+        $news = News::all();
+        return view('news.news',  compact('news'));
     }
 
     public function viewCreateNew()
