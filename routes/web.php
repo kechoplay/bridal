@@ -72,6 +72,8 @@ Route::group(['middleware' => 'language'], function () {
         Route::post('/account/address-save/{id}', ['as' => 'addressSave', 'uses' => 'UserController@addressSave']);
 
         Route::post('/account/address-destroy', ['as' => 'addressDestroy', 'uses' => 'UserController@addressDestroy']);
+
+        Route::post('/shop/check-voucher', ['as' => 'checkVoucher', 'uses' => 'HomeController@checkVoucher']);
     });
 
     Route::get('/collections/shop', ['as' => 'shop.listProducts', 'uses' => 'HomeController@listProducts']);

@@ -10,7 +10,10 @@ use App\Mail\MailOrder;
 use App\OrderDetail;
 use App\Orders;
 use App\Policy;
+use App\ShippingMethod;
 use App\SlideImage;
+use App\Voucher;
+use App\VoucherUser;
 use App\WeddingDressCategory;
 use App\DressProduct;
 use App\StyleDress;
@@ -281,9 +284,16 @@ class HomeController extends Controller
         $arrayCart = null;
         if (Session::has('cart')) {
             $arrayCart = Session::get('cart');
-            foreach ($arrayCart as $cart) {
-                $total += ($cart['price'] * $cart['number']);
-
+            $language = Session::get('language');
+            foreach ($arrayCart as $key => $cart) {
+                $product = DressProduct::where('id', $cart['id_dress'])->first();
+                if ($language == 'en') {
+                    $priceNew = $product->price_en;
+                } else {
+                    $priceNew = $product->price;
+                }
+                $arrayCart[$key]['price'] = $priceNew;
+                $total += ($priceNew * $cart['number']);
             }
         }
         return view('shop.cart_index', compact('styles', 'arrayCart', 'total'));
@@ -296,6 +306,7 @@ class HomeController extends Controller
         $number = 0;
         $price = 0;
         $arrayCart = null;
+        $language = Session::get('language');
         if (!empty($request->id_add)) {
             $id = $request->id_add;
             $flagAction = 1;
@@ -352,7 +363,14 @@ class HomeController extends Controller
         if (Session::has('cart')) {
             $arrayCart = Session::get('cart');
             foreach ($arrayCart as $key => $cart) {
-                $total += ($cart['price'] * $cart['number']);
+                $product = DressProduct::where('id', $cart['id_dress'])->first();
+                if ($language == 'en') {
+                    $priceNew = $product->price_en;
+                } else {
+                    $priceNew = $product->price;
+                }
+                $arrayCart[$key]['price'] = $priceNew;
+                $total += ($priceNew * $cart['number']);
             }
         }
         return response()->json(['success' => true, 'arrayCart' => $arrayCart, 'total' => $total,
@@ -382,9 +400,24 @@ class HomeController extends Controller
         } else {
             $flagCart = -1;
         }
+
+        $language = Session::get('language');
+        $shippingMethod = ShippingMethod::get();
+        foreach ($shippingMethod as $item) {
+            if ($language == 'en') {
+                $item->ship_name = $item->ship_name_en;
+                $item->ship_time = $item->ship_time_en;
+                $item->ship_fee = $item->ship_fee_en;
+            } else {
+                $item->ship_name = $item->ship_name_vi;
+                $item->ship_time = $item->ship_time_vi;
+                $item->ship_fee = $item->ship_fee_vi;
+            }
+        }
+
         $customer_id = Auth::guard('customers')->user()->id;
         $address = Address::query()->where('customer_id', $customer_id)->first();
-        return view('shop.cart_info', compact('styles', 'arrayCart', 'total', 'buyNow', 'flagCart', 'totalNow', 'address'));
+        return view('shop.cart_info', compact('styles', 'arrayCart', 'total', 'buyNow', 'flagCart', 'totalNow', 'address', 'shippingMethod'));
     }
 
     public function orderConfirm(Request $request)
@@ -510,6 +543,35 @@ class HomeController extends Controller
             Session::push("flagCart", 0);
         }
         return response()->json(['success' => true], 200);
+    }
+
+    public function checkVoucher(Request $request)
+    {
+        $voucher = $request->voucher;
+        $vouchers = Voucher::where('code', $voucher)->first();
+        $total = 0;
+        $message = '';
+        if ($vouchers) {
+            $userId = Auth::guard('customers')->user()->id;
+            $voucherUser = VoucherUser::where('voucher_id', $vouchers->id)->where('user_id', $userId)->first();
+            if (!$voucherUser) {
+                if (Session::has('cart')) {
+                    $arrayCart = Session::get('cart');
+                    foreach ($arrayCart as $cart) {
+                        $total += ($cart['price'] * $cart['number']);
+                    }
+
+                    if ($vouchers->discount > 0)
+                        $total = ceil($total - ($total * ($vouchers->discount / 100)));
+                }
+            } else {
+                $message = 'Voucher đã đc sử dụng';
+            }
+        } else {
+            $message = 'Voucher not exist';
+        }
+
+        return response()->json(['total' => $total, 'message' => $message]);
     }
 
 }

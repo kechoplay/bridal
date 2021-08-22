@@ -14,6 +14,11 @@
         ajaxCart(id_add=null,id_sub=null,id_remove);
     }
     function ajaxCart(id_add,id_sub,id_remove) {
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
         $.ajax({
             url: '/shop/ajax-cart',
             type: 'post',
@@ -60,6 +65,11 @@
     }
 
     function BuyCart() {
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
         $.ajax({
             url: '/shop/ajax-buy-cart',
             type: 'post',

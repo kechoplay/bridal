@@ -30,5 +30,22 @@
     "Địa chỉ": "Address",
     "Thêm địa chỉ": "Add address",
     "Sửa địa chỉ": "Edit address",
-    "Điện thoại": "Phone"
+    "Điện thoại": "Phone",
+    "Email đặt hàng": "Email order",
+    "Lưu địa chỉ": "Save address",
+    "Tài khoản": "My account",
+    "Chi tiết tài khoản": "Account details",
+    "Xóa địa chỉ": "Delete Address",
+    "Đăng xuất": "Log out",
+    "Ảnh": "Image",
+    "Danh sách": "List",
+    "Giá": "Price",
+    "Tổng": "Total",
+    "Đặt hàng": "Order",
+    "Xóa": "Delete",
+    "Địa chỉ nhận hàng": "Delivery address",
+    "Thông Tin Đặt Hàng": "Order Information",
+    "Chưa có sản phẩm nào trong giỏ hàng": "There are no products in the cart yet",
+    "Tổng đơn đặt hàng": "Total orders",
+    "Quay lại giỏ hàng": "Back to cart"
 }

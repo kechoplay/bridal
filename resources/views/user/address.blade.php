@@ -27,10 +27,10 @@
                              <input type="tel" id="phone_order" class="input-full" name="phone_order" @if(!empty($address))value="{{ $address->phone }}"@endif required>
                          </div>
                      </div>
-                    <label for="AddressAddress1New">Email order</label>
+                    <label for="AddressAddress1New">{{ __('Email order') }}</label>
                     <input type="text" id="email_order" class="input-full" name="email_order"  @if(!empty($address))value="{{ $address->email }}"@endif autocapitalize="words" required>
 
-                    <label for="AddressAddress2New">Address</label>
+                    <label for="AddressAddress2New">{{ __('Address') }}</label>
                     <input type="text" id="address_order" class="input-full" name="address_order"  @if(!empty($address))value="{{ $address->address }}"@endif autocapitalize="words" required>
 
 
@@ -42,17 +42,14 @@
                     <p>
                         @if(empty($address))
                         <button type="submit" class="btn">
-                            Add address
+                            {{ __('Add address') }}
                         </button>
                         @endif
                         @if(!empty($address))
                             <button type="submit" class="btn">
-                                 Save address
+                                 {{ __('Save address') }}
                             </button>
                         @endif
-                    </p>
-                    <p>
-                        <a href="{{ route('userDetail') }}"><button type="button" class="text-link address-new-toggle">Back</button></a>
                     </p>
                  </form>
            </div>

@@ -74,13 +74,13 @@
                                         <br>
                                         <div style="cursor: pointer" class="cart__remove text-link"
                                              onclick="RemoveProduct({{@$item['id_dress']}})">
-                                            Xóa
+                                            {{ __('Xóa') }}
                                         </div>
                                     </div>
 
                                     <div class="cart__item-price-col text-right">
                                      <span class="cart__price" id="price_{{@$item['id_dress']}}">
-                                        {{ @number_format($item['price'] * @$item['number']) }} VNĐ
+                                        {{ @number_format($item['price'] * @$item['number']) }} {{ __('VNĐ') }}
                                       </span>
                                     </div>
                                 </div>
@@ -94,12 +94,12 @@
                 </div>
                 <div class="cart__item-sub cart__item-row">
                     <div>Tổng</div>
-                    <div id="total_{{@$item['id_dress']}}" style="float: right">{{@number_format($total)}} VNĐ</div>
+                    <div id="total_{{@$item['id_dress']}}" style="float: right">{{@number_format($total)}} {{ __('VNĐ') }}</div>
                 </div>
                 <div class="cart__item-row cart__checkout-wrapper">
                     <button id="buy_product" name="checkout" data-terms-required="false" class="btn cart__checkout"
                             @if(@$total == 0)disabled="disable" @endif onclick="BuyCart()">
-                        Đặt hàng
+                        {{ __('Đặt hàng') }}
                     </button>
                     <div class="additional-checkout-buttons">
                         <div class="dynamic-checkout__content" id="dynamic-checkout-cart"
@@ -118,5 +118,103 @@
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
     <script type='text/javascript' src='/js/jquery-migrate.min.js' id='jquery-migrate-js'></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script type='text/javascript' src='/js/cart.js'></script>
+{{--    <script type='text/javascript' src='/js/cart.js'></script>--}}
+    <script>
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+
+        function SubProduct(id_sub) {
+            ajaxCart(id_add=null,id_sub,id_remove=null);
+        }
+        function AddProduct(id_add) {
+            ajaxCart(id_add,id_sub=null,id_remove=null);
+        }
+        function RemoveProduct(id_remove) {
+            ajaxCart(id_add=null,id_sub=null,id_remove);
+        }
+        function ajaxCart(id_add,id_sub,id_remove) {
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+            $.ajax({
+                url: '/shop/ajax-cart',
+                type: 'post',
+                data: {id_add: id_add, id_sub: id_sub, id_remove: id_remove},
+                success: function (data) {
+                    if(data){
+                        if(data.flagAction == 1){
+                            $('#number_'+data.id).val(data.number);
+                            var price= number_format(data.price)+' {{ __('VNĐ') }}';
+                            var total= number_format(data.total)+' {{ __('VNĐ') }}';
+                            $('#price_'+data.id).text(price);
+                            $('#total_'+data.id).text(total);
+
+                        }
+                        if(data.flagAction == 2){
+                            if(data.number == 0){
+                                $('#cart_'+data.id).hide();
+                            }
+                            console.log('total'+data.total);
+                            $('#number_'+data.id).val(data.number);
+                            var price2= number_format(data.price)+' {{ __('VNĐ') }}';
+                            var total2= number_format(data.total)+' {{ __('VNĐ') }}';
+                            $('#price_'+data.id).text(price2);
+                            $('#total_'+data.id).text(total2);
+                            if(data.total == 0){
+                                $('#buy_product').attr('disabled', true);;
+                            }
+
+                        }
+                        if(data.flagAction == 3){
+                            $('#cart_'+data.id).hide();
+                            var total3= number_format(data.total)+' {{ __('VNĐ') }}';
+                            $('#total_'+data.id).text(total3);
+                            if(data.total == 0){
+                                $('#buy_product').attr('disabled', true);;
+                            }
+                        }
+                    }
+                },error: function (e){
+                    console.log('Lỗi! thay đổi thất bại');
+                }
+            })
+
+        }
+
+        function BuyCart() {
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+            $.ajax({
+                url: '/shop/ajax-buy-cart',
+                type: 'post',
+                data: {},
+                success: function (data) {
+                    window.location.href = '/shop/cart-info';
+                },error: function (e){
+                    console.log('Lỗi! Mua giỏ hàng');
+                }
+            })
+
+        }
+
+        function number_format(number,decimals,dec_point,thousands_sep) {
+            number  = number*1;//makes sure `number` is numeric value
+            var str = number.toFixed(decimals?decimals:0).toString().split('.');
+            var parts = [];
+            for ( var i=str[0].length; i>0; i-=3 ) {
+                parts.unshift(str[0].substring(Math.max(0,i-3),i));
+            }
+            str[0] = parts.join(thousands_sep?thousands_sep:',');
+            return str.join(dec_point?dec_point:'.');
+        }
+
+    </script>
 @endsection
