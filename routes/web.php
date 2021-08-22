@@ -61,6 +61,8 @@ Route::group(['middleware' => 'language'], function () {
 
         Route::post('/shop/ajax-buy-cart', ['as' => 'shop.ajaxBuyCart', 'uses' => 'HomeController@ajaxBuyCart']);
 
+        Route::post('/shop/check-discount', ['as' => 'checkDiscount', 'uses' => 'HomeController@checkDiscount']);
+
         Route::get('/account/user-detail', ['as' => 'userDetail', 'uses' => 'UserController@userDetail']);
 
         Route::get('/account/user-logout', ['as' => 'userLogout', 'uses' => 'UserController@userlogout']);

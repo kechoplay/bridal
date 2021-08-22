@@ -273,23 +273,29 @@
                                         <td class="product__image">
                                             <div class="product-thumbnail ">
                                                 <div class="product-thumbnail__wrapper">
-                                                    <img alt="" class="product-thumbnail__image" src="{{ @$item['image'] }}" height="200" width="200"/>
+                                                    <img alt="" class="product-thumbnail__image" src="{{ $item->img_path }}" height="200" width="200"/>
                                                 </div>
-                                                <span class="product-thumbnail__quantity" aria-hidden="true">{{ @$item['number'] }}</span>
+                                                <span class="product-thumbnail__quantity" aria-hidden="true">{{ $item->quantity }}</span>
                                             </div>
 
                                         </td>
                                         <th class="product__description" scope="row">
-                                            <span class="product__description__name order-summary__emphasis" style="text-align: center">{{ @$item['name'] }}</span>
+                                            <span class="product__description__name order-summary__emphasis" style="text-align: center">{{ $item->name }}</span>
 {{--                                            <span class="product__description__variant order-summary__small-text">4 / Sky Blue</span>--}}
 
                                         </th>
                                         <td class="product__quantity">
-                                         <span class="visually-hidden">{{ @$item['number'] }}</span>
+                                         <span class="visually-hidden">{{ $item->quantity }}</span>
                                         </td>
                                         <td class="product__price">
-                                            <span
-                                                class="order-summary__emphasis skeleton-while-loading">{{ @number_format($item['price']) }} đ</span>
+                                            <span class="order-summary__emphasis skeleton-while-loading">
+                                                @if(!empty($item->sale_price))
+                                                {{ @number_format($item->sale_price) }}
+                                                @endif
+                                                    @if(empty($item->sale_price))
+                                                        {{ @number_format($item->price) }}
+                                                    @endif
+                                                vnđ</span>
                                         </td>
                                     </tr>
                                     @endforeach
@@ -316,7 +322,7 @@
                                             </td>
                                             <td class="product__price">
                                             <span
-                                                class="order-summary__emphasis skeleton-while-loading">{{@number_format($buyNow['price'])}} đ</span>
+                                                class="order-summary__emphasis skeleton-while-loading">{{@number_format($buyNow['price'])}} vnđ</span>
                                             </td>
                                         </tr>
                                     @endif
@@ -344,6 +350,48 @@
                         <div class="order-summary__section order-summary__section--total-lines"
                              data-order-summary-section="payment-lines">
                             <table class="total-line-table">
+                                <tbody class="total-line-table__tbody">
+                                <tr class="total-line total-line--subtotal">
+                                    <th class="total-line__name" scope="row">total old</th>
+                                    <td class="total-line__price">
+                                <span id ="total_old" class="order-summary__emphasis skeleton-while-loading" data-checkout-subtotal-price-target="72640">
+                                     @if($flagCart == 0)
+                                        {{@number_format($total)}}
+                                    @endif
+                                    @if($flagCart == 1)
+                                        {{@number_format($buyNow['price'])}}
+                                    @endif
+                                    @if($flagCart == -1)
+                                        0
+                                    @endif
+                                </span><span>VNĐ</span>
+                                    </td>
+                                </tr>
+                                @if(!empty($totalDiscount))
+                                <tr class="total-line total-line--subtotal" id="show_total_subvoucher" >
+                                    <th class="total-line__name" scope="row">apply voucher <span id="show_apply_voucher"> (-{{$discount}}%)</span></th>
+                                    <td class="total-line__price">
+                                        <span>-</span>
+                                <span id ="sub_voucher" class="order-summary__emphasis skeleton-while-loading" data-checkout-subtotal-price-target="72640">
+
+                                </span>{{ number_format($totalDiscount) }}<span> VNĐ</span>
+                                    </td>
+                                </tr>
+                                @endif
+                                <tr class="total-line total-line--shipping">
+                                    <th class="total-line__name" scope="row">
+                                <span>
+                                    Shipping
+                                </span>
+
+                                    </th>
+                                    <td class="total-line__price">
+                            <span class="skeleton-while-loading order-summary__small-text" data-checkout-total-shipping-target="0">
+                                Calculated at next step
+                                    </span>
+                                    </td>
+                                </tr>
+                                </tbody>
                                 <tfoot class="total-line-table__footer">
                                 <tr class="total-line">
                                     <th class="total-line__name payment-due-label" scope="row">
@@ -351,15 +399,28 @@
                                     </th>
                                     <td class="total-line__price payment-due" data-presentment-currency="USD">
                                         <span class="payment-due__price skeleton-while-loading--lg">
-                                          @if($flagCart == 0)
-                                                {{@number_format($total)}}
+                                         @if(!empty($totalDiscount))
+                                            @if($flagCart == 0)
+                                                {{@number_format($total-$totalDiscount)}}
                                             @endif
                                             @if($flagCart == 1)
-                                                {{@number_format($buyNow['price'])}}
+                                                {{@number_format($buyNow['price']-$totalDiscount)}}
                                             @endif
                                             @if($flagCart == -1)
                                                 0
                                             @endif
+                                          @endif
+                                             @if(empty($totalDiscount))
+                                                 @if($flagCart == 0)
+                                                     {{@number_format($total)}}
+                                                 @endif
+                                                 @if($flagCart == 1)
+                                                     {{@number_format($buyNow['price'])}}
+                                                 @endif
+                                                 @if($flagCart == -1)
+                                                     0
+                                                 @endif
+                                             @endif
                                         </span>
                                         <span class="payment-due__currency remove-while-loading">VNĐ</span>
                                     </td>

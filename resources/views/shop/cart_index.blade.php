@@ -14,12 +14,12 @@
                 @endif
                 @if(!empty($arrayCart))
                     @foreach($arrayCart as $item)
-                        <div id="cart_{{@$item['id_dress']}}" class="cart__item"
+                        <div id="cart_{{@$item['id']}}" class="cart__item"
                              data-key="39724991643836:6a640714358ddd884a337230f47bc2da">
                             <div class="cart__image">
                                 <a href="/shop/product-details/{{$item['slug']}}"
                                    style="height: 0; padding-bottom: 150.0%;">
-                                    <img id="image_{{@$item['id_dress']}}" class="lazyload"
+                                    <img id="image_{{@$item['id']}}" class="lazyload"
                                          data-src="{{@$item['image']}}"
                                          data-widths="[180, 360, 540]"
                                          data-aspectratio=""
@@ -29,7 +29,7 @@
                             </div>
                             <div class="cart__item-details">
                                 <div class="cart__item-title">
-                                    <div id="name_{{@$item['id_dress']}}">  {{ @$item['name'] }}</div>
+                                    <div id="name_{{@$item['id']}}">  {{ @$item['name'] }}</div>
                                     {{--                                </a><div class="cart__item--variants"><div><span>Size:</span> 4</div><div><span>Color:</span> Sky Blue</div></div><div class="cart__item--variants">--}}
 
                                 </div>
@@ -40,7 +40,7 @@
                                                 for="cart_updates_39724991643836:6a640714358ddd884a337230f47bc2da-page"
                                                 class="hidden-label">Quantity</label>
                                             <input type="text"
-                                                   id="number_{{ @$item['id_dress'] }}"
+                                                   id="number_{{ @$item['id'] }}"
                                                    name="updates[]"
                                                    class="js-qty__num"
                                                    value="{{ @$item['number'] }}"
@@ -51,7 +51,7 @@
                                             <button type="button"
                                                     class="js-qty__adjust js-qty__adjust--minus"
                                                     aria-label="Reduce item quantity by one"
-                                                    onclick="SubProduct({{@$item['id_dress']}})">
+                                                    onclick="SubProduct({{@$item['id']}})">
                                                 <svg aria-hidden="true" focusable="false" role="presentation"
                                                      class="icon icon-minus" viewBox="0 0 20 20">
                                                     <path fill="#444"
@@ -62,7 +62,7 @@
                                             <button type="button"
                                                     class="js-qty__adjust js-qty__adjust--plus"
                                                     aria-label="Increase item quantity by one"
-                                                    onclick="AddProduct({{@$item['id_dress']}})">
+                                                    onclick="AddProduct({{@$item['id']}})">
                                                 <svg aria-hidden="true" focusable="false" role="presentation"
                                                      class="icon icon-plus" viewBox="0 0 20 20">
                                                     <path fill="#444"
@@ -73,13 +73,13 @@
                                         </div>
                                         <br>
                                         <div style="cursor: pointer" class="cart__remove text-link"
-                                             onclick="RemoveProduct({{@$item['id_dress']}})">
+                                             onclick="RemoveProduct({{@$item['id']}})">
                                             {{ __('Xóa') }}
                                         </div>
                                     </div>
 
                                     <div class="cart__item-price-col text-right">
-                                     <span class="cart__price" id="price_{{@$item['id_dress']}}">
+                                     <span class="cart__price" id="price_{{@$item['id']}}">
                                         {{ @number_format($item['price'] * @$item['number']) }} {{ __('VNĐ') }}
                                       </span>
                                     </div>
@@ -94,7 +94,7 @@
                 </div>
                 <div class="cart__item-sub cart__item-row">
                     <div>Tổng</div>
-                    <div id="total_{{@$item['id_dress']}}" style="float: right">{{@number_format($total)}} {{ __('VNĐ') }}</div>
+                    <div id="total_{{@$item['id']}}" style="float: right">{{@number_format($total)}} {{ __('VNĐ') }}</div>
                 </div>
                 <div class="cart__item-row cart__checkout-wrapper">
                     <button id="buy_product" name="checkout" data-terms-required="false" class="btn cart__checkout"

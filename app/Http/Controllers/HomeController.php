@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Address;
+use App\Cart;
 use App\Contact;
 use App\Customers;
 use App\Discount;
@@ -280,6 +281,7 @@ class HomeController extends Controller
     public function cartIndex()
     {
         $styles = WeddingDressCategory::all();
+        $customer_id = Auth::guard('customers')->user()->id;
         $total = 0;
         $arrayCart = null;
         if (Session::has('cart')) {
@@ -296,6 +298,13 @@ class HomeController extends Controller
                 $total += ($priceNew * $cart['number']);
             }
         }
+//        if (Session::has('cart')) {
+//            $arrayCart = Session::get('cart');
+//            foreach ($arrayCart as $cart) {
+//                $total += ($cart['price'] * $cart['number']);
+//
+//            }
+//        }
         return view('shop.cart_index', compact('styles', 'arrayCart', 'total'));
     }
 
@@ -310,45 +319,31 @@ class HomeController extends Controller
         if (!empty($request->id_add)) {
             $id = $request->id_add;
             $flagAction = 1;
-            if (Session::has('cart')) {
-                $arrayCart = Session::get('cart');
-                foreach ($arrayCart as &$cart) {
-                    if ($cart['id_dress'] == $id) {
-                        $cart['number']++;
-                        $price = $cart['number'] * $cart['price'];
-                        $number = $cart['number'];
-                    }
-                }
-                Session::put('cart', $arrayCart);
+            $cart = Cart::query()->where('id', $id)->first();
+            if ($cart) {
+                Cart::query()->where('id', $id)->update(['number' => ($cart->number + 1)]);
+                $price = ($cart->number + 1) * $cart->price;
+                $number = $cart->number + 1;
             }
+
         } else if (!empty($request->id_sub)) {
             $id = $request->id_sub;
-            $price = 0;
             $flagAction = 2;
-            if (Session::has('cart')) {
-                $arrayCart = Session::get('cart');
-                foreach ($arrayCart as &$cart) {
-                    if ($cart['id_dress'] == $id) {
-                        $cart['number']--;
-                        $price = $cart['number'] * $cart['price'];
-                        $number = $cart['number'];
-                    }
+            $cart = Cart::query()->where('id', $id)->first();
+            if ($cart) {
+                if (($cart->number - 1) == 0) {
+                    Cart::query()->where('id', $id)->delete();
+                } else {
+                    Cart::query()->where('id', $id)->update(['number' => ($cart->number - 1)]);
+                    $price = ($cart->number - 1) * $cart->price;
+                    $number = $cart->number - 1;
                 }
-                Session::put('cart', $arrayCart);
             }
 
         } else if (!empty($request->id_remove)) {
             $id = $request->id_remove;
             $flagAction = 3;
-            if (Session::has('cart')) {
-                $arrayCart = Session::get('cart');
-                foreach ($arrayCart as $key => $cart) {
-                    if ($cart['id_dress'] == $id) {
-                        unset($arrayCart[$key]);
-                    }
-                }
-            }
-            Session::put('cart', $arrayCart);
+            Cart::query()->where('id', $id)->delete();
         }
         $total = 0;
         if (Session::has('cart')) {
@@ -382,8 +377,9 @@ class HomeController extends Controller
         $styles = WeddingDressCategory::all();
         $total = 0;
         $totalNow = 0;
-        if (Session::has('cart')) {
-            $arrayCart = Session::get('cart');
+        $customer_id = Auth::guard('customers')->user()->id;
+        $arrayCart = Cart::query()->where('customer_id',$customer_id)->get()->toArray();
+        if ($arrayCart) {
             foreach ($arrayCart as $cart) {
                 $total += ($cart['price'] * $cart['number']);
             }
@@ -426,8 +422,23 @@ class HomeController extends Controller
         try {
             $styles = WeddingDressCategory::all();
             $total = 0;
-            if (Session::has('cart')) {
-                $arrayCart = Session::get('cart');
+            $customer_id = Auth::guard('customers')->user()->id;
+            if (!Session::has('flagCart')) {
+                return redirect()->route('homeIndex');
+            }
+            $voucherCode = $request->voucher_code;
+            $discount = null;
+            $totalDiscount = null;
+            if($voucherCode){
+                $voucher = Voucher::query()->where('code', $voucherCode)->where('status', 0)->first();
+                $discount = $voucher->discount;
+                $userVoucher = VoucherUser::query()->create([
+                   'voucher_id' => $voucher->id,
+                    'user_id' => $customer_id,
+                ]);
+            }
+            $arrayCart = Cart::query()->where('customer_id', $customer_id)->get()->toArray();
+            if ($arrayCart) {
                 $orders = Orders::create([
                     'name' => $request->name_order,
                     'mobile' => $request->phone_order,
@@ -442,16 +453,22 @@ class HomeController extends Controller
                     $total += ($cart['price'] * $cart['number']);
                     OrderDetail::create([
                         'order_id' => $orders->id,
-                        'dress_id' => $cart['id_dress'],
+                        'dress_id' => $cart['product_id'],
                         'quantity' => $cart['number'],
                         'price' => $cart['price']
                     ]);
+                }
+                if($discount){
+                    $totalDiscount = ($total*$discount)/100;
                 }
             } else {
                 $arrayCart = null;
             }
             if (Session::has('buyNow')) {
                 $buyNow = Session::get('buyNow');
+                if($discount) {
+                    $totalDiscount = ($buyNow['price'] * $discount) / 100;
+                }
             } else {
                 $buyNow = null;
             }
@@ -468,11 +485,19 @@ class HomeController extends Controller
                 'note' => $request->note_order,
             ];
             Mail::to($request->email_order)->send(new MailOrder($data, $arrayCart, $buyNow, $flagCart, $total));
-            Session::forget('cart');
+            $arrayCart = Cart::query()->where('customer_id', $customer_id)->get();
+            foreach ($arrayCart as $cart){
+                $cart->delete();
+            }
             Session::forget('buyNow');
             Session::forget('flagCart');
             DB::commit();
-            return view('shop.order_confirm', compact('styles', 'arrayCart', 'total', 'data', 'buyNow', 'flagCart'));
+            $arrayCart = OrderDetail::query()->leftJoin('dress_product','order_detail.dress_id','dress_product.id')
+                ->where('order_detail.order_id', $orders->id)->get();
+            foreach ( $arrayCart as $item) {
+                $item->img_path = json_decode($item->img_path, true)[0];
+            }
+            return view('shop.order_confirm', compact('styles', 'arrayCart', 'total', 'data', 'buyNow', 'flagCart','discount', 'totalDiscount'));
         } catch (\Exception $exception) {
             Log::error($exception);
             DB::rollBack();
@@ -482,27 +507,35 @@ class HomeController extends Controller
 
     public function ajaxAddCart(Request $request)
     {
+        $customer_id = Auth::guard('customers')->user()->id;
         $id_dress = $request->id;
         $name = $request->name;
         $price = $request->price;
         $image = $request->image;
+        $size = $request->size;
+        $color = $request->color;
         $slug = $request->slug;
-        $flag = 0;
-        if (Session::has('cart')) {
-            $arrayCart = Session::get('cart');
-            foreach ($arrayCart as &$cart) {
-                if ($cart['id_dress'] == $id_dress) {
-                    $cart['number'] += 1;
-                    $flag = 1;
-                }
-            }
-            Session::put('cart', $arrayCart);
-            if ($flag == 0) {
-                Session::push("cart", ['id_dress' => $id_dress, 'name' => $name, 'price' => $price, 'image' => $image, 'slug' => $slug, 'number' => 1]);
-            }
-        } else {
-            Session::push("cart", ['id_dress' => $id_dress, 'name' => $name, 'price' => $price, 'image' => $image, 'slug' => $slug, 'number' => 1]);
+        $cart_old = Cart::query()->where('product_id', $id_dress)->where('customer_id', $customer_id)
+            ->where('size', $size)->where('color', $color)->first();
+        if($cart_old){
+            Cart::query()->where('id', $cart_old->id)->update([
+                'number' => $cart_old->number + 1,
+                'price' => $price,
+            ]);
+        }else{
+            Cart::query()->create([
+                'customer_id' => $customer_id,
+                'product_id' => $id_dress,
+                'name' => $name,
+                'image' => $image,
+                'size' => $size,
+                'color' => $color,
+                'slug' => $slug,
+                'number' => 1,
+                'price' => $price,
+            ]);
         }
+
         return response()->json(['success' => true], 200);
     }
 
