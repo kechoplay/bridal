@@ -359,6 +359,17 @@ class BridalController extends Controller
         return response()->json(['success' => true], 200);
     }
 
+    public function saveDate(Request $request)
+    {
+        $orderId = $request->id;
+        $sendDate = $request->send_date;
+        $code = $request->code;
+
+        Orders::where('id', $orderId)->update(['send_date' => $sendDate, 'code' => $code]);
+
+        return response()->json(['success' => true], 200);
+    }
+
     public function sizeManagement()
     {
         $sizes = Sizes::all();

@@ -42,9 +42,15 @@
                                                 @if($order->status == 0)
                                                     Chưa xử lý
                                                 @elseif($order->status == 1)
+                                                    Chưa thanh toán
+                                                @elseif($order->status == 2)
+                                                    Đã thanh toán
+                                                @elseif($order->status == 3)
                                                     Đang xử lý
-                                                @else
+                                                @elseif($order->status == 4)
                                                     Hoàn thành
+                                                @else
+                                                    Hủy đơn hàng
                                                 @endif
                                             </td>
                                             <td>

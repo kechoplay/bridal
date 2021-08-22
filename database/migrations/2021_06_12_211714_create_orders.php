@@ -20,6 +20,9 @@ class CreateOrders extends Migration
             $table->string('address')->nullable();
             $table->string('email')->nullable();
             $table->text('note')->nullable();
+            $table->date('wedding_date')->nullable();
+            $table->date('send_date')->nullable();
+            $table->string('code')->nullable();
             $table->integer('total')->nullable()->default(0);
             $table->dateTime('order_date')->nullable();
             $table->integer('status')->nullable()->default(0)->comment('0: da xu ly; 1: dang xu ly; 2: thanh cong');

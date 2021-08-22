@@ -23,8 +23,8 @@
             if(data){
                 if(data.flagAction == 1){
                     $('#number_'+data.id).val(data.number);
-                    var price= number_format(data.price);
-                    var total= number_format(data.total);
+                    var price= number_format(data.price)+' VNĐ';
+                    var total= number_format(data.total)+' VNĐ';
                     $('#price_'+data.id).text(price);
                     $('#total_'+data.id).text(total);
 
@@ -35,8 +35,8 @@
                     }
                     console.log('total'+data.total);
                     $('#number_'+data.id).val(data.number);
-                    var price2= number_format(data.price);
-                    var total2= number_format(data.total);
+                    var price2= number_format(data.price)+' VNĐ';
+                    var total2= number_format(data.total)+' VNĐ';
                     $('#price_'+data.id).text(price2);
                     $('#total_'+data.id).text(total2);
                     if(data.total == 0){
@@ -46,7 +46,7 @@
                 }
                 if(data.flagAction == 3){
                     $('#cart_'+data.id).hide();
-                    var total3= number_format(data.total);
+                    var total3= number_format(data.total)+' VNĐ';
                     $('#total_'+data.id).text(total3);
                     if(data.total == 0){
                         $('#buy_product').attr('disabled', true);;

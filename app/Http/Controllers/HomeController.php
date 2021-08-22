@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Address;
-use App\Cart;
 use App\Contact;
 use App\Customers;
 use App\Discount;
@@ -281,7 +280,6 @@ class HomeController extends Controller
     public function cartIndex()
     {
         $styles = WeddingDressCategory::all();
-        $customer_id = Auth::guard('customers')->user()->id;
         $total = 0;
         $arrayCart = null;
         if (Session::has('cart')) {
@@ -298,13 +296,6 @@ class HomeController extends Controller
                 $total += ($priceNew * $cart['number']);
             }
         }
-//        if (Session::has('cart')) {
-//            $arrayCart = Session::get('cart');
-//            foreach ($arrayCart as $cart) {
-//                $total += ($cart['price'] * $cart['number']);
-//
-//            }
-//        }
         return view('shop.cart_index', compact('styles', 'arrayCart', 'total'));
     }
 
@@ -319,31 +310,45 @@ class HomeController extends Controller
         if (!empty($request->id_add)) {
             $id = $request->id_add;
             $flagAction = 1;
-            $cart = Cart::query()->where('id', $id)->first();
-            if ($cart) {
-                Cart::query()->where('id', $id)->update(['number' => ($cart->number + 1)]);
-                $price = ($cart->number + 1) * $cart->price;
-                $number = $cart->number + 1;
+            if (Session::has('cart')) {
+                $arrayCart = Session::get('cart');
+                foreach ($arrayCart as &$cart) {
+                    if ($cart['id_dress'] == $id) {
+                        $cart['number']++;
+                        $price = $cart['number'] * $cart['price'];
+                        $number = $cart['number'];
+                    }
+                }
+                Session::put('cart', $arrayCart);
             }
-
         } else if (!empty($request->id_sub)) {
             $id = $request->id_sub;
+            $price = 0;
             $flagAction = 2;
-            $cart = Cart::query()->where('id', $id)->first();
-            if ($cart) {
-                if (($cart->number - 1) == 0) {
-                    Cart::query()->where('id', $id)->delete();
-                } else {
-                    Cart::query()->where('id', $id)->update(['number' => ($cart->number - 1)]);
-                    $price = ($cart->number - 1) * $cart->price;
-                    $number = $cart->number - 1;
+            if (Session::has('cart')) {
+                $arrayCart = Session::get('cart');
+                foreach ($arrayCart as &$cart) {
+                    if ($cart['id_dress'] == $id) {
+                        $cart['number']--;
+                        $price = $cart['number'] * $cart['price'];
+                        $number = $cart['number'];
+                    }
                 }
+                Session::put('cart', $arrayCart);
             }
 
         } else if (!empty($request->id_remove)) {
             $id = $request->id_remove;
             $flagAction = 3;
-            Cart::query()->where('id', $id)->delete();
+            if (Session::has('cart')) {
+                $arrayCart = Session::get('cart');
+                foreach ($arrayCart as $key => $cart) {
+                    if ($cart['id_dress'] == $id) {
+                        unset($arrayCart[$key]);
+                    }
+                }
+            }
+            Session::put('cart', $arrayCart);
         }
         $total = 0;
         if (Session::has('cart')) {
@@ -377,9 +382,8 @@ class HomeController extends Controller
         $styles = WeddingDressCategory::all();
         $total = 0;
         $totalNow = 0;
-        $customer_id = Auth::guard('customers')->user()->id;
-        $arrayCart = Cart::query()->where('customer_id',$customer_id)->get()->toArray();
-        if ($arrayCart) {
+        if (Session::has('cart')) {
+            $arrayCart = Session::get('cart');
             foreach ($arrayCart as $cart) {
                 $total += ($cart['price'] * $cart['number']);
             }
@@ -422,53 +426,44 @@ class HomeController extends Controller
         try {
             $styles = WeddingDressCategory::all();
             $total = 0;
-            $customer_id = Auth::guard('customers')->user()->id;
-            if (!Session::has('flagCart')) {
-                return redirect()->route('homeIndex');
-            }
-            $voucherCode = $request->voucher_code;
-            $discount = null;
-            $totalDiscount = null;
-            if($voucherCode){
-                $voucher = Voucher::query()->where('code', $voucherCode)->where('status', 0)->first();
-                $discount = $voucher->discount;
-                $userVoucher = VoucherUser::query()->create([
-                   'voucher_id' => $voucher->id,
-                    'user_id' => $customer_id,
-                ]);
-            }
-            $arrayCart = Cart::query()->where('customer_id', $customer_id)->get()->toArray();
-            if ($arrayCart) {
+            $now = Carbon::now()->format('Y-m-d H:i:s');
+            $voucherCode = $request->voucher;
+            $vouchers = Voucher::where('code', $voucherCode)->where('start_time', '<', $now)->where('end_time', '>', $now)->first();
+            if (Session::has('cart')) {
+                $arrayCart = Session::get('cart');
                 $orders = Orders::create([
                     'name' => $request->name_order,
                     'mobile' => $request->phone_order,
                     'address' => $request->address_order,
                     'email' => $request->email_order,
                     'note' => $request->note_order,
-//                'total' => $total,
+                    'wedding_date' => $request->wedding_date,
                     'order_date' => Carbon::now(),
                     'status' => 0,
                 ]);
+                $userId = Auth::guard('customers')->user()->id;
                 foreach ($arrayCart as $cart) {
                     $total += ($cart['price'] * $cart['number']);
+                    if ($vouchers) {
+                        $price = ceil($cart['price'] - ($cart['price'] * ($vouchers->discount / 100)));
+                    }else
+                        $price = $cart['price'];
                     OrderDetail::create([
                         'order_id' => $orders->id,
-                        'dress_id' => $cart['product_id'],
+                        'dress_id' => $cart['id_dress'],
                         'quantity' => $cart['number'],
-                        'price' => $cart['price']
+                        'price' => $price
                     ]);
                 }
-                if($discount){
-                    $totalDiscount = ($total*$discount)/100;
+                if ($vouchers) {
+                    $total = ceil($total - ($total * ($vouchers->discount / 100)));
+                    VoucherUser::create(['voucher_id' => $vouchers->id, 'user_id' => $userId]);
                 }
             } else {
                 $arrayCart = null;
             }
             if (Session::has('buyNow')) {
                 $buyNow = Session::get('buyNow');
-                if($discount) {
-                    $totalDiscount = ($buyNow['price'] * $discount) / 100;
-                }
             } else {
                 $buyNow = null;
             }
@@ -485,19 +480,11 @@ class HomeController extends Controller
                 'note' => $request->note_order,
             ];
             Mail::to($request->email_order)->send(new MailOrder($data, $arrayCart, $buyNow, $flagCart, $total));
-            $arrayCart = Cart::query()->where('customer_id', $customer_id)->get();
-            foreach ($arrayCart as $cart){
-                $cart->delete();
-            }
+            Session::forget('cart');
             Session::forget('buyNow');
             Session::forget('flagCart');
             DB::commit();
-            $arrayCart = OrderDetail::query()->leftJoin('dress_product','order_detail.dress_id','dress_product.id')
-                ->where('order_detail.order_id', $orders->id)->get();
-            foreach ( $arrayCart as $item) {
-                $item->img_path = json_decode($item->img_path, true)[0];
-            }
-            return view('shop.order_confirm', compact('styles', 'arrayCart', 'total', 'data', 'buyNow', 'flagCart','discount', 'totalDiscount'));
+            return view('shop.order_confirm', compact('styles', 'arrayCart', 'total', 'data', 'buyNow', 'flagCart'));
         } catch (\Exception $exception) {
             Log::error($exception);
             DB::rollBack();
@@ -507,35 +494,27 @@ class HomeController extends Controller
 
     public function ajaxAddCart(Request $request)
     {
-        $customer_id = Auth::guard('customers')->user()->id;
         $id_dress = $request->id;
         $name = $request->name;
         $price = $request->price;
         $image = $request->image;
-        $size = $request->size;
-        $color = $request->color;
         $slug = $request->slug;
-        $cart_old = Cart::query()->where('product_id', $id_dress)->where('customer_id', $customer_id)
-            ->where('size', $size)->where('color', $color)->first();
-        if($cart_old){
-            Cart::query()->where('id', $cart_old->id)->update([
-                'number' => $cart_old->number + 1,
-                'price' => $price,
-            ]);
-        }else{
-            Cart::query()->create([
-                'customer_id' => $customer_id,
-                'product_id' => $id_dress,
-                'name' => $name,
-                'image' => $image,
-                'size' => $size,
-                'color' => $color,
-                'slug' => $slug,
-                'number' => 1,
-                'price' => $price,
-            ]);
+        $flag = 0;
+        if (Session::has('cart')) {
+            $arrayCart = Session::get('cart');
+            foreach ($arrayCart as &$cart) {
+                if ($cart['id_dress'] == $id_dress) {
+                    $cart['number'] += 1;
+                    $flag = 1;
+                }
+            }
+            Session::put('cart', $arrayCart);
+            if ($flag == 0) {
+                Session::push("cart", ['id_dress' => $id_dress, 'name' => $name, 'price' => $price, 'image' => $image, 'slug' => $slug, 'number' => 1]);
+            }
+        } else {
+            Session::push("cart", ['id_dress' => $id_dress, 'name' => $name, 'price' => $price, 'image' => $image, 'slug' => $slug, 'number' => 1]);
         }
-
         return response()->json(['success' => true], 200);
     }
 
@@ -581,7 +560,8 @@ class HomeController extends Controller
     public function checkVoucher(Request $request)
     {
         $voucher = $request->voucher;
-        $vouchers = Voucher::where('code', $voucher)->first();
+        $now = Carbon::now()->format('Y-m-d H:i:s');
+        $vouchers = Voucher::where('code', $voucher)->where('start_time', '<', $now)->where('end_time', '>', $now)->first();
         $total = 0;
         $message = '';
         if ($vouchers) {

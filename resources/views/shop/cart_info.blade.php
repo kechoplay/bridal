@@ -287,10 +287,20 @@
                                             </div>
                                             <div data-address-field="address2" data-autocomplete-field-container="true"
                                                  class="field field--optional">
+                                                <div class="field__input-wrapper">
+                                                    <input name="wedding_date" id="wedding_date"
+                                                           placeholder="{{ __('Ngày cưới') }}"
+                                                           autocomplete="shipping address-line2" autocorrect="off"
+                                                           data-backup="address2" class="field__input" size="30"
+                                                           type="date"/>
+                                                </div>
+                                            </div>
+                                            <div data-address-field="address2" data-autocomplete-field-container="true"
+                                                 class="field field--optional">
                                                 <label class="label">{{ __('Phương thức thanh toán') }} </label>
                                                 <div class="field__input-wrapper">
                                                     @foreach($shippingMethod as $method)
-                                                        <input type="radio" id="shipping_method" name="shipping_method" value="{{ $method->id }}"> {{ $method->ship_name . ' - ' . $method->ship_time . ' - ' . $method->ship_fee . __('VNĐ') }}
+                                                        <input type="radio" required id="shipping_method" name="shipping_method" value="{{ $method->id }}"> {{ $method->ship_name . ' - ' . $method->ship_time . ' - ' . $method->ship_fee . __('VNĐ') }}
                                                     @endforeach
                                                 </div>
                                             </div>

@@ -147,6 +147,8 @@ Route::group(['prefix' => 'admin', 'middleware' => ['admin_access']], function (
 
     Route::post('/order/detail/change-status', ['as' => 'admin.changeStatus', 'uses' => 'Admin\BridalController@changeStatus']);
 
+    Route::post('/order/detail/save-data', ['as' => 'admin.changeStatus', 'uses' => 'Admin\BridalController@saveDate']);
+
     Route::get('/sizes', ['as' => 'admin.sizes', 'uses' => 'Admin\BridalController@sizeManagement']);
 
     Route::post('/sizes', ['as' => 'admin.saveNewSize', 'uses' => 'Admin\BridalController@saveNewSize']);
