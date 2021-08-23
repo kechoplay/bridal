@@ -23,6 +23,10 @@
                                 @csrf
                                 <div class="card-body">
                                     <div class="form-group">
+                                        <label for="name">Thêm ảnh / Add image</label> <br>
+                                        <input type="file" class="" id="image" name="image" required>
+                                    </div>
+                                    <div class="form-group">
                                         <label for="name">Tên sản phẩm VI</label>
                                         <input type="text" class="form-control" id="name" name="title_vi" required>
                                     </div>

@@ -181,7 +181,7 @@ class UserController extends Controller
     public function viewNew()
     {
         $news = News::all();
-        return view('news.news',  compact('news'));
+        return view('news.news', compact('news'));
     }
 
     public function viewCreateNew()
@@ -194,11 +194,20 @@ class UserController extends Controller
 
     public function saveNew(Request $request)
     {
+        $image = $request->image;
+        $path = public_path('image');
+        $customer_id = Auth::guard('customers')->user()->id;
+        if (!File::exists($path))
+            File::makeDirectory($path, 0777, true);
+        $name = $customer_id . time() . '.' . $image->getClientOriginalExtension();
+        $image->move($path, $name);
+        $url = '/image/' . $name;
         $data = [
             'title_vi' => $request->title_vi,
             'title_en' => $request->title_en,
             'description_vi' => $request->description_vi,
             'description_en' => $request->description_en,
+            'img_path' => $url
         ];
         News::create($data);
         return back();

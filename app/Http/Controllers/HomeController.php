@@ -7,6 +7,7 @@ use App\Contact;
 use App\Customers;
 use App\Discount;
 use App\Mail\MailOrder;
+use App\News;
 use App\OrderDetail;
 use App\Orders;
 use App\Policy;
@@ -160,6 +161,52 @@ class HomeController extends Controller
         return view('shop.list_products', compact('dress', 'styles', 'isStyle'));
     }
 
+
+    public function listNew(Request $request)
+    {
+        $search = $request->keySearch;
+        $language = Session::get('language');
+        $timeNow = Carbon::now()->format('Y-m-d');
+        if (!empty($search)) {
+            $listNew = News::query()->where('title_vi', 'like', '%' . $search . '%')
+                ->orWhere('title_en', 'like', '%' . $search . '%')
+                ->orderBy('id', 'desc')->get();
+
+        } else {
+            $listNew = News::all();
+        }
+        foreach ($listNew as $item) {
+            if ($language == 'en') {
+                $item->name = $item->title_en;
+            } else {
+                $item->name = $item->title_vi;
+            }
+        }
+
+        $styles = WeddingDressCategory::all();
+        $isStyle = false;
+        return view('shop.list_new', compact('listNew', 'styles', 'isStyle'));
+    }
+
+    public function newDetail(Request $request)
+    {
+        $search = $request->keySearch;
+        $new = News::query()->where('title_vi', 'like', '%' . $search . '%')
+            ->orWhere('title_en', 'like', '%' . $search . '%')
+            ->orderBy('id', 'desc')->first();
+        $language = Session::get('language');
+        if ($language == 'en') {
+            $new->title = $new->title_en;
+            $new->description = $new->description_en;
+        } else {
+            $new->title = $new->title_vi;
+            $new->description = $new->description_vi;
+        }
+        $styles = WeddingDressCategory::all();
+        return view('shop.new_detail', compact('new','styles'));
+    }
+
+
     public function listProductsNew(Request $request)
     {
         $timeNow = Carbon::now()->format('Y-m-d');
@@ -257,7 +304,7 @@ class HomeController extends Controller
             ->where('product_id', $dress->id)
             ->join('customers', 'feedback.user_id', '=', 'customers.id')
             ->get();
-        foreach ($feedBacks as $item ){
+        foreach ($feedBacks as $item) {
             $item->time = date("d/m/Y", strtotime($item->created_at));
             $item->list_image = json_decode($item->list_image, true);
         }
@@ -454,7 +501,7 @@ class HomeController extends Controller
                     $total += ($cart['price'] * $cart['number']);
                     if ($vouchers) {
                         $price = ceil($cart['price'] - ($cart['price'] * ($vouchers->discount / 100)));
-                    }else
+                    } else
                         $price = $cart['price'];
                     OrderDetail::create([
                         'order_id' => $orders->id,

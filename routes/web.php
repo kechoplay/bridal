@@ -96,6 +96,10 @@ Route::group(['middleware' => 'language'], function () {
 
     Route::get('/collections/{style}', ['as' => 'shop.listProductsStyle', 'uses' => 'HomeController@listProductsStyle']);
 
+    Route::get('/shop/new', ['as' => 'shop.new', 'uses' => 'HomeController@listNew']);
+
+    Route::get('/new/{style}', ['as' => 'newDetail', 'uses' => 'HomeController@newDetail']);
+
     Route::get('/account/login', ['as' => 'userLogin', 'uses' => 'UserController@userLogin']);
     Route::post('/account/check-login', ['as' => 'checkLogin', 'uses' => 'UserController@checkLogin']);
     Route::get('/account/register', ['as' => 'userRegister', 'uses' => 'UserController@userRegister']);

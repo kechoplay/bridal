@@ -1063,13 +1063,20 @@
                                                     {{ __('New Arrivals') }}
                                                 </a>
                                             </li>
+                                            <li class="site-nav__item site-nav__expanded-item">
+                                                <a href="{{ route('shop.new') }}"
+                                                   class="site-nav__link site-nav__link--underline">
+                                                    {{ __('New') }}
+                                                </a>
+                                            </li>
                                         </ul>
                                     </div>
                                     <div class="header-item header-item--icons">
                                         <div class="site-nav">
                                             <div class="site-nav__icons">
                                                 <a href="javascript: void(0);" class="header_lang_a inline brad">
-                                                    {{ (config('app.locale') && config('app.locale') == 'en') ? 'English' : 'VI' }} <span class="arrow_icon_down"></span>
+                                                    {{ (config('app.locale') && config('app.locale') == 'en') ? 'English' : 'VI' }}
+                                                    <span class="arrow_icon_down"></span>
                                                 </a>
                                                 <div class="header_lang_list_wrap brad tal">
                                                     <div class="lang_list">
