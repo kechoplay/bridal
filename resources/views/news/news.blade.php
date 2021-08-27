@@ -48,23 +48,6 @@
                                                 </div>
                                             </td>
                                             <td>
-                                                <div class="box-title">
-                                                    <span>
-                                                       <b> Nội dung :</b>
-                                                    </span>
-                                                    <br>
-                                                    <span style="padding-left: 10px;">  {!! $new->description_vi !!} </span>
-                                                </div>
-                                                <div class="box-title">
-                                                    <span>
-                                                       <b> Description :</b>
-                                                    </span>
-                                                    <br>
-                                                    <span style="padding-left: 10px;">  {!! $new->description_en !!} </span>
-                                                </div>
-                                                <br>
-                                            </td>
-                                            <td>
                                                 @if($new->status == 0 )
                                                     <span> Đợi đăng </span>
                                                 @endif

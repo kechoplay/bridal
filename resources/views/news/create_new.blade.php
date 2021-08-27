@@ -27,19 +27,19 @@
                                         <input type="file" class="" id="image" name="image" required>
                                     </div>
                                     <div class="form-group">
-                                        <label for="name">Tên sản phẩm VI</label>
+                                        <label for="name">Tiêu đề VI</label>
                                         <input type="text" class="form-control" id="name" name="title_vi" required>
                                     </div>
                                     <div class="form-group">
-                                        <label for="name">Tên sản phẩm EN</label>
+                                        <label for="name">TTiêu đề EN</label>
                                         <input type="text" class="form-control" id="name_en" name="title_en" required>
                                     </div>
                                     <div class="form-group">
-                                        <label for="description">Miêu tả VI</label>
+                                        <label for="description">Nội dung VI</label>
                                         <textarea class="form-control" id="description" name="description_vi"></textarea>
                                     </div>
                                     <div class="form-group">
-                                        <label for="description">Miêu tả EN</label>
+                                        <label for="description">Nội dung EN</label>
                                         <textarea class="form-control" id="description_en" name="description_en"></textarea>
                                     </div>
                                 </div>

@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="theme-color" content="#111111">
-    <meta name="csrf-token" content="{{ csrf_token() }}" />
+    <meta name="csrf-token" content="{{ csrf_token() }}"/>
     <link rel="canonical" href="https://theiacouture.com/collections/shop">
     <link rel="preconnect" href="https://cdn.shopify.com">
     <link rel="preconnect" href="https://fonts.shopifycdn.com">
@@ -19,15 +19,19 @@
     <meta property="og:url" content="https://theiacouture.com/collections/shop">
     <meta property="og:title" content="Shop">
     <meta property="og:type" content="website">
-    <meta property="og:description" content="Inspired by the Goddess THEIA and worn by celebrities like Khloe Kardashian and Taylor Swift, THEIA sells Evening Gowns, Cocktail Dresses and Bridal Wear. ">
-    <meta property="og:image" content="http://cdn.shopify.com/s/files/1/0546/6033/collections/resort-2016-collection-grid_53abf468-9d1d-406e-bcb1-9f5662adb754.jpg?v=1620139942">
-    <meta property="og:image:secure_url" content="https://cdn.shopify.com/s/files/1/0546/6033/collections/resort-2016-collection-grid_53abf468-9d1d-406e-bcb1-9f5662adb754.jpg?v=1620139942">
+    <meta property="og:description"
+          content="Inspired by the Goddess THEIA and worn by celebrities like Khloe Kardashian and Taylor Swift, THEIA sells Evening Gowns, Cocktail Dresses and Bridal Wear. ">
+    <meta property="og:image"
+          content="http://cdn.shopify.com/s/files/1/0546/6033/collections/resort-2016-collection-grid_53abf468-9d1d-406e-bcb1-9f5662adb754.jpg?v=1620139942">
+    <meta property="og:image:secure_url"
+          content="https://cdn.shopify.com/s/files/1/0546/6033/collections/resort-2016-collection-grid_53abf468-9d1d-406e-bcb1-9f5662adb754.jpg?v=1620139942">
     <meta property="og:image:width" content="1440">
     <meta property="og:image:height" content="961">
     <meta name="twitter:site" content="@">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Shop">
-    <meta name="twitter:description" content="Inspired by the Goddess THEIA and worn by celebrities like Khloe Kardashian and Taylor Swift, THEIA sells Evening Gowns, Cocktail Dresses and Bridal Wear. ">
+    <meta name="twitter:description"
+          content="Inspired by the Goddess THEIA and worn by celebrities like Khloe Kardashian and Taylor Swift, THEIA sells Evening Gowns, Cocktail Dresses and Bridal Wear. ">
     <style data-shopify>
         @font-face {
             font-family: "Neue Haas Unica";
@@ -73,34 +77,40 @@
             src: url("https://fonts.shopifycdn.com/neue_haas_unica/neuehaasunica_i6.b8c5ef668db291f2c5d9c275e2635ba1fead1c90.woff2?h1=dGhlaWFjb3V0dXJlLmNvbQ&hmac=3b8d3aaa1af8d29e1dfa9335e4a75e0b3efbf4d43fb7ed9636cd5aef95b3fb21") format("woff2"),
             url("https://fonts.shopifycdn.com/neue_haas_unica/neuehaasunica_i6.3363176b64a45aad70c218c1908772b375a3b441.woff?h1=dGhlaWFjb3V0dXJlLmNvbQ&hmac=ea1b8d68ced7a94c3336f14853631cfb43fb9eb3144ff240335721e4e9e82b0d") format("woff");
         }
+
         .header_lang_list_wrap {
             position: absolute;
-            top: 68px;
-            right: 120px;
+            top: 30px;
+            right: -35px;
             width: 90px;
             height: auto;
             border: 1px solid #dfe2e5;
             z-index: 10;
             background: #fff;
             -webkit-box-shadow: 0 5px 10px rgb(48 101 141 / 30%);
-            -moz-box-shadow: 0 5px 10px rgba(48,101,141,.3);
+            -moz-box-shadow: 0 5px 10px rgba(48, 101, 141, .3);
             box-shadow: 0 5px 10px rgb(48 101 141 / 30%);
             overflow: hidden;
         }
+
         .tal {
             text-align: left;
         }
+
         .brad {
             -webkit-border-radius: 4px;
             -moz-border-radius: 4px;
             border-radius: 4px;
         }
+
         .header_lang_list_wrap {
             display: none;
         }
+
         .header_lang_list_wrap a.first {
             padding-top: 15px;
         }
+
         .header_lang_list_wrap a {
             display: block;
             text-decoration: none;
@@ -212,6 +222,7 @@
                 "amount": "1.00"
             }
         }
+
     </script>
     <script id="shopify-features" type="application/json">
         {
@@ -224,6 +235,7 @@
             "dynamic_checkout_cart_url": "https:\/\/cdn.shopify.com\/shopifycloud\/payment-sheet\/assets\/latest\/dynamic-checkout-cart.en.js",
             "locale": "en"
         }
+
     </script>
     <script>
         var Shopify = Shopify || {};
@@ -332,8 +344,8 @@
         (window.gaDevIds = window.gaDevIds || []).push('BwiEti');
 
 
-        (function() {
-            var customDocumentWrite = function(content) {
+        (function () {
+            var customDocumentWrite = function (content) {
                 var jquery = null;
 
                 if (window.jQuery) {
@@ -347,14 +359,14 @@
                 }
             };
 
-            var hasLoggedConversion = function(token) {
+            var hasLoggedConversion = function (token) {
                 if (token) {
                     return document.cookie.indexOf('loggedConversion=' + token) !== -1;
                 }
                 return false;
             }
 
-            var setCookieIfConversion = function(token) {
+            var setCookieIfConversion = function (token) {
                 if (token) {
                     var twoMonthsFromNow = new Date(Date.now());
                     twoMonthsFromNow.setMonth(twoMonthsFromNow.getMonth() + 2);
@@ -375,8 +387,8 @@
                 'trackForm',
                 'trackLink'
             ];
-            trekkie.factory = function(method) {
-                return function() {
+            trekkie.factory = function (method) {
+                return function () {
                     var args = Array.prototype.slice.call(arguments);
                     args.unshift(method);
                     trekkie.push(args);
@@ -387,7 +399,7 @@
                 var key = trekkie.methods[i];
                 trekkie[key] = trekkie.factory(key);
             }
-            trekkie.load = function(config) {
+            trekkie.load = function (config) {
                 trekkie.config = config;
                 var first = document.getElementsByTagName('script')[0];
                 var script = document.createElement('script');
@@ -540,7 +552,8 @@
                 try {
                     window.ShopifyAnalytics.merchantGoogleAnalytics.call(this);
                 } catch (error) {
-                };
+                }
+                ;
                 document.write = originalDocumentWrite;
                 (function () {
                     if (window.BOOMR && (window.BOOMR.version || window.BOOMR.snippetExecuted)) {
@@ -580,7 +593,7 @@
                         var doc = document;
                         var win = window;
                         window.BOOMR.snippetMethod = wasFallback ? "if" : "i";
-                        bootstrap = function(parent, scriptId) {
+                        bootstrap = function (parent, scriptId) {
                             var script = doc.createElement("script");
                             script.id = scriptId || "boomr-if-as";
                             script.src = window.BOOMR.url;
@@ -737,9 +750,16 @@
             })
         }(document);
     </script>
-    <script integrity="sha256-2KbxRG1nAJxSTtTmhkiAC6kILrdVSO4o4QUDMcvnuig=" data-source-attribution="shopify.loadfeatures" defer="defer" src="//cdn.shopify.com/shopifycloud/shopify/assets/storefront/load_feature-d8a6f1446d67009c524ed4e68648800ba9082eb75548ee28e1050331cbe7ba28.js" crossorigin="anonymous"></script>
-    <script crossorigin="anonymous" defer="defer" src="//cdn.shopify.com/shopifycloud/shopify/assets/shopify_pay/storefront-b61f50798075db890698930c4405673937fe89353f7fea7be88b5ce16a9c0af8.js?v=20210208"></script>
-    <script integrity="sha256-h+g5mYiIAULyxidxudjy/2wpCz/3Rd1CbrDf4NudHa4=" data-source-attribution="shopify.dynamic-checkout" defer="defer" src="//cdn.shopify.com/shopifycloud/shopify/assets/storefront/features-87e8399988880142f2c62771b9d8f2ff6c290b3ff745dd426eb0dfe0db9d1dae.js" crossorigin="anonymous"></script>
+    <script integrity="sha256-2KbxRG1nAJxSTtTmhkiAC6kILrdVSO4o4QUDMcvnuig="
+            data-source-attribution="shopify.loadfeatures" defer="defer"
+            src="//cdn.shopify.com/shopifycloud/shopify/assets/storefront/load_feature-d8a6f1446d67009c524ed4e68648800ba9082eb75548ee28e1050331cbe7ba28.js"
+            crossorigin="anonymous"></script>
+    <script crossorigin="anonymous" defer="defer"
+            src="//cdn.shopify.com/shopifycloud/shopify/assets/shopify_pay/storefront-b61f50798075db890698930c4405673937fe89353f7fea7be88b5ce16a9c0af8.js?v=20210208"></script>
+    <script integrity="sha256-h+g5mYiIAULyxidxudjy/2wpCz/3Rd1CbrDf4NudHa4="
+            data-source-attribution="shopify.dynamic-checkout" defer="defer"
+            src="//cdn.shopify.com/shopifycloud/shopify/assets/storefront/features-87e8399988880142f2c62771b9d8f2ff6c290b3ff745dd426eb0dfe0db9d1dae.js"
+            crossorigin="anonymous"></script>
 
 
     <style id="shopify-dynamic-checkout-cart">
@@ -784,8 +804,9 @@
                             <div class="h2 drawer__title"></div>
                             <div class="drawer__close">
                                 <button type="button" class="drawer__close-button js-drawer-close">
-                                    <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-close" viewBox="0 0 64 64">
-                                        <path d="M19 17.61l27.12 27.13m0-27.12L19 44.74" />
+                                    <svg aria-hidden="true" focusable="false" role="presentation"
+                                         class="icon icon-close" viewBox="0 0 64 64">
+                                        <path d="M19 17.61l27.12 27.13m0-27.12L19 44.74"/>
                                     </svg>
                                     <span class="icon__fallback-text">Close menu</span>
                                 </button>
@@ -802,10 +823,15 @@
                                         {{ __('Shop') }}
                                     </a>
                                     <div class="mobile-nav__toggle">
-                                        <button type="button" aria-controls="Linklist-collections-shop1" aria-open="true" aria-labelledby="Label-collections-shop1" class="collapsible-trigger collapsible--auto-height is-open">
-                                            <span class="collapsible-trigger__icon collapsible-trigger__icon--open" role="presentation">
-                                                <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon--wide icon-chevron-down" viewBox="0 0 28 16">
-                                                    <path d="M1.57 1.59l12.76 12.77L27.1 1.59" stroke-width="2" stroke="#000" fill="none" fill-rule="evenodd" />
+                                        <button type="button" aria-controls="Linklist-collections-shop1"
+                                                aria-open="true" aria-labelledby="Label-collections-shop1"
+                                                class="collapsible-trigger collapsible--auto-height is-open">
+                                            <span class="collapsible-trigger__icon collapsible-trigger__icon--open"
+                                                  role="presentation">
+                                                <svg aria-hidden="true" focusable="false" role="presentation"
+                                                     class="icon icon--wide icon-chevron-down" viewBox="0 0 28 16">
+                                                    <path d="M1.57 1.59l12.76 12.77L27.1 1.59" stroke-width="2"
+                                                          stroke="#000" fill="none" fill-rule="evenodd"/>
                                                 </svg>
                                             </span>
                                         </button>
@@ -829,10 +855,12 @@
                                                         <span
                                                             class="collapsible-trigger__icon collapsible-trigger__icon--circle collapsible-trigger__icon--open"
                                                             role="presentation">
-                                                            <svg aria-hidden="true" focusable="false" role="presentation"
+                                                            <svg aria-hidden="true" focusable="false"
+                                                                 role="presentation"
                                                                  class="icon icon--wide icon-chevron-down"
                                                                  viewBox="0 0 28 16">
-                                                                <path d="M1.57 1.59l12.76 12.77L27.1 1.59" stroke-width="2"
+                                                                <path d="M1.57 1.59l12.76 12.77L27.1 1.59"
+                                                                      stroke-width="2"
                                                                       stroke="#000" fill="none" fill-rule="evenodd"/>
                                                             </svg>
                                                         </span>
@@ -991,7 +1019,7 @@
                                                      alt="THEIA">
                                             </a>
                                             <a href="{{ route('homeIndex') }}" itemprop="url"
-                                                   class="site-header__logo-link logo--inverted">
+                                               class="site-header__logo-link logo--inverted">
                                                 <img class="small--hide"
                                                      src="//cdn.shopify.com/s/files/1/0546/6033/files/Asset_1_1_120x.png?v=1619816247"
                                                      srcset="//cdn.shopify.com/s/files/1/0546/6033/files/Asset_1_1_120x.png?v=1619816247 1x, //cdn.shopify.com/s/files/1/0546/6033/files/Asset_1_1_120x@2x.png?v=1619816247 2x"
@@ -1066,7 +1094,7 @@
                                             <li class="site-nav__item site-nav__expanded-item">
                                                 <a href="{{ route('shop.new') }}"
                                                    class="site-nav__link site-nav__link--underline">
-                                                    {{ __('New') }}
+                                                    {{ __('News') }}
                                                 </a>
                                             </li>
                                         </ul>
@@ -1074,27 +1102,38 @@
                                     <div class="header-item header-item--icons">
                                         <div class="site-nav">
                                             <div class="site-nav__icons">
-                                                <a href="javascript: void(0);" class="header_lang_a inline brad">
-                                                    {{ (config('app.locale') && config('app.locale') == 'en') ? 'English' : 'VI' }}
-                                                    <span class="arrow_icon_down"></span>
-                                                </a>
-                                                <div class="header_lang_list_wrap brad tal">
-                                                    <div class="lang_list">
-                                                        <a href="{{ url()->current() }}?lang=en" class="first">English</a>
-                                                        <a href="{{ url()->current() }}?lang=vi" class="">VI</a>
+                                                <div class="header_lang_a inline brad navigable" style="position: relative">
+                                                    <a href="javascript: void(0);" class="header_lang_a inline brad">
+                                                        {{ (config('app.locale') && config('app.locale') == 'en') ? 'English' : 'VI' }}
+                                                        <span class="arrow_icon_down"></span>
+                                                    </a>
+                                                    <div class="header_lang_list_wrap brad tal">
+                                                        <div class="lang_list">
+                                                            <a href="{{ url()->current() }}?lang=en" class="first">English</a>
+                                                            <a href="{{ url()->current() }}?lang=vi" class="">VI</a>
+                                                        </div>
                                                     </div>
                                                 </div>
                                                 @if(empty(auth()->guard('customers')->user()->name))
-                                                    <a class="site-nav__link site-nav__link--icon small--hide" href="{{ route('userLogin') }}">
-                                                        <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-user" viewBox="0 0 64 64">
-                                                            <path d="M35 39.84v-2.53c3.3-1.91 6-6.66 6-11.41 0-7.63 0-13.82-9-13.82s-9 6.19-9 13.82c0 4.75 2.7 9.51 6 11.41v2.53c-10.18.85-18 6-18 12.16h42c0-6.19-7.82-11.31-18-12.16z"/></svg>
+                                                    <a class="site-nav__link site-nav__link--icon small--hide"
+                                                       href="{{ route('userLogin') }}">
+                                                        <svg aria-hidden="true" focusable="false" role="presentation"
+                                                             class="icon icon-user" viewBox="0 0 64 64">
+                                                            <path
+                                                                d="M35 39.84v-2.53c3.3-1.91 6-6.66 6-11.41 0-7.63 0-13.82-9-13.82s-9 6.19-9 13.82c0 4.75 2.7 9.51 6 11.41v2.53c-10.18.85-18 6-18 12.16h42c0-6.19-7.82-11.31-18-12.16z"/>
+                                                        </svg>
                                                         <span class="icon__fallback-text">Log in</span></a>
                                                 @endif
                                                 @if(!empty(auth()->guard('customers')->user()->name))
-                                                    <a class="site-nav__link site-nav__link--icon small--hide" href="{{ route('userDetail') }}">
+                                                    <a class="site-nav__link site-nav__link--icon small--hide"
+                                                       href="{{ route('userDetail') }}">
                                                         <div style="text-align: center">
-                                                            <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-user-circle-o" viewBox="0 0 64 64">
-                                                                <path d="M35 39.84v-2.53c3.3-1.91 6-6.66 6-11.41 0-7.63 0-13.82-9-13.82s-9 6.19-9 13.82c0 4.75 2.7 9.51 6 11.41v2.53c-10.18.85-18 6-18 12.16h42c0-6.19-7.82-11.31-18-12.16z"/></svg>
+                                                            <svg aria-hidden="true" focusable="false"
+                                                                 role="presentation" class="icon icon-user-circle-o"
+                                                                 viewBox="0 0 64 64">
+                                                                <path
+                                                                    d="M35 39.84v-2.53c3.3-1.91 6-6.66 6-11.41 0-7.63 0-13.82-9-13.82s-9 6.19-9 13.82c0 4.75 2.7 9.51 6 11.41v2.53c-10.18.85-18 6-18 12.16h42c0-6.19-7.82-11.31-18-12.16z"/>
+                                                            </svg>
                                                             <p style="text-transform: capitalize">{{ auth()->guard('customers')->user()->name }}</p>
                                                             <span class="icon__fallback-text">User detail</span>
                                                         </div>
@@ -1112,11 +1151,16 @@
                                                     </svg>
                                                     <span class="icon__fallback-text">Site navigation</span>
                                                 </button>
-                                                <a href="{{ route('shop.cartIndex')  }}" class="site-nav__link site-nav__link--icon js-drawer-open-cart" aria-controls="CartDrawer" data-icon="cart">
-                                                    <span class="cart-link"><svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-cart" viewBox="0 0 64 64">
-                                                            <path fill="none" d="M14 17.44h46.79l-7.94 25.61H20.96l-9.65-35.1H3" />
-                                                            <circle cx="27" cy="53" r="2" />
-                                                            <circle cx="47" cy="53" r="2" />
+                                                <a href="{{ route('shop.cartIndex')  }}"
+                                                   class="site-nav__link site-nav__link--icon js-drawer-open-cart"
+                                                   aria-controls="CartDrawer" data-icon="cart">
+                                                    <span class="cart-link">
+                                                        <svg aria-hidden="true" focusable="false" role="presentation"
+                                                             class="icon icon-cart" viewBox="0 0 64 64">
+                                                            <path fill="none"
+                                                                  d="M14 17.44h46.79l-7.94 25.61H20.96l-9.65-35.1H3"/>
+                                                            <circle cx="27" cy="53" r="2"/>
+                                                            <circle cx="47" cy="53" r="2"/>
                                                         </svg><span class="icon__fallback-text">Cart</span>
                                                         <span id="CartBubble" class="cart-link__bubble"></span>
                                                     </span>
@@ -1304,13 +1348,11 @@
     $(document).on('click', '.header_lang_a', function () {
         $('.header_lang_list_wrap').css('display', 'block');
     })
-    $(document).mouseup(function(e)
-    {
+    $(document).mouseup(function (e) {
         var container = $(".header_lang_list_wrap");
 
         // if the target of the click isn't the container nor a descendant of the container
-        if (!container.is(e.target) && container.has(e.target).length === 0)
-        {
+        if (!container.is(e.target) && container.has(e.target).length === 0) {
             container.hide();
         }
     });
