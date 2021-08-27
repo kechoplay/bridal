@@ -21,7 +21,6 @@
                                     <tr>
                                         <th>No</th>
                                         <th>Tiêu đề</th>
-                                        <th>Nội dung</th>
                                         <th>Trạng thái</th>
                                     </tr>
                                     </thead>
