@@ -98,7 +98,7 @@
                     <a href="#" class="nav-link">
                         <i class="nav-icon fas  fa-edit"></i>
                         <p style="text-transform: capitalize">
-                            Update tin tức
+                            Tin tức
                             <i class="right fas fa-angle-left"></i>
                         </p>
                     </a>
@@ -156,12 +156,6 @@
                     <a href="{{ route('admin.discount') }}" class="nav-link">
                         <i class="nav-icon fas fa-tachometer-alt"></i>
                         <p>Chương trình giảm giá</p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="{{ route('history') }}" class="nav-link">
-                        <i class="nav-icon fas fa-history"></i>
-                        <p>Lịch sử mua hàng</p>
                     </a>
                 </li>
             </ul>

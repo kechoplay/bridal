@@ -81,12 +81,6 @@ Route::group(['middleware' => 'language'], function () {
 
         Route::post('/order/send-feedback', ['as' => 'sendFeedback', 'uses' => 'UserController@sendFeedback']);
 
-        Route::get('/news/create/', ['as' => 'createView', 'uses' => 'UserController@viewCreateNew']);
-
-        Route::post('/news/save-new/', ['as' => 'saveNew', 'uses' => 'UserController@saveNew']);
-
-        Route::get('/news/list/', ['as' => 'listView', 'uses' => 'UserController@viewNew']);
-
         Route::post('/shop/check-voucher', ['as' => 'checkVoucher', 'uses' => 'HomeController@checkVoucher']);
     });
 
@@ -203,4 +197,17 @@ Route::group(['prefix' => 'admin', 'middleware' => ['admin_access']], function (
     Route::get('/discount/edit/{id}', ['as' => 'admin.editDiscount', 'uses' => 'Admin\BridalController@editDiscount']);
 
     Route::get('/discount/delete/{id}', ['as' => 'admin.deleteDiscount', 'uses' => 'Admin\BridalController@deleteDiscount']);
+
+    // news
+    Route::get('/news/create/', ['as' => 'createView', 'uses' => 'UserController@viewCreateNew']);
+
+    Route::post('/news/save-new/', ['as' => 'saveNew', 'uses' => 'UserController@saveNew']);
+
+    Route::get('/news/list/', ['as' => 'listView', 'uses' => 'UserController@viewNew']);
+
+    Route::get('/news/edit/{id}', ['as' => 'admin.editNews', 'uses' => 'UserController@editNews']);
+
+    Route::post('/news/edit/{id}', ['as' => 'admin.updateNews', 'uses' => 'UserController@updateNews']);
+
+    Route::get('/news/delete/{id}', ['as' => 'admin.deleteNews', 'uses' => 'UserController@deleteNews']);
 });

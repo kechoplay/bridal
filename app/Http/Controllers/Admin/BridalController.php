@@ -340,6 +340,7 @@ class BridalController extends Controller
     {
         $orderId = $request->id;
         $order = Orders::find($orderId);
+        $order->send_date = Carbon::createFromTimestamp(strtotime($order->send_date))->format('Y-m-d');
         $orderDetail = OrderDetail::with(['product'])->where('order_id', $orderId)->get();
         $total = 0;
         foreach ($orderDetail as $item) {

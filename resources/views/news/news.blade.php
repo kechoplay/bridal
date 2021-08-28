@@ -20,8 +20,9 @@
                                     <thead>
                                     <tr>
                                         <th>No</th>
+                                        <th>Ảnh</th>
                                         <th>Tiêu đề</th>
-                                        <th>Trạng thái</th>
+                                        <th style="width: 10%;"></th>
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -29,6 +30,9 @@
                                         <tr>
                                             <td>
                                                 {{$key +1 }}
+                                            </td>
+                                            <td>
+                                                <img src="{{ $new->img_path }}">
                                             </td>
                                             <td>
                                                 <div class="box-title">
@@ -47,12 +51,8 @@
                                                 </div>
                                             </td>
                                             <td>
-                                                @if($new->status == 0 )
-                                                    <span> Đợi đăng </span>
-                                                @endif
-                                                @if($new->status == 1 )
-                                                    <span style="color: green"> Đã đăng </span>
-                                                @endif
+                                                <a href="{{ route('admin.deleteNews', ['id' => $new->id]) }}"><button class="btn btn-danger">Xóa</button></a>
+                                                <a href="{{ route('admin.editNews', ['id' => $new->id]) }}"><button class="btn btn-secondary">Sửa</button></a>
                                             </td>
                                         </tr>
                                     @endforeach
@@ -68,6 +68,7 @@
 @endsection
 @push('js')
     <script>
+        import Jquery
         $(function () {
             $("#example2").DataTable({
                 "responsive": true,
@@ -77,5 +78,8 @@
                 'filter': false
             });
         });
+        export default {
+            components: {Jquery}
+        }
     </script>
 @endpush

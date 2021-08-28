@@ -186,10 +186,7 @@ class UserController extends Controller
 
     public function viewCreateNew()
     {
-        $styles = WeddingDressCategory::all();
-        $colors = Colors::all();
-        $sizes = Sizes::all();
-        return view('news.create_new', compact('styles', 'colors', 'sizes'));
+        return view('news.create_new');
     }
 
     public function saveNew(Request $request)
@@ -213,5 +210,43 @@ class UserController extends Controller
         return back();
     }
 
+    public function editNews(Request $request)
+    {
+        $id = $request->id;
+        $news = News::find($id);
+        return view('news.edit_new', compact('news'));
+    }
 
+    public function updateNews(Request $request)
+    {
+        $id = $request->id;
+        $new = News::find($id);
+        $image = $request->image;
+
+        $new->title_vi = $request->title_vi;
+        $new->title_en = $request->title_en;
+        $new->description_vi = $request->description_vi;
+        $new->description_en = $request->description_en;
+
+        if ($image) {
+            $path = public_path('image');
+            $customer_id = Auth::guard('customers')->user()->id;
+            if (!File::exists($path))
+                File::makeDirectory($path, 0777, true);
+            $name = $customer_id . time() . '.' . $image->getClientOriginalExtension();
+            $image->move($path, $name);
+            $url = '/image/' . $name;
+            $new->img_path = $url;
+        }
+        $new->save();
+
+        return back();
+    }
+
+    public function deleteNews(Request $request)
+    {
+        $id = $request->id;
+        News::find($id)->delete();
+        return back();
+    }
 }
