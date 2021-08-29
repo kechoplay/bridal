@@ -177,6 +177,20 @@ class UserController extends Controller
         Feedback::create($data);
         return back();
     }
+    public function listFeedBack()
+    {
+        $feedBacks =Feedback::all();
+        foreach ($feedBacks as $item) {
+            $item->list_image = json_decode($item->list_image, true);
+        }
+        return view('user.list_feedback', compact( 'feedBacks'));
+    }
+    public function deleteFeedback(Request  $request)
+    {
+        $id = $request->id;
+        Feedback::find($id)->delete();
+        return back();
+    }
 
     public function viewNew()
     {

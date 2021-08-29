@@ -153,7 +153,26 @@
 
             <div class="col-12 " style="padding-left:20px">
                 ĐÁNH GIÁ - NHẬN XÉT TỪ KHÁCH HÀNG <br><br>
+
+                <br>
                 <div class="box" style="width: 85%; margin:auto">
+                    <div class="row">
+                    <span style="display: inline-block;
+                                                                                        margin-right: 10px;
+                                                                                        background: rgb(255, 255, 255);
+                                                                                        border: 1px solid rgb(24, 158, 255);
+                                                                                        font-size: 12px;
+                                                                                        color: rgb(24, 158, 255);
+                                                                                        padding: 5px 15px;
+                                                                                        border-radius: 4px;
+                                                                                        cursor: pointer;"
+                          data-toggle="modal"
+                          data-target="#exampleModalCenter"
+                    >
+                     Viết nhận xét
+                    </span>
+                    </div>
+                    <br>
                     <table id="example1" class="table borderless">
                         <tbody>
                         @foreach($feedBacks as $item)
@@ -178,6 +197,89 @@
                 </div>
             </div>
         </div>
+        <div class="modal  fade bd-example-modal-lg" id="exampleModalCenter" tabindex="-1" role="dialog"
+             aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog  modal-lg" role="document">
+                <div class="modal-content">
+                    <form action="{{ route('sendFeedback') }}" method="post" enctype="multipart/form-data">
+                        {{ csrf_field() }}
+                        <div class="modal-header">
+                            <div class="write-review__product">
+                                <h4 style="    color: rgb(120, 120, 120);    font-weight: 400;"> Chia sẻ về sản phẩm
+                                    : </h4>
+                            </div>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                    <textarea id="content" style=" border: 1px solid rgb(238, 238, 238);
+                                    padding: 12px;
+                                    border-radius: 4px;
+                                    resize: none;
+                                    width: 100%;
+                                    outline: 0px;
+                                    margin: 24px 0px 12px;" name="msg_content"
+                              rows="8" placeholder="Chia sẻ thêm thông tin sản phẩm"
+                              class="write-review__input"></textarea>
+                        </div>
+                        <div class="modal-footer">
+                            <div class="write-review__buttons" style="width: 100%; flex: 1 1 0%;
+                        align-items: flex-end;
+                        display: flex;
+                        -webkit-box-pack: justify;
+                        justify-content: space-between;
+                        padding: 0px 0px 16px;
+                        margin: 12px 0px 0px;">
+                                <input id="input-image" class="write-review__file"
+                                       accept="image/png, image/gif, image/jpeg" name="images[]" hidden type="file"
+                                       multiple>
+                                <input type="text" hidden value="{{$dress->id}}" name="id">
+                                <button style="  color: rgb(11, 116, 229);
+                                    width: 49%;
+                                    height: 36px;
+                                    background: 0px center;
+                                    padding: 0px;
+                                    line-height: 36px;
+                                    cursor: pointer;
+                                    border-radius: 4px;
+                                    display: flex;
+                                    -webkit-box-pack: center;
+                                    justify-content: center;
+                                    -webkit-box-align: center;
+                                    align-items: center;
+                                    outline: 0px;
+                                    border: 1px solid rgb(11, 116, 229);"
+                                        type="button" class="write-review__button write-review__button--image"
+                                        id="add-image"
+                                >
+                                    <i class="fa fa-photo-video"></i>
+                                    <span>Thêm ảnh</span>
+                                </button>
+                                <button style="  color: rgb(11, 116, 229);
+                                    width: 49%;
+                                    height: 36px;
+                                    background: 0px center;
+                                    padding: 0px;
+                                    line-height: 36px;
+                                    cursor: pointer;
+                                    border-radius: 4px;
+                                    display: flex;
+                                    -webkit-box-pack: center;
+                                    justify-content: center;
+                                    -webkit-box-align: center;
+                                    align-items: center;
+                                    outline: 0px;
+                                    border: 1px solid rgb(11, 116, 229);" id="send"
+                                        type="submit" class="write-review__button write-review__button--submit"><span>Gửi đánh giá</span>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
         <div id="shopify-section-product-story-sections" class="shopify-section">
             <div class="page-blocks"></div>
         </div>
