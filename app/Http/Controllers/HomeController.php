@@ -303,6 +303,7 @@ class HomeController extends Controller
         $feedBacks = DB::table('feedback')
             ->where('product_id', $dress->id)
             ->join('customers', 'feedback.user_id', '=', 'customers.id')
+            ->orderBy('feedback.id', 'desc')
             ->get();
         foreach ($feedBacks as $item) {
             $item->time = date("d/m/Y", strtotime($item->created_at));

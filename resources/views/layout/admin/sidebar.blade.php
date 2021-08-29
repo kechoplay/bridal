@@ -158,6 +158,12 @@
                         <p>Chương trình giảm giá</p>
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a href="{{ route('listFeedBack') }}" class="nav-link">
+                        <i class="nav-icon fas fa-tachometer-alt"></i>
+                        <p>Danh sách feedback</p>
+                    </a>
+                </li>
             </ul>
         </nav>
         <!-- /.sidebar-menu -->

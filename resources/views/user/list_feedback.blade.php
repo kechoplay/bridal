@@ -20,8 +20,8 @@
                                     <thead>
                                     <tr>
                                         <th>No</th>
-                                        <th>Sản phẩm</th>
                                         <th>FeedBack</th>
+                                        <th>Tác vụ</th>
                                     </tr>
                                     </thead>
                                     <tbody>
