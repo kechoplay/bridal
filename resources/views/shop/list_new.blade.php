@@ -4,7 +4,7 @@
         <div class="page-width page-content page-content--top">
             <header class="section-header section-header--flush">
                 <h1 class="section-header__title">
-                    {{ $isStyle ? $styleDress->name : __('New') }}
+                    {{ $isStyle ? $styleDress->name : __('News') }}
                 </h1>
             </header>
         </div>
@@ -29,7 +29,7 @@
                                      data-section-type="collection-template">
                                     <div class="collection-filter">
                                         <div class="collection-filter__item collection-filter__item--count small--hide" style="text-align: left">
-                                            {{ $listNew->count() }} {{ __('New') }}
+                                            {{ $listNew->count() }} {{ __('News') }}
                                         </div>
                                     </div>
                                     <div class="grid grid--uniform">
