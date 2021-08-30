@@ -154,6 +154,6 @@
             },
             startDate: '{{ $dress->start_time }}',
             endDate: '{{ $dress->end_time }}'
-        }).setStartDate()
+        })
     </script>
 @endpush
