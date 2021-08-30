@@ -1164,9 +1164,6 @@
                                                             <span class="icon__fallback-text">User detail</span>
                                                         </div>
                                                     </a>
-                                                    <a href="{{route('history')}}">
-                                                        Đơn hàng
-                                                    </a>
                                                 @endif
                                                 <button type="button"
                                                         class="site-nav__link site-nav__link--icon js-drawer-open-nav medium-up--hide"

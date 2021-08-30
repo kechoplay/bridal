@@ -57,7 +57,7 @@
                                         <select class="list-product" multiple="multiple" data-placeholder="Chọn sản phẩm"
                                                 style="width: 100%;" name="list_product[]">
                                             @foreach($products as $product)
-                                                <option value="{{ $product->id }}" {{ in_array($product->id, $discount->product_list) ? 'selected' : '' }}>{{ $product->name }}</option>
+                                                <option value="{{ $product->id }}" {{ (isset($discount) && in_array($product->id, $discount->product_list)) ? 'selected' : '' }}>{{ $product->name }}</option>
                                             @endforeach
                                         </select>
                                     </div>
