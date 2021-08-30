@@ -104,8 +104,8 @@ class BridalController extends Controller
             $dress->start_time = $processTimeArr[0];
             $dress->end_time = $processTimeArr[1];
         } else {
-            $dress->start_time = null;
-            $dress->end_time = null;
+            $dress->start_time = Carbon::now()->format('Y-m-d');
+            $dress->end_time = Carbon::now()->format('Y-m-d');
         }
         $colors = Colors::all();
         $sizes = Sizes::all();
