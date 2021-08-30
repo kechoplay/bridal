@@ -494,6 +494,7 @@ class HomeController extends Controller
                     'email' => $request->email_order,
                     'note' => $request->note_order,
                     'wedding_date' => $request->wedding_date,
+                    'shipping_method' => $request->shipping_method,
                     'order_date' => Carbon::now(),
                     'status' => 0,
                 ]);

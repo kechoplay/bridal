@@ -36,6 +36,8 @@
                                 Địa chỉ : <span><strong>{{ $order->address }}</strong></span><br>
                                 Điện thoại : <span><strong>{{ $order->mobile }}</strong></span><br>
                                 Email : <span><strong>{{ $order->email }}</strong></span><br>
+                                Phương thức ship : <span><strong>{{ $order->shippingMethod ? $order->shippingMethod->ship_name_vi : '' }}</strong></span><br>
+                                Ngày cưới: <span><strong>{{ $order->wedding_date }}</strong></span><br>
                                 Ngày chuyển hàng: <input type="date" id="send_date" name="send_date" value="{{ $order->send_date }}">
                                 Mã vận đơn: <input type="text" id="code" name="code" value="{{ $order->code }}">
                                 <button class="btn btn-primary col-md-2" onclick="saveDate()">Lưu</button>

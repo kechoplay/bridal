@@ -344,8 +344,10 @@ class BridalController extends Controller
     public function orderDetail(Request $request)
     {
         $orderId = $request->id;
-        $order = Orders::find($orderId);
+        $order = Orders::with('shippingMethod')->find($orderId);
         $order->send_date = Carbon::createFromTimestamp(strtotime($order->send_date))->format('Y-m-d');
+        if ($order->wedding_date)
+            $order->wedding_date = Carbon::createFromTimestamp(strtotime($order->wedding_date))->format('d-m-Y');
         $orderDetail = OrderDetail::with(['product'])->where('order_id', $orderId)->get();
         $total = 0;
         foreach ($orderDetail as $item) {
@@ -353,6 +355,7 @@ class BridalController extends Controller
             $item->product->img = json_decode($item->product->img_path, true)[0];
         }
         return view('admin.order_detail', compact('orderDetail', 'order', 'total'));
+
     }
 
     public function changeStatus(Request $request)
