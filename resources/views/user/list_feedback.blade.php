@@ -20,6 +20,7 @@
                                     <thead>
                                     <tr>
                                         <th>No</th>
+                                        <th>Tên sản phẩm</th>
                                         <th>FeedBack</th>
                                         <th>Tác vụ</th>
                                     </tr>
@@ -28,7 +29,9 @@
                                     @foreach($feedBacks as $key => $item)
                                         <tr>
                                             <td> {{$key +1}} </td>
-
+                                            <td>
+                                                {{ $item->product->name }}
+                                            </td>
                                             <td>
                                                 <p> {{$item->content}}</p>
                                                 @if( count($item->list_image) >0 )

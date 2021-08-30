@@ -163,10 +163,12 @@ class UserController extends Controller
         $path = public_path('image');
         if (!File::exists($path))
             File::makeDirectory($path, 0777, true);
-        foreach ($images as $key => $image) {
-            $name = $key . time() . '.' . $image->getClientOriginalExtension();
-            $image->move($path, $name);
-            $imageList[] = '/image/' . $name;
+        if ($images) {
+            foreach ($images as $key => $image) {
+                $name = $key . time() . '.' . $image->getClientOriginalExtension();
+                $image->move($path, $name);
+                $imageList[] = '/image/' . $name;
+            }
         }
         $data = [
             'product_id' => $request->id,
@@ -179,7 +181,7 @@ class UserController extends Controller
     }
     public function listFeedBack()
     {
-        $feedBacks =Feedback::all();
+        $feedBacks = Feedback::with('product')->get();
         foreach ($feedBacks as $item) {
             $item->list_image = json_decode($item->list_image, true);
         }
