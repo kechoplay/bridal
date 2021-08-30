@@ -1377,6 +1377,17 @@
 <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
 <script>
     $.widget.bridge('uibutton', $.ui.button)
+    $(document).on('click', '.header_lang_a', function () {
+        $('.header_lang_list_wrap').css('display', 'block');
+    })
+    $(document).mouseup(function (e) {
+        var container = $(".header_lang_list_wrap");
+
+        // if the target of the click isn't the container nor a descendant of the container
+        if (!container.is(e.target) && container.has(e.target).length === 0) {
+            container.hide();
+        }
+    });
 </script>
 <!-- Bootstrap 4 -->
 <script src="/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
