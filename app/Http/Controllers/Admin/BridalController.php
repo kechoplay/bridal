@@ -100,7 +100,7 @@ class BridalController extends Controller
         $styles = WeddingDressCategory::all();
         $dress->img_path = json_decode($dress->img_path, true);
         $processTimeArr = explode(' - ', $dress->process_time);
-        if ($processTimeArr) {
+        if ($dress->process_time) {
             $dress->start_time = $processTimeArr[0];
             $dress->end_time = $processTimeArr[1];
         } else {
