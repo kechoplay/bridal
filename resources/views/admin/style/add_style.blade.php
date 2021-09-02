@@ -29,7 +29,7 @@
                                 </div>
                                 <div class="card-body">
                                     <div class="form-group">
-                                        <label for="name">Ảnh</label>
+                                        <label for="name">Chọn tập tin</label>
                                         <input type="file" class="form-control" id="image" name="image" required>
                                     </div>
                                 </div>

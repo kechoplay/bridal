@@ -25,6 +25,7 @@
                                     <tr>
                                         <th>Tên</th>
                                         <th>Ảnh</th>
+                                        <th>Danh mục</th>
                                         <th>Giá</th>
                                         <th>Màu váy</th>
                                         <th>Màu hoa</th>
@@ -40,6 +41,9 @@
                                                 <img src="{{ $dr->image }}" style="max-width: 100px;">
                                             </td>
                                             <td>
+                                                {{ $dr->weddingDressCategory->name }}
+                                            </td>
+                                            <td>
                                                 {{ number_format($dr->price) }}
                                             </td>
                                             <td>
@@ -52,8 +56,12 @@
                                                 {{ json_decode($dr->sizes, true)['name'] }}
                                             </td>
                                             <td>
-                                                <a href="{{ route('admin.deleteBridal', ['id' => $dr->id]) }}"><button class="btn btn-danger">Xóa</button></a>
-                                                <a href="{{ route('admin.editBridal', ['id' => $dr->id]) }}"><button class="btn btn-secondary">Sửa</button></a>
+                                                <a href="{{ route('admin.deleteBridal', ['id' => $dr->id]) }}">
+                                                    <button class="btn btn-danger">Xóa</button>
+                                                </a>
+                                                <a href="{{ route('admin.editBridal', ['id' => $dr->id]) }}">
+                                                    <button class="btn btn-secondary">Sửa</button>
+                                                </a>
                                             </td>
                                         </tr>
                                     @endforeach

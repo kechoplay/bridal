@@ -34,7 +34,17 @@ class BridalController extends Controller
     //
     public function index(Request $request)
     {
-        $dress = DressProduct::with(['colorDress', 'colorFlower', 'sizes'])->orderBy('id', 'DESC')->get();
+        $dm = $request->dm;
+        if ($dm)
+            $dress = DressProduct::with(['weddingDressCategory', 'colorDress', 'colorFlower', 'sizes'])
+                ->where('category_id', $dm)
+                ->orderBy('id', 'DESC')
+                ->get();
+        else
+            $dress = DressProduct::with(['weddingDressCategory', 'colorDress', 'colorFlower', 'sizes'])
+                ->orderBy('id', 'DESC')
+                ->get();
+
         foreach ($dress as $dr) {
             $dr->image = json_decode($dr->img_path, true)[0];
         }
@@ -511,6 +521,8 @@ class BridalController extends Controller
         foreach ($discounts as $discount) {
             $discount->start_time = Carbon::createFromTimestamp(strtotime($discount->start_time))->format('Y-m-d');
             $discount->end_time = Carbon::createFromTimestamp(strtotime($discount->end_time))->format('Y-m-d');
+            if ($discount->product_list != null && $discount->product_list != 'null')
+                $discount->total_apply = count(json_decode($discount->product_list, true));
         }
 
         return view('admin.discount.discount_management', compact('discounts'));
@@ -575,10 +587,11 @@ class BridalController extends Controller
         Discount::where('id', $id)->delete();
         return redirect()->back();
     }
+
     public function listVoucher()
     {
         $voucher = Voucher::query()
-            ->select('vouchers.id','vouchers.code','vouchers.discount','vouchers.start_time','vouchers.end_time', 'vouchers.status')
+            ->select('vouchers.id', 'vouchers.code', 'vouchers.discount', 'vouchers.start_time', 'vouchers.end_time', 'vouchers.status')
             ->addSelect(DB::raw("(SELECT COUNT(voucher_user.voucher_id) FROM voucher_user WHERE voucher_user.voucher_id = vouchers.id ) as total_use"))
             ->leftJoin('voucher_user', function ($join) {
                 $join->on('vouchers.id', '=', 'voucher_user.voucher_id');
@@ -597,8 +610,8 @@ class BridalController extends Controller
 
     public function addVoucher()
     {
-           $code = str_random(10);
-        return view('admin.voucher.add_voucher',compact('code'));
+        $code = str_random(10);
+        return view('admin.voucher.add_voucher', compact('code'));
     }
 
     public function saveVoucher(Request $request)
@@ -608,16 +621,16 @@ class BridalController extends Controller
         $discount = $request->discount;
         $startTime = date('Y-m-d H:i:s', strtotime($request->start_time));
         $endTime = date('Y-m-d 23:59:59', strtotime($request->end_time));
-        if(strtotime($endTime) < time()){
+        if (strtotime($endTime) < time()) {
             $status = 1;
-        }else{
+        } else {
             $status = 0;
         }
         Voucher::query()->create([
-           'code' => $code,
-           'discount' => $discount,
-           'start_time' => $startTime,
-           'end_time' => $endTime,
+            'code' => $code,
+            'discount' => $discount,
+            'start_time' => $startTime,
+            'end_time' => $endTime,
             'status' => $status,
         ]);
         return redirect()->route('admin.listVoucher');
@@ -629,8 +642,8 @@ class BridalController extends Controller
         $voucher = Voucher::find($id);
         $date = date('Y-m-d', strtotime($voucher->start_time));
         $time = date('H:i', strtotime($voucher->start_time));
-        $startTime = $date.'T'.$time;
-        return view('admin.voucher.edit_voucher', compact('voucher','startTime'));
+        $startTime = $date . 'T' . $time;
+        return view('admin.voucher.edit_voucher', compact('voucher', 'startTime'));
     }
 
     public function updateVoucher(Request $request)
@@ -640,9 +653,9 @@ class BridalController extends Controller
         $discount = $request->discount;
         $startTime = date('Y-m-d H:i:s', strtotime($request->start_time));
         $endTime = date('Y-m-d 23:59:59', strtotime($request->end_time));
-        if(strtotime($endTime) < time()){
+        if (strtotime($endTime) < time()) {
             $status = 1;
-        }else{
+        } else {
             $status = 0;
         }
         Voucher::query()->where('id', $id)->update([
@@ -660,7 +673,7 @@ class BridalController extends Controller
     {
         $id = $request->id;
         $listUserVoucher = VoucherUser::query()->where('voucher_id', $id)->get();
-        foreach ($listUserVoucher as $value){
+        foreach ($listUserVoucher as $value) {
             $value->delete();
         }
         Voucher::query()->where('id', $id)->delete();

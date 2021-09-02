@@ -216,7 +216,7 @@ class HomeController extends Controller
             $dress = DressProduct::where('name', 'like', '%' . $search . '%')
                 ->orderBy('id', 'desc')->get();
         } else {
-            $dress = DressProduct::orderBy('id', 'desc')->all();
+            $dress = DressProduct::orderBy('id', 'desc')->get();
         }
         $styles = WeddingDressCategory::all();
         $language = Session::get('language');

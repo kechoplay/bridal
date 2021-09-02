@@ -13,7 +13,7 @@ class DressProduct extends Model
 
     public function weddingDressCategory()
     {
-        return $this->belongsTo('App\WeddingDressCategory');
+        return $this->hasOne('App\WeddingDressCategory', 'id', 'category_id');
     }
 
     public function styleDress()

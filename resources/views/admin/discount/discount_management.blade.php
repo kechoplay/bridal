@@ -30,6 +30,7 @@
                                         <th>Tên giảm giá EN</th>
                                         <th>Thời gian giảm giá</th>
                                         <th>Phần trăm giảm</th>
+                                        <th>Số lượng sản phẩm</th>
                                         <th style="width: 10%;"></th>
                                     </tr>
                                     </thead>
@@ -40,6 +41,7 @@
                                             <td>{{ $discount->name_en }}</td>
                                             <td>{{ $discount->start_time . ' - ' .$discount->end_time }}</td>
                                             <td>{{ $discount->discount }} (%)</td>
+                                            <td>{{ $discount->total_apply }}</td>
                                             <td>
                                                 <a href="{{ route('admin.deleteDiscount', ['id' => $discount->id]) }}"><button class="btn btn-danger">Xóa</button></a>
                                                 <a href="{{ route('admin.editDiscount', ['id' => $discount->id]) }}"><button class="btn btn-secondary">Sửa</button></a>

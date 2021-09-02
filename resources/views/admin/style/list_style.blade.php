@@ -38,7 +38,8 @@
                                     <thead>
                                     <tr>
                                         <th>Tên</th>
-                                        <th>Ảnh</th>
+                                        <th>Ảnh danh mục</th>
+                                        <th>Danh sách sản phẩm</th>
                                         <th></th>
                                     </tr>
                                     </thead>
@@ -47,6 +48,9 @@
                                         <tr>
                                             <td>{{ $style->name }}</td>
                                             <td><img src="{{ $style->img_category }}" style="max-width: 100px;"></td>
+                                            <td>
+                                                <a href="{{ route('admin.index', ['dm' => $style->id]) }}" target="_blank">Danh sách sản phẩm</a>
+                                            </td>
                                             <td>
                                                 <a href="{{ route('admin.deleteStyle', ['id' => $style->id]) }}"><button class="btn btn-danger">Xóa</button></a>
                                                 <a href="{{ route('admin.editStyle', ['id' => $style->id]) }}"><button class="btn btn-secondary">Sửa</button></a>

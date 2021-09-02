@@ -93,7 +93,7 @@
                 <div data-discounts>
                 </div>
                 <div class="cart__item-sub cart__item-row">
-                    <div>Tổng</div>
+                    <div>{{ __('Tổng') }}</div>
                     <div id="total_{{@$item['id_dress']}}" style="float: right">{{@number_format($total)}} {{ __('VNĐ') }}</div>
                 </div>
                 <div class="cart__item-row cart__checkout-wrapper">
@@ -109,7 +109,6 @@
 
                 <div class="cart__item-row text-center">
                     <small>
-                        {{--                            Shipping, taxes, and discount codes calculated at checkout.<br />--}}
                     </small>
                 </div>
             </div>
