@@ -27,7 +27,8 @@
                                         <th>Người mua</th>
                                         <th>Email</th>
                                         <th>Note</th>
-                                        <th>Trạng thái</th>
+                                        <th>Trạng thái đơn hàng</th>
+                                        <th>Trạng thái thanh toán</th>
                                         <th style="width: 10%;"></th>
                                     </tr>
                                     </thead>
@@ -42,15 +43,18 @@
                                                 @if($order->status == 0)
                                                     Chưa xử lý
                                                 @elseif($order->status == 1)
-                                                    Chưa thanh toán
-                                                @elseif($order->status == 2)
-                                                    Đã thanh toán
-                                                @elseif($order->status == 3)
                                                     Đang xử lý
-                                                @elseif($order->status == 4)
+                                                @elseif($order->status == 2)
                                                     Hoàn thành
                                                 @else
                                                     Hủy đơn hàng
+                                                @endif
+                                            </td>
+                                            <td>
+                                                @if($order->status_payment == 0)
+                                                    Chưa thanh toán
+                                                @else
+                                                    Đã thanh toán
                                                 @endif
                                             </td>
                                             <td>

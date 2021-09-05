@@ -20,7 +20,31 @@
                         <div class="col-md-12">
                             <div class="card">
                                 <div class="card-header">
-                                    <h3 class="card-title">Giới thiệu</h3>
+                                    <h3 class="card-title"><label>Follow us</label></h3>
+                                </div>
+                                <!-- /.card-header -->
+                                <div class="card-body">
+                                    <div class="form-group">
+                                        <label>Facebook</label>
+                                        <input class="form-control" type="text" name="facebook" value="{{ isset($policy->facebook) ? $policy->facebook : '' }}">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Instagram</label>
+                                        <input class="form-control" type="text" name="instagram" value="{{ isset($policy->instagram) ? $policy->instagram : '' }}">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Website</label>
+                                        <input class="form-control" type="text" name="website" value="{{ isset($policy->website) ? $policy->website : '' }}">
+                                    </div>
+                                </div>
+                                <!-- /.card-body -->
+                            </div>
+                            <!-- /.card -->
+                        </div>
+                        <div class="col-md-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h3 class="card-title"><label>Giới thiệu</label></h3>
                                 </div>
                                 <!-- /.card-header -->
                                 <div class="card-body">
@@ -34,7 +58,7 @@
                         <div class="col-md-6">
                             <div class="card">
                                 <div class="card-header">
-                                    <h3 class="card-title">Điều khoản</h3>
+                                    <h3 class="card-title"><label>Điều khoản</label></h3>
                                 </div>
                                 <!-- /.card-header -->
                                 <div class="card-body">
@@ -48,7 +72,7 @@
                         <div class="col-md-6">
                             <div class="card">
                                 <div class="card-header">
-                                    <h3 class="card-title">Chính sách bảo mật</h3>
+                                    <h3 class="card-title">Chính sách</h3>
                                 </div>
                                 <!-- /.card-header -->
                                 <div class="card-body">

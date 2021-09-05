@@ -15,7 +15,7 @@ Route::get('/', function () {
     return view('index');
 });
 
-Route::group(['middleware' => 'language'], function () {
+Route::group(['middleware' => ['language']], function () {
     Route::get('/', ['as' => 'homeIndex', 'uses' => 'HomeController@shopIndex']);
 
     Route::get('/bridal-product', ['as' => 'bridalIndex', 'uses' => 'HomeController@bridalIndex']);

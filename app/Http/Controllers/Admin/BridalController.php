@@ -321,15 +321,24 @@ class BridalController extends Controller
         $policy = $request->policy;
         $term = $request->term;
         $introduce = $request->introduce;
+        $facebook = $request->facebook;
+        $instagram = $request->instagram;
+        $website = $request->website;
 
         $privacyPolicy = Policy::find(1);
         if ($privacyPolicy) {
+            $privacyPolicy->facebook = $facebook;
+            $privacyPolicy->instagram = $instagram;
+            $privacyPolicy->website = $website;
             $privacyPolicy->privacy_policy = $policy;
             $privacyPolicy->term_of_service = $term;
             $privacyPolicy->introduce = $introduce;
             $privacyPolicy->save();
         } else {
             Policy::create([
+                'facebook' => $facebook,
+                'instagram' => $instagram,
+                'website' => $website,
                 'privacy_policy' => $policy,
                 'term_of_service' => $term,
                 'introduce' => $introduce
@@ -355,7 +364,8 @@ class BridalController extends Controller
     {
         $orderId = $request->id;
         $order = Orders::with('shippingMethod')->find($orderId);
-        $order->send_date = Carbon::createFromTimestamp(strtotime($order->send_date))->format('Y-m-d');
+        if ($order->send_date)
+            $order->send_date = Carbon::createFromTimestamp(strtotime($order->send_date))->format('Y-m-d');
         if ($order->wedding_date)
             $order->wedding_date = Carbon::createFromTimestamp(strtotime($order->wedding_date))->format('d-m-Y');
         $orderDetail = OrderDetail::with(['product'])->where('order_id', $orderId)->get();
@@ -372,8 +382,14 @@ class BridalController extends Controller
     {
         $orderId = $request->id;
         $status = $request->status;
+        $statusPayment = $request->status_payment;
+        $data = [];
+        if ($status)
+            $data['status'] = $status;
+        if ($statusPayment)
+            $data['status_payment'] = $statusPayment;
 
-        Orders::where('id', $orderId)->update(['status' => $status]);
+        Orders::where('id', $orderId)->update($data);
 
         return response()->json(['success' => true], 200);
     }

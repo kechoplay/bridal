@@ -43,7 +43,7 @@
                                             <td>{{ $item->ship_time_vi }}</td>
                                             <td>{{ $item->ship_time_en }}</td>
                                             <td>{{ number_format($item->ship_fee_vi) }}</td>
-                                            <td>{{ $item->ship_fee_en }}</td>
+                                            <td>{{ number_format($item->ship_fee_en, 2, '.', '') }}</td>
                                             <td>
                                                 <a href="{{ route('admin.deleteShippingMethod', ['id' => $item->id]) }}"><button class="btn btn-danger">Xóa</button></a>
                                                 <a href="{{ route('admin.editShippingMethod', ['id' => $item->id]) }}"><button class="btn btn-secondary">Sửa</button></a>

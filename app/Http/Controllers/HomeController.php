@@ -116,7 +116,7 @@ class HomeController extends Controller
                 foreach ($discounts as $discount) {
                     $productList = json_decode($discount->product_list, true);
                     $percent = $discount->discount;
-                    if (in_array($dr->id, $productList)) {
+                    if ($productList && in_array($dr->id, $productList)) {
                         $dr->sale_price = $dr->price - floatval(($dr->price * $percent) / 100);
                     }
                 }
@@ -149,7 +149,7 @@ class HomeController extends Controller
                 foreach ($discounts as $discount) {
                     $productList = json_decode($discount->product_list, true);
                     $percent = $discount->discount;
-                    if (in_array($item->id, $productList)) {
+                    if ($productList && in_array($item->id, $productList)) {
                         $item->sale_price = $item->price - floatval(($item->price * $percent) / 100);
                     }
                 }
@@ -230,7 +230,7 @@ class HomeController extends Controller
                 foreach ($discounts as $discount) {
                     $productList = json_decode($discount->product_list, true);
                     $percent = $discount->discount;
-                    if (in_array($item->id, $productList)) {
+                    if ($productList && in_array($item->id, $productList)) {
                         $item->sale_price = $item->price - floatval(($item->price * $percent) / 100);
                     }
                 }
@@ -263,7 +263,7 @@ class HomeController extends Controller
                 foreach ($discounts as $discount) {
                     $productList = json_decode($discount->product_list, true);
                     $percent = $discount->discount;
-                    if (in_array($dr->id, $productList)) {
+                    if ($productList && in_array($dr->id, $productList)) {
                         $dr->sale_price = $dr->price - floatval(($dr->price * $percent) / 100);
                     }
                 }
@@ -291,7 +291,7 @@ class HomeController extends Controller
             foreach ($discounts as $discount) {
                 $productList = json_decode($discount->product_list, true);
                 $percent = $discount->discount;
-                if (in_array($dress->id, $productList)) {
+                if ($productList && in_array($dress->id, $productList)) {
                     $dress->sale_price = $dress->price - floatval(($dress->price * $percent) / 100);
                 }
             }

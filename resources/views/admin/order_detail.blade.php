@@ -8,16 +8,25 @@
                         <h1>Hóa đơn chi tiết</h1>
                     </div>
                     <div class="col-sm-4">
-                        <select class="form-control" name="status" id="status">
+                        <select class="form-control" id="status">
                             <option value="0" {{ $order->status == 0 ? 'selected' : '' }}>Chưa xử lý</option>
-                            <option value="0" {{ $order->status == 1 ? 'selected' : '' }}>Chưa thanh toán</option>
-                            <option value="0" {{ $order->status == 2 ? 'selected' : '' }}>Đã thanh toán</option>
-                            <option value="1" {{ $order->status == 3 ? 'selected' : '' }}>Đang xử lý</option>
-                            <option value="2" {{ $order->status == 4 ? 'selected' : '' }}>Hoàn thành</option>
-                            <option value="2" {{ $order->status == 5 ? 'selected' : '' }}>Hủy đơn hàng</option>
+                            <option value="1" {{ $order->status == 1 ? 'selected' : '' }}>Đang xử lý</option>
+                            <option value="2" {{ $order->status == 2 ? 'selected' : '' }}>Hoàn thành</option>
+                            <option value="3" {{ $order->status == 3 ? 'selected' : '' }}>Hủy đơn hàng</option>
                         </select>
                     </div>
-                    <button class="btn btn-primary col-md-2" onclick="changeStatus()">Đổi trạng thái</button>
+                    <button type="button" class="btn btn-primary col-md-2" onclick="changeStatus()">Trạng thái đơn hàng</button>
+                </div>
+                <div class="row mb-1">
+                    <div class="col-sm-6">
+                    </div>
+                    <div class="col-sm-4">
+                        <select class="form-control" id="status_payment">
+                            <option value="0" {{ $order->status_payment == 0 ? 'selected' : '' }}>Chưa thanh toán</option>
+                            <option value="1" {{ $order->status_payment == 1 ? 'selected' : '' }}>Đã thanh toán</option>
+                        </select>
+                    </div>
+                    <button type="button" class="btn btn-primary col-md-2" onclick="changeStatusPayment()">Trạng thái thanh toán</button>
                 </div>
             </div><!-- /.container-fluid -->
         </section>
@@ -101,6 +110,26 @@
                 method: 'post',
                 data: {
                     status: $('#status').val(),
+                    id: $('#order_id').val()
+                },
+                success: function (data) {
+                    window.location.reload()
+                }
+
+            })
+        }
+
+        function changeStatusPayment() {
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+            $.ajax({
+                url: '/admin/order/detail/change-status/',
+                method: 'post',
+                data: {
+                    status_payment: $('#status_payment').val(),
                     id: $('#order_id').val()
                 },
                 success: function (data) {
