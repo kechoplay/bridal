@@ -56,8 +56,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="name">Kích cỡ</label>
-                                        <select name="size" class="form-control" required>
-                                            <option value="">---</option>
+                                        <select name="size[]" class="form-control size" required multiple="multiple" style="width: 100%;">
                                             @foreach($sizes as $size)
                                                 <option value="{{ $size->id }}">{{ $size->name }}</option>
                                             @endforeach
@@ -65,8 +64,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="name">Màu vải</label>
-                                        <select name="color1" class="form-control" required>
-                                            <option value="">---</option>
+                                        <select name="color1[]" class="form-control color1" required multiple="multiple" style="width: 100%;">
                                             @foreach($colors as $color)
                                                 <option value="{{ $color->id }}">{{ $color->name_vi }}</option>
                                             @endforeach
@@ -74,8 +72,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="name">Màu hoa</label>
-                                        <select name="color2" class="form-control" required>
-                                            <option value="">---</option>
+                                        <select name="color2[]" class="form-control color2" required multiple="multiple" style="width: 100%;">
                                             @foreach($colors as $color)
                                                 <option value="{{ $color->id }}">{{ $color->name_vi }}</option>
                                             @endforeach
@@ -147,5 +144,8 @@
                 format: 'DD/MM/YYYY'
             }
         })
+        $('.size').select2()
+        $('.color1').select2()
+        $('.color2').select2()
     </script>
 @endpush

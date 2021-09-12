@@ -36,17 +36,43 @@ class BridalController extends Controller
     {
         $dm = $request->dm;
         if ($dm)
-            $dress = DressProduct::with(['weddingDressCategory', 'colorDress', 'colorFlower', 'sizes'])
+            $dress = DressProduct::with(['weddingDressCategory'])
                 ->where('category_id', $dm)
                 ->orderBy('id', 'DESC')
                 ->get();
         else
-            $dress = DressProduct::with(['weddingDressCategory', 'colorDress', 'colorFlower', 'sizes'])
+            $dress = DressProduct::with(['weddingDressCategory'])
                 ->orderBy('id', 'DESC')
                 ->get();
 
         foreach ($dress as $dr) {
             $dr->image = json_decode($dr->img_path, true)[0];
+            $color1Arr = json_decode($dr->color1, true);
+            $color1ArrNew = [];
+            foreach ($color1Arr as $color) {
+                $colorData = Colors::where('id', $color)->first();
+                if ($colorData)
+                    $color1ArrNew[] = $colorData->name_vi;
+            }
+            $dr->color1 = implode(',', $color1ArrNew);
+
+            $color2Arr = json_decode($dr->color2, true);
+            $color2ArrNew = [];
+            foreach ($color2Arr as $color) {
+                $colorData = Colors::where('id', $color)->first();
+                if ($colorData)
+                    $color2ArrNew[] = $colorData->name_vi;
+            }
+            $dr->color2 = implode(',', $color2ArrNew);
+
+            $sizeArr = json_decode($dr->size, true);
+            $sizeArrNew = [];
+            foreach ($sizeArr as $size) {
+                $sizeData = Sizes::where('id', $size)->first();
+                if ($sizeData)
+                    $sizeArrNew[] = $sizeData->name;
+            }
+            $dr->size = implode(',', $sizeArrNew);
         }
         return view('admin.bridal.index', compact('dress'));
     }
@@ -89,9 +115,9 @@ class BridalController extends Controller
             'name_en' => $nameEn,
             'price' => $price,
             'price_en' => $priceEn,
-            'color1' => $color1,
-            'color2' => $color2,
-            'size' => $size,
+            'color1' => json_encode($color1),
+            'color2' => json_encode($color2),
+            'size' => json_encode($size),
             'process_time' => $processTime,
             'img_path' => json_encode($imageList),
             'description' => $description,
@@ -117,6 +143,9 @@ class BridalController extends Controller
             $dress->start_time = Carbon::now()->format('d-m-Y');
             $dress->end_time = Carbon::now()->format('d-m-Y');
         }
+        $dress->color1 = json_decode($dress->color1, true);
+        $dress->color2 = json_decode($dress->color2, true);
+        $dress->size = json_decode($dress->size, true);
         $colors = Colors::all();
         $sizes = Sizes::all();
 
@@ -161,9 +190,9 @@ class BridalController extends Controller
             'name_en' => $nameEn,
             'price' => $price,
             'price_en' => $priceEn,
-            'color1' => $color1,
-            'color2' => $color2,
-            'size' => $size,
+            'color1' => json_encode($color1),
+            'color2' => json_encode($color2),
+            'size' => json_encode($size),
             'process_time' => $processTime,
             'img_path' => json_encode($imageList),
             'description' => $description,

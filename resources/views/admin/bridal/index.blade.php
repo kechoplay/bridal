@@ -47,13 +47,13 @@
                                                 {{ number_format($dr->price) }}
                                             </td>
                                             <td>
-                                                {{ json_decode($dr->colorDress, true)['name_vi'] }}
+                                                {{ $dr->color1 }}
                                             </td>
                                             <td>
-                                                {{ json_decode($dr->colorFlower, true)['name_vi'] }}
+                                                {{ $dr->color2 }}
                                             </td>
                                             <td>
-                                                {{ json_decode($dr->sizes, true)['name'] }}
+                                                {{ $dr->size }}
                                             </td>
                                             <td>
                                                 <a href="{{ route('admin.deleteBridal', ['id' => $dr->id]) }}">
