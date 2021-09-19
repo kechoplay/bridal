@@ -290,9 +290,9 @@
                                                 <div class="field__input-wrapper">
                                                     <input name="wedding_date" id="wedding_date"
                                                            placeholder="{{ __('Ngày cưới') }}"
-                                                           autocomplete="shipping address-line2" autocorrect="off"
-                                                           data-backup="address2" class="field__input" size="30"
-                                                           type="date"/>
+                                                           class="field__input" onfocus="(this.type='date')"
+                                                           onfocusout="(this.type='text')"
+                                                           type="text"/>
                                                 </div>
                                             </div>
                                             <div data-address-field="address2" data-autocomplete-field-container="true"
@@ -300,7 +300,11 @@
                                                 <label class="label">{{ __('Phương thức thanh toán') }} </label>
                                                 <div class="field__input-wrapper">
                                                     @foreach($shippingMethod as $method)
-                                                        <input type="radio" required id="shipping_method" name="shipping_method" value="{{ $method->id }}"> {{ $method->ship_name . ' - ' . $method->ship_time . ' - ' . $method->ship_fee . __('VNĐ') }}
+                                                        <input type="radio" data-price="{{ $method->ship_fee }}"
+                                                               required class="shipping_method" id="shipping_method"
+                                                               name="shipping_method"
+                                                               value="{{ $method->id }}"> {{ $method->ship_name . ' - ' . $method->ship_time . ' - ' . number_format($method->ship_fee) . __('VNĐ') }}
+                                                        <br>
                                                     @endforeach
                                                 </div>
                                             </div>
@@ -426,6 +430,29 @@
                                 </tr>
                                 <tr class="total-line">
                                     <th class="total-line__name payment-due-label" scope="row">
+                                        <span class="payment-due-label__total">{{ __('Khuyến mãi') }}</span>
+                                    </th>
+                                    <td class="total-line__price payment-due" data-presentment-currency="USD">
+                                        <span class="payment-due__price skeleton-while-loading--lg km"
+                                              data-checkout-payment-due-target="303300">
+                                               0
+                                        </span>
+                                        <span class="payment-due__currency remove-while-loading">{{ __('VNĐ') }}</span>
+                                    </td>
+                                </tr>
+                                <tr class="total-line">
+                                    <th class="total-line__name payment-due-label" scope="row">
+                                        <span class="payment-due-label__total">{{ __('Phí ship') }}</span>
+                                    </th>
+                                    <td class="total-line__price payment-due">
+                                        <span class="payment-due__price skeleton-while-loading--lg ship_fee">
+                                               0
+                                        </span>
+                                        <span class="payment-due__currency remove-while-loading">{{ __('VNĐ') }}</span>
+                                    </td>
+                                </tr>
+                                <tr class="total-line">
+                                    <th class="total-line__name payment-due-label" scope="row">
                                         <span class="payment-due-label__total">{{ __('Tổng') }}</span>
                                     </th>
                                     <td class="total-line__price payment-due" data-presentment-currency="USD">
@@ -458,69 +485,6 @@
                     </div>
                 </div>
 
-                <div id="partial-icon-symbols" class="icon-symbols" data-tg-refresh="partial-icon-symbols"
-                     data-tg-refresh-always="true">
-                    <svg xmlns="http://www.w3.org/2000/svg">
-                        <symbol id="info">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                                <path
-                                    d="M12 11h1v7h-2v-5c-.552 0-1-.448-1-1s.448-1 1-1h1zm0 13C5.373 24 0 18.627 0 12S5.373 0 12 0s12 5.373 12 12-5.373 12-12 12zm0-2c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10zM10.5 7.5c0-.828.666-1.5 1.5-1.5.828 0 1.5.666 1.5 1.5 0 .828-.666 1.5-1.5 1.5-.828 0-1.5-.666-1.5-1.5z"/>
-                            </svg>
-                        </symbol>
-                        <symbol id="caret-down">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 10">
-                                <path d="M0 3h10L5 8" fill-rule="nonzero"/>
-                            </svg>
-                        </symbol>
-                        <symbol id="question">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
-                                <path
-                                    d="M8 0C3.6 0 0 3.6 0 8s3.6 8 8 8 8-3.6 8-8-3.6-8-8-8zm.7 13H6.8v-2h1.9v2zm2.6-7.1c0 1.8-1.3 2.6-2.8 2.8l-.1 1.1H7.3L7 7.5l.1-.1c1.8-.1 2.6-.6 2.6-1.6 0-.8-.6-1.3-1.6-1.3-.9 0-1.6.4-2.3 1.1L4.7 4.5c.8-.9 1.9-1.6 3.4-1.6 1.9.1 3.2 1.2 3.2 3z"/>
-                            </svg>
-                        </symbol>
-                        <symbol id="close">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
-                                <path
-                                    d="M15.1 2.3L13.7.9 8 6.6 2.3.9.9 2.3 6.6 8 .9 13.7l1.4 1.4L8 9.4l5.7 5.7 1.4-1.4L9.4 8"/>
-                            </svg>
-                        </symbol>
-                        <symbol id="spinner-button">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                                <path
-                                    d="M20 10c0 5.523-4.477 10-10 10S0 15.523 0 10 4.477 0 10 0v2c-4.418 0-8 3.582-8 8s3.582 8 8 8 8-3.582 8-8h2z"/>
-                            </svg>
-                        </symbol>
-                        <symbol id="chevron-right">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 10">
-                                <path d="M2 1l1-1 4 4 1 1-1 1-4 4-1-1 4-4"/>
-                            </svg>
-                        </symbol>
-                        <symbol id="down-arrow">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12">
-                                <path
-                                    d="M10.817 7.624l-4.375 4.2c-.245.235-.64.235-.884 0l-4.375-4.2c-.244-.234-.244-.614 0-.848.245-.235.64-.235.884 0L5.375 9.95V.6c0-.332.28-.6.625-.6s.625.268.625.6v9.35l3.308-3.174c.122-.117.282-.176.442-.176.16 0 .32.06.442.176.244.234.244.614 0 .848"/>
-                            </svg>
-                        </symbol>
-                        <symbol id="arrow">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
-                                <path d="M16 8.1l-8.1 8.1-1.1-1.1L13 8.9H0V7.3h13L6.8 1.1 7.9 0 16 8.1z"/>
-                            </svg>
-                        </symbol>
-                        <symbol id="mobile-phone">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                                <path
-                                    d="M5 2.99C5 1.34 6.342 0 8.003 0h7.994C17.655 0 19 1.342 19 2.99v18.02c0 1.65-1.342 2.99-3.003 2.99H8.003C6.345 24 5 22.658 5 21.01V2.99zM7 5c0-.552.456-1 .995-1h8.01c.55 0 .995.445.995 1v14c0 .552-.456 1-.995 1h-8.01C7.445 20 7 19.555 7 19V5zm5 18c.552 0 1-.448 1-1s-.448-1-1-1-1 .448-1 1 .448 1 1 1z"
-                                    fill-rule="evenodd"/>
-                            </svg>
-                        </symbol>
-                        <symbol id="spinner-small">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-                                <path
-                                    d="M32 16c0 8.837-7.163 16-16 16S0 24.837 0 16 7.163 0 16 0v2C8.268 2 2 8.268 2 16s6.268 14 14 14 14-6.268 14-14h2z"/>
-                            </svg>
-                        </symbol>
-                    </svg>
-                </div>
             </div>
         </aside>
     </div>
@@ -528,6 +492,7 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
     function checkVoucher() {
+        var shipFee = $('input[name=shipping_method]:checked').data('price')
         var voucher = $('#voucher').val();
         if (voucher == '')
             return;
@@ -539,18 +504,43 @@
         $.ajax({
             url: '/shop/check-voucher',
             type: 'post',
-            data: {voucher: voucher},
+            data: {voucher: voucher, shipFee: shipFee},
             success: function (data) {
                 if (data.message) {
                     alert(data.message)
                 } else {
                     $('.total').html(addCommas(data.total))
+                    $('.km').html(data.discount)
                     $('#vouch').val(voucher);
                 }
             }
 
         })
     }
+
+    $('.shipping_method').change(function () {
+        var fee = $(this).data('price');
+        var voucher = $('#voucher').val();
+        $('.ship_fee').html(fee)
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+        $.ajax({
+            url: '/shop/add-ship-fee',
+            type: 'post',
+            data: {voucher: voucher, shipFee: fee},
+            success: function (data) {
+                if (data.message) {
+                    alert(data.message)
+                } else {
+                    $('.total').html(addCommas(data.total))
+                }
+            }
+
+        })
+    })
 
     function addCommas(nStr) {
         nStr += '';

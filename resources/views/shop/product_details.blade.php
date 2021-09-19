@@ -116,21 +116,10 @@
                                 </div>
                                 <div class="payment-buttons">
                                     <button name="add" id="addCart" class="btn btn--full btn--secondary"
-                                            @if(!empty(auth()->guard('customers')->user()->name))onclick="AddCart()"
-                                            @endif style="margin-bottom: 5px;background-color: #0d0a0a;color: white">
+                                            onclick="AddCart()"
+                                            style="margin-bottom: 5px;background-color: #0d0a0a;color: white">
                                         <span id="addToCart">{{ __('Thêm vào giỏ hàng') }}</span>
                                     </button>
-                                    @if(empty(auth()->guard('customers')->user()->name))
-                                        <p style="padding-top: unset;font-size: 12px;color: #7d0e0e">{{ __('Vui lòng đăng nhập để sử dụng chức năng giỏ hàng') }}
-                                            <span><a href="{{ route('userLogin') }}"
-                                                     style="text-decoration: none;box-shadow: 0 3px black;">{{ __('Đăng nhập') }}</a></span>
-                                        </p>
-                                    @endif
-                                    {{--                                    <button type="button"--}}
-                                    {{--                                            class="shopify-payment-button__button shopify-payment-button__button--unbranded _2ogcW-Q9I-rgsSkNbRiJzA _2EiMjnumZ6FVtlC7RViKtj _2-dUletcCZ2ZL1aaH0GXxT navigable"--}}
-                                    {{--                                            data-testid="Checkout-button" id="contact_product" onclick="BuyNow()">Mua--}}
-                                    {{--                                        ngay--}}
-                                    {{--                                    </button>--}}
                                     <div data-shopify="payment-button" class="shopify-payment-button">
                                         <button
                                             class="shopify-payment-button__button shopify-payment-button__button--unbranded shopify-payment-button__button--hidden"
@@ -158,7 +147,7 @@
                 <div class="box" style="width: 85%; margin:auto">
                     @if(!empty(auth()->guard('customers')->user()->name))
                         <div class="row">
-                        <div>
+                            <div>
                               <span style="display: inline-block;
                                                                                             margin-right: 10px;
                                                                                             background: rgb(255, 255, 255);
@@ -171,18 +160,20 @@
                               >
                          Viết nhận xét
                         </span>
-                        </div>
+                            </div>
                             <br>
-                          <div class="col-12">
-                              <br>
-                              <form action="{{ route('sendFeedback') }}" method="post" enctype="multipart/form-data" style="border: 1px solid #ddd; border-radius: 5px">
-                                  {{ csrf_field() }}
-                                  <div class="modal-header">
-                                      <div class="write-review__product">
-                                          <h4 style="    color: rgb(120, 120, 120);    font-weight: 400;"> Chia sẻ về sản phẩm :</h4>
-                                      </div>
-                                  </div>
-                                  <div class="modal-body">
+                            <div class="col-12">
+                                <br>
+                                <form action="{{ route('sendFeedback') }}" method="post" enctype="multipart/form-data"
+                                      style="border: 1px solid #ddd; border-radius: 5px">
+                                    {{ csrf_field() }}
+                                    <div class="modal-header">
+                                        <div class="write-review__product">
+                                            <h4 style="    color: rgb(120, 120, 120);    font-weight: 400;"> Chia sẻ về
+                                                sản phẩm :</h4>
+                                        </div>
+                                    </div>
+                                    <div class="modal-body">
                           <textarea id="content" style=" border: 1px solid rgb(238, 238, 238);
                                     padding: 12px;
                                     border-radius: 4px;
@@ -190,22 +181,23 @@
                                     width: 100%;
                                     outline: 0px;
                                     margin: 24px 0px 12px;" name="msg_content"
-                              rows="4" placeholder="Chia sẻ thêm thông tin sản phẩm"
-                              class="write-review__input"></textarea>
-                                  </div>
-                                  <div class="modal-footer">
-                                      <div class="write-review__buttons" style="width: 100%; flex: 1 1 0%;
+                                    rows="4" placeholder="Chia sẻ thêm thông tin sản phẩm"
+                                    class="write-review__input"></textarea>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <div class="write-review__buttons" style="width: 100%; flex: 1 1 0%;
                         align-items: flex-end;
                         display: flex;
                         -webkit-box-pack: justify;
                         justify-content: space-between;
                         padding: 0px 0px 16px;
                         margin: 12px 0px 0px;">
-                                          <input id="input-image" class="write-review__file"
-                                                 accept="image/png, image/gif, image/jpeg" name="images[]" hidden type="file"
-                                                 multiple>
-                                          <input type="text" hidden value="{{$dress->id}}" name="id">
-                                          <button style="  color: rgb(11, 116, 229);
+                                            <input id="input-image" class="write-review__file"
+                                                   accept="image/png, image/gif, image/jpeg" name="images[]" hidden
+                                                   type="file"
+                                                   multiple>
+                                            <input type="text" hidden value="{{$dress->id}}" name="id">
+                                            <button style="  color: rgb(11, 116, 229);
                                     width: 49%;
                                     height: 36px;
                                     background: 0px center;
@@ -220,13 +212,14 @@
                                     align-items: center;
                                     outline: 0px;
                                     border: 1px solid rgb(11, 116, 229);"
-                                                  type="button" class="write-review__button write-review__button--image"
-                                                  id="add-image"
-                                          >
-                                              <i class="fa fa-photo-video"></i>
-                                              <span>Thêm ảnh</span>
-                                          </button>
-                                          <button style="  color: rgb(11, 116, 229);
+                                                    type="button"
+                                                    class="write-review__button write-review__button--image"
+                                                    id="add-image"
+                                            >
+                                                <i class="fa fa-photo-video"></i>
+                                                <span>Thêm ảnh</span>
+                                            </button>
+                                            <button style="  color: rgb(11, 116, 229);
                                     width: 49%;
                                     height: 36px;
                                     background: 0px center;
@@ -241,12 +234,13 @@
                                     align-items: center;
                                     outline: 0px;
                                     border: 1px solid rgb(11, 116, 229);" id="send"
-                                                  type="submit" class="write-review__button write-review__button--submit"><span>Gửi đánh giá</span>
-                                          </button>
-                                      </div>
-                                  </div>
-                              </form>
-                          </div>
+                                                    type="submit"
+                                                    class="write-review__button write-review__button--submit"><span>Gửi đánh giá</span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
                         </div>
                     @endif
                     <br>

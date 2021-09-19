@@ -86,6 +86,8 @@ Route::group(['middleware' => ['language']], function () {
         Route::get('/feedback/delete/{id}', ['as' => 'deleteFeedback', 'uses' => 'UserController@deleteFeedback']);
 
         Route::post('/shop/check-voucher', ['as' => 'checkVoucher', 'uses' => 'HomeController@checkVoucher']);
+
+        Route::post('/shop/add-ship-fee', ['as' => 'addFee', 'uses' => 'HomeController@addFee']);
     });
 
     Route::get('/collections/shop', ['as' => 'shop.listProducts', 'uses' => 'HomeController@listProducts']);

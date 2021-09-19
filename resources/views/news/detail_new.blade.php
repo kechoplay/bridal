@@ -116,21 +116,9 @@
                                 </div>
                                 <div class="payment-buttons">
                                     <button name="add" id="addCart" class="btn btn--full btn--secondary"
-                                            @if(!empty(auth()->guard('customers')->user()->name))onclick="AddCart()"
-                                            @endif style="margin-bottom: 5px;background-color: #0d0a0a;color: white">
+                                            onclick="AddCart()" style="margin-bottom: 5px;background-color: #0d0a0a;color: white">
                                         <span id="addToCart">{{ __('Thêm vào giỏ hàng') }}</span>
                                     </button>
-                                    @if(empty(auth()->guard('customers')->user()->name))
-                                        <p style="padding-top: unset;font-size: 12px;color: #7d0e0e">{{ __('Vui lòng đăng nhập để sử dụng chức năng giỏ hàng') }}
-                                            <span><a href="{{ route('userLogin') }}"
-                                                     style="text-decoration: none;box-shadow: 0 3px black;">{{ __('Đăng nhập') }}</a></span>
-                                        </p>
-                                    @endif
-                                    {{--                                    <button type="button"--}}
-                                    {{--                                            class="shopify-payment-button__button shopify-payment-button__button--unbranded _2ogcW-Q9I-rgsSkNbRiJzA _2EiMjnumZ6FVtlC7RViKtj _2-dUletcCZ2ZL1aaH0GXxT navigable"--}}
-                                    {{--                                            data-testid="Checkout-button" id="contact_product" onclick="BuyNow()">Mua--}}
-                                    {{--                                        ngay--}}
-                                    {{--                                    </button>--}}
                                     <div data-shopify="payment-button" class="shopify-payment-button">
                                         <button
                                             class="shopify-payment-button__button shopify-payment-button__button--unbranded shopify-payment-button__button--hidden"

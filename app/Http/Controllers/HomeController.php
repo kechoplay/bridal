@@ -203,7 +203,7 @@ class HomeController extends Controller
             $new->description = $new->description_vi;
         }
         $styles = WeddingDressCategory::all();
-        return view('shop.new_detail', compact('new','styles'));
+        return view('shop.new_detail', compact('new', 'styles'));
     }
 
 
@@ -617,9 +617,11 @@ class HomeController extends Controller
     public function checkVoucher(Request $request)
     {
         $voucher = $request->voucher;
+        $shipFee = $request->shipFee;
         $now = Carbon::now()->format('Y-m-d H:i:s');
         $vouchers = Voucher::where('code', $voucher)->where('start_time', '<', $now)->where('end_time', '>', $now)->first();
         $total = 0;
+        $discount = 0;
         $message = '';
         if ($vouchers) {
             $userId = Auth::guard('customers')->user()->id;
@@ -631,8 +633,10 @@ class HomeController extends Controller
                         $total += ($cart['price'] * $cart['number']);
                     }
 
-                    if ($vouchers->discount > 0)
+                    if ($vouchers->discount > 0) {
+                        $discount = $total * ($vouchers->discount / 100);
                         $total = ceil($total - ($total * ($vouchers->discount / 100)));
+                    }
                 }
             } else {
                 $message = 'Voucher đã đc sử dụng';
@@ -641,7 +645,39 @@ class HomeController extends Controller
             $message = 'Voucher not exist';
         }
 
-        return response()->json(['total' => $total, 'message' => $message]);
+        $total += $shipFee;
+
+        return response()->json(['total' => $total, 'message' => $message, 'discount' => $discount]);
     }
 
+    public function addFee(Request $request)
+    {
+        $voucher = $request->voucher;
+        $shipFee = $request->shipFee;
+        $now = Carbon::now()->format('Y-m-d H:i:s');
+        $total = 0;
+        $discount = 0;
+
+        if (Session::has('cart')) {
+            $arrayCart = Session::get('cart');
+            foreach ($arrayCart as $cart) {
+                $total += ($cart['price'] * $cart['number']);
+            }
+        }
+        if ($voucher) {
+            $vouchers = Voucher::where('code', $voucher)->where('start_time', '<', $now)->where('end_time', '>', $now)->first();
+            $userId = Auth::guard('customers')->user()->id;
+            $voucherUser = VoucherUser::where('voucher_id', $vouchers->id)->where('user_id', $userId)->first();
+            if (!$voucherUser) {
+                if ($vouchers->discount > 0) {
+                    $discount = $total * ($vouchers->discount / 100);
+                    $total = ceil($total - ($total * ($vouchers->discount / 100)));
+                }
+            }
+        }
+
+        $total += $shipFee;
+
+        return response()->json(['total' => $total, 'discount' => $discount]);
+    }
 }
