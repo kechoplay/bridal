@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Address;
+use App\Colors;
 use App\Contact;
 use App\Customers;
 use App\Discount;
@@ -12,6 +13,7 @@ use App\OrderDetail;
 use App\Orders;
 use App\Policy;
 use App\ShippingMethod;
+use App\Sizes;
 use App\SlideImage;
 use App\Voucher;
 use App\VoucherUser;
@@ -281,6 +283,31 @@ class HomeController extends Controller
         $nameProduct = $request->nameProduct;
         $language = Session::get('language');
         $dress = DressProduct::where('slug', $nameProduct)->first();
+        if ($dress->size) {
+            $sizes = json_decode($dress->size, true);
+            $sizeArr = [];
+            foreach ($sizes as $size) {
+                $sizeDb = Sizes::find($size);
+                $sizeArr[] = $sizeDb;
+            }
+            $dress->size = $sizeArr;
+        }
+        if ($dress->color1) {
+            $colors = json_decode($dress->color1, true);
+            $colorArr = [];
+            foreach ($colors as $color) {
+                $colorArr[] = Colors::find($color);
+            }
+            $dress->color1 = $colorArr;
+        }
+        if ($dress->color2) {
+            $colors = json_decode($dress->color2, true);
+            $colorArr = [];
+            foreach ($colors as $color) {
+                $colorArr[] = Colors::find($color);
+            }
+            $dress->color2 = $colorArr;
+        }
         $dress->img_path = json_decode($dress->img_path, true);
         if ($language == 'en') {
             $dress->name = $dress->name_en;
@@ -556,21 +583,46 @@ class HomeController extends Controller
         $price = $request->price;
         $image = $request->image;
         $slug = $request->slug;
+        $size = $request->size;
+        $color1 = $request->color1;
+        $color2 = $request->color2;
+
         $flag = 0;
         if (Session::has('cart')) {
             $arrayCart = Session::get('cart');
             foreach ($arrayCart as &$cart) {
-                if ($cart['id_dress'] == $id_dress) {
+                if ($cart['id_dress'] == $id_dress && $cart['size'] == $size
+                    && $cart['color1'] == $color1 && $cart['color2'] == $color2) {
                     $cart['number'] += 1;
                     $flag = 1;
                 }
             }
             Session::put('cart', $arrayCart);
             if ($flag == 0) {
-                Session::push("cart", ['id_dress' => $id_dress, 'name' => $name, 'price' => $price, 'image' => $image, 'slug' => $slug, 'number' => 1]);
+                Session::push("cart", [
+                    'id_dress' => $id_dress,
+                    'name' => $name,
+                    'price' => $price,
+                    'image' => $image,
+                    'slug' => $slug,
+                    'size' => $size,
+                    'color1' => $color1,
+                    'color2' => $color2,
+                    'number' => 1
+                ]);
             }
         } else {
-            Session::push("cart", ['id_dress' => $id_dress, 'name' => $name, 'price' => $price, 'image' => $image, 'slug' => $slug, 'number' => 1]);
+            Session::push("cart", [
+                'id_dress' => $id_dress,
+                'name' => $name,
+                'price' => $price,
+                'image' => $image,
+                'slug' => $slug,
+                'size' => $size,
+                'color1' => $color1,
+                'color2' => $color2,
+                'number' => 1
+            ]);
         }
         return response()->json(['success' => true], 200);
     }

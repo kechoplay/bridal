@@ -85,7 +85,6 @@
                             <div class="product-single__meta">
                                 <h1 class="h2 product-single__title">{{ $dress->name }}</h1>
                                 @if($dress->sale_price > 0)
-                                    <span id="PriceA11y-6694898139324" class="visually-hidden">Regular price</span>
                                     <span class="product__price-wrap-4464780836919"
                                           data-open-accessibility-text-original="16px" style="font-size: 16px;">
                                         <span id="ComparePrice-4464780836919"
@@ -111,7 +110,73 @@
                                     <span class="product__unit-price--6694898139324"></span>/<span
                                         class="product__unit-base--6694898139324"></span>
                                 </div>
-                                <div style="margin-bottom: 10px;margin-top: 20%">
+                                <hr class="hr--medium">
+                                <form method="post" action="/cart/add" id="AddToCartForm-7088243146940"
+                                      accept-charset="UTF-8" class="product-single__form" enctype="multipart/form-data">
+                                    <input type="hidden" name="form_type" value="product"><input type="hidden"
+                                                                                                 name="utf8" value="✓">
+                                    <div class="variant-wrapper variant-wrapper--button js">
+                                        <label class="variant__label" for="ProductSelect-7088243146940-option-0">
+                                            {{ __('Size') }}
+                                        </label>
+                                        <fieldset class="variant-input-wrap" name="Size" data-index="option1"
+                                                  data-handle="size" id="ProductSelect-7088243146940-option-0">
+                                            <legend class="hide">Size</legend>
+                                            @foreach($dress->size as $key => $size)
+                                                <div class="variant-input" data-index="option1" data-value="0">
+                                                    <input type="radio" value="{{ $size->name }}" checked="checked"
+                                                           name="size" class="variant__input-7088243146940"
+                                                           id="ProductSelect-7088243146940-option-size-{{ $key }}">
+                                                    <label for="ProductSelect-7088243146940-option-size-{{ $key }}"
+                                                           class="variant__button-label">{{ $size->name }}</label>
+                                                </div>
+                                            @endforeach
+                                        </fieldset>
+                                    </div>
+                                    <div class="variant-wrapper variant-wrapper--button js">
+                                        <label class="variant__label" for="ProductSelect-7088243146940-option-1">
+                                            {{ __('Màu vải') }}
+                                        </label>
+                                        <fieldset class="variant-input-wrap" name="Color" data-index="option2"
+                                                  data-handle="color" id="ProductSelect-7088243146940-option-1">
+                                            <legend class="hide">Color</legend>
+                                            @foreach($dress->color1 as $key => $color)
+                                                <div class="variant-input" data-value="{{ $color->code }}">
+                                                    <input type="radio" checked="checked" value="{{ $color->code }}"
+                                                           name="color1"
+                                                           class="variant__input-7088243146940"
+                                                           id="ProductSelect-7088243146940-option-color-{{ $color->code }}">
+                                                    <label
+                                                        for="ProductSelect-7088243146940-option-color-{{ $color->code }}"
+                                                        style="background-color: {{ $color->code }}"
+                                                        class="variant__button-label"></label>
+                                                </div>
+                                            @endforeach
+                                        </fieldset>
+                                    </div>
+                                    <div class="variant-wrapper variant-wrapper--button js">
+                                        <label class="variant__label" for="ProductSelect-7088243146940-option-1">
+                                            {{ __('Màu hoa') }}
+                                        </label>
+                                        <fieldset class="variant-input-wrap" name="Color" data-index="option2"
+                                                  data-handle="color" id="ProductSelect-7088243146940-option-1">
+                                            <legend class="hide">Color</legend>
+                                            @foreach($dress->color2 as $key => $color)
+                                                <div class="variant-input" data-value="{{ $color->code }}">
+                                                    <input type="radio" checked="checked" value="{{ $color->code }}"
+                                                           name="color2"
+                                                           class="variant__input-7088243146940"
+                                                           id="ProductSelect-7088243146940-option-color-{{ $color->code }}">
+                                                    <label
+                                                        for="ProductSelect-7088243146940-option-color-{{ $color->code }}"
+                                                        style="background-color: {{ $color->code }}"
+                                                        class="variant__button-label"></label>
+                                                </div>
+                                            @endforeach
+                                        </fieldset>
+                                    </div>
+                                </form>
+                                <div style="margin-bottom: 10px;margin-top: 10%">
                                     <span id="alert-add-cart" style="color: green;text-align: center"></span>
                                 </div>
                                 <div class="payment-buttons">
@@ -332,10 +397,22 @@
                 var price = $('#price_dress').val();
                 var image = $('#image_dress').val();
                 var slug = $('#slug_dress').val();
+                var size = $('input[name=size]:checked').val();
+                var color1 = $('input[name=color1]:checked').val();
+                var color2 = $('input[name=color2]:checked').val();
                 $.ajax({
                     url: '/shop/add-cart',
                     type: 'post',
-                    data: {id: id_dress, name: name, price: price, image: image, slug: slug},
+                    data: {
+                        id: id_dress,
+                        name: name,
+                        price: price,
+                        image: image,
+                        slug: slug,
+                        size: size,
+                        color1: color1,
+                        color2: color2
+                    },
                     success: function (data) {
                         $('#alert-add-cart').text('Đã thêm sản phẩm vào giỏ hàng');
                         setTimeout(function () {
