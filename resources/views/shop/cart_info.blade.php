@@ -303,7 +303,7 @@
                                                         <input type="radio" data-price="{{ $method->ship_fee }}"
                                                                required class="shipping_method" id="shipping_method"
                                                                name="shipping_method"
-                                                               value="{{ $method->id }}"> {{ $method->ship_name . ' - ' . $method->ship_time . ' - ' . number_format($method->ship_fee) . __('VNĐ') }}
+                                                               value="{{ $method->id }}"> {{ $method->ship_name . ' - ' . $method->ship_time . ' - ' . __('VNĐ') . number_format($method->ship_fee) }}
                                                         <br>
                                                     @endforeach
                                                 </div>

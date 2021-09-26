@@ -3,7 +3,8 @@
     <div class="page-width page-content" id="vue-cart">
         <header class="section-header text-center">
             <h1 class="section-header__title">{{ __('Giỏ hàng') }}</h1>
-            <div class="rte text-spacing"><p><a href='{{ route('shop.listProducts') }}'>{{ __('Quay lại mua sắm') }}</a></p>
+            <div class="rte text-spacing"><p><a href='{{ route('shop.listProducts') }}'>{{ __('Quay lại mua sắm') }}</a>
+                </p>
             </div>
         </header>
         <meta name="csrf-token" content="{{ csrf_token() }}"/>
@@ -80,7 +81,7 @@
 
                                     <div class="cart__item-price-col text-right">
                                      <span class="cart__price" id="price_{{@$item['id_dress']}}">
-                                        {{ @number_format($item['price'] * @$item['number']) }} {{ __('VNĐ') }}
+                                        {{ __('VNĐ') . @number_format($item['price'] * @$item['number']) }}
                                       </span>
                                     </div>
                                 </div>
@@ -94,7 +95,8 @@
                 </div>
                 <div class="cart__item-sub cart__item-row">
                     <div>{{ __('Tổng') }}</div>
-                    <div id="total_{{@$item['id_dress']}}" style="float: right">{{@number_format($total)}} {{ __('VNĐ') }}</div>
+                    <div id="total_{{@$item['id_dress']}}"
+                         style="float: right">{{ __('VNĐ') . @number_format($total) }}</div>
                 </div>
                 <div class="cart__item-row cart__checkout-wrapper">
                     <button id="buy_product" name="checkout" data-terms-required="false" class="btn cart__checkout"
@@ -117,7 +119,7 @@
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
     <script type='text/javascript' src='/js/jquery-migrate.min.js' id='jquery-migrate-js'></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-{{--    <script type='text/javascript' src='/js/cart.js'></script>--}}
+    {{--    <script type='text/javascript' src='/js/cart.js'></script>--}}
     <script>
         $.ajaxSetup({
             headers: {
@@ -126,15 +128,18 @@
         });
 
         function SubProduct(id_sub) {
-            ajaxCart(id_add=null,id_sub,id_remove=null);
+            ajaxCart(id_add = null, id_sub, id_remove = null);
         }
+
         function AddProduct(id_add) {
-            ajaxCart(id_add,id_sub=null,id_remove=null);
+            ajaxCart(id_add, id_sub = null, id_remove = null);
         }
+
         function RemoveProduct(id_remove) {
-            ajaxCart(id_add=null,id_sub=null,id_remove);
+            ajaxCart(id_add = null, id_sub = null, id_remove);
         }
-        function ajaxCart(id_add,id_sub,id_remove) {
+
+        function ajaxCart(id_add, id_sub, id_remove) {
             $.ajaxSetup({
                 headers: {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -145,40 +150,41 @@
                 type: 'post',
                 data: {id_add: id_add, id_sub: id_sub, id_remove: id_remove},
                 success: function (data) {
-                    if(data){
-                        if(data.flagAction == 1){
-                            $('#number_'+data.id).val(data.number);
-                            var price= number_format(data.price)+' {{ __('VNĐ') }}';
-                            var total= number_format(data.total)+' {{ __('VNĐ') }}';
-                            $('#price_'+data.id).text(price);
-                            $('#total_'+data.id).text(total);
+                    if (data) {
+                        if (data.flagAction == 1) {
+                            $('#number_' + data.id).val(data.number);
+                            var price = '{{ __('VNĐ') }}' + number_format(data.price);
+                            var total = '{{ __('VNĐ') }}' + number_format(data.total);
+                            $('#price_' + data.id).text(price);
+                            $('#total_' + data.id).text(total);
 
                         }
-                        if(data.flagAction == 2){
-                            if(data.number == 0){
-                                $('#cart_'+data.id).hide();
+                        if (data.flagAction == 2) {
+                            if (data.number == 0) {
+                                $('#cart_' + data.id).hide();
                             }
-                            console.log('total'+data.total);
-                            $('#number_'+data.id).val(data.number);
-                            var price2= number_format(data.price)+' {{ __('VNĐ') }}';
-                            var total2= number_format(data.total)+' {{ __('VNĐ') }}';
-                            $('#price_'+data.id).text(price2);
-                            $('#total_'+data.id).text(total2);
-                            if(data.total == 0){
-                                $('#buy_product').attr('disabled', true);;
+                            console.log('total' + data.total);
+                            $('#number_' + data.id).val(data.number);
+                            var price2 = '{{ __('VNĐ') }}' + number_format(data.price);
+                            var total2 = '{{ __('VNĐ') }}' + number_format(data.total);
+                            $('#price_' + data.id).text(price2);
+                            $('#total_' + data.id).text(total2);
+                            if (data.total == 0) {
+                                $('#buy_product').attr('disabled', true);
+                                ;
                             }
 
                         }
-                        if(data.flagAction == 3){
-                            $('#cart_'+data.id).hide();
-                            var total3= number_format(data.total)+' {{ __('VNĐ') }}';
-                            $('#total_'+data.id).text(total3);
-                            if(data.total == 0){
-                                $('#buy_product').attr('disabled', true);;
+                        if (data.flagAction == 3) {
+                            $('#cart_' + data.id).hide();
+                            var total3 = '{{ __('VNĐ') }}' + number_format(data.total);
+                            $('#total_' + data.id).text(total3);
+                            if (data.total == 0) {
+                                $('#buy_product').attr('disabled', true);
                             }
                         }
                     }
-                },error: function (e){
+                }, error: function (e) {
                     console.log('Lỗi! thay đổi thất bại');
                 }
             })
@@ -197,22 +203,22 @@
                 data: {},
                 success: function (data) {
                     window.location.href = '/shop/cart-info';
-                },error: function (e){
+                }, error: function (e) {
                     console.log('Lỗi! Mua giỏ hàng');
                 }
             })
 
         }
 
-        function number_format(number,decimals,dec_point,thousands_sep) {
-            number  = number*1;//makes sure `number` is numeric value
-            var str = number.toFixed(decimals?decimals:0).toString().split('.');
+        function number_format(number, decimals, dec_point, thousands_sep) {
+            number = number * 1;//makes sure `number` is numeric value
+            var str = number.toFixed(decimals ? decimals : 0).toString().split('.');
             var parts = [];
-            for ( var i=str[0].length; i>0; i-=3 ) {
-                parts.unshift(str[0].substring(Math.max(0,i-3),i));
+            for (var i = str[0].length; i > 0; i -= 3) {
+                parts.unshift(str[0].substring(Math.max(0, i - 3), i));
             }
-            str[0] = parts.join(thousands_sep?thousands_sep:',');
-            return str.join(dec_point?dec_point:'.');
+            str[0] = parts.join(thousands_sep ? thousands_sep : ',');
+            return str.join(dec_point ? dec_point : '.');
         }
 
     </script>

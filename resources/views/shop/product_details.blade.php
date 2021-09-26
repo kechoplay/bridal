@@ -90,19 +90,23 @@
                                         <span id="ComparePrice-4464780836919"
                                               class="product__price product__price--compare"
                                               data-open-accessibility-text-original="16px" style="font-size: 16px;">
-                                            {{ number_format($dress->price) . __('VNĐ') }}
+                                            {{ __('VNĐ') . number_format($dress->price) }}
                                         </span>
                                     </span>
                                     <span id="ComparePriceA11y-4464780836919" class="visually-hidden"
                                           data-open-accessibility-text-original="16px" style="font-size: 16px;">Sale price</span>
                                     <span id="ProductPrice-4464780836919" class="product__price on-sale"
                                           data-open-accessibility-text-original="16px" style="font-size: 16px;">
-                                        {{ number_format($dress->sale_price) . __('VNĐ') }}
+                                        {{ __('VNĐ') . number_format($dress->sale_price) }}
+                                    </span>
+                                    <span id="ProductPrice-4464780836919" class="product__price on-sale"
+                                          data-open-accessibility-text-original="16px" style="font-size: 16px;">
+                                        ({{ __('giảm :price', ['price' => $dr->discount . '%']) }})
                                     </span>
                                 @else
                                     <span id="PriceA11y-6694898139324" class="visually-hidden">Regular price</span>
                                     <span id="ProductPrice-6694898139324" class="product__price">
-                                    {{ number_format($dress->price) . __('VNĐ') }}
+                                    {{ __('VNĐ') . number_format($dress->price) }}
                                     </span>
                                 @endif
                                 <div

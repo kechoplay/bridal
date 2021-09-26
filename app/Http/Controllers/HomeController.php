@@ -120,6 +120,7 @@ class HomeController extends Controller
                     $percent = $discount->discount;
                     if ($productList && in_array($dr->id, $productList)) {
                         $dr->sale_price = $dr->price - floatval(($dr->price * $percent) / 100);
+                        $dr->discount = $percent;
                     }
                 }
             }
@@ -234,6 +235,7 @@ class HomeController extends Controller
                     $percent = $discount->discount;
                     if ($productList && in_array($item->id, $productList)) {
                         $item->sale_price = $item->price - floatval(($item->price * $percent) / 100);
+                        $item->discount = $percent;
                     }
                 }
             }
@@ -267,6 +269,7 @@ class HomeController extends Controller
                     $percent = $discount->discount;
                     if ($productList && in_array($dr->id, $productList)) {
                         $dr->sale_price = $dr->price - floatval(($dr->price * $percent) / 100);
+                        $dr->discount = $percent;
                     }
                 }
             }
@@ -320,6 +323,7 @@ class HomeController extends Controller
                 $percent = $discount->discount;
                 if ($productList && in_array($dress->id, $productList)) {
                     $dress->sale_price = $dress->price - floatval(($dress->price * $percent) / 100);
+                    $dress->discount = $percent;
                 }
             }
         }

@@ -55,5 +55,6 @@
     "Shipping method": "Phương thức vận chuyển",
     "Size": "Kích thước",
     "Fabric Color": "Màu vải",
-    "Flower Color": "Màu hoa"
+    "Flower Color": "Màu hoa",
+    ":price off": "giảm :price"
 }
