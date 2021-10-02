@@ -15,9 +15,9 @@ class UpdateOrderDetailTable extends Migration
     {
         //
         Schema::table('order_detail', function (Blueprint $table) {
-            $table->integer('size')->after('price')->default(0)->nullable();
-            $table->integer('color1')->after('size')->default(0)->nullable();
-            $table->integer('color2')->after('color1')->default(0)->nullable();
+            $table->string('size')->after('price')->default(0)->nullable();
+            $table->string('color1')->after('size')->default(0)->nullable();
+            $table->string('color2')->after('color1')->default(0)->nullable();
         });
     }
 

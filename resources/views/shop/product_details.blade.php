@@ -101,7 +101,7 @@
                                     </span>
                                     <span id="ProductPrice-4464780836919" class="product__price on-sale"
                                           data-open-accessibility-text-original="16px" style="font-size: 16px;">
-                                        ({{ __('giảm :price', ['price' => $dr->discount . '%']) }})
+                                        ({{ __('giảm :price', ['price' => $dress->discount . '%']) }})
                                     </span>
                                 @else
                                     <span id="PriceA11y-6694898139324" class="visually-hidden">Regular price</span>
@@ -117,8 +117,8 @@
                                 <hr class="hr--medium">
                                 <form method="post" action="/cart/add" id="AddToCartForm-7088243146940"
                                       accept-charset="UTF-8" class="product-single__form" enctype="multipart/form-data">
-                                    <input type="hidden" name="form_type" value="product"><input type="hidden"
-                                                                                                 name="utf8" value="✓">
+                                    <input type="hidden" name="form_type" value="product">
+                                    <input type="hidden" name="utf  8" value="✓">
                                     <div class="variant-wrapper variant-wrapper--button js">
                                         <label class="variant__label" for="ProductSelect-7088243146940-option-0">
                                             {{ __('Size') }}
@@ -199,6 +199,9 @@
                                     </div>
                                 </div>
                                 <div class="product-single__description rte">
+                                    <p data-open-accessibility-text-original="16px" data-mce-fragment="1">
+                                        <b data-mce-fragment="1">{{ __('Product details') }}</b>
+                                    </p>
                                     {!! $dress->description !!}
                                 </div>
                             </div>

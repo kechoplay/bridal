@@ -61,6 +61,9 @@
                                     <tr>
                                         <th>Tên mặt hàng</th>
                                         <th>Ảnh</th>
+                                        <th>Size</th>
+                                        <th>Màu vải</th>
+                                        <th>Màu hoa</th>
                                         <th>Số lượng</th>
                                         <th>Đơn giá</th>
                                         <th>Thành tiền</th>
@@ -71,6 +74,9 @@
                                         <tr>
                                             <td>{{ $value->product->name }}</td>
                                             <td><img src="{{ $value->product->img }}" style="width: 100px"></td>
+                                            <td>{{ $value->size }}</td>
+                                            <td><label style="width: 20px; height: 20px; background-color: {{ $value->color1 }}"></label></td>
+                                            <td><label style="width: 20px; height: 20px; background-color: {{ $value->color2 }}"></label></td>
                                             <td>{{ $value->quantity }}</td>
                                             <td>{{ number_format($value->price) }}</td>
                                             <td>{{ number_format($value->quantity * $value->price) }}</td>
