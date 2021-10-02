@@ -145,7 +145,7 @@
                 <nav aria-label="Breadcrumb">
                     <ol class="breadcrumb " role="list">
                         <li class="breadcrumb__item breadcrumb__item--completed">
-                            <a class="breadcrumb__link" href="{{route('shop.cartIndex')}}">{{ __('Giỏ Hàng') }}</a>
+                            <a class="breadcrumb__link" href="{{route('shop.cartIndex')}}">{{ __('Giỏ hàng') }}</a>
                             <svg
                                 class="icon-svg icon-svg--color-adaptive-light icon-svg--size-10 breadcrumb__chevron-icon"
                                 aria-hidden="true" focusable="false">
@@ -303,7 +303,7 @@
                                                         <input type="radio" data-price="{{ $method->ship_fee }}"
                                                                required class="shipping_method" id="shipping_method"
                                                                name="shipping_method"
-                                                               value="{{ $method->id }}"> {{ $method->ship_name . ' - ' . $method->ship_time . ' - ' . __('VNĐ') . number_format($method->ship_fee) }}
+                                                               value="{{ $method->id }}"> {{ $method->ship_name . __(' trong ') . $method->ship_time . __(' phí ship ') . __('VNĐ') . number_format($method->ship_fee) }}
                                                         <br>
                                                     @endforeach
                                                 </div>
@@ -363,7 +363,7 @@
                                     <thead class="product-table__header">
                                     <tr>
                                         <th scope="col"><span>{{ __('Ảnh') }}</span></th>
-                                        <th scope="col"><span>Tên sản phẩm</span></th>
+                                        <th scope="col"><span>{{ __('Name') }}</span></th>
                                         <th scope="col"><span class="visually-hidden">Quantity</span></th>
                                         <th scope="col"><span>{{ __('Price') }}</span></th>
                                     </tr>
@@ -401,7 +401,7 @@
                                         @endforeach
                                     @endif
                                     @if(empty($arrayCart) && empty($buyNow))
-                                        <p>Chưa có sản phẩm nào trong giỏ hàng<p>
+                                        <p>{{ __('Chưa có sản phẩm nào trong giỏ hàng') }}<p>
                                     @endif
                                     </tbody>
                                 </table>

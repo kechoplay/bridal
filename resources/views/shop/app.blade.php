@@ -1294,14 +1294,11 @@
                                                 <a href="{{ route('pages.privacyPolicy') }}"
                                                    style="font-size: 13.6px;"
                                                    data-open-accessibility-text-original="13.6px"
-                                                   class="navigable">{{ __('Chính sách bảo mật') }}</a>
+                                                   class="navigable">{{ __('Chính sách') }}</a>
                                             </li>
                                             <li data-open-accessibility-text-original="13.6px"
                                                 style="font-size: 13.6px;">
-                                                <a href="{{ route('pages.termOfService') }}"
-                                                   style="font-size: 13.6px;"
-                                                   data-open-accessibility-text-original="13.6px"
-                                                   class="navigable">{{ __('Điều khoản dịch vụ') }}</a>
+                                                Follow us
                                             </li>
                                             <li data-open-accessibility-text-original="13.6px"
                                                 style="font-size: 13.6px;">

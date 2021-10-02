@@ -14,9 +14,10 @@
                     <p>{{ __('Chưa có đơn hàng nào trong giỏ !') }}</p>
                 @endif
                 @if(!empty($arrayCart))
-                    @foreach($arrayCart as $item)
-                        <div id="cart_{{@$item['id_dress']}}" class="cart__item"
-                             data-key="39724991643836:6a640714358ddd884a337230f47bc2da">
+                    @foreach($arrayCart as $key => $item)
+                        <div id="cart_{{@$item['id_dress']}}" class="cart__item">
+                            <input type="checkbox" class="singleLocalProductCheckbox" data-key="{{$key}}"
+                                   name="buyList">
                             <div class="cart__image">
                                 <a href="/shop/product-details/{{$item['slug']}}"
                                    style="height: 0; padding-bottom: 150.0%;">
@@ -30,8 +31,16 @@
                             </div>
                             <div class="cart__item-details">
                                 <div class="cart__item-title">
-                                    <div id="name_{{@$item['id_dress']}}">  {{ @$item['name'] }}</div>
-                                    {{--                                </a><div class="cart__item--variants"><div><span>Size:</span> 4</div><div><span>Color:</span> Sky Blue</div></div><div class="cart__item--variants">--}}
+                                    <div id="name_{{@$item['id_dress']}}">{{ @$item['name'] }}</div>
+                                    <div id="name_{{@$item['id_dress']}}">{{ __('Size') . ': ' . $item['size'] }}</div>
+                                    <div id="name_{{@$item['id_dress']}}" style="display: flex">
+                                        {{ __('Màu vải') }}:
+                                        <label style="background-color: {{ $item['color1'] }}; width: 20px; height: 20px" class="variant__button-label"></label>
+                                    </div>
+                                    <div id="name_{{@$item['id_dress']}}" style="display: flex">
+                                        {{ __('Màu hoa') }}:
+                                        <label style="background-color: {{ $item['color2'] }}; width: 20px; height: 20px" class="variant__button-label"></label>
+                                    </div>
 
                                 </div>
                                 <div class="cart__item-sub">
@@ -52,7 +61,7 @@
                                             <button type="button"
                                                     class="js-qty__adjust js-qty__adjust--minus"
                                                     aria-label="Reduce item quantity by one"
-                                                    onclick="SubProduct({{@$item['id_dress']}})">
+                                                    onclick="SubProduct({{ $key }})">
                                                 <svg aria-hidden="true" focusable="false" role="presentation"
                                                      class="icon icon-minus" viewBox="0 0 20 20">
                                                     <path fill="#444"
@@ -63,7 +72,7 @@
                                             <button type="button"
                                                     class="js-qty__adjust js-qty__adjust--plus"
                                                     aria-label="Increase item quantity by one"
-                                                    onclick="AddProduct({{@$item['id_dress']}})">
+                                                    onclick="AddProduct({{ $key }})">
                                                 <svg aria-hidden="true" focusable="false" role="presentation"
                                                      class="icon icon-plus" viewBox="0 0 20 20">
                                                     <path fill="#444"
@@ -74,7 +83,7 @@
                                         </div>
                                         <br>
                                         <div style="cursor: pointer" class="cart__remove text-link"
-                                             onclick="RemoveProduct({{@$item['id_dress']}})">
+                                             onclick="RemoveProduct({{ $key }})">
                                             {{ __('Xóa') }}
                                         </div>
                                     </div>
@@ -99,7 +108,7 @@
                          style="float: right">{{ __('VNĐ') . @number_format($total) }}</div>
                 </div>
                 <div class="cart__item-row cart__checkout-wrapper">
-                    <button id="buy_product" name="checkout" data-terms-required="false" class="btn cart__checkout"
+                    <button type="button" id="buy_product" name="checkout" class="btn cart__checkout"
                             @if(@$total == 0)disabled="disable" @endif onclick="BuyCart()">
                         {{ __('Đặt hàng') }}
                     </button>
@@ -121,6 +130,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     {{--    <script type='text/javascript' src='/js/cart.js'></script>--}}
     <script>
+        var checkedLocalProductIdList = [];
         $.ajaxSetup({
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -150,40 +160,7 @@
                 type: 'post',
                 data: {id_add: id_add, id_sub: id_sub, id_remove: id_remove},
                 success: function (data) {
-                    if (data) {
-                        if (data.flagAction == 1) {
-                            $('#number_' + data.id).val(data.number);
-                            var price = '{{ __('VNĐ') }}' + number_format(data.price);
-                            var total = '{{ __('VNĐ') }}' + number_format(data.total);
-                            $('#price_' + data.id).text(price);
-                            $('#total_' + data.id).text(total);
-
-                        }
-                        if (data.flagAction == 2) {
-                            if (data.number == 0) {
-                                $('#cart_' + data.id).hide();
-                            }
-                            console.log('total' + data.total);
-                            $('#number_' + data.id).val(data.number);
-                            var price2 = '{{ __('VNĐ') }}' + number_format(data.price);
-                            var total2 = '{{ __('VNĐ') }}' + number_format(data.total);
-                            $('#price_' + data.id).text(price2);
-                            $('#total_' + data.id).text(total2);
-                            if (data.total == 0) {
-                                $('#buy_product').attr('disabled', true);
-                                ;
-                            }
-
-                        }
-                        if (data.flagAction == 3) {
-                            $('#cart_' + data.id).hide();
-                            var total3 = '{{ __('VNĐ') }}' + number_format(data.total);
-                            $('#total_' + data.id).text(total3);
-                            if (data.total == 0) {
-                                $('#buy_product').attr('disabled', true);
-                            }
-                        }
-                    }
+                    location.reload()
                 }, error: function (e) {
                     console.log('Lỗi! thay đổi thất bại');
                 }
@@ -191,7 +168,24 @@
 
         }
 
+        $(document).on('click', 'input.singleLocalProductCheckbox', function () {
+            var key = $(this).data('key');
+            var index = checkedLocalProductIdList.indexOf(key);
+
+            if ($(this).is(':checked')) {
+                if (index < 0)
+                    checkedLocalProductIdList.push(key);
+            } else {
+                if (index >= 0)
+                    checkedLocalProductIdList.splice(index, 1);
+            }
+        });
+
         function BuyCart() {
+            if (checkedLocalProductIdList.length == 0) {
+                alert('Chọn 1 sản phẩm để mua');
+                return;
+            }
             $.ajaxSetup({
                 headers: {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -200,7 +194,7 @@
             $.ajax({
                 url: '/shop/ajax-buy-cart',
                 type: 'post',
-                data: {},
+                data: {productBuy: checkedLocalProductIdList},
                 success: function (data) {
                     window.location.href = '/shop/cart-info';
                 }, error: function (e) {

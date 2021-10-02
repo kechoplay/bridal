@@ -1,7 +1,7 @@
 {
     "Contact": "Liên hệ",
-    "Introduce": "Giới thiệu",
-    "Privacy Policy" : "Chính sách bảo mật",
+    "About": "Giới thiệu",
+    "Shop Policy" : "Chính sách",
     "Terms of Service": "Điều khoản dịch vụ",
     "Contact us": "Liên hệ chúng tôi",
     "Send": "Gửi",
@@ -19,7 +19,7 @@
     "Your cart is empty!": "Chưa có đơn hàng nào trong giỏ !",
     "Cart": "Giỏ hàng",
     "Back to shop": "Quay lại mua sắm",
-    "View all": "Xem tất",
+    "View all": "Xem tất cả",
     "Please login to use the shopping cart function": "Vui lòng đăng nhập để sử dụng chức năng giỏ hàng",
     "Login": "Đăng nhập",
     "Password": "Mật khẩu",
@@ -56,5 +56,8 @@
     "Size": "Kích thước",
     "Fabric Color": "Màu vải",
     "Flower Color": "Màu hoa",
-    ":price off": "giảm :price"
+    ":price off": "giảm :price",
+    "Product details": "Mô tả sản phầm",
+    " in ": " trong ",
+    " ship fee ": " phí ship "
 }

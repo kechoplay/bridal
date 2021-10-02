@@ -394,73 +394,49 @@ class HomeController extends Controller
         $price = 0;
         $arrayCart = null;
         $language = Session::get('language');
-        if (!empty($request->id_add)) {
+        if (($request->id_add) != null) {
             $id = $request->id_add;
             $flagAction = 1;
             if (Session::has('cart')) {
                 $arrayCart = Session::get('cart');
-                foreach ($arrayCart as &$cart) {
-                    if ($cart['id_dress'] == $id) {
-                        $cart['number']++;
-                        $price = $cart['number'] * $cart['price'];
-                        $number = $cart['number'];
+                foreach ($arrayCart as $key => $cart) {
+                    if ($key == $id) {
+                        $arrayCart[$key]['number']++;
                     }
                 }
                 Session::put('cart', $arrayCart);
             }
-        } else if (!empty($request->id_sub)) {
+        }
+        if (!is_null($request->id_sub)) {
             $id = $request->id_sub;
             $price = 0;
             $flagAction = 2;
             if (Session::has('cart')) {
                 $arrayCart = Session::get('cart');
-                foreach ($arrayCart as &$cart) {
-                    if ($cart['id_dress'] == $id) {
-                        $cart['number']--;
-                        $price = $cart['number'] * $cart['price'];
-                        $number = $cart['number'];
+                foreach ($arrayCart as $key => $cart) {
+                    if ($key == $id) {
+                        $arrayCart[$key]['number']--;
                     }
                 }
                 Session::put('cart', $arrayCart);
             }
 
-        } else if (!empty($request->id_remove)) {
+        }
+        if (!is_null($request->id_remove)) {
             $id = $request->id_remove;
             $flagAction = 3;
             if (Session::has('cart')) {
                 $arrayCart = Session::get('cart');
                 foreach ($arrayCart as $key => $cart) {
-                    if ($cart['id_dress'] == $id) {
+                    if ($key == $id) {
                         unset($arrayCart[$key]);
                     }
                 }
+                $arrayCart = array_values($arrayCart);
             }
             Session::put('cart', $arrayCart);
         }
-        $total = 0;
-        if (Session::has('cart')) {
-            $arrayCart = Session::get('cart');
-            foreach ($arrayCart as $key => $cart) {
-                if ($cart['number'] == 0) {
-                    unset($arrayCart[$key]);
-                }
-            }
-            Session::put('cart', $arrayCart);
-        }
-        if (Session::has('cart')) {
-            $arrayCart = Session::get('cart');
-            foreach ($arrayCart as $key => $cart) {
-                $product = DressProduct::where('id', $cart['id_dress'])->first();
-                if ($language == 'en') {
-                    $priceNew = $product->price_en;
-                } else {
-                    $priceNew = $product->price;
-                }
-                $arrayCart[$key]['price'] = $priceNew;
-                $total += ($priceNew * $cart['number']);
-            }
-        }
-        return response()->json(['success' => true, 'arrayCart' => $arrayCart, 'total' => $total,
+        return response()->json(['success' => true, 'arrayCart' => $arrayCart,
             'flagAction' => $flagAction, 'id' => $id, 'price' => $price, 'number' => $number], 200);
     }
 
@@ -469,8 +445,8 @@ class HomeController extends Controller
         $styles = WeddingDressCategory::all();
         $total = 0;
         $totalNow = 0;
-        if (Session::has('cart')) {
-            $arrayCart = Session::get('cart');
+        if (Session::has('buy')) {
+            $arrayCart = Session::get('buy');
             foreach ($arrayCart as $cart) {
                 $total += ($cart['price'] * $cart['number']);
             }
@@ -511,13 +487,14 @@ class HomeController extends Controller
     {
         DB::beginTransaction();
         try {
+//            dd($request->all());
             $styles = WeddingDressCategory::all();
             $total = 0;
             $now = Carbon::now()->format('Y-m-d H:i:s');
             $voucherCode = $request->voucher;
             $vouchers = Voucher::where('code', $voucherCode)->where('start_time', '<', $now)->where('end_time', '>', $now)->first();
-            if (Session::has('cart')) {
-                $arrayCart = Session::get('cart');
+            if (Session::has('buy')) {
+                $arrayCart = Session::get('buy');
                 $orders = Orders::create([
                     'name' => $request->name_order,
                     'mobile' => $request->phone_order,
@@ -540,8 +517,23 @@ class HomeController extends Controller
                         'order_id' => $orders->id,
                         'dress_id' => $cart['id_dress'],
                         'quantity' => $cart['number'],
-                        'price' => $price
+                        'price' => $price,
+                        'size' => $cart['size'],
+                        'color1' => $cart['color1'],
+                        'color2' => $cart['color2'],
                     ]);
+                    if (Session::has('cart')) {
+                        $arrayCartO = Session::get('cart');
+                        foreach ($arrayCartO as $key => $item) {
+                            if ($cart['id_dress'] == $item['id_dress'] && $cart['size'] == $item['size'] &&
+                                $cart['color1'] == $item['color1'] && $cart['color2'] == $item['color2']
+                            ) {
+                                unset($arrayCartO[$key]);
+                            }
+                        }
+                        $arrayCartO = array_values($arrayCartO);
+                        Session::put('cart', $arrayCartO);
+                    }
                 }
                 if ($vouchers) {
                     $total = ceil($total - ($total * ($vouchers->discount / 100)));
@@ -567,14 +559,15 @@ class HomeController extends Controller
                 'phone' => $request->phone_order,
                 'note' => $request->note_order,
             ];
-            Mail::to($request->email_order)->send(new MailOrder($data, $arrayCart, $buyNow, $flagCart, $total));
-            Session::forget('cart');
+//            Mail::to($request->email_order)->send(new/ MailOrder($data, $arrayCart, $buyNow, $flagCart, $total));
+            Session::forget('buy');
             Session::forget('buyNow');
             Session::forget('flagCart');
             DB::commit();
             return view('shop.order_confirm', compact('styles', 'arrayCart', 'total', 'data', 'buyNow', 'flagCart'));
         } catch (\Exception $exception) {
             Log::error($exception);
+            dd($exception);
             DB::rollBack();
         }
 
@@ -660,8 +653,17 @@ class HomeController extends Controller
         return response()->json(['success' => true], 200);
     }
 
-    public function ajaxBuyCart()
+    public function ajaxBuyCart(Request $request)
     {
+        if (Session::has('cart')) {
+            $arrayCart = Session::get('cart');
+            $productBuy = $request->productBuy;
+            $arrayBuy = [];
+            foreach ($productBuy as $product) {
+                $arrayBuy[] = $arrayCart[$product];
+            }
+            Session::put('buy', $arrayBuy);
+        }
         if (Session::has('flagCart')) {
             Session::put("flagCart", 0);
         } else {
@@ -683,8 +685,8 @@ class HomeController extends Controller
             $userId = Auth::guard('customers')->user()->id;
             $voucherUser = VoucherUser::where('voucher_id', $vouchers->id)->where('user_id', $userId)->first();
             if (!$voucherUser) {
-                if (Session::has('cart')) {
-                    $arrayCart = Session::get('cart');
+                if (Session::has('buy')) {
+                    $arrayCart = Session::get('buy');
                     foreach ($arrayCart as $cart) {
                         $total += ($cart['price'] * $cart['number']);
                     }
@@ -714,8 +716,8 @@ class HomeController extends Controller
         $total = 0;
         $discount = 0;
 
-        if (Session::has('cart')) {
-            $arrayCart = Session::get('cart');
+        if (Session::has('buy')) {
+            $arrayCart = Session::get('buy');
             foreach ($arrayCart as $cart) {
                 $total += ($cart['price'] * $cart['number']);
             }
