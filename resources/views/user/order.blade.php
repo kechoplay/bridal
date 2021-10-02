@@ -1,4 +1,4 @@
-@extends('layout.admin.main')
+@extends('layout.customers')
 @push('css')
     <link rel="stylesheet" href="/css/view/order.css">
 @endpush

@@ -1,4 +1,4 @@
-@extends('layout.admin.main')
+@extends('layout.customers')
 @section('content')
     <div class="content-wrapper">
         <section class="content-header">

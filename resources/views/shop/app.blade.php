@@ -1144,6 +1144,13 @@
                                                     {{ __('News') }}
                                                 </a>
                                             </li>
+                                            @if(!empty(auth()->guard('customers')->user()->name))
+                                                <li class="site-nav__item site-nav__expanded-item">
+                                                    <a    class="site-nav__link site-nav__link--underline"  href="/order/history">
+                                                        {{ __('Bought') }}
+                                                    </a>
+                                                </li>
+                                            @endif
                                         </ul>
                                     </div>
                                     <div class="header-item header-item--icons">

@@ -56,6 +56,9 @@
                 <ul id="menu-main-menu-1" class="nav nav-primary"><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-75"><a href="/bridal-product/">bộ váy cưới</a></li>
                     <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-76"><a href="/special-product/">bộ váy đặc biệt</a></li>
                     <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-76"><a href="/new-product/">Sản phẩm mới</a></li>
+                    @if(!empty(auth()->guard('customers')->user()->name))
+                        <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-76"><a href="/order/history">Đơn hàng đã mua</a></li>
+                    @endif
                 </ul>                <form role="search" method="get" class="header-search-form closed" action="/">
                     <button type="submit" class="search-submit"><span class="theia-search"></span></button>
                     <label>

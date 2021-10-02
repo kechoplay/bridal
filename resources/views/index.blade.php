@@ -87,7 +87,7 @@
                 <div class="section-text-row">
                     <div class="section-text-col">
                         <div class="section-text-content">
-                            <h2 style="text-align: center;">Sản Phẩm Mới</h2>
+                            <h2 style="text-align: center;">Sản Phẩm Mới </h2>
                             <p style="text-align: center;"> </p>
                         </div>
                     </div>

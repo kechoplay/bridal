@@ -56,5 +56,6 @@
     "Size": "Kích thước",
     "Fabric Color": "Màu vải",
     "Flower Color": "Màu hoa",
-    ":price off": "giảm :price"
+    ":price off": "giảm :price",
+    "Bought" :  "Đơn hàng đã mua"
 }
