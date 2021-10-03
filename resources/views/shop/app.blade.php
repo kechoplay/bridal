@@ -1147,7 +1147,7 @@
                                             @if(!empty(auth()->guard('customers')->user()->name))
                                                 <li class="site-nav__item site-nav__expanded-item">
                                                     <a    class="site-nav__link site-nav__link--underline"  href="/order/history">
-                                                        {{ __('Bought') }}
+                                                        {{ __('Order History') }}
                                                     </a>
                                                 </li>
                                             @endif

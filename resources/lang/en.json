@@ -56,8 +56,9 @@
     "Màu vải": "Fabric Color",
     "Màu hoa": "Flower Color",
     "giảm :price": ":price off",
-    "Đơn hàng đã mua" : "Bought",
+    "Đơn hàng đã mua" : "Order History",
     "Mô tả sản phầm": "Product details",
     " trong ": " in ",
-    " phí ship ": " ship fee "
+    " phí ship ": " ship fee ",
+    "Nhận xét": "Comment"
 }

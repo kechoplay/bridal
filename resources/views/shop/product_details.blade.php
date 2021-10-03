@@ -219,7 +219,7 @@
             </div>
 
             <div class="col-12 " style="padding-left:20px">
-                ĐÁNH GIÁ - NHẬN XÉT TỪ KHÁCH HÀNG <br><br>
+                {{ __('Nhận xét') }} <br><br>
 
                 <br>
                 <div class="box" style="width: 85%; margin:auto">
