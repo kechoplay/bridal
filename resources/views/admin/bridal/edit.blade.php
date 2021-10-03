@@ -64,7 +64,7 @@
                                         <label for="name">Kích cỡ</label>
                                         <select name="size[]" multiple="multiple" class="form-control size" required>
                                             @foreach($sizes as $size)
-                                                <option value="{{ $size->id }}" {{ (isset($dress) && in_array($size->id, $dress->size)) ? 'selected' : '' }}>{{ $size->name }}</option>
+                                                <option value="{{ $size->id }}" {{ (isset($dress) && $dress->size && in_array($size->id, $dress->size)) ? 'selected' : '' }}>{{ $size->name }}</option>
                                             @endforeach
                                         </select>
                                     </div>
@@ -72,7 +72,7 @@
                                         <label for="name">Màu vải</label>
                                         <select name="color1[]" multiple="multiple" class="form-control color1" required>
                                             @foreach($colors as $color)
-                                                <option value="{{ $color->id }}" {{ (isset($dress) && in_array($color->id, $dress->color1)) ? 'selected' : '' }}>{{ $color->name_vi }}</option>
+                                                <option value="{{ $color->id }}" {{ (isset($dress) && $dress->color1 && in_array($color->id, $dress->color1)) ? 'selected' : '' }}>{{ $color->name_vi }}</option>
                                             @endforeach
                                         </select>
                                     </div>
@@ -80,7 +80,7 @@
                                         <label for="name">Màu hoa</label>
                                         <select name="color2[]" multiple="multiple" class="form-control color2" required>
                                             @foreach($colors as $color)
-                                                <option value="{{ $color->id }}" {{ (isset($dress) && in_array($color->id, $dress->color2)) ? 'selected' : '' }}>{{ $color->name_vi }}</option>
+                                                <option value="{{ $color->id }}" {{ (isset($dress) && $dress->color2 && in_array($color->id, $dress->color2)) ? 'selected' : '' }}>{{ $color->name_vi }}</option>
                                             @endforeach
                                         </select>
                                     </div>
