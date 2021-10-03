@@ -560,7 +560,7 @@ class HomeController extends Controller
                 'phone' => $request->phone_order,
                 'note' => $request->note_order,
             ];
-//            Mail::to($request->email_order)->send(new/ MailOrder($data, $arrayCart, $buyNow, $flagCart, $total));
+            Mail::to($request->email_order)->send(new MailOrder($data, $arrayCart, $buyNow, $flagCart, $total));
             Session::forget('buy');
             Session::forget('buyNow');
             Session::forget('flagCart');
