@@ -49,28 +49,34 @@ class BridalController extends Controller
             $dr->image = json_decode($dr->img_path, true)[0];
             $color1Arr = json_decode($dr->color1, true);
             $color1ArrNew = [];
-            foreach ($color1Arr as $color) {
-                $colorData = Colors::where('id', $color)->first();
-                if ($colorData)
-                    $color1ArrNew[] = $colorData->name_vi;
+            if ($color1Arr) {
+                foreach ($color1Arr as $color) {
+                    $colorData = Colors::where('id', $color)->first();
+                    if ($colorData)
+                        $color1ArrNew[] = $colorData->name_vi;
+                }
             }
             $dr->color1 = implode(',', $color1ArrNew);
 
             $color2Arr = json_decode($dr->color2, true);
             $color2ArrNew = [];
-            foreach ($color2Arr as $color) {
-                $colorData = Colors::where('id', $color)->first();
-                if ($colorData)
-                    $color2ArrNew[] = $colorData->name_vi;
+            if ($color2Arr) {
+                foreach ($color2Arr as $color) {
+                    $colorData = Colors::where('id', $color)->first();
+                    if ($colorData)
+                        $color2ArrNew[] = $colorData->name_vi;
+                }
             }
             $dr->color2 = implode(',', $color2ArrNew);
 
             $sizeArr = json_decode($dr->size, true);
             $sizeArrNew = [];
-            foreach ($sizeArr as $size) {
-                $sizeData = Sizes::where('id', $size)->first();
-                if ($sizeData)
-                    $sizeArrNew[] = $sizeData->name;
+            if ($sizeArr) {
+                foreach ($sizeArr as $size) {
+                    $sizeData = Sizes::where('id', $size)->first();
+                    if ($sizeData)
+                        $sizeArrNew[] = $sizeData->name;
+                }
             }
             $dr->size = implode(',', $sizeArrNew);
         }
