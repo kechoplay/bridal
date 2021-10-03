@@ -496,6 +496,7 @@ class HomeController extends Controller
             if (Session::has('buy')) {
                 $arrayCart = Session::get('buy');
                 $orders = Orders::create([
+                    'customer_id' => Auth::guard('customers')->id(),
                     'name' => $request->name_order,
                     'mobile' => $request->phone_order,
                     'address' => $request->address_order,
@@ -567,7 +568,6 @@ class HomeController extends Controller
             return view('shop.order_confirm', compact('styles', 'arrayCart', 'total', 'data', 'buyNow', 'flagCart'));
         } catch (\Exception $exception) {
             Log::error($exception);
-            dd($exception);
             DB::rollBack();
         }
 

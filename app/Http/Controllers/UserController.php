@@ -138,7 +138,7 @@ class UserController extends Controller
         $products = DB::table('orders')
             ->where('customer_id', $customer_id)
             ->join('order_detail', 'orders.id', '=', 'order_detail.order_id')
-            ->join('dress_product', 'order_detail.product_id', '=', 'dress_product.id')
+            ->join('dress_product', 'order_detail.dress_id', '=', 'dress_product.id')
             ->select()
             ->get();
         foreach ($products as $product) {

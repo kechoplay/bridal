@@ -19,11 +19,11 @@
                                 <table id="example1" class="table table-bordered ">
                                     <thead>
                                     <tr>
-                                        <th>Mã đơn hàng</th>
-                                        <th>Ngày mua</th>
+                                        <th>Id</th>
                                         <th>Sản phẩm</th>
+                                        <th>Ngày mua</th>
                                         <th>Tổng tiền</th>
-                                        <th class="text-right"> Trạng thái đơn <br> hàng</th>
+                                        <th>Trạng thái</th>
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -32,23 +32,26 @@
                                             <td>
                                                 <a href="{{ route('order-view', ['id' => $product->id]) }}"> {{$product->id}}</a>
                                             </td>
+                                            <td>
+                                                <a href="{{ route('order-view', ['id' => $product->id]) }}">{{ $product->name}}</a>
+                                            </td>
                                             <td>{{$product->order_date}}</td>
                                             <td>
-                                                {{ $product->name}}
-                                            </td>
-                                            <td>
-                                                {{$product->price * $product->quantity}} ₫
+                                                {{ number_format($product->price * $product->quantity) }} ₫
                                             </td>
                                             <td class="text-right" style="text-transform: capitalize;">
                                                 @switch($product->status)
                                                     @case(0)
-                                                    <span style=""> Đã xử lý </span>
+                                                    <span style="">Chưa xử lý</span>
                                                     @break
                                                     @case(1)
-                                                    <span style="color: greenyellow">  Đang xử lý</span>
+                                                    <span style="color: greenyellow">Đang xử lý</span>
                                                     @break
                                                     @case(2)
-                                                    <span style="  color: green"> Giao thành công</span>
+                                                    <span style="  color: green">Hoàn thành</span>
+                                                    @break
+                                                    @case(3)
+                                                    <span style="  color: green">Hủy đơn hàng</span>
                                                     @break
                                                 @endswitch
                                             </td>

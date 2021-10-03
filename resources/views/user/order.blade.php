@@ -32,13 +32,10 @@
                                             <tr>
                                                 <th>Sản phẩm</th>
                                                 <th>Giá</th>
-                                                <th>Giảm giá</th>
-                                                <th>Tạm tính</th>
                                             </tr>
                                             </thead>
                                             <tbody>
                                             <tr>
-
                                                 <td>
                                                     <div class="product-item" style="width: 50%">
                                                         <img style="width: 200px; height: 200px ;border-radius: 5px;"
@@ -69,31 +66,15 @@
                                                                 </span>
                                                                 <a href="{{ route('shop.productDetails', ['nameProduct' => $product->slug]) }}"
                                                                    target="_blank">
-                                                                    Mua lại
+                                                                Mua lại
                                                                 </a>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </td>
-                                                <td class="price"> {{$product->price}} ₫</td>
-                                                <td class="discount-amount">0 ₫</td>
-                                                <td class="raw-total"> {{$product->price}} ₫</td>
+                                                <td class="price"> {{ number_format($product->price) }}</td>
                                             </tr>
                                             </tbody>
-                                            <tfoot>
-                                            <tr>
-                                                <td colspan="3"><span>Tạm tính</span></td>
-                                                <td class="text-right"> {{$product->price}} ₫</td>
-                                            </tr>
-                                            <tr>
-                                                <td colspan="3"><span>Phí vận chuyển</span></td>
-                                                <td class="text-right">0 ₫</td>
-                                            </tr>
-                                            <tr>
-                                                <td colspan="3"><span>Tổng cộng</span></td>
-                                                <td class="text-right"> {{$product->price}} ₫</td>
-                                            </tr>
-                                            </tfoot>
                                         </table>
                                     </div>
                                 </div>
