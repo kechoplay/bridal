@@ -504,6 +504,9 @@ class HomeController extends Controller
         try {
 //            dd($request->all());
             $styles = WeddingDressCategory::all();
+            $language = Session::get('language');
+            $timeNow = Carbon::now()->format('Y-m-d');
+            $discounts = Discount::whereDate('start_time', '<=', $timeNow)->whereDate('end_time', '>=', $timeNow)->get();
             $total = 0;
             $now = Carbon::now()->format('Y-m-d H:i:s');
             $voucherCode = $request->voucher;
@@ -523,12 +526,25 @@ class HomeController extends Controller
                     'status' => 0,
                 ]);
                 $userId = Auth::guard('customers')->user()->id;
-                foreach ($arrayCart as $cart) {
-                    $total += ($cart['price'] * $cart['number']);
+                foreach ($arrayCart as $key => $cart) {
+                    $dress = DressProduct::find($cart['id_dress']);
+                    if ($language == 'en') {
+                        $arrayCart[$key]['price'] = $dress->price_en;
+                    }
+                    if ($discounts->count() > 0) {
+                        foreach ($discounts as $discount) {
+                            $productList = json_decode($discount->product_list, true);
+                            $percent = $discount->discount;
+                            if ($productList && in_array($dress->id, $productList)) {
+                                $arrayCart[$key]['price'] = $arrayCart[$key]['price'] - floatval(($arrayCart[$key]['price'] * $percent) / 100);
+                            }
+                        }
+                    }
+                    $total += ($arrayCart[$key]['price'] * $cart['number']);
                     if ($vouchers) {
-                        $price = ceil($cart['price'] - ($cart['price'] * ($vouchers->discount / 100)));
+                        $price = ceil($arrayCart[$key]['price'] - ($arrayCart[$key]['price'] * ($vouchers->discount / 100)));
                     } else
-                        $price = $cart['price'];
+                        $price = $arrayCart[$key]['price'];
                     OrderDetail::create([
                         'order_id' => $orders->id,
                         'dress_id' => $cart['id_dress'],
