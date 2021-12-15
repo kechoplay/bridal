@@ -90,7 +90,7 @@
 
                                     <div class="cart__item-price-col text-right">
                                      <span class="cart__price" id="price_{{@$item['id_dress']}}">
-                                        {{ __('VNĐ') . @number_format($item['price'] * @$item['number']) }}
+                                        {{ __(':priceVNĐ', ['price' => @number_format($item['price'] * @$item['number'])]) }}
                                       </span>
                                     </div>
                                 </div>
@@ -105,7 +105,7 @@
                 <div class="cart__item-sub cart__item-row">
                     <div>{{ __('Tổng') }}</div>
                     <div id="total_{{@$item['id_dress']}}"
-                         style="float: right">{{ __('VNĐ') . @number_format($total) }}</div>
+                         style="float: right">{{ __(':priceVNĐ', ['price' => @number_format($total)]) }}</div>
                 </div>
                 <div class="cart__item-row cart__checkout-wrapper">
                     <button type="button" id="buy_product" name="checkout" class="btn cart__checkout"

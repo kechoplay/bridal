@@ -443,12 +443,28 @@ class HomeController extends Controller
     public function cartInfo()
     {
         $styles = WeddingDressCategory::all();
+        $language = Session::get('language');
+        $timeNow = Carbon::now()->format('Y-m-d');
+        $discounts = Discount::whereDate('start_time', '<=', $timeNow)->whereDate('end_time', '>=', $timeNow)->get();
         $total = 0;
         $totalNow = 0;
         if (Session::has('buy')) {
             $arrayCart = Session::get('buy');
-            foreach ($arrayCart as $cart) {
-                $total += ($cart['price'] * $cart['number']);
+            foreach ($arrayCart as $key => $cart) {
+                $dress = DressProduct::find($cart['id_dress']);
+                if ($language == 'en') {
+                    $arrayCart[$key]['price'] = $dress->price_en;
+                }
+                if ($discounts->count() > 0) {
+                    foreach ($discounts as $discount) {
+                        $productList = json_decode($discount->product_list, true);
+                        $percent = $discount->discount;
+                        if ($productList && in_array($dress->id, $productList)) {
+                            $arrayCart[$key]['price'] = $arrayCart[$key]['price'] - floatval(($arrayCart[$key]['price'] * $percent) / 100);
+                        }
+                    }
+                }
+                $total += ($arrayCart[$key]['price'] * $cart['number']);
             }
         } else {
             $arrayCart = null;
@@ -464,7 +480,6 @@ class HomeController extends Controller
             $flagCart = -1;
         }
 
-        $language = Session::get('language');
         $shippingMethod = ShippingMethod::get();
         foreach ($shippingMethod as $item) {
             if ($language == 'en') {

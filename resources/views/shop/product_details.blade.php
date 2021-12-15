@@ -90,14 +90,14 @@
                                         <span id="ComparePrice-4464780836919"
                                               class="product__price product__price--compare"
                                               data-open-accessibility-text-original="16px" style="font-size: 16px;">
-                                            {{ __('VNĐ') . number_format($dress->price) }}
+                                            {{ __(':priceVNĐ', ['price' => @number_format($dress->price)]) }}
                                         </span>
                                     </span>
                                     <span id="ComparePriceA11y-4464780836919" class="visually-hidden"
                                           data-open-accessibility-text-original="16px" style="font-size: 16px;">Sale price</span>
                                     <span id="ProductPrice-4464780836919" class="product__price on-sale"
                                           data-open-accessibility-text-original="16px" style="font-size: 16px;">
-                                        {{ __('VNĐ') . number_format($dress->sale_price) }}
+                                        {{ __(':priceVNĐ', ['price' => @number_format($dress->sale_price)]) }}
                                     </span>
                                     <span id="ProductPrice-4464780836919" class="product__price on-sale"
                                           data-open-accessibility-text-original="16px" style="font-size: 16px;">
@@ -106,7 +106,7 @@
                                 @else
                                     <span id="PriceA11y-6694898139324" class="visually-hidden">Regular price</span>
                                     <span id="ProductPrice-6694898139324" class="product__price">
-                                    {{ __('VNĐ') . number_format($dress->price) }}
+                                    {{ __(':priceVNĐ', ['price' => @number_format($dress->price)]) }}
                                     </span>
                                 @endif
                                 <div

@@ -1057,12 +1057,10 @@
                                             <a href="{{ route('homeIndex') }}" itemprop="url"
                                                class="site-header__logo-link logo--has-inverted">
                                                 <img class="small--hide"
-                                                     src="//cdn.shopify.com/s/files/1/0546/6033/files/THEIA_Logo_4b6eb676-6ab5-4d1b-b8fb-43716d9b8356_120x.png?v=1619811240"
-                                                     srcset="//cdn.shopify.com/s/files/1/0546/6033/files/THEIA_Logo_4b6eb676-6ab5-4d1b-b8fb-43716d9b8356_120x.png?v=1619811240 1x, //cdn.shopify.com/s/files/1/0546/6033/files/THEIA_Logo_4b6eb676-6ab5-4d1b-b8fb-43716d9b8356_120x@2x.png?v=1619811240 2x"
+                                                     src="/images/lamnhistudio.jpg"
                                                      alt="THEIA" itemprop="logo">
                                                 <img class="medium-up--hide"
-                                                     src="//cdn.shopify.com/s/files/1/0546/6033/files/THEIA_Logo_4b6eb676-6ab5-4d1b-b8fb-43716d9b8356_110x.png?v=1619811240"
-                                                     srcset="//cdn.shopify.com/s/files/1/0546/6033/files/THEIA_Logo_4b6eb676-6ab5-4d1b-b8fb-43716d9b8356_110x.png?v=1619811240 1x, //cdn.shopify.com/s/files/1/0546/6033/files/THEIA_Logo_4b6eb676-6ab5-4d1b-b8fb-43716d9b8356_110x@2x.png?v=1619811240 2x"
+                                                     src="/images/lamnhistudio.jpg"
                                                      alt="THEIA">
                                             </a>
                                             <a href="{{ route('homeIndex') }}" itemprop="url"

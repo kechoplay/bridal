@@ -303,7 +303,7 @@
                                                         <input type="radio" data-price="{{ $method->ship_fee }}"
                                                                required class="shipping_method" id="shipping_method"
                                                                name="shipping_method"
-                                                               value="{{ $method->id }}"> {{ $method->ship_name . __(' trong ') . $method->ship_time . __(' phí ship ') . __('VNĐ') . number_format($method->ship_fee) }}
+                                                               value="{{ $method->id }}"> {{ $method->ship_name . __(' trong ') . $method->ship_time . __(' phí ship ') . __(':priceVNĐ', ['price' => number_format($method->ship_fee)]) }}
                                                         <br>
                                                     @endforeach
                                                 </div>
@@ -395,7 +395,7 @@
                                                 </td>
                                                 <td class="product__price">
                                             <span
-                                                class="order-summary__emphasis skeleton-while-loading">{{ @number_format($item['price']) . __('$') }}</span>
+                                                class="order-summary__emphasis skeleton-while-loading">{{ __(':priceVNĐ', ['price' => @number_format($item['price'])]) }}</span>
                                                 </td>
                                             </tr>
                                         @endforeach

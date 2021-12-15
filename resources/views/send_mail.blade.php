@@ -51,26 +51,24 @@
                 </tbody>
             </table>
             <br>
-            <span style="font-weight: 700">TỔNG GIÁ TRỊ ĐƠN HÀNG:</span>
+            <span style="font-weight: 700">{{ __('Total') }}:</span>
             <span>
                  @if(@$flagCart == 0 )
-                     {{ @number_format($total) }} VNĐ
+                     {{ __(':priceVNĐ', ['price' => @number_format($total)]) }}
                  @endif
                   @if(@$flagCart == 1 )
-                      {{ @number_format($buyNow['price']) }} VNĐ
+                      {{ @number_format($buyNow['price']) }}
                   @endif
             </span>
-            <span style="font-weight: 700">(Tổng tiền chưa bao gồm phí ship)</span>
         </td>
     <tr>
-        <td style="background-color: #1782f1;color: white">THÔNG TIN NGƯỜI MUA</td>
+        <td style="background-color: #1782f1;color: white">{{ __('Information') }}</td>
         <td style="color: black">
-            <div>Tên khách hàng: {{ @$data['name'] }}</div>
-            <div>Điện thoại liên hệ: {{ @$data['phone'] }}</div>
-            <div>Email đặt hàng: {{ @$data['email'] }}</div>
-            <div>Hình thức thanh toán: chuyển hàng đến tận nơi và thu tiền</div>
-            <div>Ghi chú của khách hàng: {{ @$data['note'] }}</div>
-            <div>Địa chỉ nhận hàng: {{ @$data['address'] }}</div>
+            <div>{{ __('Name') }}: {{ @$data['name'] }}</div>
+            <div>{{ __('Phone') }}: {{ @$data['phone'] }}</div>
+            <div>Email: {{ @$data['email'] }}</div>
+            <div>{{ __('Note') }}: {{ @$data['note'] }}</div>
+            <div>{{ __('Địa chỉ nhận hàng') }}: {{ @$data['address'] }}</div>
         </td>
     </tr>
 

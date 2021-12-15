@@ -2,7 +2,7 @@
     <div class="navbar-container-xs">
         <div class="navbar-row">
             <div class="navbar-logo">
-                <a class="brand" href="/"><img src="/images/logo.svg" alt="THEIA Bridal" class="logo-img"></a>
+                <a class="brand" href="/"><img src="/images/lamnhistudio.jpg" alt="THEIA Bridal" class="logo-img"></a>
             </div>
             <div class="navbar-toggle-search">
                 <form role="search" method="get" class="header-search-form closed" action="/">
