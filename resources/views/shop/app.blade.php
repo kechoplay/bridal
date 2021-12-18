@@ -1057,20 +1057,20 @@
                                             <a href="{{ route('homeIndex') }}" itemprop="url"
                                                class="site-header__logo-link logo--has-inverted">
                                                 <img class="small--hide"
-                                                     src="/images/lamnhistudio.jpg?v={{ \Illuminate\Support\Carbon::now()->timestamp }}"
-                                                     alt="THEIA" itemprop="logo">
+                                                     src="/images/lamnhi.png?v={{ \Illuminate\Support\Carbon::now()->timestamp }}"
+                                                     alt="LAMNHI" itemprop="logo">
                                                 <img class="medium-up--hide"
-                                                     src="/images/lamnhistudio.jpg?v={{ \Illuminate\Support\Carbon::now()->timestamp }}"
-                                                     alt="THEIA">
+                                                     src="/images/lamnhi.png?v={{ \Illuminate\Support\Carbon::now()->timestamp }}"
+                                                     alt="LAMNHI">
                                             </a>
                                             <a href="{{ route('homeIndex') }}" itemprop="url"
                                                class="site-header__logo-link logo--inverted">
                                                 <img class="small--hide"
-                                                     src="/images/lamnhistudio.JPG?v={{ \Illuminate\Support\Carbon::now()->timestamp }}"
-                                                     alt="THEIA" itemprop="logo">
+                                                     src="/images/lamnhi.png?v={{ \Illuminate\Support\Carbon::now()->timestamp }}"
+                                                     alt="LAMNHI" itemprop="logo">
                                                 <img class="medium-up--hide"
-                                                     src="/images/lamnhistudio.JPG?v={{ \Illuminate\Support\Carbon::now()->timestamp }}"
-                                                     alt="THEIA">
+                                                     src="/images/lamnhi.png?v={{ \Illuminate\Support\Carbon::now()->timestamp }}"
+                                                     alt="LAMNHI">
                                             </a>
                                         </div>
                                     </div>
