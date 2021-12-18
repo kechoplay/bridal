@@ -136,7 +136,7 @@
             <header class="main__header" role="banner" style="padding-top: 1em !important;">
 
                 <a class="logo logo--left" href="{{ route('homeIndex') }}"><span
-                        class="logo__text heading-1">THEIA</span></a>
+                        class="logo__text heading-1">LAMNHISTUDIO</span></a>
                 <div class="shown-if-js" data-alternative-payments>
                 </div>
             </header>
