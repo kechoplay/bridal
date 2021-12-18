@@ -1066,10 +1066,10 @@
                                             <a href="{{ route('homeIndex') }}" itemprop="url"
                                                class="site-header__logo-link logo--inverted">
                                                 <img class="small--hide"
-                                                     src="/images/lamnhistudio.jpg?v={{ \Illuminate\Support\Carbon::now()->timestamp }}"
+                                                     src="/images/lamnhistudio.JPG?v={{ \Illuminate\Support\Carbon::now()->timestamp }}"
                                                      alt="THEIA" itemprop="logo">
                                                 <img class="medium-up--hide"
-                                                     src="/images/lamnhistudio.jpg?v={{ \Illuminate\Support\Carbon::now()->timestamp }}"
+                                                     src="/images/lamnhistudio.JPG?v={{ \Illuminate\Support\Carbon::now()->timestamp }}"
                                                      alt="THEIA">
                                             </a>
                                         </div>
