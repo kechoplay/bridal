@@ -156,18 +156,6 @@
                                 <div id="CollectionSection" data-section-id="collection-template"
                                      data-section-type="collection-template">
                                     <div class="collection-filter">
-                                        <div class="collection-filter__item collection-filter__item--drawer">
-                                            <button type="button"
-                                                    class="js-drawer-open-collection-filters btn btn--tertiary"
-                                                    aria-controls="FilterDrawer">
-                                                <svg aria-hidden="true" focusable="false" role="presentation"
-                                                     class="icon icon-filter" viewBox="0 0 64 64">
-                                                    <path
-                                                        d="M48 42h10M48 42a5 5 0 1 1-5-5 5 5 0 0 1 5 5zM7 42h31M16 22H6M16 22a5 5 0 1 1 5 5 5 5 0 0 1-5-5zM57 22H26"/>
-                                                </svg>
-                                                Filter
-                                            </button>
-                                        </div>
                                         <div class="collection-filter__item collection-filter__item--count small--hide ">
                                             {{ $dress->count() }} {{ __('sản phẩm') }}
                                         </div>
