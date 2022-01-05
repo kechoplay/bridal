@@ -19,8 +19,8 @@
                                 <table id="example2" class="table table-bordered ">
                                     <thead>
                                     <tr>
-                                        <th>No</th>
-                                        <th>Ảnh</th>
+                                        <th style="width: 5%;">No</th>
+                                        <th style="width: 20%;">Ảnh</th>
                                         <th>Tiêu đề</th>
                                         <th style="width: 10%;"></th>
                                     </tr>
@@ -32,7 +32,7 @@
                                                 {{$key +1 }}
                                             </td>
                                             <td>
-                                                <img src="{{ $new->img_path }}">
+                                                <img src="{{ $new->img_path }}" style="width: 100%;">
                                             </td>
                                             <td>
                                                 <div class="box-title">
