@@ -209,10 +209,9 @@ class UserController extends Controller
     {
         $image = $request->image;
         $path = public_path('image');
-        $customer_id = Auth::guard('customers')->user()->id;
         if (!File::exists($path))
             File::makeDirectory($path, 0777, true);
-        $name = $customer_id . time() . '.' . $image->getClientOriginalExtension();
+        $name = time() . '.' . $image->getClientOriginalExtension();
         $image->move($path, $name);
         $url = '/image/' . $name;
         $data = [
@@ -246,10 +245,9 @@ class UserController extends Controller
 
         if ($image) {
             $path = public_path('image');
-            $customer_id = Auth::guard('customers')->user()->id;
             if (!File::exists($path))
                 File::makeDirectory($path, 0777, true);
-            $name = $customer_id . time() . '.' . $image->getClientOriginalExtension();
+            $name = time() . '.' . $image->getClientOriginalExtension();
             $image->move($path, $name);
             $url = '/image/' . $name;
             $new->img_path = $url;
