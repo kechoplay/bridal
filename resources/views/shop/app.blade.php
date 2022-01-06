@@ -40,24 +40,7 @@
             display: none;
         }
     </style>
-    <title>Shop&ndash; THEIA</title>
-    <meta property="og:site_name" content="THEIA">
-    <meta property="og:url" content="https://theiacouture.com/collections/shop">
-    <meta property="og:title" content="Shop">
-    <meta property="og:type" content="website">
-    <meta property="og:description"
-          content="Inspired by the Goddess THEIA and worn by celebrities like Khloe Kardashian and Taylor Swift, THEIA sells Evening Gowns, Cocktail Dresses and Bridal Wear. ">
-    <meta property="og:image"
-          content="http://cdn.shopify.com/s/files/1/0546/6033/collections/resort-2016-collection-grid_53abf468-9d1d-406e-bcb1-9f5662adb754.jpg?v=1620139942">
-    <meta property="og:image:secure_url"
-          content="https://cdn.shopify.com/s/files/1/0546/6033/collections/resort-2016-collection-grid_53abf468-9d1d-406e-bcb1-9f5662adb754.jpg?v=1620139942">
-    <meta property="og:image:width" content="1440">
-    <meta property="og:image:height" content="961">
-    <meta name="twitter:site" content="@">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Shop">
-    <meta name="twitter:description"
-          content="Inspired by the Goddess THEIA and worn by celebrities like Khloe Kardashian and Taylor Swift, THEIA sells Evening Gowns, Cocktail Dresses and Bridal Wear. ">
+    <title>Lamnhi Studio</title>
     <style data-shopify>
         @font-face {
             font-family: "Neue Haas Unica";
@@ -313,7 +296,7 @@
     <script>
         (function () {
             function asyncLoad() {
-                var urls = ["https:\/\/assets1.adroll.com\/shopify\/latest\/j\/shopify_rolling_bootstrap_v2.js?adroll_adv_id=B4SB37UHTRA6JGJTIXKBS7\u0026adroll_pix_id=BI2Y2ECVGVAD5KO2DFGTF6\u0026shop=theia.myshopify.com", "https:\/\/static.klaviyo.com\/onsite\/js\/klaviyo.js?company_id=HqxhT8\u0026shop=theia.myshopify.com", "https:\/\/accessibly.onthemapmarketing.com\/public\/widget\/run.js?shop=theia.myshopify.com", "https:\/\/d34uoa9py2cgca.cloudfront.net\/shopify-app\/helper-scripts\/sezzle-footer-logo-fix.js?shop=theia.myshopify.com", "https:\/\/static.klaviyo.com\/onsite\/js\/klaviyo.js?company_id=Sy8hAs\u0026shop=theia.myshopify.com"];
+                var urls = ["https:\/\/assets1.adroll.com\/shopify\/latest\/j\/shopify_rolling_bootstrap_v2.js?adroll_adv_id=B4SB37UHTRA6JGJTIXKBS7\u0026adroll_pix_id=BI2Y2ECVGVAD5KO2DFGTF6\u0026shop=theia.myshopify.com", "https:\/\/d34uoa9py2cgca.cloudfront.net\/shopify-app\/helper-scripts\/sezzle-footer-logo-fix.js?shop=theia.myshopify.com"];
                 for (var i = 0; i < urls.length; i++) {
                     var s = document.createElement('script');
                     s.type = 'text/javascript';
@@ -991,7 +974,6 @@
                 .site-nav__link,
                 .mobile-nav__link--top-level {
                     text-transform: uppercase;
-                    letter-spacing: 0.2em;
                 }
 
                 .mobile-nav__link--top-level {

@@ -1868,7 +1868,6 @@ button[disabled],html input[disabled]{
 
 .collapsible-trigger-btn{
     text-transform:uppercase;
-    letter-spacing:0.3em;
     font-size:0.75em;
     display:block;
     width:100%;
