@@ -1,31 +1,31 @@
 @extends('shop.app')
 @section('content')
     <!-- BEGIN content_for_index -->
-    <div id="shopify-section-1524769873765" class="shopify-section index-section--hero">
-        <div data-section-id="1524769873765" data-section-type="slideshow-section">
-            <div class="slideshow-wrapper">
-                <style data-shopify>
-                    @media only screen and (min-width: 769px) {
-                        .hero-natural--1524769873765 {
-                            height: 0;
-                            padding-bottom: 56.25%;
+    @if(isset($banners) && $banners)
+        <div id="shopify-section-1524769873765" class="shopify-section index-section--hero">
+            <div data-section-id="1524769873765" data-section-type="slideshow-section">
+                <div class="slideshow-wrapper">
+                    <style data-shopify>
+                        @media only screen and (min-width: 769px) {
+                            .hero-natural--1524769873765 {
+                                height: 0;
+                                padding-bottom: 56.25%;
+                            }
                         }
-                    }
-                </style>
-                <style data-shopify>
-                    @media screen and (max-width: 768px) {
-                        .hero-natural-mobile--1524769873765 {
-                            height: 0;
-                            padding-bottom: 177.777777778%;
+                    </style>
+                    <style data-shopify>
+                        @media screen and (max-width: 768px) {
+                            .hero-natural-mobile--1524769873765 {
+                                height: 0;
+                                padding-bottom: 177.777777778%;
+                            }
                         }
-                    }
-                </style>
-                <div class="hero-natural--1524769873765 hero-natural-mobile--1524769873765">
-                    <div id="Slideshow-1524769873765"
-                         class="hero hero--natural hero--1524769873765 hero--mobile--auto loading loading--delayed"
-                         data-natural="true" data-mobile-natural="true" data-autoplay="true" data-speed="7000"
-                         data-dots="true" data-bars="true" data-slide-count="1">
-                        @if(isset($banners) && $banners)
+                    </style>
+                    <div class="hero-natural--1524769873765 hero-natural-mobile--1524769873765">
+                        <div id="Slideshow-1524769873765"
+                             class="hero hero--natural hero--1524769873765 hero--mobile--auto loading loading--delayed"
+                             data-natural="true" data-mobile-natural="true" data-autoplay="true" data-speed="7000"
+                             data-dots="true" data-bars="true" data-slide-count="1">
                             @foreach($banners as $key => $banner)
                                 <div class="slideshow__slide slideshow__slide--1524769873765-0" data-index="{{ $key }}"
                                      data-id="1524769873765-0">
@@ -83,14 +83,12 @@
 
                                 </div>
                             @endforeach
-                        @endif
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-
-
-    </div>
+    @endif
     <div id="shopify-section-1525912530555" class="shopify-section">
         <div data-section-id="1525912530555" data-section-type="promo-grid">
             <style data-shopify>
