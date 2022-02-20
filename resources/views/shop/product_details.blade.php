@@ -90,23 +90,23 @@
                                         <span id="ComparePrice-4464780836919"
                                               class="product__price product__price--compare"
                                               data-open-accessibility-text-original="16px" style="font-size: 16px;">
-                                            {{ __(':priceVNĐ', ['price' => @number_format($dress->price)]) }}
+                                            {{ __('USD:price', ['price' => @number_format($dress->price)]) }}
                                         </span>
                                     </span>
                                     <span id="ComparePriceA11y-4464780836919" class="visually-hidden"
                                           data-open-accessibility-text-original="16px" style="font-size: 16px;">Sale price</span>
                                     <span id="ProductPrice-4464780836919" class="product__price on-sale"
                                           data-open-accessibility-text-original="16px" style="font-size: 16px;">
-                                        {{ __(':priceVNĐ', ['price' => @number_format($dress->sale_price)]) }}
+                                        {{ __('USD:price', ['price' => @number_format($dress->sale_price)]) }}
                                     </span>
                                     <span id="ProductPrice-4464780836919" class="product__price on-sale"
                                           data-open-accessibility-text-original="16px" style="font-size: 16px;">
-                                        ({{ __('giảm :price', ['price' => $dress->discount . '%']) }})
+                                        ({{ __(':price off', ['price' => $dress->discount . '%']) }})
                                     </span>
                                 @else
                                     <span id="PriceA11y-6694898139324" class="visually-hidden">Regular price</span>
                                     <span id="ProductPrice-6694898139324" class="product__price">
-                                    {{ __(':priceVNĐ', ['price' => @number_format($dress->price)]) }}
+                                    {{ __('USD:price', ['price' => @number_format($dress->price)]) }}
                                     </span>
                                 @endif
                                 <div
@@ -141,7 +141,7 @@
                                     </div>
                                     <div class="variant-wrapper variant-wrapper--button js">
                                         <label class="variant__label" for="ProductSelect-7088243146940-option-1">
-                                            {{ __('Màu vải') }}
+                                            {{ __('Fabric Color') }}
                                         </label>
                                         <fieldset class="variant-input-wrap" name="Color" data-index="option2"
                                                   data-handle="color" id="ProductSelect-7088243146940-option-1">
@@ -164,7 +164,7 @@
                                     </div>
                                     <div class="variant-wrapper variant-wrapper--button js">
                                         <label class="variant__label" for="ProductSelect-7088243146940-option-1">
-                                            {{ __('Màu hoa') }}
+                                            {{ __('Flower Color') }}
                                         </label>
                                         <fieldset class="variant-input-wrap" name="Color" data-index="option2"
                                                   data-handle="color" id="ProductSelect-7088243146940-option-1">
@@ -193,7 +193,7 @@
                                     <button name="add" id="addCart" class="btn btn--full btn--secondary"
                                             onclick="AddCart()"
                                             style="margin-bottom: 5px;background-color: #0d0a0a;color: white">
-                                        <span id="addToCart">{{ __('Thêm vào giỏ hàng') }}</span>
+                                        <span id="addToCart">{{ __('Add to cart') }}</span>
                                     </button>
                                     <div data-shopify="payment-button" class="shopify-payment-button">
                                         <button
@@ -219,7 +219,7 @@
             </div>
 
             <div class="col-12 " style="padding-left:20px">
-                {{ __('Nhận xét') }} <br><br>
+                {{ __('Comment') }} <br><br>
 
                 <br>
                 <div class="box" style="width: 85%; margin:auto">

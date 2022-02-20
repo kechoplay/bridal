@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Address;
+use App\Banner;
 use App\Colors;
 use App\Contact;
 use App\Customers;
@@ -127,7 +128,8 @@ class HomeController extends Controller
         }
 //        dd($discounts);
         $styles = WeddingDressCategory::all();
-        return view('shop.index', compact('styles', 'dress'));
+        $banners = Banner::all();
+        return view('shop.index', compact('styles', 'dress', 'banners'));
     }
 
     public function listProducts(Request $request)

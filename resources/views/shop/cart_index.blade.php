@@ -2,8 +2,8 @@
 @section('content')
     <div class="page-width page-content" id="vue-cart">
         <header class="section-header text-center">
-            <h1 class="section-header__title">{{ __('Giỏ hàng') }}</h1>
-            <div class="rte text-spacing"><p><a href='{{ route('shop.listProducts') }}'>{{ __('Quay lại mua sắm') }}</a>
+            <h1 class="section-header__title">{{ __('Cart') }}</h1>
+            <div class="rte text-spacing"><p><a href='{{ route('shop.listProducts') }}'>{{ __('Back to shop') }}</a>
                 </p>
             </div>
         </header>
@@ -11,7 +11,7 @@
         <div class="cart__page" id="cart-index">
             <div class="cart__page-col">
                 @if(empty($arrayCart))
-                    <p>{{ __('Chưa có đơn hàng nào trong giỏ !') }}</p>
+                    <p>{{ __('Your cart is empty!') }}</p>
                 @endif
                 @if(!empty($arrayCart))
                     @foreach($arrayCart as $key => $item)
@@ -34,11 +34,11 @@
                                     <div id="name_{{@$item['id_dress']}}">{{ @$item['name'] }}</div>
                                     <div id="name_{{@$item['id_dress']}}">{{ __('Size') . ': ' . $item['size'] }}</div>
                                     <div id="name_{{@$item['id_dress']}}" style="display: flex">
-                                        {{ __('Màu vải') }}:
+                                        {{ __('Fabric Color') }}:
                                         <label style="background-color: {{ $item['color1'] }}; width: 20px; height: 20px" class="variant__button-label"></label>
                                     </div>
                                     <div id="name_{{@$item['id_dress']}}" style="display: flex">
-                                        {{ __('Màu hoa') }}:
+                                        {{ __('Flower Color') }}:
                                         <label style="background-color: {{ $item['color2'] }}; width: 20px; height: 20px" class="variant__button-label"></label>
                                     </div>
 
@@ -90,7 +90,7 @@
 
                                     <div class="cart__item-price-col text-right">
                                      <span class="cart__price" id="price_{{@$item['id_dress']}}">
-                                        {{ __(':priceVNĐ', ['price' => @number_format($item['price'] * @$item['number'])]) }}
+                                        {{ __('USD:price', ['price' => @number_format($item['price'] * @$item['number'])]) }}
                                       </span>
                                     </div>
                                 </div>
@@ -103,14 +103,14 @@
                 <div data-discounts>
                 </div>
                 <div class="cart__item-sub cart__item-row">
-                    <div>{{ __('Tổng') }}</div>
+                    <div>{{ __('Total') }}</div>
                     <div id="total_{{@$item['id_dress']}}"
-                         style="float: right">{{ __(':priceVNĐ', ['price' => @number_format($total)]) }}</div>
+                         style="float: right">{{ __('USD:price', ['price' => @number_format($total)]) }}</div>
                 </div>
                 <div class="cart__item-row cart__checkout-wrapper">
                     <button type="button" id="buy_product" name="checkout" class="btn cart__checkout"
                             @if(@$total == 0)disabled="disable" @endif onclick="BuyCart()">
-                        {{ __('Đặt hàng') }}
+                        {{ __('Proceed to checkout') }}
                     </button>
                     <div class="additional-checkout-buttons">
                         <div class="dynamic-checkout__content" id="dynamic-checkout-cart"

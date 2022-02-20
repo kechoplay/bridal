@@ -114,12 +114,12 @@
           <dd>
             <span class="order-summary__emphasis total-recap__final-price skeleton-while-loading">
             @if($flagCart == 0)
-                    {{@number_format($total)}} VNĐ
+                    {{@number_format($total)}} USD
                 @endif
                 @if($flagCart == 1)
-                    {{@number_format($buyNow['price'])}} VNĐ
+                    {{@number_format($buyNow['price'])}} USD
                 @endif
-                @if($flagCart == -1) VNĐ
+                @if($flagCart == -1) USD
                 0
                 @endif</span>
           </dd>
@@ -145,7 +145,7 @@
                 <nav aria-label="Breadcrumb">
                     <ol class="breadcrumb " role="list">
                         <li class="breadcrumb__item breadcrumb__item--completed">
-                            <a class="breadcrumb__link" href="{{route('shop.cartIndex')}}">{{ __('Giỏ hàng') }}</a>
+                            <a class="breadcrumb__link" href="{{route('shop.cartIndex')}}">{{ __('Add to cart') }}</a>
                             <svg
                                 class="icon-svg icon-svg--color-adaptive-light icon-svg--size-10 breadcrumb__chevron-icon"
                                 aria-hidden="true" focusable="false">
@@ -154,7 +154,7 @@
                         </li>
 
                         <li class="breadcrumb__item breadcrumb__item--current">
-                            <span class="breadcrumb__text">{{ __('Thông Tin Đặt Hàng') }}</span>
+                            <span class="breadcrumb__text">{{ __('Order Information') }}</span>
                             {{--                            <svg class="icon-svg icon-svg--color-adaptive-light icon-svg--size-10 breadcrumb__chevron-icon" aria-hidden="true" focusable="false"> <use xlink:href="#chevron-right" /> </svg>--}}
                         </li>
 
@@ -199,7 +199,7 @@
                             <div class="section section--shipping-address" data-shipping-address>
                                 <div class="section__header">
                                     <h2 class="section__title" id="section-delivery-title">
-                                        {{ __('Địa chỉ nhận hàng') }}
+                                        {{ __('Delivery address') }}
                                     </h2>
                                 </div>
                                 <div class="section__content">
@@ -210,7 +210,7 @@
                                                 <label class="field__label"
                                                        for="checkout_shipping_address_company">{{ __('Name') }}</label>
                                                 <div class="field__input-wrapper">
-                                                    <input name="name_order" id="name_order" placeholder="Họ và tên"
+                                                    <input name="name_order" id="name_order" placeholder="Fullname"
                                                            autocomplete="shipping organization" autocorrect="off"
                                                            data-backup="company" class="field__input" size="30"
                                                            type="text" @if($address)value="{{ @$address->name }}"
@@ -223,7 +223,7 @@
                                                        for="checkout_shipping_address_address1">{{ __('Address') }}</label>
                                                 <div class="field__input-wrapper">
                                                     <input name="address_order" id="address_order"
-                                                           placeholder="{{ __('Địa chỉ nhận hàng') }}"
+                                                           placeholder="{{ __('Delivery address') }}"
                                                            autocomplete="shipping address-line1" autocorrect="off"
                                                            role="combobox" aria-autocomplete="list"
                                                            aria-expanded="false" aria-required="true"
@@ -289,7 +289,7 @@
                                                  class="field field--optional">
                                                 <div class="field__input-wrapper">
                                                     <input name="wedding_date" id="wedding_date"
-                                                           placeholder="{{ __('Ngày cưới') }}"
+                                                           placeholder="{{ __('Wedding day') }}"
                                                            class="field__input" onfocus="(this.type='date')"
                                                            onfocusout="(this.type='text')"
                                                            type="text"/>
@@ -297,13 +297,13 @@
                                             </div>
                                             <div data-address-field="address2" data-autocomplete-field-container="true"
                                                  class="field field--optional">
-                                                <label class="label">{{ __('Phương thức thanh toán') }} </label>
+                                                <label class="label">{{ __('Payment Method') }} </label>
                                                 <div class="field__input-wrapper">
                                                     @foreach($shippingMethod as $method)
                                                         <input type="radio" data-price="{{ $method->ship_fee }}"
                                                                required class="shipping_method" id="shipping_method"
                                                                name="shipping_method"
-                                                               value="{{ $method->id }}"> {{ $method->ship_name . __(' trong ') . $method->ship_time . __(' phí ship ') . __(':priceVNĐ', ['price' => number_format($method->ship_fee)]) }}
+                                                               value="{{ $method->id }}"> {{ $method->ship_name . __(' in ') . $method->ship_time . __(' ship fee ') . __('USD:price', ['price' => number_format($method->ship_fee)]) }}
                                                         <br>
                                                     @endforeach
                                                 </div>
@@ -319,7 +319,7 @@
                         </div>
                         <div class="step__footer row">
                             <button type="submit" class="step__footer__continue-btn btn" aria-busy="false"><span
-                                    class="btn__content" data-continue-button-content="true">{{ __('Đặt hàng') }}</span>
+                                    class="btn__content" data-continue-button-content="true">{{ __('Proceed to checkout') }}</span>
                                 <svg class="icon-svg icon-svg--size-18 btn__spinner icon-svg--spinner-button"
                                      aria-hidden="true" focusable="false">
                                     <use xlink:href="#spinner-button"/>
@@ -332,7 +332,7 @@
                                     <path d="M8 1L7 0 3 4 2 5l1 1 4 4 1-1-4-4"/>
                                 </svg>
                                 <span
-                                    class="step__footer__previous-link-content">{{ __('Quay lại giỏ hàng') }}</span></a>
+                                    class="step__footer__previous-link-content">{{ __('Back to cart') }}</span></a>
                         </div>
 
                     </form>
@@ -348,12 +348,12 @@
                 <a class="logo logo--left" href="{{route('homeIndex')}}"><span class="logo__text heading-1">THEIA</span></a>
 
                 <h1 class="visually-hidden">
-                    {{ __('Thông Tin Đặt Hàng') }}
+                    {{ __('Order Information') }}
                 </h1>
             </div>
             <div class="sidebar__content">
                 <div id="order-summary" class="order-summary order-summary--is-collapsed" data-order-summary>
-                    <h2 style="font-weight: 700">{{ __ ('Tổng đơn đặt hàng') }}</h2>
+                    <h2 style="font-weight: 700">{{ __ ('Total orders') }}</h2>
 
                     <div class="order-summary__sections">
                         <div class="order-summary__section order-summary__section--product-list">
@@ -395,13 +395,13 @@
                                                 </td>
                                                 <td class="product__price">
                                             <span
-                                                class="order-summary__emphasis skeleton-while-loading">{{ __(':priceVNĐ', ['price' => @number_format($item['price'])]) }}</span>
+                                                class="order-summary__emphasis skeleton-while-loading">{{ __('USD:price', ['price' => @number_format($item['price'])]) }}</span>
                                                 </td>
                                             </tr>
                                         @endforeach
                                     @endif
                                     @if(empty($arrayCart) && empty($buyNow))
-                                        <p>{{ __('Chưa có sản phẩm nào trong giỏ hàng') }}<p>
+                                        <p>{{ __('There are no products in the cart yet') }}<p>
                                     @endif
                                     </tbody>
                                 </table>
@@ -437,7 +437,7 @@
                                               data-checkout-payment-due-target="303300">
                                                0
                                         </span>
-                                        <span class="payment-due__currency remove-while-loading">{{ __('VNĐ') }}</span>
+                                        <span class="payment-due__currency remove-while-loading">{{ __('USD') }}</span>
                                     </td>
                                 </tr>
                                 <tr class="total-line">
@@ -448,12 +448,12 @@
                                         <span class="payment-due__price skeleton-while-loading--lg ship_fee">
                                                0
                                         </span>
-                                        <span class="payment-due__currency remove-while-loading">{{ __('VNĐ') }}</span>
+                                        <span class="payment-due__currency remove-while-loading">{{ __('USD') }}</span>
                                     </td>
                                 </tr>
                                 <tr class="total-line">
                                     <th class="total-line__name payment-due-label" scope="row">
-                                        <span class="payment-due-label__total">{{ __('Tổng') }}</span>
+                                        <span class="payment-due-label__total">{{ __('Total') }}</span>
                                     </th>
                                     <td class="total-line__price payment-due" data-presentment-currency="USD">
                                         <span class="payment-due__price skeleton-while-loading--lg total"
@@ -465,7 +465,7 @@
                                                 0
                                             @endif
                                         </span>
-                                        <span class="payment-due__currency remove-while-loading">{{ __('VNĐ') }}</span>
+                                        <span class="payment-due__currency remove-while-loading">{{ __('USD') }}</span>
                                     </td>
                                 </tr>
 

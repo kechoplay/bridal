@@ -1134,18 +1134,6 @@
                                     <div class="header-item header-item--icons">
                                         <div class="site-nav">
                                             <div class="site-nav__icons">
-                                                <div class="header_lang_a inline brad navigable" style="position: relative">
-                                                    <a href="javascript: void(0);" class="header_lang_a inline brad">
-                                                        {{ (config('app.locale') && config('app.locale') == 'en') ? 'English' : 'VI' }}
-                                                        <span class="arrow_icon_down"></span>
-                                                    </a>
-                                                    <div class="header_lang_list_wrap brad tal">
-                                                        <div class="lang_list">
-                                                            <a href="{{ url()->current() }}?lang=en" class="first">English</a>
-                                                            <a href="{{ url()->current() }}?lang=vi" class="">VI</a>
-                                                        </div>
-                                                    </div>
-                                                </div>
                                                 @if(empty(auth()->guard('customers')->user()->name))
                                                     <a class="site-nav__link site-nav__link--icon small--hide"
                                                        href="{{ route('userLogin') }}">
@@ -1263,7 +1251,7 @@
                                                 <a href="{{ route('pages.introduce') }}"
                                                    style="font-size: 13.6px;"
                                                    data-open-accessibility-text-original="13.6px"
-                                                   class="navigable">{{ __('Giới thiệu') }}
+                                                   class="navigable">{{ __('About') }}
                                                 </a>
                                             </li>
                                             <li data-open-accessibility-text-original="13.6px"
@@ -1271,7 +1259,7 @@
                                                 <a href="{{ route('pages.contact') }}"
                                                    style="font-size: 13.6px;"
                                                    data-open-accessibility-text-original="13.6px"
-                                                   class="navigable">{{ __('Liên hệ') }}
+                                                   class="navigable">{{ __('Contact') }}
                                                 </a>
                                             </li>
                                             <li data-open-accessibility-text-original="13.6px"
@@ -1279,7 +1267,7 @@
                                                 <a href="{{ route('pages.privacyPolicy') }}"
                                                    style="font-size: 13.6px;"
                                                    data-open-accessibility-text-original="13.6px"
-                                                   class="navigable">{{ __('Chính sách') }}</a>
+                                                   class="navigable">{{ __('Shop Policy') }}</a>
                                             </li>
                                             <li data-open-accessibility-text-original="13.6px"
                                                 style="font-size: 13.6px;">

@@ -202,12 +202,12 @@
                                                             </div>
                                                             <div class="grid-product__price"><span class="visually-hidden" data-open-accessibility-text-original="13.6px" style="font-size: 13.6px;">Regular price</span>
                                                                 @if($dr->sale_price != 0)
-                                                                    <span class="grid-product__price--original" data-open-accessibility-text-original="13.6px" style="font-size: 13.6px;">{{ __(':priceVNĐ', ['price' => @number_format($dr->price)]) }}</span>
-                                                                    <span class="visually-hidden" data-open-accessibility-text-original="13.6px" style="font-size: 13.6px;"></span>{{ __(':priceVNĐ', ['price' => @number_format($dr->sale_price)]) }}
-                                                                    <span class="visually-hidden" data-open-accessibility-text-original="13.6px" style="font-size: 13.6px;"></span>({{ __('giảm :price', ['price' => $dr->discount . '%']) }})
+                                                                    <span class="grid-product__price--original" data-open-accessibility-text-original="13.6px" style="font-size: 13.6px;">{{ __('USD:price', ['price' => @number_format($dr->price)]) }}</span>
+                                                                    <span class="visually-hidden" data-open-accessibility-text-original="13.6px" style="font-size: 13.6px;"></span>{{ __('USD:price', ['price' => @number_format($dr->sale_price)]) }}
+                                                                    <span class="visually-hidden" data-open-accessibility-text-original="13.6px" style="font-size: 13.6px;"></span>({{ __(':price off', ['price' => $dr->discount . '%']) }})
                                                                 @endif
                                                                 @if($dr->sale_price == 0)
-                                                                    {{ __(':priceVNĐ', ['price' => @number_format($dr->price)]) }}
+                                                                    {{ __('USD:price', ['price' => @number_format($dr->price)]) }}
                                                                 @endif
                                                             </div>
                                                         </div>

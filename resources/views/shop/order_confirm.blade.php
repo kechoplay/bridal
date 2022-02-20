@@ -114,12 +114,12 @@
           <dd>
             <span class="order-summary__emphasis total-recap__final-price skeleton-while-loading">
                 @if($flagCart == 0)
-                    {{@number_format($total)}} VNĐ
+                    {{@number_format($total)}} USD
                 @endif
                 @if($flagCart == 1)
-                    {{@number_format($buyNow['price'])}} VNĐ
+                    {{@number_format($buyNow['price'])}} USD
                 @endif
-                @if($flagCart == -1) VNĐ
+                @if($flagCart == -1) USD
                 0
                 @endif</span>
             </dd>
@@ -142,7 +142,7 @@
             </header>
             <p id="msg_success" class="note note--success" data-open-accessibility-text-original="16px"
                style="font-size: 16px;color: white;background-color: green;padding: 5px">
-                {{ __('Đặt hàng thành công') }}
+                {{ __('Order Success') }}
             </p>
             <main class="main__content" role="main" style="padding-top: 0.8em !important;">
                 <div class="step" data-step="shipping_method" data-last-step="false">
@@ -150,7 +150,7 @@
                     <div class="step__footer row" data-step-footer style="text-align: center">
                         <a class="step__footer__previous-link" href="{{route('shop.listProducts')}}">
                             <button class="btn btn-primary"
-                                    style="background-color: #a7a7a1;color: black;">{{ __('Quay lại mua sắm') }}
+                                    style="background-color: #a7a7a1;color: black;">{{ __('Back to shop') }}
                             </button>
                         </a>
                     </div>

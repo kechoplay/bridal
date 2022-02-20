@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Banner;
 use App\Colors;
 use App\Contact;
 use App\Discount;
@@ -729,5 +730,81 @@ class BridalController extends Controller
         }
         Voucher::query()->where('id', $id)->delete();
         return redirect()->route('admin.listVoucher');
+    }
+
+    public function bannerList(Request $request)
+    {
+        $banners = Banner::all();
+
+        return view('admin.banner.index', compact('banners'));
+    }
+
+    public function addBanner()
+    {
+        return view('admin.banner.add');
+    }
+
+    public function saveBanner(Request $request)
+    {
+        $title = $request->title;
+        $image = $request->image;
+
+        $path = public_path('image');
+        if (!File::exists($path))
+            File::makeDirectory($path, 0777, true);
+
+        $name = 'banner_' . time() . '.' . $image->getClientOriginalExtension();
+        $image->move($path, $name);
+
+
+        Banner::create([
+            'title' => $title,
+            'path' => '/image/' . $name,
+        ]);
+
+        return redirect()->route('admin.bannerList');
+    }
+
+    public function editBanner(Request $request)
+    {
+        $id = $request->id;
+        $banner = Banner::find($id);
+        return view('admin.banner.edit', compact('banner'));
+    }
+
+    public function updateBanner(Request $request)
+    {
+        $id = $request->id;
+        $image = $request->image;
+        $title = $request->title;
+
+        $banner = Banner::find($id);
+        $path = public_path('image');
+
+        if (!File::exists($path))
+            File::makeDirectory($path, 0777, true);
+
+        if ($image) {
+            $name = 'banner_' . time() . '.' . $image->getClientOriginalExtension();
+            $image->move($path, $name);
+            $imagePath = '/image/' . $name;
+            unlink(public_path($banner->path));
+        } else {
+            $imagePath = $banner->path;
+        }
+
+        Banner::where('id', $id)->update([
+            'title' => $title,
+            'path' => $imagePath,
+        ]);
+
+        return redirect()->route('admin.bannerList');
+    }
+
+    public function deleteBanner(Request $request)
+    {
+        $id = $request->id;
+        Banner::query()->where('id', $id)->delete();
+        return redirect()->route('admin.bannerList');
     }
 }

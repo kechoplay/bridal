@@ -54,7 +54,7 @@
             <span style="font-weight: 700">{{ __('Total') }}:</span>
             <span>
                  @if(@$flagCart == 0 )
-                     {{ __(':priceVNĐ', ['price' => @number_format($total)]) }}
+                     {{ __('USD:price', ['price' => @number_format($total)]) }}
                  @endif
                   @if(@$flagCart == 1 )
                       {{ @number_format($buyNow['price']) }}
@@ -68,7 +68,7 @@
             <div>{{ __('Phone') }}: {{ @$data['phone'] }}</div>
             <div>Email: {{ @$data['email'] }}</div>
             <div>{{ __('Note') }}: {{ @$data['note'] }}</div>
-            <div>{{ __('Địa chỉ nhận hàng') }}: {{ @$data['address'] }}</div>
+            <div>{{ __('Delivery address') }}: {{ @$data['address'] }}</div>
         </td>
     </tr>
 

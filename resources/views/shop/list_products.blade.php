@@ -157,19 +157,19 @@
                                      data-section-type="collection-template">
                                     <div class="collection-filter">
                                         <div class="collection-filter__item collection-filter__item--count small--hide ">
-                                            {{ $dress->count() }} {{ __('sản phẩm') }}
+                                            {{ $dress->count() }} {{ __('products') }}
                                         </div>
                                         <form class="col-sm-4" action="" method="GET" style="margin-bottom: 10px">
                                             <div class="search">
                                                 <div class="form-group has-feedback">
                                                     <span class="glyphicon glyphicon-search form-control-feedback"></span>
                                                     <input name="keySearch" type="text" class="form-control" value="{{@$search}}"
-                                                           placeholder="{{ __('Tìm kiếm sản phẩm') }}" aria-controls="table-question">
+                                                           placeholder="{{ __('Search product') }}" aria-controls="table-question">
                                                 </div>
                                             </div>
                                         </form>
                                     </div>
-                                    <p class="medium-up--hide text-center" data-scroll-to>{{ $dress->count() }} {{ __('sản phẩm') }}</p>
+                                    <p class="medium-up--hide text-center" data-scroll-to>{{ $dress->count() }} {{ __('products') }}</p>
                                     <div class="grid grid--uniform">
                                         @foreach($dress as $dr)
                                             <div class="grid__item grid-product small--one-half medium-up--one-quarter grid-product__has-quick-shop"
@@ -202,12 +202,12 @@
                                                             </div>
                                                             <div class="grid-product__price"><span class="visually-hidden" data-open-accessibility-text-original="13.6px" style="font-size: 13.6px;">Regular price</span>
                                                                 @if($dr->sale_price != 0)
-                                                                    <span class="grid-product__price--original" data-open-accessibility-text-original="13.6px" style="font-size: 13.6px;">{{ __(':priceVNĐ', ['price' => @number_format($dr->price)]) }}</span>
-                                                                    <span class="visually-hidden" data-open-accessibility-text-original="13.6px" style="font-size: 13.6px;"></span>{{ __(':priceVNĐ', ['price' => @number_format($dr->sale_price)]) }}
-                                                                    <span class="visually-hidden" data-open-accessibility-text-original="13.6px" style="font-size: 13.6px;"></span>({{ __('giảm :price', ['price' => $dr->discount . '%']) }})
+                                                                    <span class="grid-product__price--original" data-open-accessibility-text-original="13.6px" style="font-size: 13.6px;">{{ __('USD:price', ['price' => @number_format($dr->price)]) }}</span>
+                                                                    <span class="visually-hidden" data-open-accessibility-text-original="13.6px" style="font-size: 13.6px;"></span>{{ __('USD:price', ['price' => @number_format($dr->sale_price)]) }}
+                                                                    <span class="visually-hidden" data-open-accessibility-text-original="13.6px" style="font-size: 13.6px;"></span>({{ __(':price off', ['price' => $dr->discount . '%']) }})
                                                                 @endif
                                                                 @if($dr->sale_price == 0)
-                                                                    {{ __(':priceVNĐ', ['price' => @number_format($dr->price)]) }}
+                                                                    {{ __('USD:price', ['price' => @number_format($dr->price)]) }}
                                                                 @endif
                                                             </div>
                                                         </div>

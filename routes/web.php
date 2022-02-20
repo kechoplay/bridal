@@ -216,4 +216,17 @@ Route::group(['prefix' => 'admin', 'middleware' => ['admin_access']], function (
     Route::post('/news/edit/{id}', ['as' => 'admin.updateNews', 'uses' => 'UserController@updateNews']);
 
     Route::get('/news/delete/{id}', ['as' => 'admin.deleteNews', 'uses' => 'UserController@deleteNews']);
+
+    //banner
+    Route::get('/banner', ['as' => 'admin.bannerList', 'uses' => 'Admin\BridalController@bannerList']);
+
+    Route::get('/banner/add', ['as' => 'admin.addBanner', 'uses' => 'Admin\BridalController@addBanner']);
+
+    Route::post('/banner/store', ['as' => 'admin.saveBanner', 'uses' => 'Admin\BridalController@saveBanner']);
+
+    Route::get('/banner/edit', ['as' => 'admin.editBanner', 'uses' => 'Admin\BridalController@editBanner']);
+
+    Route::post('/banner/update', ['as' => 'admin.updateBanner', 'uses' => 'Admin\BridalController@updateBanner']);
+
+    Route::delete('/banner/delete', ['as' => 'admin.deleteBanner', 'uses' => 'Admin\BridalController@deleteBanner']);
 });

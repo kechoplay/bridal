@@ -25,57 +25,65 @@
                          class="hero hero--natural hero--1524769873765 hero--mobile--auto loading loading--delayed"
                          data-natural="true" data-mobile-natural="true" data-autoplay="true" data-speed="7000"
                          data-dots="true" data-bars="true" data-slide-count="1">
-                        <div class="slideshow__slide slideshow__slide--1524769873765-0" data-index="0"
-                             data-id="1524769873765-0">
-                            <style data-shopify>
-                                .slideshow__slide--1524769873765-0 .hero__title {
-                                    font-size: 30.0px;
-                                }
+                        @if(isset($banners) && $banners)
+                            @foreach($banners as $key => $banner)
+                                <div class="slideshow__slide slideshow__slide--1524769873765-0" data-index="{{ $key }}"
+                                     data-id="1524769873765-0">
+                                    <style data-shopify>
+                                        .slideshow__slide--1524769873765-0 .hero__title {
+                                            font-size: 30.0px;
+                                        }
 
-                                @media only screen and (min-width: 769px) {
-                                    .slideshow__slide--1524769873765-0 .hero__title {
-                                        font-size: 60px;
-                                    }
-                                }
-                            </style>
-                            <div class="hero__image-wrapper"><img
-                                    class="hero__image hero__image--1524769873765-0 lazyload small--hide"
-                                    src="//cdn.shopify.com/s/files/1/0546/6033/files/Frame_1_824594c6-e883-4e5b-a7af-36f28dce6665_300x.png?v=1620161149"
-                                    data-src="//cdn.shopify.com/s/files/1/0546/6033/files/Frame_1_824594c6-e883-4e5b-a7af-36f28dce6665_{width}x.png?v=1620161149"
-                                    data-aspectratio="1.7777777777777777" data-sizes="auto" alt=""
-                                    style="object-position: center center"><img
-                                    class="hero__image hero__image--1524769873765-0 lazyload medium-up--hide"
-                                    src="//cdn.shopify.com/s/files/1/0546/6033/files/Frame_2_ce65bb18-9c5e-4d7d-96b4-63c87683fbfc_300x.png?v=1619812800"
-                                    data-src="//cdn.shopify.com/s/files/1/0546/6033/files/Frame_2_ce65bb18-9c5e-4d7d-96b4-63c87683fbfc_{width}x.png?v=1619812800"
-                                    data-aspectratio="0.5625" data-sizes="auto" alt=""
-                                    style="object-position: center center">
-                                <noscript>
-                                    <img class="hero__image hero__image--1524769873765-0"
-                                         src="//cdn.shopify.com/s/files/1/0546/6033/files/Frame_1_824594c6-e883-4e5b-a7af-36f28dce6665_1400x.png?v=1620161149"
-                                         alt="">
-                                </noscript>
-                            </div>
-                            <a href="{{ route('shop.listProducts') }}" class="hero__slide-link" aria-hidden="true"></a>
-                            <div class="hero__text-wrap">
-                                <div class="page-width">
-                                    <div class="hero__text-content vertical-bottom horizontal-center">
-                                        <div class="hero__text-shadow">
-                                            <h2 class="h1 hero__title">
-                                                <div class="animation-cropper">
-                                                    <div class="animation-contents">
-                                                        Summer is here
-                                                    </div>
+                                        @media only screen and (min-width: 769px) {
+                                            .slideshow__slide--1524769873765-0 .hero__title {
+                                                font-size: 60px;
+                                            }
+                                        }
+                                    </style>
+
+                                    <div class="hero__image-wrapper"><img
+                                            class="hero__image hero__image--1524769873765-0 lazyload small--hide"
+                                            src="{{ $banner->path }}"
+                                            data-src="{{ $banner->path }}"
+                                            data-aspectratio="1.7777777777777777" data-sizes="auto" alt=""
+                                            style="object-position: center center"><img
+                                            class="hero__image hero__image--1524769873765-0 lazyload medium-up--hide"
+                                            src="{{ $banner->path }}"
+                                            data-src="{{ $banner->path }}"
+                                            data-aspectratio="0.5625" data-sizes="auto" alt=""
+                                            style="object-position: center center">
+                                        <noscript>
+                                            <img class="hero__image hero__image--1524769873765-0"
+                                                 src="{{ $banner->path }}"
+                                                 alt="">
+                                        </noscript>
+                                    </div>
+                                    <a href="{{ route('shop.listProducts') }}" class="hero__slide-link"
+                                       aria-hidden="true"></a>
+                                    <div class="hero__text-wrap">
+                                        <div class="page-width">
+                                            <div class="hero__text-content vertical-bottom horizontal-center">
+                                                <div class="hero__text-shadow">
+                                                    <h2 class="h1 hero__title">
+                                                        <div class="animation-cropper">
+                                                            <div class="animation-contents">
+                                                                {{ $banner->title }}
+                                                            </div>
+                                                        </div>
+                                                    </h2>
+                                                    <div class="hero__link">
+                                                        <a href="{{ route('shop.listProducts')}}"
+                                                           class="btn btn--inverse">
+                                                            {{ __('Shop All Styles') }}
+                                                        </a></div>
                                                 </div>
-                                            </h2>
-                                            <div class="hero__link">
-                                                <a href="{{ route('shop.listProducts')}}" class="btn btn--inverse">
-                                                    {{ __('Shop All Styles') }}
-                                                </a></div>
+                                            </div>
                                         </div>
                                     </div>
+
                                 </div>
-                            </div>
-                        </div>
+                            @endforeach
+                        @endif
                     </div>
                 </div>
             </div>
@@ -214,7 +222,8 @@
                     <div class="grid-overflow-wrapper">
                         <div class="grid grid--uniform" data-aos="overflow__animation">
                             @foreach($dress as $dr)
-                                <div class="grid__item grid-product small--one-half medium-up--one-quarter grid-product__has-quick-shop"
+                                <div
+                                    class="grid__item grid-product small--one-half medium-up--one-quarter grid-product__has-quick-shop"
                                     data-aos="row-of-4"
                                     data-product-handle="theia-dana-mock-neck-midi-dress-tropical-ombre"
                                     data-product-id="6694897713340">
@@ -226,30 +235,40 @@
                                                         <img class="grid-product__image lazyload"
                                                              data-src="{{ $dr->img[0] }}?v={{ time() }}"
                                                              data-widths="[360, 540, 720, 900, 1080]"
-                                                             data-aspectratio="0.6666666666666666" data-sizes="auto" alt="">
+                                                             data-aspectratio="0.6666666666666666" data-sizes="auto"
+                                                             alt="">
                                                     </div>
-                                                     @if(!empty($dr->img[1]))
-                                                    <div class="grid-product__secondary-image small--hide">
-                                                        <img class="lazyautosizes lazyloaded"
-                                                             data-widths="[360, 540, 720, 1000]"
-                                                             data-aspectratio="0.6665"
-                                                             data-sizes="auto" alt=""
-                                                             srcset="{{ $dr->img[1] }}">
-                                                    </div>
-                                                     @endif
+                                                    @if(!empty($dr->img[1]))
+                                                        <div class="grid-product__secondary-image small--hide">
+                                                            <img class="lazyautosizes lazyloaded"
+                                                                 data-widths="[360, 540, 720, 1000]"
+                                                                 data-aspectratio="0.6665"
+                                                                 data-sizes="auto" alt=""
+                                                                 srcset="{{ $dr->img[1] }}">
+                                                        </div>
+                                                    @endif
                                                 </div>
                                                 <div class="grid-product__meta">
                                                     <div class="grid-product__title grid-product__title--body">
                                                         {{ $dr->name }}
                                                     </div>
-                                                    <div class="grid-product__price"><span class="visually-hidden" data-open-accessibility-text-original="13.6px" style="font-size: 13.6px;">Regular price</span>
+                                                    <div class="grid-product__price"><span class="visually-hidden"
+                                                                                           data-open-accessibility-text-original="13.6px"
+                                                                                           style="font-size: 13.6px;">Regular price</span>
                                                         @if($dr->sale_price != 0)
-                                                            <span class="grid-product__price--original" data-open-accessibility-text-original="13.6px" style="font-size: 13.6px;">{{ __(':priceVNĐ', ['price' => @number_format($dr->price)]) }}</span>
-                                                            <span class="visually-hidden" data-open-accessibility-text-original="13.6px" style="font-size: 13.6px;"></span>{{ __(':priceVNĐ', ['price' => @number_format($dr->sale_price)]) }}
-                                                            <span class="visually-hidden" data-open-accessibility-text-original="13.6px" style="font-size: 13.6px;"></span>({{ __('giảm :price', ['price' => $dr->discount . '%']) }})
+                                                            <span class="grid-product__price--original"
+                                                                  data-open-accessibility-text-original="13.6px"
+                                                                  style="font-size: 13.6px;">{{ __('USD:price', ['price' => @number_format($dr->price)]) }}</span>
+                                                            <span class="visually-hidden"
+                                                                  data-open-accessibility-text-original="13.6px"
+                                                                  style="font-size: 13.6px;"></span>{{ __('USD:price', ['price' => @number_format($dr->sale_price)]) }}
+                                                            <span class="visually-hidden"
+                                                                  data-open-accessibility-text-original="13.6px"
+                                                                  style="font-size: 13.6px;"></span>
+                                                            ({{ __(':price off', ['price' => $dr->discount . '%']) }})
                                                         @endif
                                                         @if($dr->sale_price == 0)
-                                                            {{ __(':priceVNĐ', ['price' => @number_format($dr->price)]) }}
+                                                            {{ __('USD:price', ['price' => @number_format($dr->price)]) }}
                                                         @endif
                                                     </div>
                                                 </div>
@@ -266,28 +285,28 @@
                                 <a href="{{ route('shop.listProducts') }}" class="grid-product__see-all">
                                     {{ __('View all') }}<br>
                                 </a>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div id="QuickShopModal-6694897713340" class="modal modal--square modal--quick-shop"
-                 data-product-id="6694897713340">
-                <div class="modal__inner">
-                    <div class="modal__centered">
-                        <div class="modal__centered-content">
-                            <div id="QuickShopHolder-theia-dana-mock-neck-midi-dress-tropical-ombre"></div>
-                        </div>
+                <div id="QuickShopModal-6694897713340" class="modal modal--square modal--quick-shop"
+                     data-product-id="6694897713340">
+                    <div class="modal__inner">
+                        <div class="modal__centered">
+                            <div class="modal__centered-content">
+                                <div id="QuickShopHolder-theia-dana-mock-neck-midi-dress-tropical-ombre"></div>
+                            </div>
 
-                        <button type="button" class="modal__close js-modal-close text-link">
-                            <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-close"
-                                 viewBox="0 0 64 64">
-                                <path d="M19 17.61l27.12 27.13m0-27.12L19 44.74"/>
-                            </svg>
-                            <span class="icon__fallback-text">"Close (esc)"</span>
-                        </button>
+                            <button type="button" class="modal__close js-modal-close text-link">
+                                <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-close"
+                                     viewBox="0 0 64 64">
+                                    <path d="M19 17.61l27.12 27.13m0-27.12L19 44.74"/>
+                                </svg>
+                                <span class="icon__fallback-text">"Close (esc)"</span>
+                            </button>
+                        </div>
                     </div>
                 </div>
+                @endif
             </div>
-        @endif
-    </div>
 @endsection
