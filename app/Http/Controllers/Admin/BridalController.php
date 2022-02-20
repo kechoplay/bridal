@@ -801,10 +801,15 @@ class BridalController extends Controller
         return redirect()->route('admin.bannerList');
     }
 
+    /**
+     * @throws \Exception
+     */
     public function deleteBanner(Request $request)
     {
         $id = $request->id;
-        Banner::query()->where('id', $id)->delete();
+        $banner = Banner::query()->where('id', $id)->first();
+        $banner->delete();
+        unlink(public_path($banner->path));
         return redirect()->route('admin.bannerList');
     }
 }

@@ -37,7 +37,7 @@
                                                 <img src="{{ $banner->path }}" style="max-width: 100px;">
                                             </td>
                                             <td>
-                                                <a href="{{ route('admin.deleteBridal', ['id' => $banner->id]) }}">
+                                                <a href="{{ route('admin.deleteBanner', ['id' => $banner->id]) }}">
                                                     <button class="btn btn-danger">Xóa</button>
                                                 </a>
                                                 <a href="{{ route('admin.editBanner', ['id' => $banner->id]) }}">

@@ -228,5 +228,5 @@ Route::group(['prefix' => 'admin', 'middleware' => ['admin_access']], function (
 
     Route::post('/banner/update', ['as' => 'admin.updateBanner', 'uses' => 'Admin\BridalController@updateBanner']);
 
-    Route::delete('/banner/delete', ['as' => 'admin.deleteBanner', 'uses' => 'Admin\BridalController@deleteBanner']);
+    Route::get('/banner/delete/{id}', ['as' => 'admin.deleteBanner', 'uses' => 'Admin\BridalController@deleteBanner']);
 });

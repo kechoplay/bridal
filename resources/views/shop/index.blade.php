@@ -1,7 +1,7 @@
 @extends('shop.app')
 @section('content')
     <!-- BEGIN content_for_index -->
-    @if(isset($banners) && $banners)
+    @if(!empty($banners) && count($banners) > 0)
         <div id="shopify-section-1524769873765" class="shopify-section index-section--hero">
             <div data-section-id="1524769873765" data-section-type="slideshow-section">
                 <div class="slideshow-wrapper">
