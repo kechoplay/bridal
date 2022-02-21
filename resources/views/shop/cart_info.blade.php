@@ -314,8 +314,9 @@
                             </div>
                         </div>
                         <div>
-                            <p style="font-size: 15px; font-weight: bold">Sau khi đặt hàng, vui lòng chuyển khoản vào
-                                tài khoản paypal …. Để đơn hàng của bạn được xử lý</p>
+                            <p style="font-size: 15px; font-weight: bold">Pls kindly transfer ....US$ to our Paypal account: vumaianh@lamnhistudio.com and send us the screenshot for our confirmation.
+                                When we receive the money, we will inform you immediately please
+                                Thank you</p>
                         </div>
                         <div class="step__footer row">
                             <button type="submit" class="step__footer__continue-btn btn" aria-busy="false"><span
