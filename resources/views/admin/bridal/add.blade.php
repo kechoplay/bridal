@@ -23,19 +23,11 @@
                                 {{ csrf_field() }}
                                 <div class="card-body">
                                     <div class="form-group">
-                                        <label for="name">Tên sản phẩm VI</label>
-                                        <input type="text" class="form-control" id="name" name="name" required>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="name">Tên sản phẩm EN</label>
+                                        <label for="name">Tên sản phẩm</label>
                                         <input type="text" class="form-control" id="name_en" name="name_en" required>
                                     </div>
                                     <div class="form-group">
-                                        <label for="name">Giá VI (VND)</label>
-                                        <input type="number" class="form-control" style="width: 18%" id="price" name="price" required>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="name">Giá EN ($)</label>
+                                        <label for="name">Giá($)</label>
                                         <input type="number" class="form-control" style="width: 18%" id="price_en" name="price_en" required>
                                     </div>
                                     <div class="form-group">
@@ -83,11 +75,7 @@
                                         <input type="text" class="form-control" style="width: 18%" id="process_time" name="process_time">
                                     </div>
                                     <div class="form-group">
-                                        <label for="description">Miêu tả VI</label>
-                                        <textarea class="form-control" id="description" name="description"></textarea>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="description">Miêu tả EN</label>
+                                        <label for="description">Miêu tả</label>
                                         <textarea class="form-control" id="description_en" name="description_en"></textarea>
                                     </div>
                                 </div>

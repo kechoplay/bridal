@@ -185,7 +185,7 @@
                                         <div data-shopify-pay-email-flow="true" class="field field--required">
                                             <label class="field__label" for="checkout_email">Email</label>
                                             <div class="field__input-wrapper">
-                                                <input name="email_order" id="email_order" placeholder="Email đặt hàng"
+                                                <input name="email_order" id="email_order" placeholder="Email"
                                                        data-autofocus="true" aria-required="true" class="field__input"
                                                        size="30" type="email"
                                                        @if($address)value="{{ @$address->email }}" @endif required>
@@ -246,7 +246,7 @@
                                                        for="checkout_shipping_address_phone">{{ __('Phone') }}</label>
                                                 <div class="field__input-wrapper field__input-wrapper--icon-right">
                                                     <input name="phone_order" id="phone_order" required
-                                                           placeholder="Số điện thoại" autocomplete="shipping tel"
+                                                           placeholder="Phone" autocomplete="shipping tel"
                                                            autocorrect="off" data-backup="phone"
                                                            data-phone-formatter="true"
                                                            class="field__input field__input--numeric"
@@ -279,7 +279,7 @@
                                                        for="checkout_shipping_address_address2">{{ __('Note') }} </label>
                                                 <div class="field__input-wrapper">
                                                     <input name="note_order" id="note_order"
-                                                           placeholder="{{ __('Ghi chú') }}"
+                                                           placeholder="Note"
                                                            autocomplete="shipping address-line2" autocorrect="off"
                                                            data-backup="address2" class="field__input" size="30"
                                                            type="text"/>
@@ -303,7 +303,7 @@
                                                         <input type="radio" data-price="{{ $method->ship_fee }}"
                                                                required class="shipping_method" id="shipping_method"
                                                                name="shipping_method"
-                                                               value="{{ $method->id }}"> {{ $method->ship_name . __(' in ') . $method->ship_time . __(' ship fee ') . __('USD:price', ['price' => number_format($method->ship_fee)]) }}
+                                                               value="{{ $method->id }}"> {{ $method->ship_name . __(' in ') . $method->ship_time . __(' ship fee ') . __(':price$', ['price' => number_format($method->ship_fee)]) }}
                                                         <br>
                                                     @endforeach
                                                 </div>
@@ -360,10 +360,10 @@
                         <div class="order-summary__section order-summary__section--product-list">
                             <div class="order-summary__section__content">
                                 <table class="product-table">
-                                    <caption style="font-weight: 700">{{ __('Danh sách') }}</caption>
+                                    <caption style="font-weight: 700">{{ __('List') }}</caption>
                                     <thead class="product-table__header">
                                     <tr>
-                                        <th scope="col"><span>{{ __('Ảnh') }}</span></th>
+                                        <th scope="col"><span>{{ __('Image') }}</span></th>
                                         <th scope="col"><span>{{ __('Name') }}</span></th>
                                         <th scope="col"><span class="visually-hidden">Quantity</span></th>
                                         <th scope="col"><span>{{ __('Price') }}</span></th>
@@ -396,7 +396,7 @@
                                                 </td>
                                                 <td class="product__price">
                                             <span
-                                                class="order-summary__emphasis skeleton-while-loading">{{ __('USD:price', ['price' => @number_format($item['price'])]) }}</span>
+                                                class="order-summary__emphasis skeleton-while-loading">{{ __(':price$', ['price' => @number_format($item['price'])]) }}</span>
                                                 </td>
                                             </tr>
                                         @endforeach
@@ -426,30 +426,30 @@
                                     </th>
                                     <td class="total-line__price payment-due" data-presentment-currency="USD">
                                         <input type="text" id="voucher" class="field__input">
-                                        <button onclick="checkVoucher()">Áp dụng</button>
+                                        <button onclick="checkVoucher()">Apply</button>
                                     </td>
                                 </tr>
                                 <tr class="total-line">
                                     <th class="total-line__name payment-due-label" scope="row">
-                                        <span class="payment-due-label__total">{{ __('Khuyến mãi') }}</span>
+                                        <span class="payment-due-label__total">{{ __('Promotion') }}</span>
                                     </th>
                                     <td class="total-line__price payment-due" data-presentment-currency="USD">
                                         <span class="payment-due__price skeleton-while-loading--lg km"
                                               data-checkout-payment-due-target="303300">
                                                0
                                         </span>
-                                        <span class="payment-due__currency remove-while-loading">{{ __('USD') }}</span>
+                                        <span class="payment-due__currency remove-while-loading">{{ __('$') }}</span>
                                     </td>
                                 </tr>
                                 <tr class="total-line">
                                     <th class="total-line__name payment-due-label" scope="row">
-                                        <span class="payment-due-label__total">{{ __('Phí ship') }}</span>
+                                        <span class="payment-due-label__total">{{ __('Ship fee') }}</span>
                                     </th>
                                     <td class="total-line__price payment-due">
                                         <span class="payment-due__price skeleton-while-loading--lg ship_fee">
                                                0
                                         </span>
-                                        <span class="payment-due__currency remove-while-loading">{{ __('USD') }}</span>
+                                        <span class="payment-due__currency remove-while-loading">{{ __('$') }}</span>
                                     </td>
                                 </tr>
                                 <tr class="total-line">
@@ -466,7 +466,7 @@
                                                 0
                                             @endif
                                         </span>
-                                        <span class="payment-due__currency remove-while-loading">{{ __('USD') }}</span>
+                                        <span class="payment-due__currency remove-while-loading">{{ __('$') }}</span>
                                     </td>
                                 </tr>
 

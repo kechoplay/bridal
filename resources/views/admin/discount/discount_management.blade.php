@@ -26,8 +26,7 @@
                                 <table id="example1" class="table table-bordered table-striped">
                                     <thead>
                                     <tr>
-                                        <th>Tên giảm giá VI</th>
-                                        <th>Tên giảm giá EN</th>
+                                        <th>Tên giảm giá</th>
                                         <th>Thời gian giảm giá</th>
                                         <th>Phần trăm giảm</th>
                                         <th>Số lượng sản phẩm</th>
@@ -37,7 +36,6 @@
                                     <tbody>
                                     @foreach($discounts as $discount)
                                         <tr>
-                                            <td>{{ $discount->name_vi }}</td>
                                             <td>{{ $discount->name_en }}</td>
                                             <td>{{ $discount->start_time . ' - ' .$discount->end_time }}</td>
                                             <td>{{ $discount->discount }} (%)</td>

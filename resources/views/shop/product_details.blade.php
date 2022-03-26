@@ -90,14 +90,14 @@
                                         <span id="ComparePrice-4464780836919"
                                               class="product__price product__price--compare"
                                               data-open-accessibility-text-original="16px" style="font-size: 16px;">
-                                            {{ __('USD:price', ['price' => @number_format($dress->price)]) }}
+                                            {{ __(':price$', ['price' => @number_format($dress->price)]) }}
                                         </span>
                                     </span>
                                     <span id="ComparePriceA11y-4464780836919" class="visually-hidden"
                                           data-open-accessibility-text-original="16px" style="font-size: 16px;">Sale price</span>
                                     <span id="ProductPrice-4464780836919" class="product__price on-sale"
                                           data-open-accessibility-text-original="16px" style="font-size: 16px;">
-                                        {{ __('USD:price', ['price' => @number_format($dress->sale_price)]) }}
+                                        {{ __(':price$', ['price' => @number_format($dress->sale_price)]) }}
                                     </span>
                                     <span id="ProductPrice-4464780836919" class="product__price on-sale"
                                           data-open-accessibility-text-original="16px" style="font-size: 16px;">
@@ -106,7 +106,7 @@
                                 @else
                                     <span id="PriceA11y-6694898139324" class="visually-hidden">Regular price</span>
                                     <span id="ProductPrice-6694898139324" class="product__price">
-                                    {{ __('USD:price', ['price' => @number_format($dress->price)]) }}
+                                    {{ __(':price$', ['price' => @number_format($dress->price)]) }}
                                     </span>
                                 @endif
                                 <div
@@ -429,12 +429,12 @@
                         color2: color2
                     },
                     success: function (data) {
-                        $('#alert-add-cart').text('Đã thêm sản phẩm vào giỏ hàng');
+                        $('#alert-add-cart').text('Product added to cart');
                         setTimeout(function () {
                             $('#alert-add-cart').text('');
                         }, 2000);
                     }, error: function (e) {
-                        console.log('Lỗi! Thêm sản phẩm thất bại');
+                        console.log('error');
                     }
                 })
             }

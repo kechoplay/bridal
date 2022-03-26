@@ -54,7 +54,7 @@
             <span style="font-weight: 700">{{ __('Total') }}:</span>
             <span>
                  @if(@$flagCart == 0 )
-                     {{ __('USD:price', ['price' => @number_format($total)]) }}
+                     {{ __(':price$', ['price' => @number_format($total)]) }}
                  @endif
                   @if(@$flagCart == 1 )
                       {{ @number_format($buyNow['price']) }}

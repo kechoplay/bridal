@@ -36,7 +36,7 @@
                                     <tbody>
                                     @foreach($dress as $dr)
                                         <tr>
-                                            <td>{{ $dr->name }}</td>
+                                            <td>{{ $dr->name_en }}</td>
                                             <td>
                                                 <img src="{{ $dr->image }}" style="max-width: 100px;">
                                             </td>
@@ -44,7 +44,7 @@
                                                 {{ $dr->weddingDressCategory->name }}
                                             </td>
                                             <td>
-                                                {{ number_format($dr->price) }}
+                                                {{ number_format($dr->price_en) }}
                                             </td>
                                             <td>
                                                 {{ $dr->color1 }}

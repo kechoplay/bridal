@@ -28,19 +28,11 @@
                                         <input type="file" class="" id="image" name="image">
                                     </div>
                                     <div class="form-group">
-                                        <label for="name">Tiêu đề VI</label>
-                                        <input type="text" class="form-control" value="{{ $news->title_vi }}" id="name" name="title_vi" required>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="name">TTiêu đề EN</label>
+                                        <label for="name">Tiêu đề</label>
                                         <input type="text" class="form-control" value="{{ $news->title_en }}" id="name_en" name="title_en" required>
                                     </div>
                                     <div class="form-group">
-                                        <label for="description">Nội dung VI</label>
-                                        <textarea class="form-control" id="description" name="description_vi">{{ $news->description_vi }}</textarea>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="description">Nội dung EN</label>
+                                        <label for="description">Nội dung</label>
                                         <textarea class="form-control" id="description_en" name="description_en">{{ $news->description_en }}</textarea>
                                     </div>
                                 </div>

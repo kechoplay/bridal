@@ -26,23 +26,17 @@
                                 <table id="example1" class="table table-bordered table-striped">
                                     <thead>
                                     <tr>
-                                        <th>Tên ship nội địa</th>
-                                        <th>Tên ship nước ngoài</th>
-                                        <th>Thời gian ship nội địa</th>
-                                        <th>Thời gian ship nước ngoài</th>
-                                        <th>Giá ship nội địa</th>
-                                        <th>Giá ship nước ngoài</th>
+                                        <th>Tên ship</th>
+                                        <th>Thời gian ship</th>
+                                        <th>Giá ship</th>
                                         <th style="width: 10%;"></th>
                                     </tr>
                                     </thead>
                                     <tbody>
                                     @foreach($shippingMethod as $item)
                                         <tr>
-                                            <td>{{ $item->ship_name_vi }}</td>
                                             <td>{{ $item->ship_name_en }}</td>
-                                            <td>{{ $item->ship_time_vi }}</td>
                                             <td>{{ $item->ship_time_en }}</td>
-                                            <td>{{ number_format($item->ship_fee_vi) }}</td>
                                             <td>{{ number_format($item->ship_fee_en, 2, '.', '') }}</td>
                                             <td>
                                                 <a href="{{ route('admin.deleteShippingMethod', ['id' => $item->id]) }}"><button class="btn btn-danger">Xóa</button></a>

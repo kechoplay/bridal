@@ -256,17 +256,17 @@
                                                         @if($dr->sale_price != 0)
                                                             <span class="grid-product__price--original"
                                                                   data-open-accessibility-text-original="13.6px"
-                                                                  style="font-size: 13.6px;">{{ __('USD:price', ['price' => @number_format($dr->price)]) }}</span>
+                                                                  style="font-size: 13.6px;">{{ __(':price$', ['price' => @number_format($dr->price)]) }}</span>
                                                             <span class="visually-hidden"
                                                                   data-open-accessibility-text-original="13.6px"
-                                                                  style="font-size: 13.6px;"></span>{{ __('USD:price', ['price' => @number_format($dr->sale_price)]) }}
+                                                                  style="font-size: 13.6px;"></span>{{ __(':price$', ['price' => @number_format($dr->sale_price)]) }}
                                                             <span class="visually-hidden"
                                                                   data-open-accessibility-text-original="13.6px"
                                                                   style="font-size: 13.6px;"></span>
                                                             ({{ __(':price off', ['price' => $dr->discount . '%']) }})
                                                         @endif
                                                         @if($dr->sale_price == 0)
-                                                            {{ __('USD:price', ['price' => @number_format($dr->price)]) }}
+                                                            {{ __(':price$', ['price' => @number_format($dr->price)]) }}
                                                         @endif
                                                     </div>
                                                 </div>

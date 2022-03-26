@@ -35,20 +35,7 @@
                                                 <img src="{{ $new->img_path }}" style="width: 100%;">
                                             </td>
                                             <td>
-                                                <div class="box-title">
-                                                    <span>
-                                                       <b> Tiều đề :</b>
-                                                    </span>
-                                                    <br>
-                                                    <span style="padding-left: 10px;"> {{$new->title_vi}}</span>
-                                                </div>
-                                                <div class="box-title" style="color: rgb(142, 142, 142);">
-                                                    <span>
-                                                       <b> Title :</b>
-                                                    </span>
-                                                    <br>
-                                                    <span style="padding-left: 10px">  {{$new->title_en}}</span>
-                                                </div>
+                                              {{$new->title_en}}
                                             </td>
                                             <td>
                                                 <a href="{{ route('admin.deleteNews', ['id' => $new->id]) }}"><button class="btn btn-danger">Xóa</button></a>

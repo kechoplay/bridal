@@ -25,8 +25,7 @@
                                 <table id="example1" class="table table-bordered table-striped">
                                     <thead>
                                     <tr>
-                                        <th>Tên màu VI</th>
-                                        <th>Tên màu EN</th>
+                                        <th>Tên màu</th>
                                         <th></th>
                                         <th style="width: 30%;"></th>
                                     </tr>
@@ -34,7 +33,6 @@
                                     <tbody>
                                     @foreach($colors as $color)
                                         <tr>
-                                            <td>{{ $color->name_vi }}</td>
                                             <td>{{ $color->name_en }}</td>
                                             <td>
                                                 <div class="sp-colorize" style="background-color: {{ $color->code }}; width: 30px; height: 30px"></div>
@@ -63,11 +61,7 @@
                                 <input type="hidden" name="id_color" id="id_color">
                                 <div class="card-body">
                                     <div class="form-group">
-                                        <label for="exampleInputEmail1">Tên màu VI</label>
-                                        <input type="text" id="color_name_vi" name="color_name_vi">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="exampleInputEmail1">Tên màu EN</label>
+                                        <label for="exampleInputEmail1">Tên màu</label>
                                         <input type="text" id="color_name_en" name="color_name_en">
                                     </div>
                                     <div class="form-group">

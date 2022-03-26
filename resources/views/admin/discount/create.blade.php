@@ -25,12 +25,7 @@
                                 <input type="hidden" value="{{ isset($discount) ? $discount->id : 0 }}" name="id">
                                 <div class="card-body">
                                     <div class="form-group">
-                                        <label for="name">Tên giảm giá VI</label>
-                                        <input type="text" class="form-control" id="name_vi" name="name_vi"
-                                               value="{{ isset($discount) ? $discount->name_vi : '' }}" required>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="name">Tên giảm giá EN</label>
+                                        <label for="name">Tên giảm giá</label>
                                         <input type="text" class="form-control" id="name_en" name="name_en"
                                                value="{{ isset($discount) ? $discount->name_en : '' }}" required>
                                     </div>
@@ -62,12 +57,7 @@
                                         </select>
                                     </div>
                                     <div class="form-group">
-                                        <label for="name">Mô tả VI</label>
-                                        <textarea id="description_vi"
-                                                  name="description_vi">{{ isset($discount) ? $discount->description_vi : '' }}</textarea>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="name">Mô tả EN</label>
+                                        <label for="name">Mô tả</label>
                                         <textarea id="description_en"
                                                   name="description_en">{{ isset($discount) ? $discount->description_en : '' }}</textarea>
                                     </div>

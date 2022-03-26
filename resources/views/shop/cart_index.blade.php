@@ -90,7 +90,7 @@
 
                                     <div class="cart__item-price-col text-right">
                                      <span class="cart__price" id="price_{{@$item['id_dress']}}">
-                                        {{ __('USD:price', ['price' => @number_format($item['price'] * @$item['number'])]) }}
+                                        {{ __(':price$', ['price' => @number_format($item['price'] * @$item['number'])]) }}
                                       </span>
                                     </div>
                                 </div>
@@ -105,7 +105,7 @@
                 <div class="cart__item-sub cart__item-row">
                     <div>{{ __('Total') }}</div>
                     <div id="total_{{@$item['id_dress']}}"
-                         style="float: right">{{ __('USD:price', ['price' => @number_format($total)]) }}</div>
+                         style="float: right">{{ __(':price$', ['price' => @number_format($total)]) }}</div>
                 </div>
                 <div class="cart__item-row cart__checkout-wrapper">
                     <button type="button" id="buy_product" name="checkout" class="btn cart__checkout"
@@ -162,7 +162,7 @@
                 success: function (data) {
                     location.reload()
                 }, error: function (e) {
-                    console.log('Lỗi! thay đổi thất bại');
+                    console.log('Error');
                 }
             })
 
@@ -183,7 +183,7 @@
 
         function BuyCart() {
             if (checkedLocalProductIdList.length == 0) {
-                alert('Chọn 1 sản phẩm để mua');
+                alert('Choose product to buy');
                 return;
             }
             $.ajaxSetup({
@@ -198,7 +198,7 @@
                 success: function (data) {
                     window.location.href = '/shop/cart-info';
                 }, error: function (e) {
-                    console.log('Lỗi! Mua giỏ hàng');
+                    console.log('Error');
                 }
             })
 

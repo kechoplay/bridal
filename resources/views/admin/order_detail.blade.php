@@ -45,7 +45,7 @@
                                 Địa chỉ : <span><strong>{{ $order->address }}</strong></span><br>
                                 Điện thoại : <span><strong>{{ $order->mobile }}</strong></span><br>
                                 Email : <span><strong>{{ $order->email }}</strong></span><br>
-                                Phương thức ship : <span><strong>{{ $order->shippingMethod ? $order->shippingMethod->ship_name_vi : '' }}</strong></span><br>
+                                Phương thức ship : <span><strong>{{ $order->shippingMethod ? $order->shippingMethod->ship_name_en : '' }}</strong></span><br>
                                 Ngày cưới: <span><strong>{{ $order->wedding_date }}</strong></span><br>
                                 Ngày chuyển hàng: <input type="date" id="send_date" name="send_date" value="{{ $order->send_date }}">
                                 Mã vận đơn: <input type="text" id="code" name="code" value="{{ $order->code }}">
@@ -72,7 +72,7 @@
                                     <tbody>
                                     @foreach($orderDetail as $value)
                                         <tr>
-                                            <td>{{ $value->product->name }}</td>
+                                            <td>{{ $value->product->name_en }}</td>
                                             <td><img src="{{ $value->product->img }}" style="width: 100px"></td>
                                             <td>{{ $value->size }}</td>
                                             <td><label style="width: 20px; height: 20px; background-color: {{ $value->color1 }}"></label></td>

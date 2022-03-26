@@ -215,9 +215,7 @@ class UserController extends Controller
         $image->move($path, $name);
         $url = '/image/' . $name;
         $data = [
-            'title_vi' => $request->title_vi,
             'title_en' => $request->title_en,
-            'description_vi' => $request->description_vi,
             'description_en' => $request->description_en,
             'img_path' => $url
         ];
@@ -238,9 +236,7 @@ class UserController extends Controller
         $new = News::find($id);
         $image = $request->image;
 
-        $new->title_vi = $request->title_vi;
         $new->title_en = $request->title_en;
-        $new->description_vi = $request->description_vi;
         $new->description_en = $request->description_en;
 
         if ($image) {

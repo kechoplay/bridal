@@ -111,10 +111,8 @@ class HomeController extends Controller
         $discounts = Discount::whereDate('start_time', '<=', $timeNow)->whereDate('end_time', '>=', $timeNow)->get();
         foreach ($dress as $dr) {
             $dr->img = json_decode($dr->img_path, true);
-            if ($language == 'en') {
-                $dr->name = $dr->name_en;
-                $dr->price = $dr->price_en;
-            }
+            $dr->name = $dr->name_en;
+            $dr->price = $dr->price_en;
             if ($discounts->count() > 0) {
                 foreach ($discounts as $discount) {
                     $productList = json_decode($discount->product_list, true);
@@ -146,10 +144,8 @@ class HomeController extends Controller
         }
 
         foreach ($dress as $item) {
-            if ($language == 'en') {
-                $item->name = $item->name_en;
-                $item->price = $item->price_en;
-            }
+            $item->name = $item->name_en;
+            $item->price = $item->price_en;
             if ($discounts->count() > 0) {
                 foreach ($discounts as $discount) {
                     $productList = json_decode($discount->product_list, true);
@@ -173,19 +169,14 @@ class HomeController extends Controller
         $language = Session::get('language');
         $timeNow = Carbon::now()->format('Y-m-d');
         if (!empty($search)) {
-            $listNew = News::query()->where('title_vi', 'like', '%' . $search . '%')
-                ->orWhere('title_en', 'like', '%' . $search . '%')
+            $listNew = News::query()->where('title_en', 'like', '%' . $search . '%')
                 ->orderBy('id', 'desc')->get();
 
         } else {
             $listNew = News::all();
         }
         foreach ($listNew as $item) {
-            if ($language == 'en') {
-                $item->name = $item->title_en;
-            } else {
-                $item->name = $item->title_vi;
-            }
+            $item->name = $item->title_en;
         }
 
         $styles = WeddingDressCategory::all();
@@ -196,17 +187,11 @@ class HomeController extends Controller
     public function newDetail(Request $request)
     {
         $search = $request->keySearch;
-        $new = News::query()->where('title_vi', 'like', '%' . $search . '%')
-            ->orWhere('title_en', 'like', '%' . $search . '%')
+        $new = News::query()->where('title_en', 'like', '%' . $search . '%')
             ->orderBy('id', 'desc')->first();
         $language = Session::get('language');
-        if ($language == 'en') {
-            $new->title = $new->title_en;
-            $new->description = $new->description_en;
-        } else {
-            $new->title = $new->title_vi;
-            $new->description = $new->description_vi;
-        }
+        $new->title = $new->title_en;
+        $new->description = $new->description_en;
         $styles = WeddingDressCategory::all();
         return view('shop.new_detail', compact('new', 'styles'));
     }
@@ -227,10 +212,8 @@ class HomeController extends Controller
         $language = Session::get('language');
 
         foreach ($dress as $item) {
-            if ($language == 'en') {
-                $item->name = $item->name_en;
-                $item->price = $item->price_en;
-            }
+            $item->name = $item->name_en;
+            $item->price = $item->price_en;
             if ($discounts->count() > 0) {
                 foreach ($discounts as $discount) {
                     $productList = json_decode($discount->product_list, true);
@@ -261,10 +244,8 @@ class HomeController extends Controller
         }
         $language = Session::get('language');
         foreach ($dress as $dr) {
-            if ($language == 'en') {
-                $dr->name = $dr->name_en;
-                $dr->price = $dr->price_en;
-            }
+            $dr->name = $dr->name_en;
+            $dr->price = $dr->price_en;
             if ($discounts->count() > 0) {
                 foreach ($discounts as $discount) {
                     $productList = json_decode($discount->product_list, true);
@@ -286,7 +267,6 @@ class HomeController extends Controller
         $timeNow = Carbon::now()->format('Y-m-d');
         $discounts = Discount::whereDate('start_time', '<=', $timeNow)->whereDate('end_time', '>=', $timeNow)->get();
         $nameProduct = $request->nameProduct;
-        $language = Session::get('language');
         $dress = DressProduct::where('slug', $nameProduct)->first();
         if ($dress->size) {
             $sizes = json_decode($dress->size, true);
@@ -314,11 +294,9 @@ class HomeController extends Controller
             $dress->color2 = $colorArr;
         }
         $dress->img_path = json_decode($dress->img_path, true);
-        if ($language == 'en') {
-            $dress->name = $dress->name_en;
-            $dress->price = $dress->price_en;
-            $dress->description = $dress->description_en;
-        }
+        $dress->name = $dress->name_en;
+        $dress->price = $dress->price_en;
+        $dress->description = $dress->description_en;
         if ($discounts->count() > 0) {
             foreach ($discounts as $discount) {
                 $productList = json_decode($discount->product_list, true);
@@ -376,11 +354,7 @@ class HomeController extends Controller
             $language = Session::get('language');
             foreach ($arrayCart as $key => $cart) {
                 $product = DressProduct::where('id', $cart['id_dress'])->first();
-                if ($language == 'en') {
-                    $priceNew = $product->price_en;
-                } else {
-                    $priceNew = $product->price;
-                }
+                $priceNew = $product->price_en;
                 $arrayCart[$key]['price'] = $priceNew;
                 $total += ($priceNew * $cart['number']);
             }
@@ -454,9 +428,7 @@ class HomeController extends Controller
             $arrayCart = Session::get('buy');
             foreach ($arrayCart as $key => $cart) {
                 $dress = DressProduct::find($cart['id_dress']);
-                if ($language == 'en') {
-                    $arrayCart[$key]['price'] = $dress->price_en;
-                }
+                $arrayCart[$key]['price'] = $dress->price_en;
                 if ($discounts->count() > 0) {
                     foreach ($discounts as $discount) {
                         $productList = json_decode($discount->product_list, true);
@@ -484,15 +456,9 @@ class HomeController extends Controller
 
         $shippingMethod = ShippingMethod::get();
         foreach ($shippingMethod as $item) {
-            if ($language == 'en') {
-                $item->ship_name = $item->ship_name_en;
-                $item->ship_time = $item->ship_time_en;
-                $item->ship_fee = $item->ship_fee_en;
-            } else {
-                $item->ship_name = $item->ship_name_vi;
-                $item->ship_time = $item->ship_time_vi;
-                $item->ship_fee = $item->ship_fee_vi;
-            }
+            $item->ship_name = $item->ship_name_en;
+            $item->ship_time = $item->ship_time_en;
+            $item->ship_fee = $item->ship_fee_en;
         }
 
         $customer_id = Auth::guard('customers')->user()->id;
@@ -513,6 +479,7 @@ class HomeController extends Controller
             $now = Carbon::now()->format('Y-m-d H:i:s');
             $voucherCode = $request->voucher;
             $vouchers = Voucher::where('code', $voucherCode)->where('start_time', '<', $now)->where('end_time', '>', $now)->first();
+            $shippingMethod = ShippingMethod::where('id', $request->shipping_method)->first();
             if (Session::has('buy')) {
                 $arrayCart = Session::get('buy');
                 $orders = Orders::create([
@@ -530,9 +497,7 @@ class HomeController extends Controller
                 $userId = Auth::guard('customers')->user()->id;
                 foreach ($arrayCart as $key => $cart) {
                     $dress = DressProduct::find($cart['id_dress']);
-                    if ($language == 'en') {
-                        $arrayCart[$key]['price'] = $dress->price_en;
-                    }
+                    $arrayCart[$key]['price'] = $dress->price_en;
                     if ($discounts->count() > 0) {
                         foreach ($discounts as $discount) {
                             $productList = json_decode($discount->product_list, true);
@@ -551,7 +516,7 @@ class HomeController extends Controller
                         'order_id' => $orders->id,
                         'dress_id' => $cart['id_dress'],
                         'quantity' => $cart['number'],
-                        'price' => $price,
+                        'price' => $price + $shippingMethod->ship_fee_en,
                         'size' => $cart['size'],
                         'color1' => $cart['color1'],
                         'color2' => $cart['color2'],
@@ -593,7 +558,7 @@ class HomeController extends Controller
                 'phone' => $request->phone_order,
                 'note' => $request->note_order,
             ];
-            Mail::to($request->email_order)->send(new MailOrder($data, $arrayCart, $buyNow, $flagCart, $total));
+            // Mail::to($request->email_order)->send(new MailOrder($data, $arrayCart, $buyNow, $flagCart, $total));
             Session::forget('buy');
             Session::forget('buyNow');
             Session::forget('flagCart');
@@ -730,7 +695,7 @@ class HomeController extends Controller
                     }
                 }
             } else {
-                $message = 'Voucher đã đc sử dụng';
+                $message = 'Voucher has been used';
             }
         } else {
             $message = 'Voucher not exist';

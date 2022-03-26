@@ -24,27 +24,15 @@
                                 <input type="hidden" value="{{ isset($shipping) ? $shipping->id : 0 }}" name="id">
                                 <div class="card-body">
                                     <div class="form-group">
-                                        <label for="name">Tên ship nội địa</label>
-                                        <input type="text" class="form-control" id="ship_name_vi" name="ship_name_vi" value="{{ isset($shipping) ? $shipping->ship_name_vi : '' }}" required>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="name">Thời gian ship nội địa</label>
-                                        <input type="text" class="form-control" id="ship_time_vi" name="ship_time_vi" value="{{ isset($shipping) ? $shipping->ship_time_vi : '' }}" required>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="name">Giá ship nội địa</label>
-                                        <input type="number" class="form-control" id="ship_fee_vi" name="ship_fee_vi" value="{{ isset($shipping) ? $shipping->ship_fee_vi : '' }}" required>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="name">Tên ship nước ngoài</label>
+                                        <label for="name">Tên ship</label>
                                         <input type="text" class="form-control" id="ship_name_en" name="ship_name_en" value="{{ isset($shipping) ? $shipping->ship_name_en : '' }}" required>
                                     </div>
                                     <div class="form-group">
-                                        <label for="name">Thời gian ship nước ngoài</label>
+                                        <label for="name">Thời gian ship</label>
                                         <input type="text" class="form-control" id="ship_time_en" name="ship_time_en" value="{{ isset($shipping) ? $shipping->ship_time_en : '' }}" required>
                                     </div>
                                     <div class="form-group">
-                                        <label for="name">Giá ship nước ngoài</label>
+                                        <label for="name">Giá ship</label>
                                         <input type="number" step="0.01" class="form-control" id="ship_fee_en" name="ship_fee_en" value="{{ isset($shipping) ? $shipping->ship_fee_en : '' }}" required>
                                     </div>
                                 </div>

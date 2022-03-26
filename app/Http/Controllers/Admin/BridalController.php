@@ -118,19 +118,16 @@ class BridalController extends Controller
         }
 
         DressProduct::create([
-            'name' => $nameVi,
             'name_en' => $nameEn,
-            'price' => $price,
             'price_en' => $priceEn,
             'color1' => json_encode($color1),
             'color2' => json_encode($color2),
             'size' => json_encode($size),
             'process_time' => $processTime,
             'img_path' => json_encode($imageList),
-            'description' => $description,
             'description_en' => $descriptionEn,
             'category_id' => $style,
-            'slug' => Str::slug($nameVi)
+            'slug' => Str::slug($nameEn)
         ]);
 
         return redirect()->route('admin.index');
@@ -193,9 +190,7 @@ class BridalController extends Controller
         }
 
         DressProduct::where('id', $id)->update([
-            'name' => $nameDress,
             'name_en' => $nameEn,
-            'price' => $price,
             'price_en' => $priceEn,
             'color1' => json_encode($color1),
             'color2' => json_encode($color2),
@@ -203,9 +198,8 @@ class BridalController extends Controller
             'process_time' => $processTime,
             'img_path' => json_encode($imageList),
             'description' => $description,
-            'description_en' => $descriptionEn,
             'category_id' => $style,
-            'slug' => Str::slug($nameDress)
+            'slug' => Str::slug($nameEn)
         ]);
 
         return redirect()->route('admin.index');
@@ -482,21 +476,19 @@ class BridalController extends Controller
 
     public function saveNewColor(Request $request)
     {
-        $colorNameVi = $request->color_name_vi;
         $colorNameEn = $request->color_name_en;
         $colorCode = $request->color_code;
-        Colors::create(['name_vi' => $colorNameVi, 'name_en' => $colorNameEn, 'code' => $colorCode]);
+        Colors::create(['name_en' => $colorNameEn, 'code' => $colorCode]);
 
         return redirect()->back();
     }
 
     public function editColor(Request $request)
     {
-        $colorNameVi = $request->color_name_vi;
         $colorNameEn = $request->color_name_en;
         $colorCode = $request->color_code;
         $id = $request->id;
-        Colors::where('id', $id)->update(['name_vi' => $colorNameVi, 'name_en' => $colorNameEn, 'code' => $colorCode]);
+        Colors::where('id', $id)->update(['name_en' => $colorNameEn, 'code' => $colorCode]);
 
         return redirect()->back();
     }
@@ -524,20 +516,14 @@ class BridalController extends Controller
     public function saveShippingMethod(Request $request)
     {
         try {
-            $shipNameVi = $request->ship_name_vi;
             $shipNameEn = $request->ship_name_en;
-            $shipTimeVi = $request->ship_time_vi;
             $shipTimeEn = $request->ship_time_en;
-            $shipFeeVi = $request->ship_fee_vi;
             $shipFeeEn = $request->ship_fee_en;
             $id = $request->id;
 
             $data = [
-                'ship_name_vi' => $shipNameVi,
                 'ship_name_en' => $shipNameEn,
-                'ship_time_vi' => $shipTimeVi,
                 'ship_time_en' => $shipTimeEn,
-                'ship_fee_vi' => $shipFeeVi,
                 'ship_fee_en' => $shipFeeEn,
             ];
             if (!$id) {
@@ -590,23 +576,19 @@ class BridalController extends Controller
     {
         try {
             $id = $request->id;
-            $nameVi = $request->name_vi;
             $nameEn = $request->name_en;
             $startTime = $request->start_time;
             $endTime = $request->end_time;
             $discount = $request->discount;
             $listProduct = $request->list_product;
-            $descriptionVi = $request->description_vi;
             $descriptionEn = $request->description_en;
 
             $data = [
-                'name_vi' => $nameVi,
                 'name_en' => $nameEn,
                 'start_time' => $startTime,
                 'end_time' => $endTime,
                 'discount' => $discount,
                 'product_list' => json_encode($listProduct),
-                'description_vi' => $descriptionVi,
                 'description_en' => $descriptionEn,
             ];
             if (!$id) {
