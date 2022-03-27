@@ -66,7 +66,7 @@
                                         <label for="name">Màu hoa</label>
                                         <select name="color2[]" class="form-control color2" required multiple="multiple" style="width: 100%;">
                                             @foreach($colors as $color)
-                                                <option value="{{ $color->id }}">{{ $color->name_vi }}</option>
+                                                <option value="{{ $color->id }}">{{ $color->name_en }}</option>
                                             @endforeach
                                         </select>
                                     </div>
