@@ -4,6 +4,8 @@ namespace App\Console\Commands;
 
 use Carbon\Carbon;
 use Illuminate\Console\Command;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Log;
 
 class CreateDailyLog extends Command
 {
@@ -44,8 +46,18 @@ class CreateDailyLog extends Command
         // Check if logs daily so create new file log
         if ($app_log == 'daily') {
             $filename = 'storage/logs/laravel-' . Carbon::tomorrow()->format('Y-m-d') . '.log';
+            exec('touch ' . $filename);
             exec('chmod -R 0777 ' . $filename);
-            exec('chown -R apache ' . $filename);
+            exec('chown -R www-data:www-data ' . $filename);
+            Log::debug('created Daily Logs' . Carbon::tomorrow()->format('Y-m-d'));
+            $list_file = File::files(storage_path('logs'));
+            // Check if list file > log_max_files delete file. Number files deleted == count($list_file) - $log_max_files
+            if (count($list_file) > $log_max_files) {
+                $len = count($list_file) - $log_max_files;
+                for ($i = 0; $i < $len; $i++) {
+                    exec('rm -rf ' . $list_file[$i]);
+                }
+            }
         }
     }
 }

@@ -268,6 +268,8 @@ class HomeController extends Controller
         $discounts = Discount::whereDate('start_time', '<=', $timeNow)->whereDate('end_time', '>=', $timeNow)->get();
         $nameProduct = $request->nameProduct;
         $dress = DressProduct::where('slug', $nameProduct)->first();
+        if (empty($dress))
+            return redirect('/');
         if ($dress->size) {
             $sizes = json_decode($dress->size, true);
             $sizeArr = [];
