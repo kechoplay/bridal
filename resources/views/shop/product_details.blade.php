@@ -147,18 +147,21 @@
                                                   data-handle="color" id="ProductSelect-7088243146940-option-1">
                                             <legend class="hide">Color</legend>
                                             @if($dress->color1)
+                                                <select name="color1" id="color1">
                                                 @foreach($dress->color1 as $key => $color)
-                                                    <div class="variant-input" data-value="{{ $color->code }}">
-                                                        <input type="radio" checked="checked" value="{{ $color->code }}"
-                                                               name="color1"
-                                                               class="variant__input-7088243146940"
-                                                               id="ProductSelect-7088243146940-option-color-{{ $color->code }}">
-                                                        <label
-                                                            for="ProductSelect-7088243146940-option-color-{{ $color->code }}"
-                                                            style="background-color: {{ $color->code }}"
-                                                            class="variant__button-label"></label>
-                                                    </div>
+{{--                                                    <div class="variant-input" data-value="{{ $color->code }}">--}}
+{{--                                                        <input type="radio" checked="checked" value="{{ $color->code }}"--}}
+{{--                                                               name="color1"--}}
+{{--                                                               class="variant__input-7088243146940"--}}
+{{--                                                               id="ProductSelect-7088243146940-option-color-{{ $color->code }}">--}}
+{{--                                                        <label--}}
+{{--                                                            for="ProductSelect-7088243146940-option-color-{{ $color->code }}"--}}
+{{--                                                            style="background-color: {{ $color->code }}"--}}
+{{--                                                            class="variant__button-label"></label>--}}
+{{--                                                    </div>--}}
+                                                    <option value="{{ $color->id }}">{{ $color->name_en }}</option>
                                                 @endforeach
+                                                </select>
                                             @endif
                                         </fieldset>
                                     </div>
@@ -170,18 +173,21 @@
                                                   data-handle="color" id="ProductSelect-7088243146940-option-1">
                                             <legend class="hide">Color</legend>
                                             @if($dress->color2)
+                                                <select name="color2" id="color2">
                                                 @foreach($dress->color2 as $key => $color)
-                                                    <div class="variant-input" data-value="{{ $color->code }}">
-                                                        <input type="radio" checked="checked" value="{{ $color->code }}"
-                                                               name="color2"
-                                                               class="variant__input-7088243146940"
-                                                               id="ProductSelect-7088243146940-option-color-{{ $color->code }}">
-                                                        <label
-                                                            for="ProductSelect-7088243146940-option-color-{{ $color->code }}"
-                                                            style="background-color: {{ $color->code }}"
-                                                            class="variant__button-label"></label>
-                                                    </div>
+{{--                                                    <div class="variant-input" data-value="{{ $color->code }}">--}}
+{{--                                                        <input type="radio" checked="checked" value="{{ $color->code }}"--}}
+{{--                                                               name="color2"--}}
+{{--                                                               class="variant__input-7088243146940"--}}
+{{--                                                               id="ProductSelect-7088243146940-option-color-{{ $color->code }}">--}}
+{{--                                                        <label--}}
+{{--                                                            for="ProductSelect-7088243146940-option-color-{{ $color->code }}"--}}
+{{--                                                            style="background-color: {{ $color->code }}"--}}
+{{--                                                            class="variant__button-label"></label>--}}
+{{--                                                    </div>--}}
+                                                        <option value="{{ $color->id }}">{{ $color->name_en }}</option>
                                                 @endforeach
+                                                </select>
                                             @endif
                                         </fieldset>
                                     </div>
@@ -223,104 +229,6 @@
 
                 <br>
                 <div class="box" style="width: 85%; margin:auto">
-                    {{--                    @if(!empty(auth()->guard('customers')->user()->name))--}}
-                    {{--                        <div class="row">--}}
-                    {{--                            <div>--}}
-                    {{--                              <span style="display: inline-block;--}}
-                    {{--                                                                                            margin-right: 10px;--}}
-                    {{--                                                                                            background: rgb(255, 255, 255);--}}
-                    {{--                                                                                            border: 1px solid rgb(24, 158, 255);--}}
-                    {{--                                                                                            font-size: 12px;--}}
-                    {{--                                                                                            color: rgb(24, 158, 255);--}}
-                    {{--                                                                                            padding: 5px 15px;--}}
-                    {{--                                                                                            border-radius: 4px;--}}
-                    {{--                                                                                            cursor: pointer;"--}}
-                    {{--                              >--}}
-                    {{--                         Viết nhận xét--}}
-                    {{--                        </span>--}}
-                    {{--                            </div>--}}
-                    {{--                            <br>--}}
-                    {{--                            <div class="col-12">--}}
-                    {{--                                <br>--}}
-                    {{--                                <form action="{{ route('sendFeedback') }}" method="post" enctype="multipart/form-data"--}}
-                    {{--                                      style="border: 1px solid #ddd; border-radius: 5px">--}}
-                    {{--                                    {{ csrf_field() }}--}}
-                    {{--                                    <div class="modal-header">--}}
-                    {{--                                        <div class="write-review__product">--}}
-                    {{--                                            <h4 style="    color: rgb(120, 120, 120);    font-weight: 400;"> Chia sẻ về--}}
-                    {{--                                                sản phẩm :</h4>--}}
-                    {{--                                        </div>--}}
-                    {{--                                    </div>--}}
-                    {{--                                    <div class="modal-body">--}}
-                    {{--                          <textarea id="content" style=" border: 1px solid rgb(238, 238, 238);--}}
-                    {{--                                    padding: 12px;--}}
-                    {{--                                    border-radius: 4px;--}}
-                    {{--                                    resize: none;--}}
-                    {{--                                    width: 100%;--}}
-                    {{--                                    outline: 0px;--}}
-                    {{--                                    margin: 24px 0px 12px;" name="msg_content"--}}
-                    {{--                                    rows="4" placeholder="Chia sẻ thêm thông tin sản phẩm"--}}
-                    {{--                                    class="write-review__input"></textarea>--}}
-                    {{--                                    </div>--}}
-                    {{--                                    <div class="modal-footer">--}}
-                    {{--                                        <div class="write-review__buttons" style="width: 100%; flex: 1 1 0%;--}}
-                    {{--                        align-items: flex-end;--}}
-                    {{--                        display: flex;--}}
-                    {{--                        -webkit-box-pack: justify;--}}
-                    {{--                        justify-content: space-between;--}}
-                    {{--                        padding: 0px 0px 16px;--}}
-                    {{--                        margin: 12px 0px 0px;">--}}
-                    {{--                                            <input id="input-image" class="write-review__file"--}}
-                    {{--                                                   accept="image/png, image/gif, image/jpeg" name="images[]" hidden--}}
-                    {{--                                                   type="file"--}}
-                    {{--                                                   multiple>--}}
-                    {{--                                            <input type="text" hidden value="{{$dress->id}}" name="id">--}}
-                    {{--                                            <button style="  color: rgb(11, 116, 229);--}}
-                    {{--                                    width: 49%;--}}
-                    {{--                                    height: 36px;--}}
-                    {{--                                    background: 0px center;--}}
-                    {{--                                    padding: 0px;--}}
-                    {{--                                    line-height: 36px;--}}
-                    {{--                                    cursor: pointer;--}}
-                    {{--                                    border-radius: 4px;--}}
-                    {{--                                    display: flex;--}}
-                    {{--                                    -webkit-box-pack: center;--}}
-                    {{--                                    justify-content: center;--}}
-                    {{--                                    -webkit-box-align: center;--}}
-                    {{--                                    align-items: center;--}}
-                    {{--                                    outline: 0px;--}}
-                    {{--                                    border: 1px solid rgb(11, 116, 229);"--}}
-                    {{--                                                    type="button"--}}
-                    {{--                                                    class="write-review__button write-review__button--image"--}}
-                    {{--                                                    id="add-image"--}}
-                    {{--                                            >--}}
-                    {{--                                                <i class="fa fa-photo-video"></i>--}}
-                    {{--                                                <span>Thêm ảnh</span>--}}
-                    {{--                                            </button>--}}
-                    {{--                                            <button style="  color: rgb(11, 116, 229);--}}
-                    {{--                                    width: 49%;--}}
-                    {{--                                    height: 36px;--}}
-                    {{--                                    background: 0px center;--}}
-                    {{--                                    padding: 0px;--}}
-                    {{--                                    line-height: 36px;--}}
-                    {{--                                    cursor: pointer;--}}
-                    {{--                                    border-radius: 4px;--}}
-                    {{--                                    display: flex;--}}
-                    {{--                                    -webkit-box-pack: center;--}}
-                    {{--                                    justify-content: center;--}}
-                    {{--                                    -webkit-box-align: center;--}}
-                    {{--                                    align-items: center;--}}
-                    {{--                                    outline: 0px;--}}
-                    {{--                                    border: 1px solid rgb(11, 116, 229);" id="send"--}}
-                    {{--                                                    type="submit"--}}
-                    {{--                                                    class="write-review__button write-review__button--submit"><span>Gửi đánh giá</span>--}}
-                    {{--                                            </button>--}}
-                    {{--                                        </div>--}}
-                    {{--                                    </div>--}}
-                    {{--                                </form>--}}
-                    {{--                            </div>--}}
-                    {{--                        </div>--}}
-                    {{--                    @endif--}}
                     <br>
                     <table id="example1" class="table borderless">
                         <tbody>
@@ -413,8 +321,8 @@
                 var image = $('#image_dress').val();
                 var slug = $('#slug_dress').val();
                 var size = $('input[name=size]:checked').val();
-                var color1 = $('input[name=color1]:checked').val();
-                var color2 = $('input[name=color2]:checked').val();
+                var color1 = $('#color1').val();
+                var color2 = $('#color2').val();
                 $.ajax({
                     url: '/shop/add-cart',
                     type: 'post',

@@ -75,8 +75,8 @@
                                             <td>{{ $value->product->name_en }}</td>
                                             <td><img src="{{ $value->product->img }}" style="width: 100px"></td>
                                             <td>{{ $value->size }}</td>
-                                            <td><label style="width: 20px; height: 20px; background-color: {{ $value->color1 }}"></label></td>
-                                            <td><label style="width: 20px; height: 20px; background-color: {{ $value->color2 }}"></label></td>
+                                            <td>{{ $value->color1 }}</td>
+                                            <td>{{ $value->color2 }}</td>
                                             <td>{{ $value->quantity }}</td>
                                             <td>{{ number_format($value->price) }}</td>
                                             <td>{{ number_format($value->quantity * $value->price) }}</td>

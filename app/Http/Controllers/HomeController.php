@@ -356,6 +356,8 @@ class HomeController extends Controller
             $language = Session::get('language');
             foreach ($arrayCart as $key => $cart) {
                 $product = DressProduct::where('id', $cart['id_dress'])->first();
+                $arrayCart[$key]['color_name1'] = Colors::find($cart['color1'])->name_en;
+                $arrayCart[$key]['color_name2'] = Colors::find($cart['color2'])->name_en;
                 $priceNew = $product->price_en;
                 $arrayCart[$key]['price'] = $priceNew;
                 $total += ($priceNew * $cart['number']);
@@ -520,8 +522,8 @@ class HomeController extends Controller
                         'quantity' => $cart['number'],
                         'price' => $price + $shippingMethod->ship_fee_en,
                         'size' => $cart['size'],
-                        'color1' => $cart['color1'],
-                        'color2' => $cart['color2'],
+                        'color1' => Colors::find($cart['color1'])->name_en,
+                        'color2' => Colors::find($cart['color2'])->name_en,
                     ]);
                     if (Session::has('cart')) {
                         $arrayCartO = Session::get('cart');

@@ -35,11 +35,11 @@
                                     <div id="name_{{@$item['id_dress']}}">{{ __('Size') . ': ' . $item['size'] }}</div>
                                     <div id="name_{{@$item['id_dress']}}" style="display: flex">
                                         {{ __('Fabric Color') }}:
-                                        <label style="background-color: {{ $item['color1'] }}; width: 20px; height: 20px" class="variant__button-label"></label>
+                                        <label style="font-weight: normal" class="variant__button-label"> {{ $item['color_name1'] }}</label>
                                     </div>
                                     <div id="name_{{@$item['id_dress']}}" style="display: flex">
                                         {{ __('Flower Color') }}:
-                                        <label style="background-color: {{ $item['color2'] }}; width: 20px; height: 20px" class="variant__button-label"></label>
+                                        <label style="font-weight: normal" class="variant__button-label"> {{ $item['color_name2'] }}</label>
                                     </div>
 
                                 </div>
