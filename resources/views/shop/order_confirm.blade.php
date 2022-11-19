@@ -8,7 +8,7 @@
           content="width=device-width, initial-scale=1.0, height=device-height, minimum-scale=1.0, user-scalable=0">
     <meta name="referrer" content="origin">
 
-    <title> Shipping - THEIA - Checkout</title>
+    <title> Shipping - Lamnhi - Checkout</title>
 
     <meta data-browser="chrome" data-browser-major="91">
     <meta
@@ -76,7 +76,7 @@
 <header class="banner" data-header role="banner" style="padding-top: 1em !important;">
     <div class="wrap">
 
-        <a class="logo logo--left" href="{{ route('homeIndex') }}"><span class="logo__text heading-1">THEIA</span></a>
+        <a class="logo logo--left" href="{{ route('homeIndex') }}"><span class="logo__text heading-1">LAMNHI</span></a>
 
         <h1 class="visually-hidden">
             Shipping
@@ -98,13 +98,13 @@
           </svg>
         </span>
         <span class="order-summary-toggle__text order-summary-toggle__text--show">
-          <span>Hiện sản phẩm đặt hàng</span>
+          <span>{{ __('Hiện sản phẩm đặt hàng') }}</span>
           <svg width="11" height="6" xmlns="http://www.w3.org/2000/svg" class="order-summary-toggle__dropdown"
                fill="#000"><path
                   d="M.504 1.813l4.358 3.845.496.438.496-.438 4.642-4.096L9.504.438 4.862 4.534h.992L1.496.69.504 1.812z"/></svg>
         </span>
         <span class="order-summary-toggle__text order-summary-toggle__text--hide">
-          <span>Ẩn sản phẩm đặt hàng</span>
+          <span>{{ __('Ẩn sản phẩm đặt hàng') }}</span>
           <svg width="11" height="7" xmlns="http://www.w3.org/2000/svg" class="order-summary-toggle__dropdown"
                fill="#000"><path
                   d="M6.138.876L5.642.438l-.496.438L.504 4.972l.992 1.124L6.138 2l-.496.436 3.862 3.408.992-1.122L6.138.876z"/></svg>

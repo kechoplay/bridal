@@ -2,7 +2,7 @@
     <div class="navbar-container-xs">
         <div class="navbar-row">
             <div class="navbar-logo">
-                <a class="brand" href="/"><img src="/images/lamnhistudio.jpg" alt="THEIA Bridal" class="logo-img"></a>
+                <a class="brand" href="/"><img src="/images/lamnhistudio.jpg" alt="Lamnhi Bridal" class="logo-img"></a>
             </div>
             <div class="navbar-toggle-search">
                 <form role="search" method="get" class="header-search-form closed" action="/">
@@ -47,11 +47,11 @@
                 <ul id="menu-supra-right-1" class="nav nav-supra-right"><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-158"><a href="/contact/">Liên Hệ</a></li>
                 </ul>        </nav>
             <div class="navbar-logo">
-                <a class="brand" href="/"><img src="/images/logo.svg" alt="THEIA Bridal" class="logo-img"></a>
+                <a class="brand" href="/"><img src="/images/logo.svg" alt="Lamnhi Bridal" class="logo-img"></a>
             </div>
             <nav class="navbar-primary">
                 <div class="navbar-logo">
-                    <a class="brand" href="/"><img src="/images/logo.svg" alt="THEIA Bridal" class="logo-img"></a>
+                    <a class="brand" href="/"><img src="/images/logo.svg" alt="Lamnhi Bridal" class="logo-img"></a>
                 </div>
                 <ul id="menu-main-menu-1" class="nav nav-primary"><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-75"><a href="/bridal-product/">bộ váy cưới</a></li>
                     <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-76"><a href="/special-product/">bộ váy đặc biệt</a></li>

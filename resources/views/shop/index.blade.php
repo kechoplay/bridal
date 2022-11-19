@@ -229,7 +229,7 @@
                                         <div class="grid-product__link">
                                             <a href="{{ route('shop.productDetails', ['nameProduct' => $dr->slug]) }}">
                                                 <div class="grid-product__image-mask">
-                                                    <div class="image-wrap" style="height: 0; padding-bottom: 150.0%;">
+                                                    <div class="image-wrap">
                                                         <img class="grid-product__image lazyload"
                                                              data-src="{{ $dr->img[0] }}?v={{ time() }}"
                                                              data-widths="[360, 540, 720, 900, 1080]"
@@ -250,9 +250,9 @@
                                                     <div class="grid-product__title grid-product__title--body">
                                                         {{ $dr->name }}
                                                     </div>
-                                                    <div class="grid-product__price"><span class="visually-hidden"
-                                                                                           data-open-accessibility-text-original="13.6px"
-                                                                                           style="font-size: 13.6px;">Regular price</span>
+                                                    <div class="grid-product__price">
+                                                        <span class="visually-hidden" data-open-accessibility-text-original="13.6px"
+                                                              style="font-size: 13.6px;">Regular price</span>
                                                         @if($dr->sale_price != 0)
                                                             <span class="grid-product__price--original"
                                                                   data-open-accessibility-text-original="13.6px"
