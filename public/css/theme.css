@@ -7295,9 +7295,9 @@ html[dir=rtl] .grid-product__content{
 }
 
 [data-type_product_capitalize=true] .grid-product__title{
-    text-transform:uppercase;
+    /*text-transform:uppercase;*/
     font-size:calc(var(--typeBaseSize) - 4px);
-    letter-spacing:0.2em
+    /*letter-spacing:0.2em*/
 }
 
 @media only screen and (max-width:768px){

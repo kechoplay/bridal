@@ -100,7 +100,7 @@ class HomeController extends Controller
             'note' => $request->contact['body'],
         ]);
 
-        return redirect()->back()->with('message', 'Cảm ơn bạn đã liên hê. Chúng tôi sẽ phản hồi bạn sớm nhất có thể.');
+        return redirect()->back()->with('message', 'Thank you for contacting us. We shall respond asap!');
     }
 
     public function shopIndex()
